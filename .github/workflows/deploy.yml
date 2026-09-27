@@ -28,6 +28,9 @@ jobs:
           cache: 'npm'
           cache-dependency-path: 'adbms-study-app/package-lock.json'
 
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
       - name: Install Frontend Dependencies
         working-directory: ./adbms-study-app
         run: npm ci
