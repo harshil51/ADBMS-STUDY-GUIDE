@@ -1,0 +1,14 @@
+{
+  "name": "adbms-study-guide",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "npm --prefix adbms-study-app run dev",
+    "build": "npm --prefix adbms-study-app run build",
+    "lint": "npm --prefix adbms-study-app run lint",
+    "preview": "npm --prefix adbms-study-app run preview"
+  }
+}

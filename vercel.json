@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm --prefix adbms-study-app run build",
+  "outputDirectory": "adbms-study-app/dist",
+  "installCommand": "npm --prefix adbms-study-app install",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
