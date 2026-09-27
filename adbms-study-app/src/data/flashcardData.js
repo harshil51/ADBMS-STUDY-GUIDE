@@ -60,6 +60,72 @@ export const FLASHCARDS_DATA = [
     "back": "Horizontal Fragmentation splits tables by rows (using WHERE filter). Vertical Fragmentation splits tables by columns (retaining primary key in each)."
   },
   {
+    "id": "fc_m2_1",
+    "topicId": "2.1",
+    "front": "What is an ORDBMS (Object-Relational DBMS)?",
+    "back": "A relational database management system extended with object-oriented capabilities such as user-defined complex structured types, methods, inheritance, and collection types while retaining full SQL support."
+  },
+  {
+    "id": "fc_m2_2",
+    "topicId": "2.1",
+    "front": "What is a Structured Type in SQL:1999?",
+    "back": "A named, user-defined composite data type (created with `CREATE TYPE TypeName AS (...)`) consisting of one or more named attributes and encapsulated methods."
+  },
+  {
+    "id": "fc_m2_3",
+    "topicId": "2.2",
+    "front": "How is Type Inheritance declared in SQL:1999?",
+    "back": "Using the `UNDER` clause (e.g. `CREATE TYPE StudentType UNDER PersonType (...)`), where the subtype inherits all attributes and methods of the supertype."
+  },
+  {
+    "id": "fc_m2_4",
+    "topicId": "2.2",
+    "front": "What does the `ONLY` keyword do in table queries?",
+    "back": "In `SELECT * FROM ONLY(SuperTable);`, it restricts query evaluation to rows belonging directly to SuperTable, suppressing rows stored in subtables."
+  },
+  {
+    "id": "fc_m2_5",
+    "topicId": "2.2",
+    "front": "ARRAY vs MULTISET in SQL:1999",
+    "back": "ARRAY is an ordered, 1-based indexed collection allowing duplicates. MULTISET is an unordered bag of elements allowing duplicates and supporting set operations."
+  },
+  {
+    "id": "fc_m2_6",
+    "topicId": "2.3",
+    "front": "What is Object Identity (OID)?",
+    "back": "A permanent, system-generated, immutable identifier that uniquely identifies a row in a typed table independently of its attribute values."
+  },
+  {
+    "id": "fc_m2_7",
+    "topicId": "2.3",
+    "front": "What is the Dereferencing Operator (`->`)?",
+    "back": "An operator in SQL:1999 used to follow a `REF` pointer directly to read an attribute from the target object without writing an explicit SQL JOIN (e.g., `e.dept->dept_name`)."
+  },
+  {
+    "id": "fc_m2_8",
+    "topicId": "2.4",
+    "front": "What are the 5 clauses of a FLWOR expression in XQuery?",
+    "back": "FOR (iteration over nodes), LET (variable assignment), WHERE (filtering), ORDER BY (sorting), and RETURN (result formatting)."
+  },
+  {
+    "id": "fc_m2_9",
+    "topicId": "2.4",
+    "front": "DTD vs XML Schema (XSD)",
+    "back": "DTD uses non-XML syntax and lacks data typing. XSD is written in XML, supports 40+ data types, numeric occurrence constraints (minOccurs/maxOccurs), and namespaces."
+  },
+  {
+    "id": "fc_m2_10",
+    "topicId": "2.5",
+    "front": "INNER JOIN vs LEFT OUTER JOIN",
+    "back": "INNER JOIN returns only rows with a matching key in both tables. LEFT OUTER JOIN returns all rows from the left table, padding right columns with NULL for non-matches."
+  },
+  {
+    "id": "fc_m2_11",
+    "topicId": "2.5",
+    "front": "What is a Scalar User-Defined Function (UDF)?",
+    "back": "A reusable database function that accepts input parameters, executes algorithmic logic, and returns a single scalar value usable in SELECT or WHERE clauses."
+  },
+  {
     "id": "fc_11",
     "topicId": "3.1",
     "front": "What is Semi-Structured Data?",

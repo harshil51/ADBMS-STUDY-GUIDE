@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Clock, BookOpen, Bookmark, CheckCircle2, Circle, ArrowLeft, ArrowRight, 
-  Sparkles, Layers, Award, Edit3, MessageSquare, ChevronRight, Check
+  Clock, Bookmark, CheckCircle2, ArrowLeft, ArrowRight, 
+  Sparkles, Layers, Award, MessageSquare, ChevronRight, Check
 } from 'lucide-react';
 import SimulatorRegistry from './simulators/SimulatorRegistry';
 import SectionOverview from './sections/SectionOverview';

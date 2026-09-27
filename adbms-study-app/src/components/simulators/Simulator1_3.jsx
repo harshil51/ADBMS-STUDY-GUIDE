@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Cpu, HardDrive, MemoryStick, Layers, Zap, ArrowRight, Activity } from 'lucide-react';
+import { Cpu, HardDrive, MemoryStick, Zap } from 'lucide-react';
 
 export default function Simulator1_3() {
   const [arch, setArch] = useState('nothing'); // 'memory', 'disk', 'nothing', 'hierarchical'

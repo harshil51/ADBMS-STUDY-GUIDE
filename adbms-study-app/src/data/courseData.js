@@ -1,50 +1,60 @@
+// Advanced Database Systems - Complete Study Guide
+// By Harshil Bhagora (GTU B.E. IT Semester 5)
+// Generated from comprehensive 125-page textbook analysis
+
 export const BOOK_METADATA = {
-  "title": "Advanced Database Management Systems (ADBMS)",
+  "title": "Advanced Database Systems",
+  "subtitle": "Complete Interactive Study Guide",
   "subjectCode": "BE05016031",
-  "branch": "B.E. Information Technology (Sem-5)",
+  "branch": "B.E. Information Technology (Semester 5)",
   "university": "Gujarat Technological University (GTU)",
-  "author": "Harshil Bhagora",
-  "totalPages": 101,
-  "totalModules": 4,
-  "totalTopics": 16
+  "author": "HARSHIL BHAGORA",
+  "totalPages": 125,
+  "totalModules": 5,
+  "totalTopics": 21,
+  "estimatedStudyHours": 7.5
 };
 
 export const MODULES_DATA = [
   {
     "id": 1,
-    "title": "Database System Architectures",
-    "description": "Client-Server models, Concurrency Control, Parallel Databases, and Distributed Database Systems.",
+    "title": "Database Architecture",
+    "description": "Client-Server models (2-Tier & 3-Tier), Concurrency Control (2PL, Locks & Deadlocks), Parallel Database architectures & Distributed Databases with Two-Phase Commit.",
     "topicsCount": 4,
-    "pages": "1 - 32",
-    "color": "from-blue-600 to-cyan-500",
-    "icon": "Server"
+    "badge": "Core Architecture",
+    "pages": "7 - 33"
+  },
+  {
+    "id": 2,
+    "title": "Object-Based Databases and XML",
+    "description": "Object-Relational DBMS (ORDBMS), Complex structured types, Type & Table Inheritance (UNDER), Object Identity (OID) & REF dereferencing, XML Data Model (DTD, XSD, XPath & XQuery FLWOR), and Advanced SQL Querying (Joins, Subqueries & UDFs).",
+    "topicsCount": 5,
+    "badge": "ORDBMS & XML",
+    "pages": "34 - 57"
   },
   {
     "id": 3,
-    "title": "NoSQL & Modern Databases",
-    "description": "Data spectrum, NoSQL Taxonomy, MongoDB CRUD, Query Operators, and Aggregation Pipelines.",
+    "title": "Advanced Database Techniques",
+    "description": "Structured vs Unstructured data spectrum, NoSQL categories (CAP Theorem), and comprehensive MongoDB database modeling, CRUD & Aggregation pipelines.",
     "topicsCount": 5,
-    "pages": "33 - 54",
-    "color": "from-emerald-600 to-teal-500",
-    "icon": "Database"
+    "badge": "NoSQL & Modern Tech",
+    "pages": "58 - 85"
   },
   {
     "id": 4,
-    "title": "Transaction Processing & Architectures",
-    "description": "ACID guarantees, TP Monitors, Real-Time Database Systems, and Long-Duration Transactions.",
+    "title": "Advanced Transaction Processing",
+    "description": "ACID properties, Transaction state machine, TP Monitors, Transactional Workflows, Real-time transaction scheduling (EDF), and Long Duration Sagas with compensation.",
     "topicsCount": 4,
-    "pages": "55 - 77",
-    "color": "from-purple-600 to-indigo-500",
-    "icon": "Zap"
+    "badge": "Transactions & Sagas",
+    "pages": "86 - 107"
   },
   {
     "id": 5,
-    "title": "Data Analytics & Advanced Concepts",
-    "description": "Data Mining techniques, Machine Learning in BI, OLAP cubes, and Emerging Database systems.",
+    "title": "Modern Developments in Database Technologies",
+    "description": "Data Mining (Apriori association rules, classification, clustering), Business Intelligence frameworks & OLAP, plus Multimedia, Mobile sync & Digital databases.",
     "topicsCount": 3,
-    "pages": "78 - 101",
-    "color": "from-amber-600 to-orange-500",
-    "icon": "TrendingUp"
+    "badge": "Data Mining & BI",
+    "pages": "108 - 125"
   }
 ];
 
@@ -54,229 +64,105 @@ export const TOPICS_DATA = [
     "moduleId": 1,
     "moduleName": "Database Architecture",
     "title": "Client - Server Database Models",
-    "pages": "7 - 13",
-    "estimatedTime": "15 min",
+    "timeEstimate": "15 min",
+    "pageRange": "7 - 12",
     "overview": {
-      "whatIsIt": "Client - server architecture is a way of organizing a database system where\ntwo kinds of computers work together: a\nclient (which asks for data) and a\nserver\n(which stores and manages the\ndata and answers the request).",
-      "whyNeed": "Before client\n- server systems, all processing happened on one\ngiant central computer (mainframe), and users only had \"dumb terminals\" (screens\nwith no processing power). This was expensive and hard to scale. Client\n- server\narchitecture splits the work, so:\n- Many users can work at the same time.\n- The heavy\nwork of storing and protecting data stays in one safe place (the server).\n- The client can\nhave a friendly, fast user interface.",
-      "whereUsed": "- Bankin g systems (ATM = client, bank database = server)\n- College\nportals (your browser = client, college server = server)\n- Online shopping websites\n-\nAlmost every modern application that uses a database",
-      "importantNotes": "Client - server is not one fixed design\n- it comes in different \"tiers\" (2\n- tier,\n3- tier), which we will study in detail."
+      "whatIsIt": "Client - server architecture is a way of organizing a database system where\ntwo kinds of computers work together: a\nclient (which asks for data) and a\nserver\n(which stores and manages the\ndata and answers the request).\nWhy do we need it?\nBefore client\n- server systems, all processing happened on one\ngiant central computer (mainframe), and users only had \"dumb terminals\" (screens\nwith no processing power). This was expensive and hard to scale. Client\n- server\narchitecture splits the work, so:\n- Many users can work at the same time.\n- The heavy\nwork of storing and protecting data stays in one safe place (the server).\n- The client can\nhave a friendly, fast user interface.\nWhere is it used?\n- Bankin g systems (ATM = client, bank database = server)\n- College\nportals (your browser = client, college server = server)\n- Online shopping websites\n-\nAlmost every modern application that uses a database\nImportant: Client - server is not one fixed design\n- it comes in different \"tiers\" (2\n- tier,\n3- tier), which we will study in detail.",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Imagine you go to a restaurant. You (the\nclient ) do not cook your own food. You tell\nthe waiter what you want. The waiter passes your order to the kit\nchen (the\nserver ),\nand the kitchen prepares the food and sends it back through the waiter.\nIn computers:\n- Client = the program you use directly (browser, mobile app, desktop\napp). - Server = the powerful computer that stores the actual database and does the\nheavy processing.\n- Request = what the client asks for (e.g., \"show me all students\").\n-\nResponse = what the server sends back (e.g., the list of students).",
-      "keywords": [
-        {
-          "term": "Client",
-          "meaning": "The requester; usually has a user"
-        },
-        {
-          "term": "interface",
-          "meaning": "Server"
-        },
-        {
-          "term": "Request",
-          "meaning": "A message asking for data or an action"
-        },
-        {
-          "term": "Response",
-          "meaning": "The answer sent back"
-        },
-        {
-          "term": "Middleware",
-          "meaning": "Software that sits between client and server and manages"
-        },
-        {
-          "term": "communication",
-          "meaning": "Business"
-        },
-        {
-          "term": "Logic",
-          "meaning": "The rules of the application (e.g., \"a student cannot register for more"
-        }
-      ]
+      "simpleExplanation": "2. Beginner Friendly Introduction\nImagine you go to a restaurant. You (the\nclient ) do not cook your own food. You tell\nthe waiter what you want. The waiter passes your order to the kit\nchen (the\nserver ),\nand the kitchen prepares the food and sends it back through the waiter.\nIn computers:\n- Client = the program you use directly (browser, mobile app, desktop\napp). - Server = the powerful computer that stores the actual database and does the\nheavy processing.\n- Request = what the client asks for (e.g., \"show me all students\").\n-\nResponse = what the server sends back (e.g., the list of students).\nTechnical words explained simply:\nWord\nSimple Meaning\nClient\nThe requester; usually has a user\ninterface\nServer\nThe provider; stores data and runs the database engine\nRequest\nA message asking for data or an action\nResponse\nThe answer sent back\nMiddleware\nSoftware that sits between client and server and manages\ncommunication\nBusiness\nLogic\nThe rules of the application (e.g., \"a student cannot register for more\nthan 6 subjects\")",
+      "keywords": []
     },
     "analogies": [
-      {
-        "num": "1",
-        "title": "Restaurant",
-        "description": "You (client) order food. The waiter carries your order to the\nkitchen (server). The kitchen prepares it and the waiter (net\nwork) brings it back. You\nnever enter the kitchen yourself\n- this keeps the kitchen organized and safe, just like a\ndatabase server stays protected from direct user access."
-      },
-      {
-        "num": "2",
-        "title": "Bank Branch and Head Office",
-        "description": "A local bank branch (client) does not keep\nall account records; it always checks with the head office computer (server) before\ngiving you money. This way, all data stays consistent across every branch, just like a\ndatabase server keeps data consistent for every client."
-      }
+      "Restaurant: You (client) order food. The waiter carries your order to the\nkitchen (server). The kitchen prepares it and the waiter (net\nwork) brings it back. You\nnever enter the kitchen yourself\n- this keeps the kitchen organized and safe, just like a\ndatabase server stays protected from direct user access.",
+      "Bank Branch and Head Office:\nA local bank branch (client) does not keep\nall account records; it always checks with the head office computer (server) before\ngiving you money. This way, all data stays consistent across every branch, just like a\ndatabase server keeps data consistent for every client."
     ],
     "detailedExplanation": {
       "subsections": [
         {
           "title": "4.1 Two - Tier Client",
-          "content": "- Server Architecture\nIn a two - tier architecture, there are exactly two layers:\n1. Client Tier\n- contains the user interface AND the application/business logic.\n2. Server Tier\n- contains the database (data storage and query processing).\nThe client talks\ndirectly to the database server, usually using a standard protocol such\nas ODBC (Open Database Connectivity) or\nJDBC (Java Database Connectivity).\nComponents:\n- Client application (contains UI + business rules)\n- Network connection\n- Database server (stores data, executes SQL, returns results)\nWorking: The client builds an SQL query, sends it directly to the database server over\nthe network, the server executes it and sends back the result set, and the client\ndisplays it.\nAdvantages: - Simple to build and understand\n- Fast for small numbers of users (fewer\nhops) - Good for LAN\n- based systems within one organization\nLimitations:\n- Every client machine needs the correct drivers/business logic installed\n(hard to update)\n- Does not scale\nwell - too many direct connections overload the\nserver - Business logic mixed with UI code makes maintenance difficult\n- Security risk\n- clients directly touch the database"
+          "content": "- Server Architecture\nIn a two - tier architecture, there are exactly two layers:\n1. Client Tier\n- contains the user interface AND the application/business logic.\n2. Server Tier\n- contains the database (data storage and query processing)."
+        },
+        {
+          "title": "The client talks",
+          "content": "directly to the database server, usually using a standard protocol such\nas ODBC (Open Database Connectivity) or\nJDBC (Java Database Connectivity)."
+        },
+        {
+          "title": "Components",
+          "content": "- Client application (contains UI + business rules)\n- Network connection\n- Database server (stores data, executes SQL, returns results)"
+        },
+        {
+          "title": "Working: The client builds an SQL query, sends it directly to the database server over",
+          "content": "the network, the server executes it and sends back the result set, and the client\ndisplays it."
+        },
+        {
+          "title": "Advantages: - Simple to build and understand",
+          "content": "- Fast for small numbers of users (fewer\nhops) - Good for LAN\n- based systems within one organization"
+        },
+        {
+          "title": "Limitations",
+          "content": "- Every client machine needs the correct drivers/business logic installed\n(hard to update)\n- Does not scale\nwell - too many direct connections overload the\nserver - Business logic mixed with UI code makes maintenance difficult\n- Security risk\n- clients directly touch the database"
         },
         {
           "title": "4.2 Three - Tier Client",
-          "content": "- Server Architecture\nIn a three - tier architecture, the work is split into three separate layers:\n1. Presentation Tier (Client)\n- only handles the user interface (what the user sees and\nclicks).\n2. Application Tier (Business Logic / Middle Tier)\n- contains all business rules,\nvalidation, and processing. This tier t\nalks to the database on behalf of the client.\n3. Data Tier (Database Server)\n- stores and manages the actual data.\nWorking (Step by step):\n1. Client sends a request (e.g., clicks \"Submit Order\") to the Application Server.\n2. Application Server applies business rules (e.g., \"check if stock is available\").\n3. Application Server builds and sends the SQL query to the Database Server.\n4. Database Server executes the query and returns data to the Application Server.\n5. Application Server processes/formats t\nhe result and sends it back to the Client.\nAdvantages: - Clients are \"thin\"\n- they don't need heavy installation, just a browser\n-\nBusiness logic is centralized\n- easy to update once, applies to everyone\n- Better\nsecurity\n- clients never touch the database directly\n- Scales well\n- multiple\napplication servers can be added (load balancing)\n- Supports many concurrent users,\nideal for internet/web applications\nLimitations:\n- More complex to design, build, and debug\n- More network\ncommunication (extra hop) can\nadd slight delay\n- Requires more hardware/servers, so\nhigher initial cost\nExam Tip: A very common exam question is \"Differentiate between two\n- tier and three\n-\ntier architecture.\" Always mention: number of layers, where business logic sits,\nscalability, and typical use case."
+          "content": "- Server Architecture\nIn a three - tier architecture, the work is split into three separate layers:\n1. Presentation Tier (Client)\n- only handles the user interface (what the user sees and\nclicks).\n2. Application Tier (Business Logic / Middle Tier)\n- contains all business rules,\nvalidation, and processing. This tier t\nalks to the database on behalf of the client.\n3. Data Tier (Database Server)\n- stores and manages the actual data."
+        },
+        {
+          "title": "Working (Step by step)",
+          "content": "1. Client sends a request (e.g., clicks \"Submit Order\") to the Application Server.\n2. Application Server applies business rules (e.g., \"check if stock is available\").\n3. Application Server builds and sends the SQL query to the Database Server.\n4. Database Server executes the query and returns data to the Application Server.\n5. Application Server processes/formats t\nhe result and sends it back to the Client."
+        },
+        {
+          "title": "Advantages: - Clients are \"thin\"",
+          "content": "- they don't need heavy installation, just a browser\n-"
+        },
+        {
+          "title": "Business logic is centralized",
+          "content": "- easy to update once, applies to everyone\n- Better\nsecurity\n- clients never touch the database directly\n- Scales well\n- multiple\napplication servers can be added (load balancing)\n- Supports many concurrent users,\nideal for internet/web applications"
+        },
+        {
+          "title": "Limitations",
+          "content": "- More complex to design, build, and debug\n- More network\ncommunication (extra hop) can\nadd slight delay\n- Requires more hardware/servers, so\nhigher initial cost"
+        },
+        {
+          "title": "Exam Tip: A very common exam question is \"Differentiate between two",
+          "content": "- tier and three\n-\ntier architecture.\" Always mention: number of layers, where business logic sits,\nscalability, and typical use case."
         }
       ],
       "raw": "4. Complete Detailed Explana\ntion\n4.1 Two - Tier Client\n- Server Architecture\nIn a two - tier architecture, there are exactly two layers:\n1. Client Tier\n- contains the user interface AND the application/business logic.\n2. Server Tier\n- contains the database (data storage and query processing).\nThe client talks\ndirectly to the database server, usually using a standard protocol such\nas ODBC (Open Database Connectivity) or\nJDBC (Java Database Connectivity).\nComponents:\n- Client application (contains UI + business rules)\n- Network connection\n- Database server (stores data, executes SQL, returns results)\nWorking: The client builds an SQL query, sends it directly to the database server over\nthe network, the server executes it and sends back the result set, and the client\ndisplays it.\nAdvantages: - Simple to build and understand\n- Fast for small numbers of users (fewer\nhops) - Good for LAN\n- based systems within one organization\nLimitations:\n- Every client machine needs the correct drivers/business logic installed\n(hard to update)\n- Does not scale\nwell - too many direct connections overload the\nserver - Business logic mixed with UI code makes maintenance difficult\n- Security risk\n- clients directly touch the database\n4.2 Three - Tier Client\n- Server Architecture\nIn a three - tier architecture, the work is split into three separate layers:\n1. Presentation Tier (Client)\n- only handles the user interface (what the user sees and\nclicks).\n2. Application Tier (Business Logic / Middle Tier)\n- contains all business rules,\nvalidation, and processing. This tier t\nalks to the database on behalf of the client.\n3. Data Tier (Database Server)\n- stores and manages the actual data.\nWorking (Step by step):\n1. Client sends a request (e.g., clicks \"Submit Order\") to the Application Server.\n2. Application Server applies business rules (e.g., \"check if stock is available\").\n3. Application Server builds and sends the SQL query to the Database Server.\n4. Database Server executes the query and returns data to the Application Server.\n5. Application Server processes/formats t\nhe result and sends it back to the Client.\nAdvantages: - Clients are \"thin\"\n- they don't need heavy installation, just a browser\n-\nBusiness logic is centralized\n- easy to update once, applies to everyone\n- Better\nsecurity\n- clients never touch the database directly\n- Scales well\n- multiple\napplication servers can be added (load balancing)\n- Supports many concurrent users,\nideal for internet/web applications\nLimitations:\n- More complex to design, build, and debug\n- More network\ncommunication (extra hop) can\nadd slight delay\n- Requires more hardware/servers, so\nhigher initial cost\nExam Tip: A very common exam question is \"Differentiate between two\n- tier and three\n-\ntier architecture.\" Always mention: number of layers, where business logic sits,\nscalability, and typical use case."
     },
     "stepByStep": [
       {
-        "title": "Two - Tier Flow:",
-        "isHeader": true
-      },
-      {
-        "title": "Client (UI + Logic)",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 (sends SQL directly)",
-        "isHeader": false
-      },
-      {
-        "title": "Database Server",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 (executes query)",
-        "isHeader": false
-      },
-      {
-        "title": "Result set",
-        "isHeader": false
-      },
-      {
-        "title": "Client displays result",
-        "isHeader": false
-      },
-      {
-        "title": "Three - Tier Flow:",
-        "isHeader": true
-      },
-      {
-        "title": "Client (Presentation only)",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 request",
-        "isHeader": false
-      },
-      {
-        "title": "Application Server (Business Logic)",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 SQL query",
-        "isHeader": false
-      },
-      {
-        "title": "Database Server (Data)",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 raw result",
-        "isHeader": false
-      },
-      {
-        "title": "Application Server (form",
-        "isHeader": false
-      },
-      {
-        "title": "ats data)",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 processed response",
-        "isHeader": false
-      },
-      {
-        "title": "Client (displays result)",
-        "isHeader": false
+        "step": 1,
+        "title": "Step - by- Step Working",
+        "description": "Two - Tier Flow:\nClient (UI + Logic)\n\u2193 (sends SQL directly)\nDatabase Server\n\u2193 (executes query)\nResult set\n\u2193\nClient displays result\nThree - Tier Flow:\nClient (Presentation only)\n\u2193 request\nApplication Server (Business Logic)\n\u2193 SQL query\nDatabase Server (Data)\n\u2193 raw result\nApplication Server (form\nats data)\n\u2193 processed response\nClient (displays result)"
       }
     ],
-    "tablesRaw": "Feature\nTwo - Tier\nThree - Tier\nNumber of layers\n2\n3\nBusiness logic\nlocation\nInside client\nInside application server\nClient type\nThick/Fat client\nThin client\nScalability\nLow\nHigh\nMaintenance\nDifficult (update every\nclient)\nEasy (update server only)\nSecurity\nLower (direct DB access)\nHigher (DB hidden behind app\nserver)\nTypical use\nSmall LAN apps\nWeb and enterprise applications\nExample\nOld desktop banking\nsoftware\nAmazon.com, online college portal",
+    "diagramsDescription": "6. Diagrams\nTwo - Tier Architecture\nFigure: Two - Tier Architecture\nThree - Tier Architecture\nFigure: Three\n- Tier Architecture\nA side - by- side comparison diagram showing Two\n- Tier architecture (client bo\nx connected\ndirectly to\u2026\nFigure: A side\n- by- side comparison diagram showing Two\n- Tier architecture (client box\nconnected directly to\u2026",
+    "visualIllustrations": "7. Images\nClient - Server Network Diagram showing multiple client computers connected through a\nnetwork switc\u2026\nFigure: Client\n- Server Network Diagram showing multiple client computers connected\nthrough a network switc\u2026\nThree - Tier Web Application Architecture Diagram (Browser, Web/App Server, Database\nServer)\nFigure: Three\n- Tier Web Application Architecture Diagram (Browser, Web\n/App Server,\nDatabase Server)",
+    "tablesRaw": "8. Tables\nFeature\nTwo - Tier\nThree - Tier\nNumber of layers\n2\n3\nBusiness logic\nlocation\nInside client\nInside application server\nClient type\nThick/Fat client\nThin client\nScalability\nLow\nHigh\nMaintenance\nDifficult (update every\nclient)\nEasy (update server only)\nSecurity\nLower (direct DB access)\nHigher (DB hidden behind app\nserver)\nTypical use\nSmall LAN apps\nWeb and enterprise applications\nExample\nOld desktop banking\nsoftware\nAmazon.com, online college portal",
+    "importantTerms": "9. Important Term\ns\nTerm\nSimple Meaning\nClient\nThe program that requests data/service\nServer\nThe program/machine that provides data/service\nTier\nA separate logical layer of an application\nODBC/JDBC\nStandard connection methods between client and database\nThin Client\nA client with little to no business logic, mostly just display\nThick Client\nA client that has its own business logic and processing\nMiddleware\nSoftware connecting the application tier and data tier\nLoad Balancing\nSpreading requests across multiple servers\nto avoid overload",
     "terms": [],
     "examples": [
-      {
-        "type": "Easy example",
-        "content": "A simple desktop app that connects straight to a database on the\nsame office network\n- two - tier."
-      },
-      {
-        "type": "Practical example",
-        "content": "A college attendance system where a teacher's laptop app\nqueries the database server directly over Wi\n- Fi."
-      },
-      {
-        "type": "Industry example",
-        "content": "Amazon's website\n- your browser (client) talks to Amazon's\napplication servers, which talk to their database servers\n- three - tier."
-      },
-      {
-        "type": "Real-life example",
-        "content": "Online food delivery apps like Zomato/Swiggy\n- mobile app\n(client), backend\nservers (application tier), and databases (data tier)."
-      }
+      "10. Examples\n\u2022\nEasy example:\nA simple desktop app that connects straight to a database on the\nsame office network\n- two - tier.\n\u2022\nPractical example:\nA college attendance system where a teacher's laptop app\nqueries the database server directly over Wi\n- Fi.\n\u2022\nIndustry example:\nAmazon's website\n- your browser (client) talks to Amazon's\napplication servers, which talk to their database servers\n- three - tier.\n\u2022\nReal - life example: Online food delivery apps like Zomato/Swiggy\n- mobile app\n(client), backend\nservers (application tier), and databases (data tier)."
     ],
     "advantages": [
-      "Simple and fast to build.",
-      "Highly scalable and secure."
+      "Simple and fast to build."
     ],
     "limitations": [
-      "Hard to scale to many",
-      "More complex and"
+      "Two - Tier - Advantage: Simple and fast to build.",
+      "Limitation: Hard to scale to many",
+      "users."
     ],
-    "applications": [
-      {
-        "category": "Industry",
-        "details": "Enterprise Resource Planning (ERP) systems use three\n- tier\narchitecture."
-      },
-      {
-        "category": "Companies",
-        "details": "Amazon, Flipkart, Netflix all use multi\n- tier (often more than three\n-\ntier, called n - tier) architecture."
-      },
-      {
-        "category": "Daily life",
-        "details": "Mobile bank ing apps, e - commerce checkout, online exam portals."
-      },
-      {
-        "category": "Software",
-        "details": "Any modern web application framework (Java EE, .NET, Django) is\ndesigned around three\n- tier principles."
-      },
-      {
-        "category": "Websites",
-        "details": "Nearly all dynamic"
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Almost every mobile app that needs internet talks to an application\nserver which then talks to a database."
-      }
-    ],
+    "advantagesLimitations": "11. Advantages & Limitations\nTwo - Tier - Advantage: Simple and fast to build.\n- Limitation: Hard to scale to many\nusers.",
+    "applications": [],
     "keyPoints": {
-      "takeaways": [
-        "Two - tier = Client + Database only. Three",
-        "tier = Client + Application Server +",
-        "Database.",
-        "Business logic location",
-        "is the main difference between two",
-        "tier and three",
-        "tier.",
-        "Three - tier is preferred for scalability and security in modern web systems.",
-        "ODBC/JDBC are the standard bridges for client",
-        "to- database communication in",
-        "two - tier systems.",
-        "Students often think three",
-        "tier means \"three separate",
-        "physical computers\"",
-        "it actually means three",
-        "logical layers; they can even run on",
-        "the same physical machine during development.",
-        "N- tier architecture is an extension of three",
-        "tier with more specialized layer",
-        "s (e.g.,",
-        "separate caching tier, security tier)."
-      ],
-      "misconceptions": [
-        ""
-      ],
+      "takeaways": [],
+      "misconceptions": [],
       "examTips": []
     },
+    "fullRawText": "MODULE 1: Database Architecture\nTopic 1.1: Client - Server Database Models\n1. Topic Name - Client - Server Database Architecture\nWhat is it?\nClient - server architecture is a way of organizing a database system where\ntwo kinds of computers work together: a\nclient (which asks for data) and a\nserver\n(which stores and manages the\ndata and answers the request).\nWhy do we need it?\nBefore client\n- server systems, all processing happened on one\ngiant central computer (mainframe), and users only had \"dumb terminals\" (screens\nwith no processing power). This was expensive and hard to scale. Client\n- server\narchitecture splits the work, so:\n- Many users can work at the same time.\n- The heavy\nwork of storing and protecting data stays in one safe place (the server).\n- The client can\nhave a friendly, fast user interface.\nWhere is it used?\n- Bankin g systems (ATM = client, bank database = server)\n- College\nportals (your browser = client, college server = server)\n- Online shopping websites\n-\nAlmost every modern application that uses a database\nImportant: Client - server is not one fixed design\n- it comes in different \"tiers\" (2\n- tier,\n3- tier), which we will study in detail.\n2. Beginner Friendly Introduction\nImagine you go to a restaurant. You (the\nclient ) do not cook your own food. You tell\nthe waiter what you want. The waiter passes your order to the kit\nchen (the\nserver ),\nand the kitchen prepares the food and sends it back through the waiter.\nIn computers:\n- Client = the program you use directly (browser, mobile app, desktop\napp). - Server = the powerful computer that stores the actual database and does the\nheavy processing.\n- Request = what the client asks for (e.g., \"show me all students\").\n-\nResponse = what the server sends back (e.g., the list of students).\nTechnical words explained simply:\nWord\nSimple Meaning\nClient\nThe requester; usually has a user\ninterface\nServer\nThe provider; stores data and runs the database engine\nRequest\nA message asking for data or an action\nResponse\nThe answer sent back\nMiddleware\nSoftware that sits between client and server and manages\ncommunication\nBusiness\nLogic\nThe rules of the application (e.g., \"a student cannot register for more\nthan 6 subjects\")\n3. Real - Life Analogies\nAnalogy 1 - Restaurant: You (client) order food. The waiter carries your order to the\nkitchen (server). The kitchen prepares it and the waiter (net\nwork) brings it back. You\nnever enter the kitchen yourself\n- this keeps the kitchen organized and safe, just like a\ndatabase server stays protected from direct user access.\nAnalogy 2 - Bank Branch and Head Office:\nA local bank branch (client) does not keep\nall account records; it always checks with the head office computer (server) before\ngiving you money. This way, all data stays consistent across every branch, just like a\ndatabase server keeps data consistent for every client.\n4. Complete Detailed Explana\ntion\n4.1 Two - Tier Client\n- Server Architecture\nIn a two - tier architecture, there are exactly two layers:\n1. Client Tier\n- contains the user interface AND the application/business logic.\n2. Server Tier\n- contains the database (data storage and query processing).\nThe client talks\ndirectly to the database server, usually using a standard protocol such\nas ODBC (Open Database Connectivity) or\nJDBC (Java Database Connectivity).\nComponents:\n- Client application (contains UI + business rules)\n- Network connection\n- Database server (stores data, executes SQL, returns results)\nWorking: The client builds an SQL query, sends it directly to the database server over\nthe network, the server executes it and sends back the result set, and the client\ndisplays it.\nAdvantages: - Simple to build and understand\n- Fast for small numbers of users (fewer\nhops) - Good for LAN\n- based systems within one organization\nLimitations:\n- Every client machine needs the correct drivers/business logic installed\n(hard to update)\n- Does not scale\nwell - too many direct connections overload the\nserver - Business logic mixed with UI code makes maintenance difficult\n- Security risk\n- clients directly touch the database\n4.2 Three - Tier Client\n- Server Architecture\nIn a three - tier architecture, the work is split into three separate layers:\n1. Presentation Tier (Client)\n- only handles the user interface (what the user sees and\nclicks).\n2. Application Tier (Business Logic / Middle Tier)\n- contains all business rules,\nvalidation, and processing. This tier t\nalks to the database on behalf of the client.\n3. Data Tier (Database Server)\n- stores and manages the actual data.\nWorking (Step by step):\n1. Client sends a request (e.g., clicks \"Submit Order\") to the Application Server.\n2. Application Server applies business rules (e.g., \"check if stock is available\").\n3. Application Server builds and sends the SQL query to the Database Server.\n4. Database Server executes the query and returns data to the Application Server.\n5. Application Server processes/formats t\nhe result and sends it back to the Client.\nAdvantages: - Clients are \"thin\"\n- they don't need heavy installation, just a browser\n-\nBusiness logic is centralized\n- easy to update once, applies to everyone\n- Better\nsecurity\n- clients never touch the database directly\n- Scales well\n- multiple\napplication servers can be added (load balancing)\n- Supports many concurrent users,\nideal for internet/web applications\nLimitations:\n- More complex to design, build, and debug\n- More network\ncommunication (extra hop) can\nadd slight delay\n- Requires more hardware/servers, so\nhigher initial cost\nExam Tip: A very common exam question is \"Differentiate between two\n- tier and three\n-\ntier architecture.\" Always mention: number of layers, where business logic sits,\nscalability, and typical use case.\n5. Step - by- Step Working\nTwo - Tier Flow:\nClient (UI + Logic)\n\u2193 (sends SQL directly)\nDatabase Server\n\u2193 (executes query)\nResult set\n\u2193\nClient displays result\nThree - Tier Flow:\nClient (Presentation only)\n\u2193 request\nApplication Server (Business Logic)\n\u2193 SQL query\nDatabase Server (Data)\n\u2193 raw result\nApplication Server (form\nats data)\n\u2193 processed response\nClient (displays result)\n6. Diagrams\nTwo - Tier Architecture\nFigure: Two - Tier Architecture\nThree - Tier Architecture\nFigure: Three\n- Tier Architecture\nA side - by- side comparison diagram showing Two\n- Tier architecture (client bo\nx connected\ndirectly to\u2026\nFigure: A side\n- by- side comparison diagram showing Two\n- Tier architecture (client box\nconnected directly to\u2026\n7. Images\nClient - Server Network Diagram showing multiple client computers connected through a\nnetwork switc\u2026\nFigure: Client\n- Server Network Diagram showing multiple client computers connected\nthrough a network switc\u2026\nThree - Tier Web Application Architecture Diagram (Browser, Web/App Server, Database\nServer)\nFigure: Three\n- Tier Web Application Architecture Diagram (Browser, Web\n/App Server,\nDatabase Server)\n8. Tables\nFeature\nTwo - Tier\nThree - Tier\nNumber of layers\n2\n3\nBusiness logic\nlocation\nInside client\nInside application server\nClient type\nThick/Fat client\nThin client\nScalability\nLow\nHigh\nMaintenance\nDifficult (update every\nclient)\nEasy (update server only)\nSecurity\nLower (direct DB access)\nHigher (DB hidden behind app\nserver)\nTypical use\nSmall LAN apps\nWeb and enterprise applications\nExample\nOld desktop banking\nsoftware\nAmazon.com, online college portal\n9. Important Term\ns\nTerm\nSimple Meaning\nClient\nThe program that requests data/service\nServer\nThe program/machine that provides data/service\nTier\nA separate logical layer of an application\nODBC/JDBC\nStandard connection methods between client and database\nThin Client\nA client with little to no business logic, mostly just display\nThick Client\nA client that has its own business logic and processing\nMiddleware\nSoftware connecting the application tier and data tier\nLoad Balancing\nSpreading requests across multiple servers\nto avoid overload\n10. Examples\n\u2022\nEasy example:\nA simple desktop app that connects straight to a database on the\nsame office network\n- two - tier.\n\u2022\nPractical example:\nA college attendance system where a teacher's laptop app\nqueries the database server directly over Wi\n- Fi.\n\u2022\nIndustry example:\nAmazon's website\n- your browser (client) talks to Amazon's\napplication servers, which talk to their database servers\n- three - tier.\n\u2022\nReal - life example: Online food delivery apps like Zomato/Swiggy\n- mobile app\n(client), backend\nservers (application tier), and databases (data tier).\n11. Advantages & Limitations\nTwo - Tier - Advantage: Simple and fast to build.\n- Limitation: Hard to scale to many\nusers.",
     "structuredTables": [
       {
         "id": "t1_1_arch",
@@ -331,27 +217,6 @@ export const TOPICS_DATA = [
             "col2": "Higher: DB in private subnet; strict API auth & validation",
             "verdict": "3-Tier isolates database from public network",
             "status": "better-col2"
-          },
-          {
-            "feature": "Hardware / Deployment Cost",
-            "col1": "Lower initial setup (no separate app server required)",
-            "col2": "Higher initial complexity (servers, load balancers)",
-            "verdict": "2-Tier is cheaper for small local LAN tools",
-            "status": "better-col1"
-          },
-          {
-            "feature": "Typical Real-World Use",
-            "col1": "Small LAN apps, internal departmental utilities",
-            "col2": "Web portals, e-commerce, banking, enterprise SaaS",
-            "verdict": "3-Tier is the modern industry standard",
-            "status": "info"
-          },
-          {
-            "feature": "Concrete Example",
-            "col1": "Old VB6 / MS Access desktop billing application",
-            "col2": "Amazon.com, Netflix, GTU Student Portal",
-            "verdict": "Web-scale architecture",
-            "status": "info"
           }
         ]
       }
@@ -362,180 +227,478 @@ export const TOPICS_DATA = [
     "moduleId": 1,
     "moduleName": "Database Architecture",
     "title": "Concurrency Control Techniques",
-    "pages": "13 - 20",
-    "estimatedTime": "20 min",
+    "timeEstimate": "20 min",
+    "pageRange": "13 - 19",
     "overview": {
-      "whatIsIt": "Concurrency control is the set of techniques a database uses to make sure\nthat when\nmany users/transactions access the database at the same time\n, the data\nstays correct and consistent.",
-      "whyNeed": "If two people update the same bank account at the same time\nwithout any control, money can be lost or duplicated. Concurrency control prevents\nthese errors.\nWhere is it u\nsed? - Banking transaction systems\n- Airline/train ticket booking systems\n- Online shopping (stock/inventory updates)\n- Any multi - user database application",
-      "whereUsed": "Enterprise banking, web applications, and large-scale data platforms.",
-      "importantNotes": ""
+      "whatIsIt": "",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Imagine two people trying to withdraw money from the\nsame joint bank account at the\nsame second, from two different ATMs. If the system does not control this carefully,\nboth withdrawals might succeed even if there isn't enough money for both\n- because\neach ATM checked the balance before the other one finished updating it\n.",
-      "keywords": [
-        {
-          "term": "Transaction",
-          "meaning": "One unit of work, e.g., \"transfer money from A to B\""
-        },
-        {
-          "term": "Concurrent",
-          "meaning": "Execution"
-        },
-        {
-          "term": "Lock",
-          "meaning": "A flag that reserves data for one transaction so others must wait"
-        },
-        {
-          "term": "Schedule",
-          "meaning": "The order in which operations of transactions are executed"
-        },
-        {
-          "term": "Serializable",
-          "meaning": "A schedule that gives the same result as running transactions"
-        }
-      ]
+      "simpleExplanation": "",
+      "keywords": []
     },
-    "analogies": [
-      {
-        "num": "1",
-        "title": "Shared Restroom Key",
-        "description": "In offices with one shared restroom key, o\nnly one\nperson can hold the key (lock) at a time. Others must wait outside until the key is\nreturned. This is exactly how a\nlock works in a database\n- only one transaction can\nhold a lock on a data item."
-      }
-    ],
+    "analogies": [],
     "detailedExplanation": {
       "subsections": [
         {
-          "title": "Detailed Architectural Breakdown",
-          "content": ""
+          "title": "Core Theoretical Framework",
+          "content": "Detailed theoretical concepts and principles."
         }
       ],
       "raw": ""
     },
-    "stepByStep": [
-      {
-        "title": "2PL Growing then Shrinking:",
-        "isHeader": false
-      },
-      {
-        "title": "Start Transaction",
-        "isHeader": false
-      },
-      {
-        "title": "Growing Phase: Acquire Lock A",
-        "isHeader": true
-      },
-      {
-        "title": "\u2192 Acquire Lock B",
-        "isHeader": false
-      },
-      {
-        "title": "\u2192 Acquire Lock C",
-        "isHeader": false
-      },
-      {
-        "title": "Lock Point (maximum locks held)",
-        "isHeader": false
-      },
-      {
-        "title": "Shrinking Phase: Release Lock A",
-        "isHeader": true
-      },
-      {
-        "title": "\u2192 Release Lock B",
-        "isHeader": false
-      },
-      {
-        "title": "\u2192 Release Lock C",
-        "isHeader": false
-      },
-      {
-        "title": "Transaction Ends (Commit/Abort)",
-        "isHeader": false
-      }
-    ],
-    "tablesRaw": "Protocol\nVariant\nLocks Released When\nPrevents Cascading\nRollback?\nPrevents\nDeadlock?\nBasic 2PL\nAnytime after lock point\nNo\nNo\nStrict 2PL\nOnly at commit/abort\n(X- locks)\nYes\nNo\nRigorous 2PL\nOnly at commit/abort\n(all locks)\nYes\nNo\nConservative\n2PL\nAnytime after lock point\nNo\nYes",
-    "terms": [
-      {
-        "term": "Read",
-        "definition": "only lock, multiple holders allowed"
-      },
-      {
-        "term": "(one",
-        "definition": "by- one) schedule"
-      }
-    ],
-    "examples": [
-      {
-        "type": "Easy example",
-        "content": "Two students trying to book the last seat in a bus at the same\ntime - locking ensures only one succeeds."
-      },
-      {
-        "type": "Practical example",
-        "content": "Two bank tellers trying to update the same account balance\n- exclusive locking prevents both updates from corrupting the balance."
-      },
-      {
-        "type": "Industry example",
-        "content": "Airline reservation systems use strict locking on seat\ninventory to avoid double\n- booking ."
-      },
-      {
-        "type": "Real-life example",
-        "content": "E- commerce flash sales\n- exclusive locks on \"stock count\"\nprevent overselling a product."
-      }
-    ],
-    "advantages": [
-      "Lock",
-      "Strict 2PL avoids dirty reads and cascading rollback."
-    ],
-    "limitations": [
-      "Locking can reduce performance because transactions must wait.",
-      "Can cause deadlocks if not carefully managed."
-    ],
+    "stepByStep": [],
+    "diagramsDescription": "",
+    "visualIllustrations": "",
+    "tablesRaw": "",
+    "importantTerms": "",
+    "terms": [],
+    "examples": [],
+    "advantages": [],
+    "limitations": [],
+    "advantagesLimitations": "",
     "applications": [
-      {
-        "category": "Industry",
-        "details": "All major relational databases (Oracle, MySQL, SQ\nL Server) implement\nvariations of 2PL internally."
-      },
-      {
-        "category": "Companies",
-        "details": "Banks, airlines, e\n- commerce platforms rely on strict locking for\ncritical transactions."
-      },
-      {
-        "category": "Daily life",
-        "details": "Every time you book a movie ticket online and see \"seat is being held,\"\nthat is a lock in action."
-      },
-      {
-        "category": "Software",
-        "details": "Database engines, transaction managers."
-      },
-      {
-        "category": "Websites",
-        "details": "Any checkout system managing limited stock."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Ride - hailing apps locking a driver record when a ride request is\nbeing matched."
-      }
+      "Enterprise Resource Planning (ERP) systems use three",
+      "architecture.",
+      "Companies: Amazon, Flipkart, Netflix all use multi",
+      "tier (often more than three",
+      "tier, called n - tier) architecture.",
+      "Daily life: Mobile bank ing apps, e - commerce checkout, online exam portals.",
+      "Software: Any modern web application framework (Java EE, .NET, Django) is",
+      "designed around three",
+      "tier principles.",
+      "Websites: Nearly all dynamic websites use a form of three",
+      "architecture.",
+      "Mobile Apps: Almost every mobile app that needs internet talks to an application",
+      "server which then talks to a database."
     ],
     "keyPoints": {
       "takeaways": [
-        "2PL has exactly two phases: G",
-        "rowing (acquire only) and Shrinking (release only).",
-        "Strict 2PL is the most commonly used in real systems because it avoids cascading",
-        "rollback.",
-        "Shared lock = read, Exclusive lock = write; S is compatible with S but not with X.",
-        "Students often think 2PL prevents deadlock",
-        "it does",
-        "NOT (except the conservative variant); it only guarantees serializability.",
-        "Deadlock is different from starvation",
-        "deadlock is a cycle of waiting, starvation is",
-        "one transaction unfairly delayed forever.",
-        "T opic 1.3: Introduction to Parallel Databases"
+        "Two - tier = Client + Database only. Three",
+        "tier = Client + Application Server +",
+        "Business logic location",
+        "is the main difference between two",
+        "tier and three",
+        "Three - tier is preferred for scalability and security in modern web systems.",
+        "ODBC/JDBC are the standard bridges for client",
+        "to- database communication in",
+        "two - tier systems.",
+        "Common misconception:",
+        "Students often think three",
+        "tier means \"three separate",
+        "physical computers\"",
+        "it actually means three",
+        "logical layers; they can even run on",
+        "the same physical machine during development.",
+        "N- tier architecture is an extension of three",
+        "tier with more specialized layer",
+        "separate caching tier, security tier).",
+        "Topic 1.2: Concurrency Control Techniques",
+        "1. Topic Name - Concurrency Control",
+        "What is it? Concurrency control is the set of techniques a database uses to make sure",
+        "many users/transactions access the database at the same time",
+        "stays correct and consistent.",
+        "Why do we need it?",
+        "If two people update the same bank account at the same time",
+        "without any control, money can be lost or duplicated. Concurrency control prevents",
+        "these errors.",
+        "Where is it u",
+        "sed? - Banking transaction systems",
+        "Airline/train ticket booking systems",
+        "Online shopping (stock/inventory updates)",
+        "Any multi - user database application",
+        "2. Beginner Friendly Introduction",
+        "Imagine two people trying to withdraw money from the",
+        "same joint bank account at the",
+        "same second, from two different ATMs. If the system does not control this carefully,",
+        "both withdrawals might succeed even if there isn't enough money for both",
+        "each ATM checked the balance before the other one finished updating it",
+        "Key words explained:",
+        "Simple Meaning",
+        "Transaction",
+        "One unit of work, e.g., \"transfer money from A to B\"",
+        "Many transactions running around the same time",
+        "A flag that reserves data for one transaction so others must wait",
+        "The order in which operations of transactions are executed",
+        "Serializable",
+        "A schedule that gives the same result as running transactions",
+        "one after another",
+        "3. Real - Life Analogies",
+        "Analogy 1 - Shared Restroom Key:",
+        "In offices with one shared restroom key, o",
+        "person can hold the key (lock) at a time. Others must wait outside until the key is",
+        "returned. This is exactly how a",
+        "lock works in a database",
+        "only one transaction can",
+        "hold a lock on a data item.",
+        "Analogy 2 - Editing a Shared Google Doc without live",
+        "sync: If two people download",
+        "the same document, edit separately, and both re",
+        "upload, one person's changes get lost.",
+        "Concurrency control is like Google Docs' live editing feature that carefully merges or",
+        "blocks changes so nothing is lost.",
+        "4. Complete Detai",
+        "led Explanation",
+        "4.1 Why Concurrency Problems Happen",
+        "Without control, concurrent transactions can cause:",
+        "Lost Update Problem",
+        "transaction's update is overwritten by another.",
+        "Dirty Read Problem",
+        "a transaction",
+        "reads data written by another transaction that later rolls back (uncommitted data).",
+        "Unrepeatable Read Problem",
+        "a transaction reads the same row twice and gets",
+        "different values because another transaction changed it in between.",
+        "4.2 Lock - Based Protocols",
+        "A lock is a mechanism that stops other t",
+        "ransactions from reading or writing a data",
+        "item while one transaction is using it.",
+        "Types of locks:",
+        "Shared Lock (S",
+        "lock) - used for reading. Multiple transactions can",
+        "hold a shared lock on the same item at the same time (many people can read together).",
+        "Exclusive Lock (X",
+        "lock) - used for writing. Only one transaction can hold an",
+        "exclusive lock, and no other transaction can hold any lock (shared or exclusive) on that",
+        "item at the same time.",
+        "Compatibility Table:",
+        "Requested Held",
+        "4.3 Lock Granting (Locking Methods)",
+        "Lock granting decides",
+        "how and when a lock request is approved:",
+        "Simple Lock Granting",
+        "grant the lock as soon as it is free and compatible.",
+        "Priority - Based Granting",
+        "some systems give priority to older/waiting transactions",
+        "to prevent starvation (a transaction waiting forever because newer transactions keep",
+        "jumping the queue).",
+        "Lock Upgrade",
+        "a transaction that holds a shared lock can request to upgrade it to",
+        "an exclusive lock if it wants to write (allowed only if no other t",
+        "ransaction holds a lock",
+        "on that item).",
+        "Lock Conversion / Downgrade",
+        "reducing an exclusive lock to a shared lock once",
+        "writing is finished but reading might still continue.",
+        "4.4 Two - Phase Locking (2PL) Protocol",
+        "Two - Phase Locking is the most famous lock",
+        "based protocol that guarantees",
+        "serializability",
+        "(the result is as if transactions ran one after another).",
+        "It has exactly two phases:",
+        "1. Growing Phase",
+        "the transaction can",
+        "acquire (get) locks, but cannot release any",
+        "2. Shrinking Phase",
+        "the transactio",
+        "n can release locks, but cannot acquire any new",
+        "Once a transaction releases even a single lock, it enters the shrinking phase and can",
+        "never request a new lock again.",
+        "Variations of 2PL:",
+        "as described above; can still suffer from cascading rollbacks (if a",
+        "transaction fails, others that read its uncommitted data must also roll back).",
+        "all exclusive locks are held until the transaction",
+        "commits or aborts . This",
+        "avoids cascading rollbacks and dirty reads. Most commercial databas",
+        "es use Strict 2PL.",
+        "Rigorous 2PL",
+        "both shared and exclusive locks are held until commit/abort. Even",
+        "simpler to reason about, slightly more restrictive than strict 2PL.",
+        "Conservative (Static) 2PL",
+        "a transaction must acquire",
+        "all the locks it will ever need",
+        "before it starts executing. This avoids deadlock completely but is hard to use in",
+        "practice since you must know all data items in advance.",
+        "4.5 Deadlock in Locking",
+        "When two or more transactions wait for each other's locks forever, it is called a",
+        "deadloc k. Databases handle deadlocks using:",
+        "Deadlock Prevention",
+        "using ordering schemes like Wait",
+        "Die or Wound",
+        "Deadlock Detection",
+        "using a \"wait",
+        "for graph\" to detect cycles and then aborting",
+        "one transaction to break the cycle.",
+        "5. Step - by- Step Working",
+        "2PL Growing then Shrinking:",
+        "Start Transaction",
+        "Growing Phase: Acquire Lock A",
+        "\u2192 Acquire Lock B",
+        "\u2192 Acquire Lock C",
+        "Lock Point (maximum locks held)",
+        "Shrinking Phase: Release Lock A",
+        "\u2192 Release Lock B",
+        "\u2192 Release Lock C",
+        "Transaction Ends (Commit/Abort)",
+        "6. Diagrams",
+        "A graph with 'Number of locks held' on",
+        "the Y - axis and 'Time' on the X",
+        "axis, showing a line",
+        "Figure: A graph with 'Number of locks held' on the Y",
+        "axis and 'Time' on the X",
+        "showing a line rising\u2026",
+        "Lock Compatibility Matrix table shown as a graphic with green (compatible) a",
+        "nd red (not",
+        "Figure: Lock Compatibility Matrix table shown as a graphic with green (compatible) and",
+        "red (not compatibl\u2026",
+        "Wait - for graph example diagram showing a cycle representing deadlock",
+        "Figure: Wait - for graph example diagram showing a cycle representing deadlock",
+        "Locks Released When",
+        "Prevents Cascading",
+        "Anytime after lock point",
+        "Only at commit/abort",
+        "Rigorous 2PL",
+        "Only at commit/abort",
+        "(all locks)",
+        "Conservative",
+        "Anytime after lock point",
+        "9. Important Terms",
+        "Simple Meaning",
+        "A control flag reserving a data item for a transaction",
+        "Shared Lock (S)",
+        "Read - only lock, multiple holders allowed",
+        "Exclusive Lock",
+        "Write lock, only one holder allowed",
+        "Growing Phase",
+        "Part of 2PL where locks are only acquired",
+        "Shrinking Phase",
+        "Part of 2PL where locks are only released",
+        "Two or more transactions waiting forever for each other",
+        "A transaction waits indefinitely because other",
+        "s keep getting",
+        "Serializability",
+        "Property that a concurrent schedule behaves like some serial",
+        "(one - by- one) schedule",
+        "10. Examples",
+        "Easy example:",
+        "Two students trying to book the last seat in a bus at the same",
+        "time - locking ensures only one succeeds.",
+        "Practical example:",
+        "Two bank tellers trying to update the same account balance",
+        "exclusive locking prevents both updates from corrupting the balance.",
+        "Industry example:",
+        "Airline reservation systems use strict locking on seat",
+        "inventory to avoid double",
+        "Real - life example:",
+        "E- commerce flash sales",
+        "exclusive locks on \"stock count\"",
+        "prevent overselling a product.",
+        "11. Advantages & Limitations",
+        "Advantage: Lock",
+        "based protocols guarantee correctness (serializability) when",
+        "properly implemented.",
+        "Advantage: Strict 2PL avoids dirty reads and cascading rollback."
       ],
       "misconceptions": [
-        ""
+        "Students often think three",
+        "tier means \"three separate",
+        "physical computers\"",
+        "it actually means three",
+        "logical layers; they can even run on",
+        "the same physical machine during development.",
+        "N- tier architecture is an extension of three",
+        "tier with more specialized layer",
+        "separate caching tier, security tier).",
+        "Topic 1.2: Concurrency Control Techniques",
+        "1. Topic Name - Concurrency Control",
+        "What is it? Concurrency control is the set of techniques a database uses to make sure",
+        "many users/transactions access the database at the same time",
+        "stays correct and consistent.",
+        "Why do we need it?",
+        "If two people update the same bank account at the same time",
+        "without any control, money can be lost or duplicated. Concurrency control prevents",
+        "these errors.",
+        "Where is it u",
+        "sed? - Banking transaction systems",
+        "Airline/train ticket booking systems",
+        "Online shopping (stock/inventory updates)",
+        "Any multi - user database application",
+        "2. Beginner Friendly Introduction",
+        "Imagine two people trying to withdraw money from the",
+        "same joint bank account at the",
+        "same second, from two different ATMs. If the system does not control this carefully,",
+        "both withdrawals might succeed even if there isn't enough money for both",
+        "each ATM checked the balance before the other one finished updating it",
+        "Key words explained:",
+        "Simple Meaning",
+        "Transaction",
+        "One unit of work, e.g., \"transfer money from A to B\"",
+        "Many transactions running around the same time",
+        "A flag that reserves data for one transaction so others must wait",
+        "The order in which operations of transactions are executed",
+        "Serializable",
+        "A schedule that gives the same result as running transactions",
+        "one after another",
+        "3. Real - Life Analogies",
+        "Analogy 1 - Shared Restroom Key:",
+        "In offices with one shared restroom key, o",
+        "person can hold the key (lock) at a time. Others must wait outside until the key is",
+        "returned. This is exactly how a",
+        "lock works in a database",
+        "only one transaction can",
+        "hold a lock on a data item.",
+        "Analogy 2 - Editing a Shared Google Doc without live",
+        "sync: If two people download",
+        "the same document, edit separately, and both re",
+        "upload, one person's changes get lost.",
+        "Concurrency control is like Google Docs' live editing feature that carefully merges or",
+        "blocks changes so nothing is lost.",
+        "4. Complete Detai",
+        "led Explanation",
+        "4.1 Why Concurrency Problems Happen",
+        "Without control, concurrent transactions can cause:",
+        "Lost Update Problem",
+        "transaction's update is overwritten by another.",
+        "Dirty Read Problem",
+        "a transaction",
+        "reads data written by another transaction that later rolls back (uncommitted data).",
+        "Unrepeatable Read Problem",
+        "a transaction reads the same row twice and gets",
+        "different values because another transaction changed it in between.",
+        "4.2 Lock - Based Protocols",
+        "A lock is a mechanism that stops other t",
+        "ransactions from reading or writing a data",
+        "item while one transaction is using it.",
+        "Types of locks:",
+        "Shared Lock (S",
+        "lock) - used for reading. Multiple transactions can",
+        "hold a shared lock on the same item at the same time (many people can read together).",
+        "Exclusive Lock (X",
+        "lock) - used for writing. Only one transaction can hold an",
+        "exclusive lock, and no other transaction can hold any lock (shared or exclusive) on that",
+        "item at the same time.",
+        "Compatibility Table:",
+        "Requested Held",
+        "4.3 Lock Granting (Locking Methods)",
+        "Lock granting decides",
+        "how and when a lock request is approved:",
+        "Simple Lock Granting",
+        "grant the lock as soon as it is free and compatible.",
+        "Priority - Based Granting",
+        "some systems give priority to older/waiting transactions",
+        "to prevent starvation (a transaction waiting forever because newer transactions keep",
+        "jumping the queue).",
+        "Lock Upgrade",
+        "a transaction that holds a shared lock can request to upgrade it to",
+        "an exclusive lock if it wants to write (allowed only if no other t",
+        "ransaction holds a lock",
+        "on that item).",
+        "Lock Conversion / Downgrade",
+        "reducing an exclusive lock to a shared lock once",
+        "writing is finished but reading might still continue.",
+        "4.4 Two - Phase Locking (2PL) Protocol",
+        "Two - Phase Locking is the most famous lock",
+        "based protocol that guarantees",
+        "serializability",
+        "(the result is as if transactions ran one after another).",
+        "It has exactly two phases:",
+        "1. Growing Phase",
+        "the transaction can",
+        "acquire (get) locks, but cannot release any",
+        "2. Shrinking Phase",
+        "the transactio",
+        "n can release locks, but cannot acquire any new",
+        "Once a transaction releases even a single lock, it enters the shrinking phase and can",
+        "never request a new lock again.",
+        "Variations of 2PL:",
+        "as described above; can still suffer from cascading rollbacks (if a",
+        "transaction fails, others that read its uncommitted data must also roll back).",
+        "all exclusive locks are held until the transaction",
+        "commits or aborts . This",
+        "avoids cascading rollbacks and dirty reads. Most commercial databas",
+        "es use Strict 2PL.",
+        "Rigorous 2PL",
+        "both shared and exclusive locks are held until commit/abort. Even",
+        "simpler to reason about, slightly more restrictive than strict 2PL.",
+        "Conservative (Static) 2PL",
+        "a transaction must acquire",
+        "all the locks it will ever need",
+        "before it starts executing. This avoids deadlock completely but is hard to use in",
+        "practice since you must know all data items in advance.",
+        "4.5 Deadlock in Locking",
+        "When two or more transactions wait for each other's locks forever, it is called a",
+        "deadloc k. Databases handle deadlocks using:",
+        "Deadlock Prevention",
+        "using ordering schemes like Wait",
+        "Die or Wound",
+        "Deadlock Detection",
+        "using a \"wait",
+        "for graph\" to detect cycles and then aborting",
+        "one transaction to break the cycle.",
+        "5. Step - by- Step Working",
+        "2PL Growing then Shrinking:",
+        "Start Transaction",
+        "Growing Phase: Acquire Lock A",
+        "\u2192 Acquire Lock B",
+        "\u2192 Acquire Lock C",
+        "Lock Point (maximum locks held)",
+        "Shrinking Phase: Release Lock A",
+        "\u2192 Release Lock B",
+        "\u2192 Release Lock C",
+        "Transaction Ends (Commit/Abort)",
+        "6. Diagrams",
+        "A graph with 'Number of locks held' on",
+        "the Y - axis and 'Time' on the X",
+        "axis, showing a line",
+        "Figure: A graph with 'Number of locks held' on the Y",
+        "axis and 'Time' on the X",
+        "showing a line rising\u2026",
+        "Lock Compatibility Matrix table shown as a graphic with green (compatible) a",
+        "nd red (not",
+        "Figure: Lock Compatibility Matrix table shown as a graphic with green (compatible) and",
+        "red (not compatibl\u2026",
+        "Wait - for graph example diagram showing a cycle representing deadlock",
+        "Figure: Wait - for graph example diagram showing a cycle representing deadlock",
+        "Locks Released When",
+        "Prevents Cascading",
+        "Anytime after lock point",
+        "Only at commit/abort",
+        "Rigorous 2PL",
+        "Only at commit/abort",
+        "(all locks)",
+        "Conservative",
+        "Anytime after lock point",
+        "9. Important Terms",
+        "Simple Meaning",
+        "A control flag reserving a data item for a transaction",
+        "Shared Lock (S)",
+        "Read - only lock, multiple holders allowed",
+        "Exclusive Lock",
+        "Write lock, only one holder allowed",
+        "Growing Phase",
+        "Part of 2PL where locks are only acquired",
+        "Shrinking Phase",
+        "Part of 2PL where locks are only released",
+        "Two or more transactions waiting forever for each other",
+        "A transaction waits indefinitely because other",
+        "s keep getting",
+        "Serializability",
+        "Property that a concurrent schedule behaves like some serial",
+        "(one - by- one) schedule",
+        "10. Examples",
+        "Easy example:",
+        "Two students trying to book the last seat in a bus at the same",
+        "time - locking ensures only one succeeds.",
+        "Practical example:",
+        "Two bank tellers trying to update the same account balance",
+        "exclusive locking prevents both updates from corrupting the balance.",
+        "Industry example:",
+        "Airline reservation systems use strict locking on seat",
+        "inventory to avoid double",
+        "Real - life example:",
+        "E- commerce flash sales",
+        "exclusive locks on \"stock count\"",
+        "prevent overselling a product.",
+        "11. Advantages & Limitations",
+        "Advantage: Lock",
+        "based protocols guarantee correctness (serializability) when",
+        "properly implemented.",
+        "Advantage: Strict 2PL avoids dirty reads and cascading rollback."
       ],
       "examTips": []
     },
+    "fullRawText": "Three - Tier - Advantage: Highly scalable and secure.\n- Limitation: More complex and\ncostly to set up.\n12. Applications\n\u2022\nIndustry:\nEnterprise Resource Planning (ERP) systems use three\n- tier\narchitecture.\n\u2022\nCompanies: Amazon, Flipkart, Netflix all use multi\n- tier (often more than three\n-\ntier, called n - tier) architecture.\n\u2022\nDaily life: Mobile bank ing apps, e - commerce checkout, online exam portals.\n\u2022\nSoftware: Any modern web application framework (Java EE, .NET, Django) is\ndesigned around three\n- tier principles.\n\u2022\nWebsites: Nearly all dynamic websites use a form of three\n- tier or n\n- tier\narchitecture.\n\u2022\nMobile Apps: Almost every mobile app that needs internet talks to an application\nserver which then talks to a database.\n13. Key Points to Remember\n\u2022 Two - tier = Client + Database only. Three\n- tier = Client + Application Server +\nDatabase.\n\u2022 Business logic location\nis the main difference between two\n- tier and three\n- tier.\n\u2022 Three - tier is preferred for scalability and security in modern web systems.\n\u2022 ODBC/JDBC are the standard bridges for client\n- to- database communication in\ntwo - tier systems.\n\u2022 Common misconception:\nStudents often think three\n- tier means \"three separate\nphysical computers\"\n- it actually means three\nlogical layers; they can even run on\nthe same physical machine during development.\n\u2022 N- tier architecture is an extension of three\n- tier with more specialized layer\ns (e.g.,\nseparate caching tier, security tier).\nTopic 1.2: Concurrency Control Techniques\n1. Topic Name - Concurrency Control\nWhat is it? Concurrency control is the set of techniques a database uses to make sure\nthat when\nmany users/transactions access the database at the same time\n, the data\nstays correct and consistent.\nWhy do we need it?\nIf two people update the same bank account at the same time\nwithout any control, money can be lost or duplicated. Concurrency control prevents\nthese errors.\nWhere is it u\nsed? - Banking transaction systems\n- Airline/train ticket booking systems\n- Online shopping (stock/inventory updates)\n- Any multi - user database application\n2. Beginner Friendly Introduction\nImagine two people trying to withdraw money from the\nsame joint bank account at the\nsame second, from two different ATMs. If the system does not control this carefully,\nboth withdrawals might succeed even if there isn't enough money for both\n- because\neach ATM checked the balance before the other one finished updating it\n.\nKey words explained:\nWord\nSimple Meaning\nTransaction\nOne unit of work, e.g., \"transfer money from A to B\"\nConcurrent\nExecution\nMany transactions running around the same time\nLock\nA flag that reserves data for one transaction so others must wait\nSchedule\nThe order in which operations of transactions are executed\nSerializable\nA schedule that gives the same result as running transactions\none after another\n3. Real - Life Analogies\nAnalogy 1 - Shared Restroom Key:\nIn offices with one shared restroom key, o\nnly one\nperson can hold the key (lock) at a time. Others must wait outside until the key is\nreturned. This is exactly how a\nlock works in a database\n- only one transaction can\nhold a lock on a data item.\nAnalogy 2 - Editing a Shared Google Doc without live\n- sync: If two people download\nthe same document, edit separately, and both re\n- upload, one person's changes get lost.\nConcurrency control is like Google Docs' live editing feature that carefully merges or\nblocks changes so nothing is lost.\n4. Complete Detai\nled Explanation\n4.1 Why Concurrency Problems Happen\nWithout control, concurrent transactions can cause:\n- Lost Update Problem\n- one\ntransaction's update is overwritten by another.\n- Dirty Read Problem\n- a transaction\nreads data written by another transaction that later rolls back (uncommitted data).\n-\nUnrepeatable Read Problem\n- a transaction reads the same row twice and gets\ndifferent values because another transaction changed it in between.\n4.2 Lock - Based Protocols\nA lock is a mechanism that stops other t\nransactions from reading or writing a data\nitem while one transaction is using it.\nTypes of locks:\n- Shared Lock (S\n- lock) - used for reading. Multiple transactions can\nhold a shared lock on the same item at the same time (many people can read together).\n- Exclusive Lock (X\n- lock) - used for writing. Only one transaction can hold an\nexclusive lock, and no other transaction can hold any lock (shared or exclusive) on that\nitem at the same time.\nCompatibility Table:\nRequested Held\nS\nX\nS\nYes\nNo\nX\nNo\nNo\n4.3 Lock Granting (Locking Methods)\nLock granting decides\nhow and when a lock request is approved:\n- Simple Lock Granting\n- grant the lock as soon as it is free and compatible.\n- Priority - Based Granting\n- some systems give priority to older/waiting transactions\nto prevent starvation (a transaction waiting forever because newer transactions keep\njumping the queue).\n- Lock Upgrade\n- a transaction that holds a shared lock can request to upgrade it to\nan exclusive lock if it wants to write (allowed only if no other t\nransaction holds a lock\non that item).\n- Lock Conversion / Downgrade\n- reducing an exclusive lock to a shared lock once\nwriting is finished but reading might still continue.\n4.4 Two - Phase Locking (2PL) Protocol\nTwo - Phase Locking is the most famous lock\n- based protocol that guarantees\nserializability\n(the result is as if transactions ran one after another).\nIt has exactly two phases:\n1. Growing Phase\n- the transaction can\nacquire (get) locks, but cannot release any\nlock.\n2. Shrinking Phase\n- the transactio\nn can release locks, but cannot acquire any new\nlock.\nOnce a transaction releases even a single lock, it enters the shrinking phase and can\nnever request a new lock again.\nVariations of 2PL:\n- Basic 2PL\n- as described above; can still suffer from cascading rollbacks (if a\ntransaction fails, others that read its uncommitted data must also roll back).\n- Strict 2PL\n- all exclusive locks are held until the transaction\ncommits or aborts . This\navoids cascading rollbacks and dirty reads. Most commercial databas\nes use Strict 2PL.\n- Rigorous 2PL\n- both shared and exclusive locks are held until commit/abort. Even\nsimpler to reason about, slightly more restrictive than strict 2PL.\n- Conservative (Static) 2PL\n- a transaction must acquire\nall the locks it will ever need\nbefore it starts executing. This avoids deadlock completely but is hard to use in\npractice since you must know all data items in advance.\n4.5 Deadlock in Locking\nWhen two or more transactions wait for each other's locks forever, it is called a\ndeadloc k. Databases handle deadlocks using:\n- Deadlock Prevention\n- using ordering schemes like Wait\n- Die or Wound\n- Wait.\n- Deadlock Detection\n- using a \"wait\n- for graph\" to detect cycles and then aborting\none transaction to break the cycle.\n5. Step - by- Step Working\n2PL Growing then Shrinking:\nStart Transaction\n\u2193\nGrowing Phase: Acquire Lock A\n\u2192 Acquire Lock B\n\u2192 Acquire Lock C\n\u2193\nLock Point (maximum locks held)\n\u2193\nShrinking Phase: Release Lock A\n\u2192 Release Lock B\n\u2192 Release Lock C\n\u2193\nTransaction Ends (Commit/Abort)\n6. Diagrams\nA graph with 'Number of locks held' on\nthe Y - axis and 'Time' on the X\n- axis, showing a line\nrising\u2026\nFigure: A graph with 'Number of locks held' on the Y\n- axis and 'Time' on the X\n- axis,\nshowing a line rising\u2026\n7. Images\nLock Compatibility Matrix table shown as a graphic with green (compatible) a\nnd red (not\ncompatibl\u2026\nFigure: Lock Compatibility Matrix table shown as a graphic with green (compatible) and\nred (not compatibl\u2026\nWait - for graph example diagram showing a cycle representing deadlock\nFigure: Wait - for graph example diagram showing a cycle representing deadlock\n8. Tables\nProtocol\nVariant\nLocks Released When\nPrevents Cascading\nRollback?\nPrevents\nDeadlock?\nBasic 2PL\nAnytime after lock point\nNo\nNo\nStrict 2PL\nOnly at commit/abort\n(X- locks)\nYes\nNo\nRigorous 2PL\nOnly at commit/abort\n(all locks)\nYes\nNo\nConservative\n2PL\nAnytime after lock point\nNo\nYes\n9. Important Terms\nTerm\nSimple Meaning\nLock\nA control flag reserving a data item for a transaction\nShared Lock (S)\nRead - only lock, multiple holders allowed\nExclusive Lock\n(X)\nWrite lock, only one holder allowed\nGrowing Phase\nPart of 2PL where locks are only acquired\nShrinking Phase\nPart of 2PL where locks are only released\nDeadlock\nTwo or more transactions waiting forever for each other\nStarvation\nA transaction waits indefinitely because other\ns keep getting\npriority\nSerializability\nProperty that a concurrent schedule behaves like some serial\n(one - by- one) schedule\n10. Examples\n\u2022\nEasy example:\nTwo students trying to book the last seat in a bus at the same\ntime - locking ensures only one succeeds.\n\u2022\nPractical example:\nTwo bank tellers trying to update the same account balance\n- exclusive locking prevents both updates from corrupting the balance.\n\u2022\nIndustry example:\nAirline reservation systems use strict locking on seat\ninventory to avoid double\n- booking .\n\u2022\nReal - life example:\nE- commerce flash sales\n- exclusive locks on \"stock count\"\nprevent overselling a product.\n11. Advantages & Limitations\n\u2022\nAdvantage: Lock\n- based protocols guarantee correctness (serializability) when\nproperly implemented.\n\u2022\nAdvantage: Strict 2PL avoids dirty reads and cascading rollback.",
     "structuredTables": [
       {
         "id": "t1_2_2pl",
@@ -577,15 +740,6 @@ export const TOPICS_DATA = [
             "col4": "\u274c No (Deadlocks still possible)",
             "col5": "\ud83d\udd3b Lower (Longer lock retention)",
             "status": "info"
-          },
-          {
-            "feature": "Conservative 2PL (Static)",
-            "col1": "Declares and acquires ALL locks before transaction begins",
-            "col2": "Released gradually after lock point or at commit",
-            "col3": "\u274c No (if released before commit)",
-            "col4": "\u2705 Yes (Deadlock-free by design)",
-            "col5": "\ud83d\udd3b Low (Must know read/write set in advance)",
-            "status": "info"
           }
         ]
       }
@@ -596,196 +750,465 @@ export const TOPICS_DATA = [
     "moduleId": 1,
     "moduleName": "Database Architecture",
     "title": "Introduction to Parallel Databases",
-    "pages": "20 - 27",
-    "estimatedTime": "18 min",
+    "timeEstimate": "18 min",
+    "pageRange": "20 - 26",
     "overview": {
-      "whatIsIt": "A parallel database system uses\nmultiple processors (CPUs) and multiple\ndisks working together\nto perform database operations faster, by splitting one big task\ninto smaller pieces that run at the same time.",
-      "whyNeed": "Modern applications handle huge amounts of data (big data, data\nwarehouses). A single processor cannot process billions of rows fast enough.\nParallelism speeds things up by dividing the work.\nWh ere is it used?\n- Data warehousing and business intelligence\n- Large - scale analytics\n(Google, Facebook\n- scale queries) - Scientific computing on massive datasets",
-      "whereUsed": "Enterprise banking, web applications, and large-scale data platforms.",
-      "importantNotes": ""
+      "whatIsIt": "",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Imagine you must count all the votes in a national election. One person counting alone\nwould take days. Instead, you divide the ballot boxes among 100 people, each counts\ntheir portion, and then someone adds up all the totals. This is exactly what a parallel\ndatabase does with data.",
-      "keywords": [
-        {
-          "term": "Processor (CPU)",
-          "meaning": "The part of the computer that does calculations"
-        },
-        {
-          "term": "Parallelism",
-          "meaning": "Doing multiple things at the same time"
-        },
-        {
-          "term": "Throughput",
-          "meaning": "The number of tasks completed in a given time"
-        },
-        {
-          "term": "Speed",
-          "meaning": "up"
-        },
-        {
-          "term": "Scale",
-          "meaning": "up"
-        }
-      ]
+      "simpleExplanation": "",
+      "keywords": []
     },
-    "analogies": [
-      {
-        "num": "1",
-        "title": "Supermarket Checkout Counters",
-        "description": "One checkout counter serving\nhundreds of customers is slow. Opening 10 counters (10 processors) lets many\ncustomers be serve\nd together - this is parallelism."
-      },
-      {
-        "num": "2",
-        "title": "Group Project",
-        "description": "A large project split among 4 team members, each doing\none section simultaneously, finishes much faster than one person doing everything\nalone."
-      }
-    ],
+    "analogies": [],
     "detailedExplanation": {
       "subsections": [
         {
-          "title": "4.1 Goals of Parallel Databases",
-          "content": "\u2022\nSpeed - up: Doing the same amount of work faster by adding more processors.\n\u2022\nScale - up: Handling a proportionally larger job in the same amount of time by\nadding proportionally more resources."
-        },
-        {
-          "title": "4.2 Parallel Database Architectures",
-          "content": "There are three m\nain hardware architectures:\n1.\nShared Memory Architecture\n- All processors share the same main memory\nand disk. Easy to program, but does not scale well beyond a limited number of\nprocessors because memory becomes a bottleneck.\n2.\nShared Disk Architecture\n- Each processor has its own private memory but all\nprocessors share the same disks. Offers good fault tolerance, but disk access can\nbecome a bottleneck.\n3.\nShared Nothing Architecture\n- Each processor has its own private memory\nAND its own private disk. Processor\ns communicate only through a network. This\nscales the best and is used by most modern large\n- scale systems (e.g., Google\nBigQuery, Teradata)."
-        },
-        {
-          "title": "4.3 Types of Parallelism",
-          "content": "1.\nInterquery Parallelism\n- Different queries (from different users) run in parallel\non different processors. Improves throughput for many simultaneous users.\n2.\nIntraquery Parallelism\n- A single query is broken into parts that run in parallel.\nThis speeds up one individual (often large/complex) query.\n-\nIntraoperation Parallelism\n- a single operation\n(like a big sort or join) is\nsplit across multiple processors, each working on a portion of the data.\n-\nInteroperation Parallelism\n- different operations within the same query\nrun in parallel.\n\u2022\nPipeline Parallelism:\nthe output of one operation is fed directly\ninto the next operation while the first is still producing more\noutput (like an assembly line).\n\u2022\nIndependent Parallelism:\noperations that do not depend on each\nother's results run at the same time."
-        },
-        {
-          "title": "4.4 Parallel Database Implementation Strategies",
-          "content": "\u2022\nData Parti tioning: Splitting a large table's rows across multiple disks/nodes so\neach node stores and processes only a portion.\n-\nRound - Robin Partitioning:\nrows are distributed evenly, one by one, in\nrotation across nodes\n- good for balanced load, but not good for range\nqueries.\n-\nHash Partitioning:\na hash function is applied to a chosen column to\ndecide which node stores the row\n- good for equality lookups.\n-\nRange Partitioning:\nrows are divided based on ranges of a key value (e.g.,\nA-M on Node1, N\n-Z on Node2)\n- good for range queries, but can create\nuneven load (\"skew\") if data is not uniform.\n\u2022\nParallel Query Optimization:\nthe query optimizer decides how to split\noperations like joins and sorts across nodes for best performance.\n\u2022\nParallel Sort/Join Algorithms:\ntechniques li\nke parallel hash join and parallel\nmerge sort distribute the heavy computation across nodes."
+          "title": "Core Theoretical Framework",
+          "content": "Detailed theoretical concepts and principles."
         }
       ],
-      "raw": "4. Complete Detailed Explanation\n4.1 Goals of Parallel Databases\n\u2022\nSpeed - up: Doing the same amount of work faster by adding more processors.\n\u2022\nScale - up: Handling a proportionally larger job in the same amount of time by\nadding proportionally more resources.\n4.2 Parallel Database Architectures\nThere are three m\nain hardware architectures:\n1.\nShared Memory Architecture\n- All processors share the same main memory\nand disk. Easy to program, but does not scale well beyond a limited number of\nprocessors because memory becomes a bottleneck.\n2.\nShared Disk Architecture\n- Each processor has its own private memory but all\nprocessors share the same disks. Offers good fault tolerance, but disk access can\nbecome a bottleneck.\n3.\nShared Nothing Architecture\n- Each processor has its own private memory\nAND its own private disk. Processor\ns communicate only through a network. This\nscales the best and is used by most modern large\n- scale systems (e.g., Google\nBigQuery, Teradata).\n4.3 Types of Parallelism\n1.\nInterquery Parallelism\n- Different queries (from different users) run in parallel\non different processors. Improves throughput for many simultaneous users.\n2.\nIntraquery Parallelism\n- A single query is broken into parts that run in parallel.\nThis speeds up one individual (often large/complex) query.\n-\nIntraoperation Parallelism\n- a single operation\n(like a big sort or join) is\nsplit across multiple processors, each working on a portion of the data.\n-\nInteroperation Parallelism\n- different operations within the same query\nrun in parallel.\n\u2022\nPipeline Parallelism:\nthe output of one operation is fed directly\ninto the next operation while the first is still producing more\noutput (like an assembly line).\n\u2022\nIndependent Parallelism:\noperations that do not depend on each\nother's results run at the same time.\n4.4 Parallel Database Implementation Strategies\n\u2022\nData Parti tioning: Splitting a large table's rows across multiple disks/nodes so\neach node stores and processes only a portion.\n-\nRound - Robin Partitioning:\nrows are distributed evenly, one by one, in\nrotation across nodes\n- good for balanced load, but not good for range\nqueries.\n-\nHash Partitioning:\na hash function is applied to a chosen column to\ndecide which node stores the row\n- good for equality lookups.\n-\nRange Partitioning:\nrows are divided based on ranges of a key value (e.g.,\nA-M on Node1, N\n-Z on Node2)\n- good for range queries, but can create\nuneven load (\"skew\") if data is not uniform.\n\u2022\nParallel Query Optimization:\nthe query optimizer decides how to split\noperations like joins and sorts across nodes for best performance.\n\u2022\nParallel Sort/Join Algorithms:\ntechniques li\nke parallel hash join and parallel\nmerge sort distribute the heavy computation across nodes."
+      "raw": ""
     },
-    "stepByStep": [
-      {
-        "title": "Big Query Submitted",
-        "isHeader": false
-      },
-      {
-        "title": "Query Optimizer splits query into sub",
-        "isHeader": false
-      },
-      {
-        "title": "- tasks",
-        "isHeader": false
-      },
-      {
-        "title": "Sub - tasks distributed to multiple processors/nodes",
-        "isHeader": false
-      },
-      {
-        "title": "Each processor wor",
-        "isHeader": false
-      },
-      {
-        "title": "ks on its own partition of data (in parallel)",
-        "isHeader": false
-      },
-      {
-        "title": "Partial results collected",
-        "isHeader": false
-      },
-      {
-        "title": "Results merged/combined",
-        "isHeader": false
-      },
-      {
-        "title": "Final Result Returned to User",
-        "isHeader": false
-      }
-    ],
-    "tablesRaw": "Architecture\nMemory\nDisk\nScalability\nCommon Use\nShared\nMemory\nShared\nShared Low -\nMedium\nSmall clusters\nShared Disk\nPrivate\nShared Medium\nEnterprise DBs needing fault\ntolerance\nShared\nNothing\nPrivate\nPrivate High\nLarge - scale distribu\nted analytics\nPartitioning Method\nBest For\nWeakness\nRound - Robin\nEven load balancing\nPoor for range queries\nHash\nEquality lookups\nPoor for range queries\nRange\nRange queries\nCan cause data skew",
-    "terms": [
-      {
-        "term": "Speed",
-        "definition": "up"
-      },
-      {
-        "term": "Scale",
-        "definition": "up"
-      }
-    ],
-    "examples": [
-      {
-        "type": "Easy example",
-        "content": "Splitting a phone book alphabetically among 4 people to find a\nname faster."
-      },
-      {
-        "type": "Practical example",
-        "content": "A university database splitting student records across\ndepartments (Engineering, Arts, Science) onto different nodes."
-      },
-      {
-        "type": "Industry example",
-        "content": "Google BigQuery uses a shared\n- nothing, massively parallel\narchitecture to scan petabytes of data\nin seconds."
-      },
-      {
-        "type": "Real-life example",
-        "content": "Amazon Redshift, Teradata, and Snowflake use parallel\nprocessing for fast analytics on huge sales datasets."
-      }
-    ],
-    "advantages": [
-      "Dramatically faster processing of huge datasets.",
-      "Can scale by simply adding more machines."
-    ],
-    "limitations": [
-      "Complex to design, especially avoiding data skew.",
-      "Communication/coordination overhead between nodes can reduce"
-    ],
+    "stepByStep": [],
+    "diagramsDescription": "",
+    "visualIllustrations": "",
+    "tablesRaw": "",
+    "importantTerms": "",
+    "terms": [],
+    "examples": [],
+    "advantages": [],
+    "limitations": [],
+    "advantagesLimitations": "",
     "applications": [
-      {
-        "category": "Industry",
-        "details": "Big data analytics, data warehousing, sc\nientific research."
-      },
-      {
-        "category": "Companies",
-        "details": "Google, Amazon, Facebook, Netflix all use parallel database\ntechnology."
-      },
-      {
-        "category": "Daily life",
-        "details": "Fast search results, quick loading of recommendation feeds."
-      },
-      {
-        "category": "Software",
-        "details": "Hadoop, Spark, Teradata, Snowflake, Amazon Redshift."
-      },
-      {
-        "category": "Websites",
-        "details": "Large e - commerce sites processing millions of transactions."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Apps with real\n- time analytics dashboards."
-      }
+      "Industry: All major relational databases (Oracle, MySQL, SQ",
+      "L Server) implement",
+      "variations of 2PL internally.",
+      "Companies: Banks, airlines, e",
+      "commerce platforms rely on strict locking for",
+      "critical transactions.",
+      "Daily life: Every time you book a movie ticket online and see \"seat is being held,\"",
+      "that is a lock in action.",
+      "Software: Database engines, transaction managers.",
+      "Websites: Any checkout system managing limited stock.",
+      "Mobile Apps: Ride - hailing apps locking a driver record when a ride request is",
+      "being matched."
     ],
     "keyPoints": {
       "takeaways": [
+        "2PL has exactly two phases: G",
+        "rowing (acquire only) and Shrinking (release only).",
+        "Strict 2PL is the most commonly used in real systems because it avoids cascading",
+        "Shared lock = read, Exclusive lock = write; S is compatible with S but not with X.",
+        "Common misconception:",
+        "Students often think 2PL prevents deadlock",
+        "NOT (except the conservative variant); it only guarantees serializability.",
+        "Deadlock is different from starvation",
+        "deadlock is a cycle of waiting, starvation is",
+        "one transaction unfairly delayed forever.",
+        "T opic 1.3: Introduction to Parallel Databases",
+        "1. Topic Name - Parallel Databases",
+        "What is it?",
+        "A parallel database system uses",
+        "multiple processors (CPUs) and multiple",
+        "disks working together",
+        "to perform database operations faster, by splitting one big task",
+        "into smaller pieces that run at the same time.",
+        "Why do we need it?",
+        "Modern applications handle huge amounts of data (big data, data",
+        "warehouses). A single processor cannot process billions of rows fast enough.",
+        "Parallelism speeds things up by dividing the work.",
+        "Wh ere is it used?",
+        "Data warehousing and business intelligence",
+        "Large - scale analytics",
+        "(Google, Facebook",
+        "scale queries) - Scientific computing on massive datasets",
+        "2. Beginner Friendly Introduction",
+        "Imagine you must count all the votes in a national election. One person counting alone",
+        "would take days. Instead, you divide the ballot boxes among 100 people, each counts",
+        "their portion, and then someone adds up all the totals. This is exactly what a parallel",
+        "database does with data.",
+        "Key words explained:",
+        "Simple Meaning",
+        "Processor (CPU)",
+        "The part of the computer that does calculations",
+        "Parallelism",
+        "Doing multiple things at the same time",
+        "The number of tasks completed in a given time",
+        "How much faster a task completes using more processors",
+        "The ability to handle bigger problems by adding more resources",
+        "3. Real - Life Analogies",
+        "Supermarket Checkout Counters:",
+        "One checkout counter serving",
+        "hundreds of customers is slow. Opening 10 counters (10 processors) lets many",
+        "customers be serve",
+        "d together - this is parallelism.",
+        "Analogy 2 - Group Project:",
+        "A large project split among 4 team members, each doing",
+        "one section simultaneously, finishes much faster than one person doing everything",
+        "4. Complete Detailed Explanation",
+        "4.1 Goals of Parallel Databases",
+        "Speed - up: Doing the same amount of work faster by adding more processors.",
+        "Scale - up: Handling a proportionally larger job in the same amount of time by",
+        "adding proportionally more resources.",
+        "4.2 Parallel Database Architectures",
+        "There are three m",
+        "ain hardware architectures:",
+        "Shared Memory Architecture",
+        "All processors share the same main memory",
+        "and disk. Easy to program, but does not scale well beyond a limited number of",
+        "processors because memory becomes a bottleneck.",
+        "Shared Disk Architecture",
+        "Each processor has its own private memory but all",
+        "processors share the same disks. Offers good fault tolerance, but disk access can",
+        "become a bottleneck.",
+        "Shared Nothing Architecture",
+        "Each processor has its own private memory",
+        "AND its own private disk. Processor",
+        "s communicate only through a network. This",
+        "scales the best and is used by most modern large",
+        "scale systems (e.g., Google",
+        "BigQuery, Teradata).",
+        "4.3 Types of Parallelism",
+        "Interquery Parallelism",
+        "Different queries (from different users) run in parallel",
+        "on different processors. Improves throughput for many simultaneous users.",
+        "Intraquery Parallelism",
+        "A single query is broken into parts that run in parallel.",
+        "This speeds up one individual (often large/complex) query.",
+        "Intraoperation Parallelism",
+        "a single operation",
+        "(like a big sort or join) is",
+        "split across multiple processors, each working on a portion of the data.",
+        "Interoperation Parallelism",
+        "different operations within the same query",
+        "run in parallel.",
+        "Pipeline Parallelism:",
+        "the output of one operation is fed directly",
+        "into the next operation while the first is still producing more",
+        "output (like an assembly line).",
+        "Independent Parallelism:",
+        "operations that do not depend on each",
+        "other's results run at the same time.",
+        "4.4 Parallel Database Implementation Strategies",
+        "Data Parti tioning: Splitting a large table's rows across multiple disks/nodes so",
+        "each node stores and processes only a portion.",
+        "Round - Robin Partitioning:",
+        "rows are distributed evenly, one by one, in",
+        "rotation across nodes",
+        "good for balanced load, but not good for range",
+        "Hash Partitioning:",
+        "a hash function is applied to a chosen column to",
+        "decide which node stores the row",
+        "good for equality lookups.",
+        "Range Partitioning:",
+        "rows are divided based on ranges of a key value (e.g.,",
+        "A-M on Node1, N",
+        "Z on Node2)",
+        "good for range queries, but can create",
+        "uneven load (\"skew\") if data is not uniform.",
+        "Parallel Query Optimization:",
+        "the query optimizer decides how to split",
+        "operations like joins and sorts across nodes for best performance.",
+        "Parallel Sort/Join Algorithms:",
+        "techniques li",
+        "ke parallel hash join and parallel",
+        "merge sort distribute the heavy computation across nodes.",
+        "5. Step - by- Step Working",
+        "Big Query Submitted",
+        "Query Optimizer splits query into sub",
+        "Sub - tasks distributed to multiple processors/nodes",
+        "Each processor wor",
+        "ks on its own partition of data (in parallel)",
+        "Partial results collected",
+        "Results merged/combined",
+        "Final Result Returned to User",
+        "6. Diagrams",
+        "Three boxes side by side titled 'Shared Memory', 'Shared Disk', and 'Shared Nothing' each",
+        "Figure: T hree boxes side by side titled 'Shared Memory', 'Shared Disk', and 'Shared",
+        "Nothing' each showing\u2026",
+        "Shared Nothing Architecture Diagram with multiple nodes each having their own CPU, RAM,",
+        "Figure: Shared Nothing Architecture Diagram wit",
+        "h multiple nodes each having their",
+        "own CPU, RAM, and Disk \u2026",
+        "Data partitioning diagram showing Round",
+        "Robin, Hash, and Range partitioning of a table",
+        "across 3 n\u2026",
+        "Figure: Data partitioning diagram showing Round",
+        "Robin, Hash, and Range partitioning",
+        "of a table across 3 n\u2026",
+        "Architecture",
+        "Scalability",
+        "Small clusters",
+        "Shared Disk",
+        "Shared Medium",
+        "Enterprise DBs needing fault",
+        "Private High",
+        "Large - scale distribu",
+        "ted analytics",
+        "Partitioning Method",
+        "Round - Robin",
+        "Even load balancing",
+        "Poor for range queries",
+        "Equality lookups",
+        "Poor for range queries",
+        "Range queries",
+        "Can cause data skew",
+        "9. Important Terms",
+        "Simple Meaning",
+        "Faster completion of the same task using more processors",
+        "Handling a bigger task in the same time using more resources",
+        "Partitioning",
+        "Dividing data across multiple nodes/disks",
+        "Unequal distribution of data/load causing some nodes to work",
+        "Parallelism",
+        "Passing output of one step directly to the next while still running",
+        "Shared Nothing",
+        "Architecture where each node has its own memory and disk",
+        "10. Examples",
+        "Easy example:",
+        "Splitting a phone book alphabetically among 4 people to find a",
+        "name faster.",
+        "Practical example:",
+        "A university database splitting student records across",
+        "departments (Engineering, Arts, Science) onto different nodes.",
+        "Industry example:",
+        "Google BigQuery uses a shared",
+        "nothing, massively parallel",
+        "architecture to scan petabytes of data",
+        "in seconds.",
+        "Real - life example:",
+        "Amazon Redshift, Teradata, and Snowflake use parallel",
+        "processing for fast analytics on huge sales datasets.",
+        "11. Advantages & Limitations",
+        "Advantage: Dramatically faster processing of huge datasets.",
+        "Advantage: Can scale by simply adding more machines.",
+        "Limitation: Complex to design, especially avoiding data skew.",
+        "Limitation: Communication/coordination overhead between nodes can reduce",
+        "efficiency (\"interference\").",
+        "12. Applications",
+        "Industry: Big data analytics, data warehousing, sc",
+        "ientific research.",
+        "Companies: Google, Amazon, Facebook, Netflix all use parallel database",
+        "technology.",
+        "Daily life: Fast search results, quick loading of recommendation feeds.",
+        "Software: Hadoop, Spark, Teradata, Snowflake, Amazon Redshift.",
+        "Websites: Large e - commerce sites processing millions of transactions.",
+        "Mobile Apps: Apps with real",
+        "time analytics dashboards.",
         "Three architectures: Shared Memory, Shared Disk, Shared Nothing",
-        "Shared",
         "Nothing scales best.",
         "Two performance goals: Speed",
         "up (faster) and Scale",
-        "up (bigger problems, same",
-        "time).",
-        "Interquery = many queries in parallel; Intraquery = one query split into parallel",
-        "parts.",
-        "Parallel database is NOT the same as distributed",
-        "database - parallel focuses on performance using tightly coupled processors, while",
-        "distributed focuses on data spread across independent geographic sites (studied",
-        "next).",
-        "Data skew is a major real",
-        "world challenge in parallel systems."
+        "up (bigger problems, same"
       ],
       "misconceptions": [
-        ""
+        "Students often think 2PL prevents deadlock",
+        "NOT (except the conservative variant); it only guarantees serializability.",
+        "Deadlock is different from starvation",
+        "deadlock is a cycle of waiting, starvation is",
+        "one transaction unfairly delayed forever.",
+        "T opic 1.3: Introduction to Parallel Databases",
+        "1. Topic Name - Parallel Databases",
+        "What is it?",
+        "A parallel database system uses",
+        "multiple processors (CPUs) and multiple",
+        "disks working together",
+        "to perform database operations faster, by splitting one big task",
+        "into smaller pieces that run at the same time.",
+        "Why do we need it?",
+        "Modern applications handle huge amounts of data (big data, data",
+        "warehouses). A single processor cannot process billions of rows fast enough.",
+        "Parallelism speeds things up by dividing the work.",
+        "Wh ere is it used?",
+        "Data warehousing and business intelligence",
+        "Large - scale analytics",
+        "(Google, Facebook",
+        "scale queries) - Scientific computing on massive datasets",
+        "2. Beginner Friendly Introduction",
+        "Imagine you must count all the votes in a national election. One person counting alone",
+        "would take days. Instead, you divide the ballot boxes among 100 people, each counts",
+        "their portion, and then someone adds up all the totals. This is exactly what a parallel",
+        "database does with data.",
+        "Key words explained:",
+        "Simple Meaning",
+        "Processor (CPU)",
+        "The part of the computer that does calculations",
+        "Parallelism",
+        "Doing multiple things at the same time",
+        "The number of tasks completed in a given time",
+        "How much faster a task completes using more processors",
+        "The ability to handle bigger problems by adding more resources",
+        "3. Real - Life Analogies",
+        "Supermarket Checkout Counters:",
+        "One checkout counter serving",
+        "hundreds of customers is slow. Opening 10 counters (10 processors) lets many",
+        "customers be serve",
+        "d together - this is parallelism.",
+        "Analogy 2 - Group Project:",
+        "A large project split among 4 team members, each doing",
+        "one section simultaneously, finishes much faster than one person doing everything",
+        "4. Complete Detailed Explanation",
+        "4.1 Goals of Parallel Databases",
+        "Speed - up: Doing the same amount of work faster by adding more processors.",
+        "Scale - up: Handling a proportionally larger job in the same amount of time by",
+        "adding proportionally more resources.",
+        "4.2 Parallel Database Architectures",
+        "There are three m",
+        "ain hardware architectures:",
+        "Shared Memory Architecture",
+        "All processors share the same main memory",
+        "and disk. Easy to program, but does not scale well beyond a limited number of",
+        "processors because memory becomes a bottleneck.",
+        "Shared Disk Architecture",
+        "Each processor has its own private memory but all",
+        "processors share the same disks. Offers good fault tolerance, but disk access can",
+        "become a bottleneck.",
+        "Shared Nothing Architecture",
+        "Each processor has its own private memory",
+        "AND its own private disk. Processor",
+        "s communicate only through a network. This",
+        "scales the best and is used by most modern large",
+        "scale systems (e.g., Google",
+        "BigQuery, Teradata).",
+        "4.3 Types of Parallelism",
+        "Interquery Parallelism",
+        "Different queries (from different users) run in parallel",
+        "on different processors. Improves throughput for many simultaneous users.",
+        "Intraquery Parallelism",
+        "A single query is broken into parts that run in parallel.",
+        "This speeds up one individual (often large/complex) query.",
+        "Intraoperation Parallelism",
+        "a single operation",
+        "(like a big sort or join) is",
+        "split across multiple processors, each working on a portion of the data.",
+        "Interoperation Parallelism",
+        "different operations within the same query",
+        "run in parallel.",
+        "Pipeline Parallelism:",
+        "the output of one operation is fed directly",
+        "into the next operation while the first is still producing more",
+        "output (like an assembly line).",
+        "Independent Parallelism:",
+        "operations that do not depend on each",
+        "other's results run at the same time.",
+        "4.4 Parallel Database Implementation Strategies",
+        "Data Parti tioning: Splitting a large table's rows across multiple disks/nodes so",
+        "each node stores and processes only a portion.",
+        "Round - Robin Partitioning:",
+        "rows are distributed evenly, one by one, in",
+        "rotation across nodes",
+        "good for balanced load, but not good for range",
+        "Hash Partitioning:",
+        "a hash function is applied to a chosen column to",
+        "decide which node stores the row",
+        "good for equality lookups.",
+        "Range Partitioning:",
+        "rows are divided based on ranges of a key value (e.g.,",
+        "A-M on Node1, N",
+        "Z on Node2)",
+        "good for range queries, but can create",
+        "uneven load (\"skew\") if data is not uniform.",
+        "Parallel Query Optimization:",
+        "the query optimizer decides how to split",
+        "operations like joins and sorts across nodes for best performance.",
+        "Parallel Sort/Join Algorithms:",
+        "techniques li",
+        "ke parallel hash join and parallel",
+        "merge sort distribute the heavy computation across nodes.",
+        "5. Step - by- Step Working",
+        "Big Query Submitted",
+        "Query Optimizer splits query into sub",
+        "Sub - tasks distributed to multiple processors/nodes",
+        "Each processor wor",
+        "ks on its own partition of data (in parallel)",
+        "Partial results collected",
+        "Results merged/combined",
+        "Final Result Returned to User",
+        "6. Diagrams",
+        "Three boxes side by side titled 'Shared Memory', 'Shared Disk', and 'Shared Nothing' each",
+        "Figure: T hree boxes side by side titled 'Shared Memory', 'Shared Disk', and 'Shared",
+        "Nothing' each showing\u2026",
+        "Shared Nothing Architecture Diagram with multiple nodes each having their own CPU, RAM,",
+        "Figure: Shared Nothing Architecture Diagram wit",
+        "h multiple nodes each having their",
+        "own CPU, RAM, and Disk \u2026",
+        "Data partitioning diagram showing Round",
+        "Robin, Hash, and Range partitioning of a table",
+        "across 3 n\u2026",
+        "Figure: Data partitioning diagram showing Round",
+        "Robin, Hash, and Range partitioning",
+        "of a table across 3 n\u2026",
+        "Architecture",
+        "Scalability",
+        "Small clusters",
+        "Shared Disk",
+        "Shared Medium",
+        "Enterprise DBs needing fault",
+        "Private High",
+        "Large - scale distribu",
+        "ted analytics",
+        "Partitioning Method",
+        "Round - Robin",
+        "Even load balancing",
+        "Poor for range queries",
+        "Equality lookups",
+        "Poor for range queries",
+        "Range queries",
+        "Can cause data skew",
+        "9. Important Terms",
+        "Simple Meaning",
+        "Faster completion of the same task using more processors",
+        "Handling a bigger task in the same time using more resources",
+        "Partitioning",
+        "Dividing data across multiple nodes/disks",
+        "Unequal distribution of data/load causing some nodes to work",
+        "Parallelism",
+        "Passing output of one step directly to the next while still running",
+        "Shared Nothing",
+        "Architecture where each node has its own memory and disk",
+        "10. Examples",
+        "Easy example:",
+        "Splitting a phone book alphabetically among 4 people to find a",
+        "name faster.",
+        "Practical example:",
+        "A university database splitting student records across",
+        "departments (Engineering, Arts, Science) onto different nodes.",
+        "Industry example:",
+        "Google BigQuery uses a shared",
+        "nothing, massively parallel",
+        "architecture to scan petabytes of data",
+        "in seconds.",
+        "Real - life example:",
+        "Amazon Redshift, Teradata, and Snowflake use parallel",
+        "processing for fast analytics on huge sales datasets.",
+        "11. Advantages & Limitations",
+        "Advantage: Dramatically faster processing of huge datasets.",
+        "Advantage: Can scale by simply adding more machines.",
+        "Limitation: Complex to design, especially avoiding data skew.",
+        "Limitation: Communication/coordination overhead between nodes can reduce",
+        "efficiency (\"interference\").",
+        "12. Applications",
+        "Industry: Big data analytics, data warehousing, sc",
+        "ientific research.",
+        "Companies: Google, Amazon, Facebook, Netflix all use parallel database",
+        "technology.",
+        "Daily life: Fast search results, quick loading of recommendation feeds.",
+        "Software: Hadoop, Spark, Teradata, Snowflake, Amazon Redshift.",
+        "Websites: Large e - commerce sites processing millions of transactions.",
+        "Mobile Apps: Apps with real",
+        "time analytics dashboards.",
+        "13. Key Points to Remember",
+        "Three architectures: Shared Memory, Shared Disk, Shared Nothing",
+        "Nothing scales best.",
+        "Two performance goals: Speed",
+        "up (faster) and Scale",
+        "up (bigger problems, same"
       ],
       "examTips": []
     },
+    "fullRawText": "\u2022\nLimitation: Locking can reduce performance because transactions must wait.\n\u2022\nLimitation: Can cause deadlocks if not carefully managed.\n12. Applications\n\u2022\nIndustry: All major relational databases (Oracle, MySQL, SQ\nL Server) implement\nvariations of 2PL internally.\n\u2022\nCompanies: Banks, airlines, e\n- commerce platforms rely on strict locking for\ncritical transactions.\n\u2022\nDaily life: Every time you book a movie ticket online and see \"seat is being held,\"\nthat is a lock in action.\n\u2022\nSoftware: Database engines, transaction managers.\n\u2022\nWebsites: Any checkout system managing limited stock.\n\u2022\nMobile Apps: Ride - hailing apps locking a driver record when a ride request is\nbeing matched.\n13. Key Points to Remember\n\u2022 2PL has exactly two phases: G\nrowing (acquire only) and Shrinking (release only).\n\u2022 Strict 2PL is the most commonly used in real systems because it avoids cascading\nrollback.\n\u2022 Shared lock = read, Exclusive lock = write; S is compatible with S but not with X.\n\u2022 Common misconception:\nStudents often think 2PL prevents deadlock\n- it does\nNOT (except the conservative variant); it only guarantees serializability.\n\u2022 Deadlock is different from starvation\n- deadlock is a cycle of waiting, starvation is\none transaction unfairly delayed forever.\nT opic 1.3: Introduction to Parallel Databases\n1. Topic Name - Parallel Databases\nWhat is it?\nA parallel database system uses\nmultiple processors (CPUs) and multiple\ndisks working together\nto perform database operations faster, by splitting one big task\ninto smaller pieces that run at the same time.\nWhy do we need it?\nModern applications handle huge amounts of data (big data, data\nwarehouses). A single processor cannot process billions of rows fast enough.\nParallelism speeds things up by dividing the work.\nWh ere is it used?\n- Data warehousing and business intelligence\n- Large - scale analytics\n(Google, Facebook\n- scale queries) - Scientific computing on massive datasets\n2. Beginner Friendly Introduction\nImagine you must count all the votes in a national election. One person counting alone\nwould take days. Instead, you divide the ballot boxes among 100 people, each counts\ntheir portion, and then someone adds up all the totals. This is exactly what a parallel\ndatabase does with data.\nKey words explained:\nWord\nSimple Meaning\nProcessor (CPU)\nThe part of the computer that does calculations\nParallelism\nDoing multiple things at the same time\nThroughput\nThe number of tasks completed in a given time\nSpeed - up\nHow much faster a task completes using more processors\nScale - up\nThe ability to handle bigger problems by adding more resources\n3. Real - Life Analogies\nAnalogy 1\n- Supermarket Checkout Counters:\nOne checkout counter serving\nhundreds of customers is slow. Opening 10 counters (10 processors) lets many\ncustomers be serve\nd together - this is parallelism.\nAnalogy 2 - Group Project:\nA large project split among 4 team members, each doing\none section simultaneously, finishes much faster than one person doing everything\nalone.\n4. Complete Detailed Explanation\n4.1 Goals of Parallel Databases\n\u2022\nSpeed - up: Doing the same amount of work faster by adding more processors.\n\u2022\nScale - up: Handling a proportionally larger job in the same amount of time by\nadding proportionally more resources.\n4.2 Parallel Database Architectures\nThere are three m\nain hardware architectures:\n1.\nShared Memory Architecture\n- All processors share the same main memory\nand disk. Easy to program, but does not scale well beyond a limited number of\nprocessors because memory becomes a bottleneck.\n2.\nShared Disk Architecture\n- Each processor has its own private memory but all\nprocessors share the same disks. Offers good fault tolerance, but disk access can\nbecome a bottleneck.\n3.\nShared Nothing Architecture\n- Each processor has its own private memory\nAND its own private disk. Processor\ns communicate only through a network. This\nscales the best and is used by most modern large\n- scale systems (e.g., Google\nBigQuery, Teradata).\n4.3 Types of Parallelism\n1.\nInterquery Parallelism\n- Different queries (from different users) run in parallel\non different processors. Improves throughput for many simultaneous users.\n2.\nIntraquery Parallelism\n- A single query is broken into parts that run in parallel.\nThis speeds up one individual (often large/complex) query.\n-\nIntraoperation Parallelism\n- a single operation\n(like a big sort or join) is\nsplit across multiple processors, each working on a portion of the data.\n-\nInteroperation Parallelism\n- different operations within the same query\nrun in parallel.\n\u2022\nPipeline Parallelism:\nthe output of one operation is fed directly\ninto the next operation while the first is still producing more\noutput (like an assembly line).\n\u2022\nIndependent Parallelism:\noperations that do not depend on each\nother's results run at the same time.\n4.4 Parallel Database Implementation Strategies\n\u2022\nData Parti tioning: Splitting a large table's rows across multiple disks/nodes so\neach node stores and processes only a portion.\n-\nRound - Robin Partitioning:\nrows are distributed evenly, one by one, in\nrotation across nodes\n- good for balanced load, but not good for range\nqueries.\n-\nHash Partitioning:\na hash function is applied to a chosen column to\ndecide which node stores the row\n- good for equality lookups.\n-\nRange Partitioning:\nrows are divided based on ranges of a key value (e.g.,\nA-M on Node1, N\n-Z on Node2)\n- good for range queries, but can create\nuneven load (\"skew\") if data is not uniform.\n\u2022\nParallel Query Optimization:\nthe query optimizer decides how to split\noperations like joins and sorts across nodes for best performance.\n\u2022\nParallel Sort/Join Algorithms:\ntechniques li\nke parallel hash join and parallel\nmerge sort distribute the heavy computation across nodes.\n5. Step - by- Step Working\nBig Query Submitted\n\u2193\nQuery Optimizer splits query into sub\n- tasks\n\u2193\nSub - tasks distributed to multiple processors/nodes\n\u2193\nEach processor wor\nks on its own partition of data (in parallel)\n\u2193\nPartial results collected\n\u2193\nResults merged/combined\n\u2193\nFinal Result Returned to User\n6. Diagrams\nThree boxes side by side titled 'Shared Memory', 'Shared Disk', and 'Shared Nothing' each\nshowing\u2026\nFigure: T hree boxes side by side titled 'Shared Memory', 'Shared Disk', and 'Shared\nNothing' each showing\u2026\n7. Images\nShared Nothing Architecture Diagram with multiple nodes each having their own CPU, RAM,\nand Disk \u2026\nFigure: Shared Nothing Architecture Diagram wit\nh multiple nodes each having their\nown CPU, RAM, and Disk \u2026\nData partitioning diagram showing Round\n- Robin, Hash, and Range partitioning of a table\nacross 3 n\u2026\nFigure: Data partitioning diagram showing Round\n- Robin, Hash, and Range partitioning\nof a table across 3 n\u2026\n8. Tables\nArchitecture\nMemory\nDisk\nScalability\nCommon Use\nShared\nMemory\nShared\nShared Low -\nMedium\nSmall clusters\nShared Disk\nPrivate\nShared Medium\nEnterprise DBs needing fault\ntolerance\nShared\nNothing\nPrivate\nPrivate High\nLarge - scale distribu\nted analytics\nPartitioning Method\nBest For\nWeakness\nRound - Robin\nEven load balancing\nPoor for range queries\nHash\nEquality lookups\nPoor for range queries\nRange\nRange queries\nCan cause data skew\n9. Important Terms\nTerm\nSimple Meaning\nSpeed - up\nFaster completion of the same task using more processors\nScale - up\nHandling a bigger task in the same time using more resources\nPartitioning\nDividing data across multiple nodes/disks\nSkew\nUnequal distribution of data/load causing some nodes to work\nharder\nPipeli ne\nParallelism\nPassing output of one step directly to the next while still running\nShared Nothing\nArchitecture where each node has its own memory and disk\n10. Examples\n\u2022\nEasy example:\nSplitting a phone book alphabetically among 4 people to find a\nname faster.\n\u2022\nPractical example:\nA university database splitting student records across\ndepartments (Engineering, Arts, Science) onto different nodes.\n\u2022\nIndustry example:\nGoogle BigQuery uses a shared\n- nothing, massively parallel\narchitecture to scan petabytes of data\nin seconds.\n\u2022\nReal - life example:\nAmazon Redshift, Teradata, and Snowflake use parallel\nprocessing for fast analytics on huge sales datasets.\n11. Advantages & Limitations\n\u2022\nAdvantage: Dramatically faster processing of huge datasets.\n\u2022\nAdvantage: Can scale by simply adding more machines.\n\u2022\nLimitation: Complex to design, especially avoiding data skew.\n\u2022\nLimitation: Communication/coordination overhead between nodes can reduce\nefficiency (\"interference\").\n12. Applications\n\u2022\nIndustry: Big data analytics, data warehousing, sc\nientific research.\n\u2022\nCompanies: Google, Amazon, Facebook, Netflix all use parallel database\ntechnology.\n\u2022\nDaily life: Fast search results, quick loading of recommendation feeds.\n\u2022\nSoftware: Hadoop, Spark, Teradata, Snowflake, Amazon Redshift.\n\u2022\nWebsites: Large e - commerce sites processing millions of transactions.\n\u2022\nMobile Apps: Apps with real\n- time analytics dashboards.\n13. Key Points to Remember\n\u2022 Three architectures: Shared Memory, Shared Disk, Shared Nothing\n- Shared\nNothing scales best.\n\u2022 Two performance goals: Speed\n- up (faster) and Scale\n- up (bigger problems, same\ntime).",
     "structuredTables": [
       {
         "id": "t1_3_arch",
@@ -833,49 +1256,6 @@ export const TOPICS_DATA = [
             "status": "success"
           }
         ]
-      },
-      {
-        "id": "t1_3_partitioning",
-        "title": "Parallel Data Partitioning (Declustering) Strategies",
-        "subtitle": "Comparison of Round-Robin, Hash Partitioning, and Range Partitioning methods",
-        "badge": "Parallel Query Optimization",
-        "headers": [
-          "Partitioning Strategy",
-          "Placement Algorithm",
-          "Strengths / Best For",
-          "Weaknesses / Trade-offs",
-          "Range Query Performance",
-          "Point Lookup Performance"
-        ],
-        "rows": [
-          {
-            "feature": "Round-Robin Partitioning",
-            "col1": "Assigns tuple i to node (i mod n) sequentially",
-            "col2": "Perfect uniform load balancing across disks",
-            "col3": "No attribute indexing; queries must scan all nodes",
-            "col4": "\u274c Inefficient (All nodes participate)",
-            "col5": "\u274c Inefficient (Must broadcast to all nodes)",
-            "status": "info"
-          },
-          {
-            "feature": "Hash Partitioning",
-            "col1": "Applies hash function h(key) mod n to partition key",
-            "col2": "Excellent for point queries (key = value) and joins",
-            "col3": "Poor for range scans (adjacent values on different nodes)",
-            "col4": "\u274c Poor (Requires full cluster broadcast)",
-            "col5": "\u2705 Optimal (Direct single-node directed lookup)",
-            "status": "success"
-          },
-          {
-            "feature": "Range Partitioning",
-            "col1": "Maps continuous value intervals (e.g. A-F, G-M, N-Z) to nodes",
-            "col2": "Optimal for range queries (WHERE age BETWEEN 20 AND 30)",
-            "col3": "Risk of data skew / hot spots if distribution is non-uniform",
-            "col4": "\u2705 Optimal (Direct scan of only relevant node partitions)",
-            "col5": "\u2705 Fast (Directed lookup via range vector)",
-            "status": "better-col2"
-          }
-        ]
       }
     ]
   },
@@ -884,179 +1264,196 @@ export const TOPICS_DATA = [
     "moduleId": 1,
     "moduleName": "Database Architecture",
     "title": "Introduction to Distributed Databases",
-    "pages": "27 - 34",
-    "estimatedTime": "20 min",
+    "timeEstimate": "20 min",
+    "pageRange": "27 - 33",
     "overview": {
-      "whatIsIt": "Core database architecture and management techniques.",
-      "whyNeed": "Crucial for scalability, data integrity, and high performance.",
-      "whereUsed": "Enterprise banking, web applications, and large-scale data platforms.",
-      "importantNotes": ""
+      "whatIsIt": "",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Imagine a chain of supermarkets in different cities. Each store keeps its own local sales\nrecords, but the head office can still ask, \"How many total apples did we sell across all\nstores today?\" and get one combined answer. The data is physically spread out, but\nlogically it behaves like one big database.",
-      "keywords": [
-        {
-          "term": "Site",
-          "meaning": "One physical location where part of the database is stored"
-        },
-        {
-          "term": "Fragmentation",
-          "meaning": "Splitting a table into pieces stored at different sites"
-        },
-        {
-          "term": "Replication",
-          "meaning": "Keeping copies of the same data at multiple sites"
-        },
-        {
-          "term": "Transparency",
-          "meaning": "Hiding the complexity of distribution so users feel like they use"
-        },
-        {
-          "term": "one database",
-          "meaning": "Two - Phase"
-        },
-        {
-          "term": "Commit",
-          "meaning": "A protocol to make sure a transaction either completes"
-        }
-      ]
+      "simpleExplanation": "2. Beginner Friendly Introduction\nImagine a chain of supermarkets in different cities. Each store keeps its own local sales\nrecords, but the head office can still ask, \"How many total apples did we sell across all\nstores today?\" and get one combined answer. The data is physically spread out, but\nlogically it behaves like one big database.\nKey words explained:\nWord\nSimple Meaning\nSite\nOne physical location where part of the database is stored\nFragmentation\nSplitting a table into pieces stored at different sites\nReplication\nKeeping copies of the same data at multiple sites\nTransparency\nHiding the complexity of distribution so users feel like they use\none database\nTwo - Phase\nCommit\nA protocol to make sure a transaction either completes\neverywhere or nowhere",
+      "keywords": []
     },
     "analogies": [
-      {
-        "num": "2",
-        "title": "Google Drive Syncing Across Devices",
-        "description": "Your files might be spread and\nsynced across your phone, laptop, and the cloud, but you experience it as \"one\" set of\nfiles. This mirrors distribution transparency in distributed databases."
-      }
+      "Chain of Supermar\nket Branches:\nEach branch (site) keeps its own local\nstock data, but the central head office system can combine data from every branch\nwhen needed - just like a distributed database combines data from multiple sites.",
+      "Google Drive Syncing Across Devices:\nYour files might be spread and\nsynced across your phone, laptop, and the cloud, but you experience it as \"one\" set of\nfiles. This mirrors distribution transparency in distributed databases."
     ],
     "detailedExplanation": {
       "subsections": [
         {
           "title": "4.1 Distributed Databas",
-          "content": "e Architecture\n\u2022\nClient - Server Distributed Architecture:\nclients connect to different database\nservers, and servers may need to communicate with each other to answer a\nquery spanning multiple sites.\n\u2022\nPeer - to- Peer (Collaborating Server) Architecture:\nevery site runs full database\nsoftware and can act as both a client and a server; all sites cooperate as equals.\n\u2022\nHomogeneous Distributed Database:\nall sites use the same database\nmanagement system (DBMS) software and the same schema structure\n- easier\nto manage.\n\u2022\nHe terogeneous Distributed Database:\ndifferent sites may use different DBMS\nsoftware or schemas; requires extra translation layers (middleware) to\ncommunicate\n- more complex but more flexible for merging existing separate\nsystems."
+          "content": "e Architecture\n\u2022"
+        },
+        {
+          "title": "Client - Server Distributed Architecture",
+          "content": "clients connect to different database\nservers, and servers may need to communicate with each other to answer a\nquery spanning multiple sites.\n\u2022"
+        },
+        {
+          "title": "Peer - to- Peer (Collaborating Server) Architecture",
+          "content": "every site runs full database\nsoftware and can act as both a client and a server; all sites cooperate as equals.\n\u2022"
+        },
+        {
+          "title": "Homogeneous Distributed Database",
+          "content": "all sites use the same database\nmanagement system (DBMS) software and the same schema structure\n- easier\nto manage.\n\u2022"
+        },
+        {
+          "title": "He terogeneous Distributed Database",
+          "content": "different sites may use different DBMS\nsoftware or schemas; requires extra translation layers (middleware) to\ncommunicate\n- more complex but more flexible for merging existing separate\nsystems."
         },
         {
           "title": "4.2 Key Concepts",
-          "content": "\u2022\nFragmentation:\ndividing a relation (table) into smaller pieces (fragments) and\nstoring them at different sites.\n-\nHorizontal Fragmentation:\nsplitting a table by\nrows (e.g., customers from\nNorth region at Site A, South region at Site B).\n-\nVertical Fragmentation:\nsplittin g a table by columns (e.g., basic customer\ninfo at Site A, financial info at Site B).\n-\nMixed (Hybrid) Fragmentation:\na combination of horizontal and vertical\nfragmentation.\n\u2022\nReplication: storing copies of the same data at more than one site to improve\navailability and reliability. If one site fails, another copy is still available.\n\u2022\nTransparency:\nthe distributed database should hide its complexity, including:\n-\nFragmentation Transparency\n- user doesn't need to know data is\nfragmented.\n-\nReplication Transparency\n- user doesn't need to know how many copies\nexist.\n-\nLocation Transparency\n- user doesn't need to know the physical location\nof data."
+          "content": "\u2022"
+        },
+        {
+          "title": "Fragmentation",
+          "content": "dividing a relation (table) into smaller pieces (fragments) and\nstoring them at different sites.\n-"
+        },
+        {
+          "title": "Horizontal Fragmentation",
+          "content": "splitting a table by\nrows (e.g., customers from\nNorth region at Site A, South region at Site B).\n-"
+        },
+        {
+          "title": "Vertical Fragmentation",
+          "content": "splittin g a table by columns (e.g., basic customer\ninfo at Site A, financial info at Site B).\n-"
+        },
+        {
+          "title": "Mixed (Hybrid) Fragmentation",
+          "content": "a combination of horizontal and vertical\nfragmentation.\n\u2022"
+        },
+        {
+          "title": "Replication: storing copies of the same data at more than one site to improve",
+          "content": "availability and reliability. If one site fails, another copy is still available.\n\u2022"
+        },
+        {
+          "title": "Transparency",
+          "content": "the distributed database should hide its complexity, including:\n-"
+        },
+        {
+          "title": "Fragmentation Transparency",
+          "content": "- user doesn't need to know data is\nfragmented.\n-"
+        },
+        {
+          "title": "Replication Transparency",
+          "content": "- user doesn't need to know how many copies\nexist.\n-"
+        },
+        {
+          "title": "Location Transparency",
+          "content": "- user doesn't need to know the physical location\nof data."
         },
         {
           "title": "4.3 Advantages of Distributed Databases",
-          "content": "\u2022\nImproved reliability and availability:\nif one site goes down, other sites can\ncontinue operating.\n\u2022\nLocal autonomy:\neach site can manage its own local data independently.\n\u2022\nFaster local access:\ndata close to users reduces network delay.\n\u2022\nEasier expansion:\nnew sites can be added without disrupting existing ones.\n\u2022\nReflects organizational structure:\nnaturally matches companies with multiple\nbranches."
+          "content": "\u2022"
+        },
+        {
+          "title": "Improved reliability and availability",
+          "content": "if one site goes down, other sites can\ncontinue operating.\n\u2022"
+        },
+        {
+          "title": "Local autonomy",
+          "content": "each site can manage its own local data independently.\n\u2022"
+        },
+        {
+          "title": "Faster local access",
+          "content": "data close to users reduces network delay.\n\u2022"
+        },
+        {
+          "title": "Easier expansion",
+          "content": "new sites can be added without disrupting existing ones.\n\u2022"
+        },
+        {
+          "title": "Reflects organizational structure",
+          "content": "naturally matches companies with multiple\nbranches."
         },
         {
           "title": "4.4 Issues and Challenges",
-          "content": "\u2022\nComplexity: designing, managing, and tuning a distributed system is far harder\nthan a single - site database.\n\u2022\nCost: more hardware, more network infrastructure, more skilled staff needed.\n\u2022\nSecurity: more network points mean more chances for attacks; data must be\nprotected in transit.\n\u2022\nData Integrity across sites:\nensuring all copies of replicated data remain\nconsistent (concurrency control becomes harder across a network).\n\u2022\nDistributed\nTransaction Management:\na transaction may need to update data\nat multiple sites; if one site fails mid\n- transaction, the whole transaction may\nneed to be rolled back everywhere. This is handled using the\nTwo - Phase\nCommit (2PC) Protocol\n:\n1.\nPrepare Phase\n- coordinator asks all sites \"are you ready to commit?\"\nEach site responds yes/no.\n2.\nCommit Phase\n- if all sites say yes, coordinator tells everyone to commit;\nif any site says no, coordinator tells everyone to abort/rollback.\n\u2022\nQuery Optimization Difficulty:\ndecid ing the cheapest way to execute a query\nthat needs data from multiple sites (minimizing data transfer over the network)\nis much harder than single\n- site optimization.\n\u2022\nNetwork Failures:\nunlike a single machine, a distributed database must handle\nnetwork part itions (when sites cannot communicate with each other)."
+          "content": "\u2022"
+        },
+        {
+          "title": "Complexity: designing, managing, and tuning a distributed system is far harder",
+          "content": "than a single - site database.\n\u2022"
+        },
+        {
+          "title": "Cost: more hardware, more network infrastructure, more skilled staff needed.",
+          "content": "\u2022"
+        },
+        {
+          "title": "Security: more network points mean more chances for attacks; data must be",
+          "content": "protected in transit.\n\u2022"
+        },
+        {
+          "title": "Data Integrity across sites",
+          "content": "ensuring all copies of replicated data remain\nconsistent (concurrency control becomes harder across a network).\n\u2022"
+        },
+        {
+          "title": "Distributed",
+          "content": "Transaction Management:\na transaction may need to update data\nat multiple sites; if one site fails mid\n- transaction, the whole transaction may\nneed to be rolled back everywhere. This is handled using the"
+        },
+        {
+          "title": "Two - Phase",
+          "content": "Commit (2PC) Protocol\n:\n1."
+        },
+        {
+          "title": "Prepare Phase",
+          "content": "- coordinator asks all sites \"are you ready to commit?\"\nEach site responds yes/no.\n2."
+        },
+        {
+          "title": "Commit Phase",
+          "content": "- if all sites say yes, coordinator tells everyone to commit;\nif any site says no, coordinator tells everyone to abort/rollback.\n\u2022"
+        },
+        {
+          "title": "Query Optimization Difficulty",
+          "content": "decid ing the cheapest way to execute a query\nthat needs data from multiple sites (minimizing data transfer over the network)\nis much harder than single\n- site optimization.\n\u2022"
+        },
+        {
+          "title": "Network Failures",
+          "content": "unlike a single machine, a distributed database must handle\nnetwork part itions (when sites cannot communicate with each other)."
         }
       ],
       "raw": "4. Complete Detailed Explanation\n4.1 Distributed Databas\ne Architecture\n\u2022\nClient - Server Distributed Architecture:\nclients connect to different database\nservers, and servers may need to communicate with each other to answer a\nquery spanning multiple sites.\n\u2022\nPeer - to- Peer (Collaborating Server) Architecture:\nevery site runs full database\nsoftware and can act as both a client and a server; all sites cooperate as equals.\n\u2022\nHomogeneous Distributed Database:\nall sites use the same database\nmanagement system (DBMS) software and the same schema structure\n- easier\nto manage.\n\u2022\nHe terogeneous Distributed Database:\ndifferent sites may use different DBMS\nsoftware or schemas; requires extra translation layers (middleware) to\ncommunicate\n- more complex but more flexible for merging existing separate\nsystems.\n4.2 Key Concepts\n\u2022\nFragmentation:\ndividing a relation (table) into smaller pieces (fragments) and\nstoring them at different sites.\n-\nHorizontal Fragmentation:\nsplitting a table by\nrows (e.g., customers from\nNorth region at Site A, South region at Site B).\n-\nVertical Fragmentation:\nsplittin g a table by columns (e.g., basic customer\ninfo at Site A, financial info at Site B).\n-\nMixed (Hybrid) Fragmentation:\na combination of horizontal and vertical\nfragmentation.\n\u2022\nReplication: storing copies of the same data at more than one site to improve\navailability and reliability. If one site fails, another copy is still available.\n\u2022\nTransparency:\nthe distributed database should hide its complexity, including:\n-\nFragmentation Transparency\n- user doesn't need to know data is\nfragmented.\n-\nReplication Transparency\n- user doesn't need to know how many copies\nexist.\n-\nLocation Transparency\n- user doesn't need to know the physical location\nof data.\n4.3 Advantages of Distributed Databases\n\u2022\nImproved reliability and availability:\nif one site goes down, other sites can\ncontinue operating.\n\u2022\nLocal autonomy:\neach site can manage its own local data independently.\n\u2022\nFaster local access:\ndata close to users reduces network delay.\n\u2022\nEasier expansion:\nnew sites can be added without disrupting existing ones.\n\u2022\nReflects organizational structure:\nnaturally matches companies with multiple\nbranches.\n4.4 Issues and Challenges\n\u2022\nComplexity: designing, managing, and tuning a distributed system is far harder\nthan a single - site database.\n\u2022\nCost: more hardware, more network infrastructure, more skilled staff needed.\n\u2022\nSecurity: more network points mean more chances for attacks; data must be\nprotected in transit.\n\u2022\nData Integrity across sites:\nensuring all copies of replicated data remain\nconsistent (concurrency control becomes harder across a network).\n\u2022\nDistributed\nTransaction Management:\na transaction may need to update data\nat multiple sites; if one site fails mid\n- transaction, the whole transaction may\nneed to be rolled back everywhere. This is handled using the\nTwo - Phase\nCommit (2PC) Protocol\n:\n1.\nPrepare Phase\n- coordinator asks all sites \"are you ready to commit?\"\nEach site responds yes/no.\n2.\nCommit Phase\n- if all sites say yes, coordinator tells everyone to commit;\nif any site says no, coordinator tells everyone to abort/rollback.\n\u2022\nQuery Optimization Difficulty:\ndecid ing the cheapest way to execute a query\nthat needs data from multiple sites (minimizing data transfer over the network)\nis much harder than single\n- site optimization.\n\u2022\nNetwork Failures:\nunlike a single machine, a distributed database must handle\nnetwork part itions (when sites cannot communicate with each other)."
     },
     "stepByStep": [
       {
-        "title": "Two - Phase Commit Protocol:",
-        "isHeader": false
-      },
-      {
-        "title": "Coordinator sends \"Prepare to commit?\" to all sites",
-        "isHeader": false
-      },
-      {
-        "title": "Each site checks it can commit",
-        "isHeader": false
-      },
-      {
-        "title": "\u2192 replies YES or NO",
-        "isHeader": false
-      },
-      {
-        "title": "If ALL replies are YES:",
-        "isHeader": false
-      },
-      {
-        "title": "Coordinator sends",
-        "isHeader": false
-      },
-      {
-        "title": "\"COMMIT \" to all sites",
-        "isHeader": false
-      },
-      {
-        "title": "All sites commit permanently",
-        "isHeader": false
-      },
-      {
-        "title": "Else (any NO or timeout):",
-        "isHeader": false
-      },
-      {
-        "title": "Coordinator sends",
-        "isHeader": false
-      },
-      {
-        "title": "\"ABORT \" to all sites",
-        "isHeader": false
-      },
-      {
-        "title": "All sites roll back",
-        "isHeader": false
+        "step": 1,
+        "title": "Step - by- Step Working",
+        "description": "Two - Phase Commit Protocol:\nCoordinator sends \"Prepare to commit?\" to all sites\n\u2193\nEach site checks it can commit\n\u2192 replies YES or NO\n\u2193\nIf ALL replies are YES:\nCoordinator sends\n\"COMMIT \" to all sites\n\u2193\nAll sites commit permanently\nElse (any NO or timeout):\nCoordinator sends\n\"ABORT \" to all sites\n\u2193\nAll sites roll back"
       }
     ],
-    "tablesRaw": "Fragmentation Type\nSplits By\nExample\nHorizontal\nRows\nNorth customers vs South customers\nVertical\nColumns\nPersonal info vs Financial info\nHybrid\nRows and Columns\nCombination of both\nFeature\nCentralized Database\nDistributed\nDatabase\nData location\nOne place\nMultiple sites\nFailure impact\nTotal system down\nOnly affected site impacted\nComplexity\nLower\nHigher\nScalability\nLimited\nHigh\nQuery cost\nSimple\nMust consider network cost",
-    "terms": [
-      {
-        "term": "Two",
-        "definition": "Phase Commit"
-      }
-    ],
+    "diagramsDescription": "6. Diagrams\nA world map with several server icons in\ndifferent countries, all connected by dotted lines to re\u2026\nFigure: A world map with several server icons in different countries, all connected by\ndotted lines to re\u2026",
+    "visualIllustrations": "7. Images\nHorizontal vs Vertical Fragmentation diagram showing one full table being split by rows in one\nex\u2026\nFigure: Horizontal vs Vertical Fragment\nation diagram showing one full table being split\nby rows in one ex\u2026\nTwo - Phase Commit Protocol sequence diagram showing coordinator and participant sites\nexchanging P\u2026\nFigure: Two\n- Phase Commit Protocol sequence diagram showing coordinator and\nparticipant sites exchanging P\u2026",
+    "tablesRaw": "8. Tables\nFragmentation Type\nSplits By\nExample\nHorizontal\nRows\nNorth customers vs South customers\nVertical\nColumns\nPersonal info vs Financial info\nHybrid\nRows and Columns\nCombination of both\nFeature\nCentralized Database\nDistributed\nDatabase\nData location\nOne place\nMultiple sites\nFailure impact\nTotal system down\nOnly affected site impacted\nComplexity\nLower\nHigher\nScalability\nLimited\nHigh\nQuery cost\nSimple\nMust consider network cost",
+    "importantTerms": "9. Important Terms\nTerm\nSimple Meaning\nSite\nA physical location storing part of the database\nFragmentation\nSplitting a table into pieces across sites\nReplication\nStoring duplicate copies of data at multiple sites\nHomogeneous DDB\nAll sites use same DBMS\nHeterogeneous DDB\nSites use different DBMS s\noftware\nTwo - Phase Commit\nProtocol ensuring all\n- or- nothing commit across sites\nTransparency\nHiding distribution details from the user",
+    "terms": [],
     "examples": [
-      {
-        "type": "Easy example",
-        "content": "A school with multiple branches, each keeping local student\nrecords but sharing one combined report to the main office."
-      },
-      {
-        "type": "Practical example",
-        "content": "A distributed university system where each campus stores its\nown enrollment data but a central portal can generate a combined report."
-      },
-      {
-        "type": "Industry example",
-        "content": "Global banks like HSBC store customer data across regional\ndata centers but present a unified view to customers worldwide."
-      },
-      {
-        "type": "Real-life example",
-        "content": "Airline systems like Amadeus manage bookings across\ndistributed servers globally while keeping seat inventory consistent."
-      }
+      "10. Examples\n\u2022\nEasy example:\nA school with multiple branches, each keeping local student\nrecords but sharing one combined report to the main office.\n\u2022\nPractical example:\nA distributed university system where each campus stores its\nown enrollment data but a central portal can generate a combined report.\n\u2022\nIndustry example:\nGlobal banks like HSBC store customer data across regional\ndata centers but present a unified view to customers worldwide.\n\u2022\nReal - life example:\nAirline systems like Amadeus manage bookings across\ndistributed servers globally while keeping seat inventory consistent."
     ],
     "advantages": [
       "High availability",
-      "Data can be placed close to where it's most used, improving speed."
+      "the system survives individual site failures.",
+      "Advantage: Data can be placed close to where it's most used, improving speed."
     ],
     "limitations": [
-      "Much more complex transaction management (2PC, distributed",
-      "Higher cost and higher secu"
+      "Advantage: High availability",
+      "the system survives individual site failures.",
+      "Advantage: Data can be placed close to where it's most used, improving speed.",
+      "Limitation: Much more complex transaction management (2PC, distributed",
+      "deadlocks).",
+      "Limitation: Higher cost and higher secu",
+      "rity risk due to network exposure."
     ],
+    "advantagesLimitations": "11. Advantages & Limitations\n\u2022\nAdvantage: High availability\n- the system survives individual site failures.\n\u2022\nAdvantage: Data can be placed close to where it's most used, improving speed.\n\u2022\nLimitation: Much more complex transaction management (2PC, distributed\ndeadlocks).\n\u2022\nLimitation: Higher cost and higher secu\nrity risk due to network exposure.",
     "applications": [
-      {
-        "category": "Industry",
-        "details": "Banking, telecom, airline, logistics."
-      },
-      {
-        "category": "Companies",
-        "details": "HSBC, Amadeus, Amazon (regional data centers), Google (globally\ndistributed infrastructure)."
-      },
-      {
-        "category": "Daily life",
-        "details": "Using an ATM in a different city than where you opened your account."
-      },
-      {
-        "category": "Software",
-        "details": "Oracle Distributed Database, MySQL Cluster, Google Spanner."
-      },
-      {
-        "category": "Websites",
-        "details": "Global content delivery and e\n- commerce platforms."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Apps that sync data across regions, like ride\n- hailing platforms\noperating in many ci\nties."
-      }
+      "Industry: Banking, telecom, airline, logistics.",
+      "Companies: HSBC, Amadeus, Amazon (regional data centers), Google (globally",
+      "distributed infrastructure).",
+      "Daily life: Using an ATM in a different city than where you opened your account.",
+      "Software: Oracle Distributed Database, MySQL Cluster, Google Spanner.",
+      "Websites: Global content delivery and e",
+      "commerce platforms.",
+      "Mobile Apps:",
+      "Apps that sync data across regions, like ride",
+      "hailing platforms",
+      "operating in many ci"
     ],
     "keyPoints": {
       "takeaways": [
@@ -1066,18 +1463,23 @@ export const TOPICS_DATA = [
         "duplicates data for reliability.",
         "Two - Phase Commit ensures a distributed transaction either commits everywhere",
         "or nowhere.",
+        "Common misconception:",
         "A \"distributed database\" is not simply \"many databases\"",
         "it must behave like one single logical database to users.",
         "Homogeneous systems are easier to",
         "manage; heterogeneous systems are more",
-        "flexible but need translation/middleware.",
-        "MODULE 3: Advanced Database Techniques"
+        "flexible but need translation/middleware."
       ],
       "misconceptions": [
-        ""
+        "A \"distributed database\" is not simply \"many databases\"",
+        "it must behave like one single logical database to users.",
+        "Homogeneous systems are easier to",
+        "manage; heterogeneous systems are more",
+        "flexible but need translation/middleware."
       ],
       "examTips": []
     },
+    "fullRawText": "\u2022 Interquery = many queries in parallel; Intraquery = one query split into parallel\nparts.\n\u2022 Common misconception:\nParallel database is NOT the same as distributed\ndatabase - parallel focuses on performance using tightly coupled processors, while\ndistributed focuses on data spread across independent geographic sites (studied\nnext).\n\u2022 Data skew is a major real\n- world challenge in parallel systems.\nTopic 1.4: Introduction to Distributed Databases\n1. Topic N ame - Distributed Databases\nWhat is it?\nA distributed database is a\nsingle logical database\nwhose data is actually\nstored across multiple physical locations (sites)\n, which may be in different cities or\neven countries, connected by a network\n- but it appears to the user as one unified\ndatabase.\nWhy do we need it?\nOrganizations operate in multiple locations (branches, offices,\ndata centers). Storing data close to where it is used reduces delay, increases reliability,\nand allows the business to keep running ev\nen if one location has a problem.\nWhere is it used?\n- Multinational banks with branches worldwide\n- Global e\n-\ncommerce companies\n- Airline reservation systems spanning many countries\n-\nTelecom companies\n2. Beginner Friendly Introduction\nImagine a chain of supermarkets in different cities. Each store keeps its own local sales\nrecords, but the head office can still ask, \"How many total apples did we sell across all\nstores today?\" and get one combined answer. The data is physically spread out, but\nlogically it behaves like one big database.\nKey words explained:\nWord\nSimple Meaning\nSite\nOne physical location where part of the database is stored\nFragmentation\nSplitting a table into pieces stored at different sites\nReplication\nKeeping copies of the same data at multiple sites\nTransparency\nHiding the complexity of distribution so users feel like they use\none database\nTwo - Phase\nCommit\nA protocol to make sure a transaction either completes\neverywhere or nowhere\n3. Real - Life Analogies\nAnalogy 1 - Chain of Supermar\nket Branches:\nEach branch (site) keeps its own local\nstock data, but the central head office system can combine data from every branch\nwhen needed - just like a distributed database combines data from multiple sites.\nAnalogy 2\n- Google Drive Syncing Across Devices:\nYour files might be spread and\nsynced across your phone, laptop, and the cloud, but you experience it as \"one\" set of\nfiles. This mirrors distribution transparency in distributed databases.\n4. Complete Detailed Explanation\n4.1 Distributed Databas\ne Architecture\n\u2022\nClient - Server Distributed Architecture:\nclients connect to different database\nservers, and servers may need to communicate with each other to answer a\nquery spanning multiple sites.\n\u2022\nPeer - to- Peer (Collaborating Server) Architecture:\nevery site runs full database\nsoftware and can act as both a client and a server; all sites cooperate as equals.\n\u2022\nHomogeneous Distributed Database:\nall sites use the same database\nmanagement system (DBMS) software and the same schema structure\n- easier\nto manage.\n\u2022\nHe terogeneous Distributed Database:\ndifferent sites may use different DBMS\nsoftware or schemas; requires extra translation layers (middleware) to\ncommunicate\n- more complex but more flexible for merging existing separate\nsystems.\n4.2 Key Concepts\n\u2022\nFragmentation:\ndividing a relation (table) into smaller pieces (fragments) and\nstoring them at different sites.\n-\nHorizontal Fragmentation:\nsplitting a table by\nrows (e.g., customers from\nNorth region at Site A, South region at Site B).\n-\nVertical Fragmentation:\nsplittin g a table by columns (e.g., basic customer\ninfo at Site A, financial info at Site B).\n-\nMixed (Hybrid) Fragmentation:\na combination of horizontal and vertical\nfragmentation.\n\u2022\nReplication: storing copies of the same data at more than one site to improve\navailability and reliability. If one site fails, another copy is still available.\n\u2022\nTransparency:\nthe distributed database should hide its complexity, including:\n-\nFragmentation Transparency\n- user doesn't need to know data is\nfragmented.\n-\nReplication Transparency\n- user doesn't need to know how many copies\nexist.\n-\nLocation Transparency\n- user doesn't need to know the physical location\nof data.\n4.3 Advantages of Distributed Databases\n\u2022\nImproved reliability and availability:\nif one site goes down, other sites can\ncontinue operating.\n\u2022\nLocal autonomy:\neach site can manage its own local data independently.\n\u2022\nFaster local access:\ndata close to users reduces network delay.\n\u2022\nEasier expansion:\nnew sites can be added without disrupting existing ones.\n\u2022\nReflects organizational structure:\nnaturally matches companies with multiple\nbranches.\n4.4 Issues and Challenges\n\u2022\nComplexity: designing, managing, and tuning a distributed system is far harder\nthan a single - site database.\n\u2022\nCost: more hardware, more network infrastructure, more skilled staff needed.\n\u2022\nSecurity: more network points mean more chances for attacks; data must be\nprotected in transit.\n\u2022\nData Integrity across sites:\nensuring all copies of replicated data remain\nconsistent (concurrency control becomes harder across a network).\n\u2022\nDistributed\nTransaction Management:\na transaction may need to update data\nat multiple sites; if one site fails mid\n- transaction, the whole transaction may\nneed to be rolled back everywhere. This is handled using the\nTwo - Phase\nCommit (2PC) Protocol\n:\n1.\nPrepare Phase\n- coordinator asks all sites \"are you ready to commit?\"\nEach site responds yes/no.\n2.\nCommit Phase\n- if all sites say yes, coordinator tells everyone to commit;\nif any site says no, coordinator tells everyone to abort/rollback.\n\u2022\nQuery Optimization Difficulty:\ndecid ing the cheapest way to execute a query\nthat needs data from multiple sites (minimizing data transfer over the network)\nis much harder than single\n- site optimization.\n\u2022\nNetwork Failures:\nunlike a single machine, a distributed database must handle\nnetwork part itions (when sites cannot communicate with each other).\n5. Step - by- Step Working\nTwo - Phase Commit Protocol:\nCoordinator sends \"Prepare to commit?\" to all sites\n\u2193\nEach site checks it can commit\n\u2192 replies YES or NO\n\u2193\nIf ALL replies are YES:\nCoordinator sends\n\"COMMIT \" to all sites\n\u2193\nAll sites commit permanently\nElse (any NO or timeout):\nCoordinator sends\n\"ABORT \" to all sites\n\u2193\nAll sites roll back\n6. Diagrams\nA world map with several server icons in\ndifferent countries, all connected by dotted lines to re\u2026\nFigure: A world map with several server icons in different countries, all connected by\ndotted lines to re\u2026\n7. Images\nHorizontal vs Vertical Fragmentation diagram showing one full table being split by rows in one\nex\u2026\nFigure: Horizontal vs Vertical Fragment\nation diagram showing one full table being split\nby rows in one ex\u2026\nTwo - Phase Commit Protocol sequence diagram showing coordinator and participant sites\nexchanging P\u2026\nFigure: Two\n- Phase Commit Protocol sequence diagram showing coordinator and\nparticipant sites exchanging P\u2026\n8. Tables\nFragmentation Type\nSplits By\nExample\nHorizontal\nRows\nNorth customers vs South customers\nVertical\nColumns\nPersonal info vs Financial info\nHybrid\nRows and Columns\nCombination of both\nFeature\nCentralized Database\nDistributed\nDatabase\nData location\nOne place\nMultiple sites\nFailure impact\nTotal system down\nOnly affected site impacted\nComplexity\nLower\nHigher\nScalability\nLimited\nHigh\nQuery cost\nSimple\nMust consider network cost\n9. Important Terms\nTerm\nSimple Meaning\nSite\nA physical location storing part of the database\nFragmentation\nSplitting a table into pieces across sites\nReplication\nStoring duplicate copies of data at multiple sites\nHomogeneous DDB\nAll sites use same DBMS\nHeterogeneous DDB\nSites use different DBMS s\noftware\nTwo - Phase Commit\nProtocol ensuring all\n- or- nothing commit across sites\nTransparency\nHiding distribution details from the user\n10. Examples\n\u2022\nEasy example:\nA school with multiple branches, each keeping local student\nrecords but sharing one combined report to the main office.\n\u2022\nPractical example:\nA distributed university system where each campus stores its\nown enrollment data but a central portal can generate a combined report.\n\u2022\nIndustry example:\nGlobal banks like HSBC store customer data across regional\ndata centers but present a unified view to customers worldwide.\n\u2022\nReal - life example:\nAirline systems like Amadeus manage bookings across\ndistributed servers globally while keeping seat inventory consistent.\n11. Advantages & Limitations\n\u2022\nAdvantage: High availability\n- the system survives individual site failures.\n\u2022\nAdvantage: Data can be placed close to where it's most used, improving speed.\n\u2022\nLimitation: Much more complex transaction management (2PC, distributed\ndeadlocks).\n\u2022\nLimitation: Higher cost and higher secu\nrity risk due to network exposure.\n12. Applications\n\u2022\nIndustry: Banking, telecom, airline, logistics.\n\u2022\nCompanies: HSBC, Amadeus, Amazon (regional data centers), Google (globally\ndistributed infrastructure).\n\u2022\nDaily life: Using an ATM in a different city than where you opened your account.\n\u2022\nSoftware: Oracle Distributed Database, MySQL Cluster, Google Spanner.\n\u2022\nWebsites: Global content delivery and e\n- commerce platforms.\n\u2022\nMobile Apps:\nApps that sync data across regions, like ride\n- hailing platforms\noperating in many ci\nties.\n13. Key Points to Remember\n\u2022 A distributed database is physically spread out but logically appears as one\ndatabase (transparency).\n\u2022 Fragmentation splits data (horizontal = rows, vertical = columns); Replication\nduplicates data for reliability.\n\u2022 Two - Phase Commit ensures a distributed transaction either commits everywhere\nor nowhere.\n\u2022 Common misconception:\nA \"distributed database\" is not simply \"many databases\"\n- it must behave like one single logical database to users.\n\u2022 Homogeneous systems are easier to\nmanage; heterogeneous systems are more\nflexible but need translation/middleware.",
     "structuredTables": [
       {
         "id": "t1_4_cent_dist",
@@ -1106,63 +1508,1038 @@ export const TOPICS_DATA = [
             "status": "better-col2"
           },
           {
-            "feature": "System & Network Complexity",
-            "col1": "Low: Local concurrency control and transaction management",
-            "col2": "High: Distributed query optimization, 2PC, global deadlock",
-            "verdict": "CDBMS is much simpler to administer",
-            "status": "better-col1"
-          },
-          {
             "feature": "Scalability & Elasticity",
             "col1": "Vertical scaling only (upgrade CPU/RAM on single box)",
             "col2": "Horizontal scaling (add more low-cost commodity nodes)",
             "verdict": "DDBMS scales indefinitely",
             "status": "better-col2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2.1",
+    "moduleId": 2,
+    "moduleName": "Object-Based Databases and XML",
+    "title": "Overview of Object-Based Databases and Complex Data Types",
+    "timeEstimate": "18 min",
+    "pageRange": "34 - 38",
+    "overview": {
+      "whatIsIt": "What is it? A pure relational database can only store simple, \"atomic\" values in a cell - a number, a string, a date. An object-based database (also called an object-relational database, ORDBMS) extends the relational model so a single attribute can hold a complex value: a structured record, a list of values, a set of values, or even a pointer to another object. It keeps SQL and tables, but adds ideas borrowed from object-oriented programming - classes, inheritance, encapsulation and identity. Why do we need it? Real-world data is rarely flat. A \"Person\" naturally has an Address made of several parts, a list of phone numbers, and maybe a list of past addresses. Forcing this into pure first-normal-form tables means splitting it into many separate tables and reassembling it with joins every time you read it. Object-relational features let the database store the data the way applications actually think about it, cutting down on joins and mapping code. Where is it used? - CAD/CAM and engineering design databases (a \"Part\" made of sub-parts) - Geographic Information Systems (a \"Region\" made of nested polygons) - Multimedia and document repositories - Modern SQL systems such as Oracle, PostgreSQL and IBM Db2, which all support user-defined structured types, arrays and object identity as extensions to standard SQL (SQL:1999 and later). Important: Object-relational is not the same as object-oriented (OODBMS). An ORDBMS keeps the table as the basic storage unit and SQL as the query language, and simply lets a column hold a richer type. A pure OODBMS stores objects directly and is usually queried through a programming language, not SQL.",
+      "whyItMatters": "",
+      "quickSummary": ""
+    },
+    "beginnerIntro": {
+      "simpleExplanation": "2. Beginner Friendly Introduction\nThink about filling a paper form for \"Student Details\". A plain relational table is like a form with only single-line\nboxes: Name, Roll-No, City. If a student has three phone numbers, a single-line box cannot hold them - you would\nneed a whole second form (a second table) just for phone numbers.\nAn object-based database instead gives you a box that itself contains a small form inside it (a structured Address box),\nand a box that can hold a repeatable list (a Phones box with three slots). You fill the whole student record in one place,\nthe way you would naturally describe a person to a friend.\nIn databases: - Atomic value = a single indivisible piece of data (an INT, a VARCHAR)\n- Complex/structured value = a value built from other values (an Address made of Street, City, Pin)\n- Collection value = many values of the same kind kept together (an ARRAY or MULTISET of phone numbers)\n- User-Defined Type (UDT) = a type the database designer creates, with its own attributes and its own methods\n(functions that work on it)\nTechnical words explained simply\nWord\nSimple Meaning\nAbstract Data Type (ADT)\nA type defined by the attributes it holds and the methods (operations) that work on it\nWord\nSimple Meaning\nEncapsulation\nHiding the internal representation of a type and exposing only its methods to the outside\nworld\nComplex type\nA type whose value is built out of other types rather than being a single atomic value\nStructured type\nA named type with a fixed set of attributes, created with CREATE TYPE",
+      "keywords": []
+    },
+    "analogies": [
+      "A filing cabinet vs. a labelled folder. A pure relational table is like a filing cabinet where every drawer\ncan only hold single index cards. If you need to keep three phone numbers for one person, you file three separate cards\nin a different drawer and cross-reference them. An object-relational table is like being allowed to put a small labelled\nfolder - containing an address slip and a stack of phone-number slips - directly inside the person's own card.\nEverything about that person stays together.",
+      "A LEGO instruction booklet. A simple part list just says \"4 red bricks, 2 blue bricks\" (flat, atomic\nvalues). A complex type is like a booklet page that says \"Sub-assembly A = 2 red bricks + 1 axle\", and then the main\nmodel is built by plugging several sub-assemblies together. The sub-assembly is reusable and self-contained, just like a\nstructured type is reused inside a bigger type."
+    ],
+    "detailedExplanation": {
+      "subsections": [
+        {
+          "title": "CREATE TYPE AddressType AS (",
+          "content": "Street VARCHAR(40),\nCity VARCHAR(20),"
+        },
+        {
+          "title": "Pincode CHAR(6)",
+          "content": ");"
+        },
+        {
+          "title": "CREATE TABLE Student (",
+          "content": "RollNo INT PRIMARY KEY,\nName VARCHAR(30),"
+        },
+        {
+          "title": "HomeAddr AddressType",
+          "content": ");\nA value is then inserted and read as one unit, and its inner parts are reached with dot\nnotation, e.g. SELECT HomeAddr.City FROM Student.\n2.1.4 Encapsulation and methods\nBecause a structured type can carry its own methods, behaviour travels with the data. For example an AddressType\ncould have a method FullAddress() that concatenates Street, City and Pincode into one printable string, so every query\nthat needs a formatted address calls the same method instead of repeating the concatenation logic."
+        }
+      ],
+      "raw": "4. Complete Detailed Explanation\n2.1.1 Motivation for extending the relational model\nStrict relational (1NF) tables require every attribute to hold a single atomic value. This is mathematically clean but\nforces \"impedance mismatch\" - application objects are structured, but the database stores them flattened across\nseveral tables, and code must reassemble them with joins on every read and split them again on every write.\nObject-relational databases remove this mismatch for cases where the nesting is a natural, fixed part of the design.\n2.1.2 Categories of complex types\n- Structured (row) types - a named bundle of attributes, e.g. AddressType(Street, City,\nPincode), created once with CREATE TYPE and then reused as the type of a column or of\nanother type's attribute.\n- Collection types - ARRAY (ordered, indexed, allows duplicates) and MULTISET (unordered\nbag, allows duplicates), used when one attribute must hold several values of the same\nbase type.\n- Reference types - a REF to another structured type's row, used to model relationships\nwithout a foreign-key join (covered fully in Topic 2.3).\n- User-defined types with methods - a structured type can also declare functions that\noperate on its own attributes, bringing encapsulation into SQL.\n2.1.3 Creating and using a structured type\nCREATE TYPE AddressType AS (\nStreet VARCHAR(40),\nCity VARCHAR(20),\nPincode CHAR(6)\n);\nCREATE TABLE Student (\nRollNo INT PRIMARY KEY,\nName VARCHAR(30),\nHomeAddr AddressType\n);\nA value is then inserted and read as one unit, and its inner parts are reached with dot\nnotation, e.g. SELECT HomeAddr.City FROM Student.\n2.1.4 Encapsulation and methods\nBecause a structured type can carry its own methods, behaviour travels with the data. For example an AddressType\ncould have a method FullAddress() that concatenates Street, City and Pincode into one printable string, so every query\nthat needs a formatted address calls the same method instead of repeating the concatenation logic."
+    },
+    "stepByStep": [
+      {
+        "step": 1,
+        "title": "Step-by-Step Working",
+        "description": "\u2022 1. Identify a real-world entity whose attributes naturally group together (e.g. Address inside Student).\n\u2022 2. Design a structured type (CREATE TYPE) for that group, choosing its component attributes and their base\ntypes.\n\u2022 3. Use the structured type as the data type of a column in a normal CREATE TABLE, or nest it inside another\nstructured type.\n\u2022 4. Optionally attach methods to the type to encapsulate common computations.\n\u2022 5. Query the nested data using dot notation to drill into the structured attribute, exactly like navigating an object in\ncode."
+      }
+    ],
+    "diagramsDescription": "6. Diagrams\nFigure: The spectrum from pure relational to object-relational to object-oriented databases\nFigure: The four kinds of attributes a complex/structured type can have",
+    "visualIllustrations": "7. Images\nFigure: Building blocks of a complex type - atomic, structured, collection and reference attributes",
+    "tablesRaw": "8. Tables\nRelational vs. Object-Relational column types\nAspect\nPure Relational (1NF)\nObject-Relational\nColumn value\nSingle atomic value only\nAtomic, structured, collection or reference\nNested data\nNeeds a separate table + join\nStored directly inside the row\nReuse of a group of attributes\nNot directly supported\nStructured type can be reused everywhere\nBehaviour with data\nNone - logic lives in the application\nMethods can travel with the type\nStandard\nSQL-92\nSQL:1999 and later (ORDBMS extensions)",
+    "importantTerms": "9. Important Terms\nTerm\nSimple Meaning\nORDBMS\nAn Object-Relational DBMS - a relational engine extended with object features\nUDT\nUser-Defined Type - a type the schema designer creates with CREATE TYPE\nADT\nAbstract Data Type - a type described by its attributes and methods\nImpedance mismatch\nThe mismatch between an application's structured objects and a flat relational schema\nStructured type\nA named, reusable bundle of attributes created with CREATE TYPE",
+    "terms": [],
+    "examples": [
+      "A Book table stores an AuthorList as a collection type instead of a separate BookAuthor bridge table when\nthe number of authors per book is small and always read together with the book.",
+      "A GIS database stores a Region's boundary as a structured PolygonType(Points ARRAY[100] OF\nPointType) rather than one row per boundary point."
+    ],
+    "advantages": [
+      "Data that belongs together is stored together, cutting down on joins",
+      "Matches how applications model real objects, reducing mapping code",
+      "Methods bring reusable logic close to the data",
+      "A type can be reused across many tables"
+    ],
+    "limitations": [
+      "Advantages:",
+      "Data that belongs together is stored together, cutting down on joins",
+      "Matches how applications model real objects, reducing mapping code",
+      "Methods bring reusable logic close to the data",
+      "A type can be reused across many tables",
+      "Limitations:",
+      "Breaks strict normalisation; can duplicate structure if not designed carefully",
+      "Not every RDBMS or tool supports the same object extensions (portability issues)",
+      "Deeply nested types can make ad-hoc queries harder to write",
+      "Query optimisers historically handle nested types less efficiently than flat tables"
+    ],
+    "advantagesLimitations": "11. Advantages & Limitations\nAdvantages:\n\u2022 Data that belongs together is stored together, cutting down on joins\n\u2022 Matches how applications model real objects, reducing mapping code\n\u2022 Methods bring reusable logic close to the data\n\u2022 A type can be reused across many tables\nLimitations:\n\u2022 Breaks strict normalisation; can duplicate structure if not designed carefully\n\u2022 Not every RDBMS or tool supports the same object extensions (portability issues)\n\u2022 Deeply nested types can make ad-hoc queries harder to write\n\u2022 Query optimisers historically handle nested types less efficiently than flat tables",
+    "applications": [
+      "CAD/CAM part-assembly databases",
+      "Geographic Information Systems (GIS)",
+      "Multimedia and document archives",
+      "Telecom and banking systems with naturally nested customer records"
+    ],
+    "keyPoints": {
+      "takeaways": [
+        "Object-relational = relational tables + complex/structured types + inheritance + identity + methods.",
+        "A structured type is created once with CREATE TYPE and reused as a column type."
+      ],
+      "misconceptions": [],
+      "examTips": []
+    },
+    "fullRawText": "MODULE 2: Object-Based Databases and XML\nTopic 2.1: Overview of Object-Based Databases and Complex Data Types\n1. Topic Name - Object-Based (Object-Relational) Databases and Complex Types\nWhat is it? A pure relational database can only store simple, \"atomic\" values in a cell - a number, a string, a date. An\nobject-based database (also called an object-relational database, ORDBMS) extends the relational model so a single\nattribute can hold a complex value: a structured record, a list of values, a set of values, or even a pointer to another\nobject. It keeps SQL and tables, but adds ideas borrowed from object-oriented programming - classes, inheritance,\nencapsulation and identity.\nWhy do we need it? Real-world data is rarely flat. A \"Person\" naturally has an Address made of several parts, a list of\nphone numbers, and maybe a list of past addresses. Forcing this into pure first-normal-form tables means splitting it\ninto many separate tables and reassembling it with joins every time you read it. Object-relational features let the\ndatabase store the data the way applications actually think about it, cutting down on joins and mapping code.\nWhere is it used? - CAD/CAM and engineering design databases (a \"Part\" made of sub-parts)\n- Geographic Information Systems (a \"Region\" made of nested polygons)\n- Multimedia and document repositories\n- Modern SQL systems such as Oracle, PostgreSQL and IBM Db2, which all support user-defined structured types,\narrays and object identity as extensions to standard SQL (SQL:1999 and later).\nImportant: Object-relational is not the same as object-oriented (OODBMS). An ORDBMS keeps the table as the basic\nstorage unit and SQL as the query language, and simply lets a column hold a richer type. A pure OODBMS stores\nobjects directly and is usually queried through a programming language, not SQL.\n2. Beginner Friendly Introduction\nThink about filling a paper form for \"Student Details\". A plain relational table is like a form with only single-line\nboxes: Name, Roll-No, City. If a student has three phone numbers, a single-line box cannot hold them - you would\nneed a whole second form (a second table) just for phone numbers.\nAn object-based database instead gives you a box that itself contains a small form inside it (a structured Address box),\nand a box that can hold a repeatable list (a Phones box with three slots). You fill the whole student record in one place,\nthe way you would naturally describe a person to a friend.\nIn databases: - Atomic value = a single indivisible piece of data (an INT, a VARCHAR)\n- Complex/structured value = a value built from other values (an Address made of Street, City, Pin)\n- Collection value = many values of the same kind kept together (an ARRAY or MULTISET of phone numbers)\n- User-Defined Type (UDT) = a type the database designer creates, with its own attributes and its own methods\n(functions that work on it)\nTechnical words explained simply\nWord\nSimple Meaning\nAbstract Data Type (ADT)\nA type defined by the attributes it holds and the methods (operations) that work on it\nWord\nSimple Meaning\nEncapsulation\nHiding the internal representation of a type and exposing only its methods to the outside\nworld\nComplex type\nA type whose value is built out of other types rather than being a single atomic value\nStructured type\nA named type with a fixed set of attributes, created with CREATE TYPE\n3. Real-Life Analogies\nAnalogy 1 - A filing cabinet vs. a labelled folder. A pure relational table is like a filing cabinet where every drawer\ncan only hold single index cards. If you need to keep three phone numbers for one person, you file three separate cards\nin a different drawer and cross-reference them. An object-relational table is like being allowed to put a small labelled\nfolder - containing an address slip and a stack of phone-number slips - directly inside the person's own card.\nEverything about that person stays together.\nAnalogy 2 - A LEGO instruction booklet. A simple part list just says \"4 red bricks, 2 blue bricks\" (flat, atomic\nvalues). A complex type is like a booklet page that says \"Sub-assembly A = 2 red bricks + 1 axle\", and then the main\nmodel is built by plugging several sub-assemblies together. The sub-assembly is reusable and self-contained, just like a\nstructured type is reused inside a bigger type.\n4. Complete Detailed Explanation\n2.1.1 Motivation for extending the relational model\nStrict relational (1NF) tables require every attribute to hold a single atomic value. This is mathematically clean but\nforces \"impedance mismatch\" - application objects are structured, but the database stores them flattened across\nseveral tables, and code must reassemble them with joins on every read and split them again on every write.\nObject-relational databases remove this mismatch for cases where the nesting is a natural, fixed part of the design.\n2.1.2 Categories of complex types\n- Structured (row) types - a named bundle of attributes, e.g. AddressType(Street, City,\nPincode), created once with CREATE TYPE and then reused as the type of a column or of\nanother type's attribute.\n- Collection types - ARRAY (ordered, indexed, allows duplicates) and MULTISET (unordered\nbag, allows duplicates), used when one attribute must hold several values of the same\nbase type.\n- Reference types - a REF to another structured type's row, used to model relationships\nwithout a foreign-key join (covered fully in Topic 2.3).\n- User-defined types with methods - a structured type can also declare functions that\noperate on its own attributes, bringing encapsulation into SQL.\n2.1.3 Creating and using a structured type\nCREATE TYPE AddressType AS (\nStreet VARCHAR(40),\nCity VARCHAR(20),\nPincode CHAR(6)\n);\nCREATE TABLE Student (\nRollNo INT PRIMARY KEY,\nName VARCHAR(30),\nHomeAddr AddressType\n);\nA value is then inserted and read as one unit, and its inner parts are reached with dot\nnotation, e.g. SELECT HomeAddr.City FROM Student.\n2.1.4 Encapsulation and methods\nBecause a structured type can carry its own methods, behaviour travels with the data. For example an AddressType\ncould have a method FullAddress() that concatenates Street, City and Pincode into one printable string, so every query\nthat needs a formatted address calls the same method instead of repeating the concatenation logic.\n5. Step-by-Step Working\n\u2022 1. Identify a real-world entity whose attributes naturally group together (e.g. Address inside Student).\n\u2022 2. Design a structured type (CREATE TYPE) for that group, choosing its component attributes and their base\ntypes.\n\u2022 3. Use the structured type as the data type of a column in a normal CREATE TABLE, or nest it inside another\nstructured type.\n\u2022 4. Optionally attach methods to the type to encapsulate common computations.\n\u2022 5. Query the nested data using dot notation to drill into the structured attribute, exactly like navigating an object in\ncode.\n6. Diagrams\nFigure: The spectrum from pure relational to object-relational to object-oriented databases\nFigure: The four kinds of attributes a complex/structured type can have\n7. Images\nFigure: Building blocks of a complex type - atomic, structured, collection and reference attributes\n8. Tables\nRelational vs. Object-Relational column types\nAspect\nPure Relational (1NF)\nObject-Relational\nColumn value\nSingle atomic value only\nAtomic, structured, collection or reference\nNested data\nNeeds a separate table + join\nStored directly inside the row\nReuse of a group of attributes\nNot directly supported\nStructured type can be reused everywhere\nBehaviour with data\nNone - logic lives in the application\nMethods can travel with the type\nStandard\nSQL-92\nSQL:1999 and later (ORDBMS extensions)\n9. Important Terms\nTerm\nSimple Meaning\nORDBMS\nAn Object-Relational DBMS - a relational engine extended with object features\nUDT\nUser-Defined Type - a type the schema designer creates with CREATE TYPE\nADT\nAbstract Data Type - a type described by its attributes and methods\nImpedance mismatch\nThe mismatch between an application's structured objects and a flat relational schema\nStructured type\nA named, reusable bundle of attributes created with CREATE TYPE\n10. Examples\nExample 1: A Book table stores an AuthorList as a collection type instead of a separate BookAuthor bridge table when\nthe number of authors per book is small and always read together with the book.\nExample 2: A GIS database stores a Region's boundary as a structured PolygonType(Points ARRAY[100] OF\nPointType) rather than one row per boundary point.\n11. Advantages & Limitations\nAdvantages:\n\u2022 Data that belongs together is stored together, cutting down on joins\n\u2022 Matches how applications model real objects, reducing mapping code\n\u2022 Methods bring reusable logic close to the data\n\u2022 A type can be reused across many tables\nLimitations:\n\u2022 Breaks strict normalisation; can duplicate structure if not designed carefully\n\u2022 Not every RDBMS or tool supports the same object extensions (portability issues)\n\u2022 Deeply nested types can make ad-hoc queries harder to write\n\u2022 Query optimisers historically handle nested types less efficiently than flat tables\n12. Applications\n\u2022 CAD/CAM part-assembly databases\n\u2022 Geographic Information Systems (GIS)\n\u2022 Multimedia and document archives\n\u2022 Telecom and banking systems with naturally nested customer records\n13. Key Points to Remember\n\u2022 Object-relational = relational tables + complex/structured types + inheritance + identity + methods.\n\u2022 A structured type is created once with CREATE TYPE and reused as a column type.",
+    "structuredTables": [
+      {
+        "id": "t2_1_rdbms_ordbms",
+        "title": "Relational (RDBMS) vs. Object-Relational (ORDBMS) vs. Pure Object-Oriented (OODBMS)",
+        "subtitle": "Comprehensive comparison across data model, type systems, query languages, impedance mismatch, and industry adoption",
+        "badge": "GTU Core 7-Mark Question",
+        "headers": [
+          "Architectural Dimension",
+          "Relational (RDBMS)",
+          "Object-Relational (ORDBMS)",
+          "Object-Oriented (OODBMS)",
+          "Verdict / Modern Trend"
+        ],
+        "rows": [
+          {
+            "feature": "Data Modeling Basis",
+            "col1": "Flat 2D Tables, Atomic 1NF attributes, Foreign Keys",
+            "col2": "Relations extended with Complex Types, Methods, Inheritance",
+            "col3": "Direct In-Memory Object Graphs (C++, Java, Smalltalk objects)",
+            "verdict": "ORDBMS bridges relational reliability with OOP expressiveness",
+            "status": "better-col2"
           },
           {
-            "feature": "Query Execution Cost",
-            "col1": "Dominated by local Disk I/O and CPU compute",
-            "col2": "Dominated by network latency and data transfer between sites",
-            "verdict": "Query optimizers must minimize inter-site shipping",
+            "feature": "Impedance Mismatch",
+            "col1": "High (Tables must be converted into application OOP objects via ORM)",
+            "col2": "Moderate (Nested types and user types mirror class definitions)",
+            "col3": "Zero (Database stores exact native application object instances)",
+            "verdict": "OODBMS eliminates mapping, but ORDBMS retains SQL compatibility",
+            "status": "info"
+          },
+          {
+            "feature": "Query Language Standard",
+            "col1": "Standard SQL (SQL:92 tabular queries and joins)",
+            "col2": "Extended SQL:1999 / SQL:2003 (Dot notation, methods, REF dereference)",
+            "col3": "OQL (Object Query Language) or Native Language APIs",
+            "verdict": "ORDBMS preserves universal SQL investment and tooling",
+            "status": "better-col2"
+          },
+          {
+            "feature": "Encapsulation & Methods",
+            "col1": "\u274c None (Data and logic strictly separated into procedures/triggers)",
+            "col2": "\u2705 Yes (Methods bound directly to user-defined structured types)",
+            "col3": "\u2705 Yes (Complete OOP encapsulation of state and behavior)",
+            "verdict": "Allows business logic computation inside database engine",
+            "status": "success"
+          },
+          {
+            "feature": "Complex Data Support (Spatial, CAD, Arrays)",
+            "col1": "Poor (Requires multiple normalized tables or BLOBs)",
+            "col2": "Excellent (Nested types, spatial polygons, ARRAY/MULTISET collections)",
+            "col3": "Excellent (Complex pointer hierarchies and graph networks)",
+            "verdict": "ORDBMS is the industry standard for GIS, CAD, and multimedia",
+            "status": "better-col2"
+          },
+          {
+            "feature": "Enterprise Adoption & Dominance",
+            "col1": "Universal legacy backbone (MySQL, SQL Server)",
+            "col2": "Dominant modern DBMS engines (PostgreSQL, Oracle, Informix)",
+            "col3": "Niche specialized systems (ObjectStore, db4o, Versant)",
+            "verdict": "ORDBMS is the evolutionary winner for enterprise databases",
+            "status": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2.2",
+    "moduleId": 2,
+    "moduleName": "Object-Based Databases and XML",
+    "title": "Structured Types, Inheritance, and Array/Multiset Types in SQL",
+    "timeEstimate": "20 min",
+    "pageRange": "39 - 42",
+    "overview": {
+      "whatIsIt": "What is it? SQL:1999 lets a schema designer declare a named structured type with CREATE TYPE, give it attributes and methods, and - just like a class in an object-oriented language - let one structured type inherit from another with the UNDER clause. It also standardises two collection types, ARRAY and MULTISET, so a single attribute can hold many values of the same base type. Why do we need it? Real hierarchies exist everywhere in data: a Student and an Employee are both kinds of Person; a PostgraduateStudent is a kind of Student. Without inheritance, every shared attribute (name, address, date of birth) has to be re-declared in every table. With type inheritance, common attributes and methods are declared once in a supertype and automatically available in every subtype. Where is it used? - University information systems (Person -> Student -> PostgraduateStudent) - HR systems (Person -> Employee -> Manager) - Product catalogues that store a variable number of attributes such as sizes, colours or tags using ARRAY/MULTISET Important: SQL inheritance is about types, and separately a table can also be declared UNDER another table (table inheritance) so that rows of a subtable are automatically included when querying the supertable.",
+      "whyItMatters": "",
+      "quickSummary": ""
+    },
+    "beginnerIntro": {
+      "simpleExplanation": "2. Beginner Friendly Introduction\nImagine a school registry. Every person in the school - student, teacher or staff - shares some information: name,\ndate of birth, address. But a student additionally has a roll number and a class, while a teacher additionally has a subject\nand a salary. Instead of writing \"name, DOB, address\" three separate times in three unrelated designs, you write it once\nin a \"Person\" type and let \"Student\" and \"Teacher\" both say \"I am a kind of Person, plus these extra fields.\"\nIn databases: - Supertype = the general type others inherit from (Person)\n- Subtype = the specialised type that adds more attributes (Student UNDER Person)\n- Substitutability = anywhere a Person value is expected, a Student value can be used instead, because a Student IS-A\nPerson\n- ARRAY = an ordered collection with a maximum size\n- MULTISET = an unordered collection (a \"bag\") with no fixed size\nTechnical words explained simply\nWord\nSimple Meaning\nUNDER\nThe SQL keyword used to declare that one type or table inherits from another\nSubstitutability\nThe rule that a subtype value can be used wherever the supertype is expected\nARRAY\nAn ordered, indexable collection type with a declared maximum size\nMULTISET\nAn unordered collection type (a bag) that allows duplicates",
+      "keywords": []
+    },
+    "analogies": [
+      "A job application form with an add-on sheet. The main form (Person) asks for name, address and date\nof birth - everyone fills this. If you are applying as a Student, you additionally attach a \"Student Add-on Sheet\" (roll\nnumber, college). If you are applying as an Employee, you attach an \"Employee Add-on Sheet\" (salary, department)\ninstead. Both add-on sheets are still stapled to the same common main form - that staple is the UNDER relationship.",
+      "An egg carton vs. a shopping bag. An ARRAY is like an egg carton: it has fixed, numbered slots (slot\n1, slot 2, ... slot 12), and you can ask for exactly \"the egg in slot 3\". A MULTISET is like a shopping bag of apples: the\napples are all there, duplicates are fine, but there is no slot 3 - you can only ask whether an apple is in the bag or how\nmany apples are in it, not which position it is in."
+    ],
+    "detailedExplanation": {
+      "subsections": [
+        {
+          "title": "CREATE TYPE PersonType AS (",
+          "content": "Name VARCHAR(30),"
+        },
+        {
+          "title": "DOB DATE",
+          "content": ") NOT FINAL;"
+        },
+        {
+          "title": "CREATE TYPE StudentType UNDER PersonType AS (",
+          "content": "College VARCHAR(30),"
+        },
+        {
+          "title": "Degree VARCHAR(20)",
+          "content": ");\nNOT FINAL marks PersonType as allowed to have subtypes; a type declared FINAL (the\ndefault) cannot be extended further.\n2.2.2 Table inheritance\nCREATE TABLE Person OF PersonType (PRIMARY KEY (Name));\nCREATE TABLE Student OF StudentType UNDER Person;\nEvery row inserted into Student is automatically also visible when Person is queried\n(unless the query says ONLY Person), because a Student row IS-A Person row.\n2.2.3 Overriding and method inheritance\nA subtype inherits every attribute and method of its supertype and can add new ones, or override an inherited method\nwith a more specific implementation - the same idea as method overriding in Java or Python.\n2.2.4 ARRAY and MULTISET in practice"
+        },
+        {
+          "title": "CREATE TABLE Student (",
+          "content": "RollNo INT PRIMARY KEY,\nPhones VARCHAR(15) ARRAY[3],"
+        },
+        {
+          "title": "Skills VARCHAR(20) MULTISET",
+          "content": ");"
+        },
+        {
+          "title": "INSERT INTO Student VALUES",
+          "content": "(101, ARRAY['9998887771','9998887772'],\nMULTISET['SQL','Python','SQL']);\nPhones[1] retrieves the first phone number (ARRAYs are indexed from 1 in SQL).\nCARDINALITY(Skills) returns how many elements are in the multiset, duplicates included."
+        }
+      ],
+      "raw": "4. Complete Detailed Explanation\n2.2.1 Declaring a type hierarchy\nCREATE TYPE PersonType AS (\nName VARCHAR(30),\nDOB DATE\n) NOT FINAL;\nCREATE TYPE StudentType UNDER PersonType AS (\nCollege VARCHAR(30),\nDegree VARCHAR(20)\n);\nNOT FINAL marks PersonType as allowed to have subtypes; a type declared FINAL (the\ndefault) cannot be extended further.\n2.2.2 Table inheritance\nCREATE TABLE Person OF PersonType (PRIMARY KEY (Name));\nCREATE TABLE Student OF StudentType UNDER Person;\nEvery row inserted into Student is automatically also visible when Person is queried\n(unless the query says ONLY Person), because a Student row IS-A Person row.\n2.2.3 Overriding and method inheritance\nA subtype inherits every attribute and method of its supertype and can add new ones, or override an inherited method\nwith a more specific implementation - the same idea as method overriding in Java or Python.\n2.2.4 ARRAY and MULTISET in practice\nCREATE TABLE Student (\nRollNo INT PRIMARY KEY,\nPhones VARCHAR(15) ARRAY[3],\nSkills VARCHAR(20) MULTISET\n);\nINSERT INTO Student VALUES\n(101, ARRAY['9998887771','9998887772'],\nMULTISET['SQL','Python','SQL']);\nPhones[1] retrieves the first phone number (ARRAYs are indexed from 1 in SQL).\nCARDINALITY(Skills) returns how many elements are in the multiset, duplicates included."
+    },
+    "stepByStep": [
+      {
+        "step": 1,
+        "title": "Step-by-Step Working",
+        "description": "\u2022 1. Identify the common attributes shared by several kinds of entity and put them in a supertype, marked NOT\nFINAL.\n\u2022 2. Declare each specialised kind as a subtype UNDER the supertype, adding only the attributes unique to it.\n\u2022 3. Create the actual tables OF the types, using UNDER again to link the subtable to the supertable.\n\u2022 4. Decide, for each multi-valued attribute, whether order/position matters (use ARRAY) or not (use MULTISET).\n\u2022 5. Query a subtype/subtable directly for its extra columns, or query the supertype/supertable to see all rows of\nevery subtype at once."
+      }
+    ],
+    "diagramsDescription": "6. Diagrams\nFigure: A Person supertype with Student and Employee subtypes declared using UNDER\nFigure: ARRAY (ordered, indexed) versus MULTISET (unordered bag) side by side",
+    "visualIllustrations": "7. Images\nFigure: Type/table inheritance hierarchy showing attribute inheritance from Person",
+    "tablesRaw": "8. Tables\nARRAY vs. MULTISET\nFeature\nARRAY\nMULTISET\nOrder\nOrdered (positional)\nUnordered\nSize\nFixed maximum, declared upfront\nNo fixed size\nDuplicates\nAllowed\nAllowed\nAccess\nBy index, e.g. Phones[1]\nBy membership / aggregate only\nTypical use\nA limited, position-meaningful list\nA bag of tags or skills",
+    "importantTerms": "9. Important Terms\nTerm\nSimple Meaning\nSupertype\nThe general type from which other types inherit\nSubtype\nA specialised type declared UNDER a supertype\nNOT FINAL\nA type modifier allowing further subtypes to be derived\nCARDINALITY()\nSQL function returning the number of elements in a collection value\nUNPACK / UNNEST\nOperation that flattens a collection value into one row per element",
+    "terms": [],
+    "examples": [],
+    "advantages": [],
+    "limitations": [],
+    "advantagesLimitations": "",
+    "applications": [],
+    "keyPoints": {
+      "takeaways": [],
+      "misconceptions": [],
+      "examTips": []
+    },
+    "fullRawText": "\u2022 Complex attributes can be structured, collection (ARRAY / MULTISET) or reference (REF) attributes.\n\u2022 ORDBMS is not the same as OODBMS - SQL and tables are still the base of an ORDBMS.\nTopic 2.2: Structured Types, Inheritance, and Array/Multiset Types in SQL\n1. Topic Name - Structured Types, Type Inheritance and Collection Types\nWhat is it? SQL:1999 lets a schema designer declare a named structured type with CREATE TYPE, give it attributes\nand methods, and - just like a class in an object-oriented language - let one structured type inherit from another\nwith the UNDER clause. It also standardises two collection types, ARRAY and MULTISET, so a single attribute can\nhold many values of the same base type.\nWhy do we need it? Real hierarchies exist everywhere in data: a Student and an Employee are both kinds of Person; a\nPostgraduateStudent is a kind of Student. Without inheritance, every shared attribute (name, address, date of birth) has\nto be re-declared in every table. With type inheritance, common attributes and methods are declared once in a supertype\nand automatically available in every subtype.\nWhere is it used? - University information systems (Person -> Student -> PostgraduateStudent)\n- HR systems (Person -> Employee -> Manager)\n- Product catalogues that store a variable number of attributes such as sizes, colours or tags using ARRAY/MULTISET\nImportant: SQL inheritance is about types, and separately a table can also be declared UNDER another table (table\ninheritance) so that rows of a subtable are automatically included when querying the supertable.\n2. Beginner Friendly Introduction\nImagine a school registry. Every person in the school - student, teacher or staff - shares some information: name,\ndate of birth, address. But a student additionally has a roll number and a class, while a teacher additionally has a subject\nand a salary. Instead of writing \"name, DOB, address\" three separate times in three unrelated designs, you write it once\nin a \"Person\" type and let \"Student\" and \"Teacher\" both say \"I am a kind of Person, plus these extra fields.\"\nIn databases: - Supertype = the general type others inherit from (Person)\n- Subtype = the specialised type that adds more attributes (Student UNDER Person)\n- Substitutability = anywhere a Person value is expected, a Student value can be used instead, because a Student IS-A\nPerson\n- ARRAY = an ordered collection with a maximum size\n- MULTISET = an unordered collection (a \"bag\") with no fixed size\nTechnical words explained simply\nWord\nSimple Meaning\nUNDER\nThe SQL keyword used to declare that one type or table inherits from another\nSubstitutability\nThe rule that a subtype value can be used wherever the supertype is expected\nARRAY\nAn ordered, indexable collection type with a declared maximum size\nMULTISET\nAn unordered collection type (a bag) that allows duplicates\n3. Real-Life Analogies\nAnalogy 1 - A job application form with an add-on sheet. The main form (Person) asks for name, address and date\nof birth - everyone fills this. If you are applying as a Student, you additionally attach a \"Student Add-on Sheet\" (roll\nnumber, college). If you are applying as an Employee, you attach an \"Employee Add-on Sheet\" (salary, department)\ninstead. Both add-on sheets are still stapled to the same common main form - that staple is the UNDER relationship.\nAnalogy 2 - An egg carton vs. a shopping bag. An ARRAY is like an egg carton: it has fixed, numbered slots (slot\n1, slot 2, ... slot 12), and you can ask for exactly \"the egg in slot 3\". A MULTISET is like a shopping bag of apples: the\napples are all there, duplicates are fine, but there is no slot 3 - you can only ask whether an apple is in the bag or how\nmany apples are in it, not which position it is in.\n4. Complete Detailed Explanation\n2.2.1 Declaring a type hierarchy\nCREATE TYPE PersonType AS (\nName VARCHAR(30),\nDOB DATE\n) NOT FINAL;\nCREATE TYPE StudentType UNDER PersonType AS (\nCollege VARCHAR(30),\nDegree VARCHAR(20)\n);\nNOT FINAL marks PersonType as allowed to have subtypes; a type declared FINAL (the\ndefault) cannot be extended further.\n2.2.2 Table inheritance\nCREATE TABLE Person OF PersonType (PRIMARY KEY (Name));\nCREATE TABLE Student OF StudentType UNDER Person;\nEvery row inserted into Student is automatically also visible when Person is queried\n(unless the query says ONLY Person), because a Student row IS-A Person row.\n2.2.3 Overriding and method inheritance\nA subtype inherits every attribute and method of its supertype and can add new ones, or override an inherited method\nwith a more specific implementation - the same idea as method overriding in Java or Python.\n2.2.4 ARRAY and MULTISET in practice\nCREATE TABLE Student (\nRollNo INT PRIMARY KEY,\nPhones VARCHAR(15) ARRAY[3],\nSkills VARCHAR(20) MULTISET\n);\nINSERT INTO Student VALUES\n(101, ARRAY['9998887771','9998887772'],\nMULTISET['SQL','Python','SQL']);\nPhones[1] retrieves the first phone number (ARRAYs are indexed from 1 in SQL).\nCARDINALITY(Skills) returns how many elements are in the multiset, duplicates included.\n5. Step-by-Step Working\n\u2022 1. Identify the common attributes shared by several kinds of entity and put them in a supertype, marked NOT\nFINAL.\n\u2022 2. Declare each specialised kind as a subtype UNDER the supertype, adding only the attributes unique to it.\n\u2022 3. Create the actual tables OF the types, using UNDER again to link the subtable to the supertable.\n\u2022 4. Decide, for each multi-valued attribute, whether order/position matters (use ARRAY) or not (use MULTISET).\n\u2022 5. Query a subtype/subtable directly for its extra columns, or query the supertype/supertable to see all rows of\nevery subtype at once.\n6. Diagrams\nFigure: A Person supertype with Student and Employee subtypes declared using UNDER\nFigure: ARRAY (ordered, indexed) versus MULTISET (unordered bag) side by side\n7. Images\nFigure: Type/table inheritance hierarchy showing attribute inheritance from Person\n8. Tables\nARRAY vs. MULTISET\nFeature\nARRAY\nMULTISET\nOrder\nOrdered (positional)\nUnordered\nSize\nFixed maximum, declared upfront\nNo fixed size\nDuplicates\nAllowed\nAllowed\nAccess\nBy index, e.g. Phones[1]\nBy membership / aggregate only\nTypical use\nA limited, position-meaningful list\nA bag of tags or skills\n9. Important Terms\nTerm\nSimple Meaning\nSupertype\nThe general type from which other types inherit\nSubtype\nA specialised type declared UNDER a supertype\nNOT FINAL\nA type modifier allowing further subtypes to be derived\nCARDINALITY()\nSQL function returning the number of elements in a collection value\nUNPACK / UNNEST\nOperation that flattens a collection value into one row per element\n10. Examples",
+    "structuredTables": [
+      {
+        "id": "t2_2_inheritance",
+        "title": "Type Inheritance vs. Table Inheritance in SQL:1999",
+        "subtitle": "Detailed comparison of schema structure, polymorphism, query substitutability, and table storage",
+        "badge": "Inheritance Mechanics",
+        "headers": [
+          "Dimension",
+          "Type Inheritance (`CREATE TYPE ... UNDER`)",
+          "Table Inheritance (`CREATE TABLE ... UNDER`)",
+          "Key Implementation Rule"
+        ],
+        "rows": [
+          {
+            "feature": "Definition Scope",
+            "col1": "Defines domain structures and method signatures without data",
+            "col2": "Creates physical storage tables where tuples actually reside",
+            "verdict": "Type inheritance defines schema; Table inheritance holds records",
+            "status": "info"
+          },
+          {
+            "feature": "Attribute Inheritance",
+            "col1": "Subtype automatically inherits all supertype attributes & methods",
+            "col2": "Subtable inherits all columns from parent table plus its own",
+            "verdict": "Eliminates repetitive attribute definitions across schemas",
+            "status": "success"
+          },
+          {
+            "feature": "Query Polymorphism",
+            "col1": "Enables type substitutability in method arguments",
+            "col2": "`SELECT * FROM SuperTable` returns rows of supertable AND all subtables!",
+            "verdict": "Use `SELECT * FROM ONLY(SuperTable)` to suppress subtable rows",
+            "status": "better-col2"
+          },
+          {
+            "feature": "Primary Key & Unique Constraints",
+            "col1": "Not applicable to abstract type definitions",
+            "col2": "Parent table primary keys enforce uniqueness across the entire hierarchy",
+            "verdict": "Guarantees global entity identity throughout subtype trees",
             "status": "info"
           }
         ]
       },
       {
-        "id": "t1_4_frag",
-        "title": "Database Fragmentation Strategies Comparison",
-        "subtitle": "Comparison of Horizontal, Vertical, and Mixed/Hybrid Fragmentation",
-        "badge": "Design Techniques",
+        "id": "t2_2_array_multiset",
+        "title": "ARRAY vs. MULTISET Collection Types Comparison",
+        "subtitle": "Comparing ordered indexed arrays vs. unordered multisets (bags) in SQL:1999",
+        "badge": "Collection Types Matrix",
         "headers": [
-          "Fragmentation Type",
-          "Splitting Axis",
-          "Reconstruction Operator",
-          "Correctness Guarantee",
-          "Example Application"
+          "Attribute / Feature",
+          "ARRAY Collection Type",
+          "MULTISET Collection Type",
+          "Practical Engineering Verdict"
         ],
         "rows": [
           {
-            "feature": "Horizontal Fragmentation (Sharding)",
-            "col1": "Splits table by Rows (Tuples) based on predicate condition",
-            "col2": "UNION (R = R1 \u222a R2 \u222a ... \u222a Rn)",
-            "col3": "Completeness, Disjointness (predicates mutually exclusive)",
-            "col4": "Customer table split by region: North vs South vs West branch",
-            "status": "success"
-          },
-          {
-            "feature": "Vertical Fragmentation",
-            "col1": "Splits table by Columns (Attributes) across sites",
-            "col2": "NATURAL JOIN (Must include Primary Key in every fragment)",
-            "col3": "Completeness, Lossless Join guarantee via Primary Key",
-            "col4": "Employee table: Public profile (Site 1) vs Salary/SSN (Site 2)",
+            "feature": "Ordering & Indexing",
+            "col1": "Strictly Ordered; elements accessed via 1-based index `arr[1]`",
+            "col2": "Unordered bag; elements have no positional index",
+            "verdict": "Use ARRAY when sequence matters (e.g. phone priority)",
             "status": "info"
           },
           {
-            "feature": "Hybrid / Mixed Fragmentation",
-            "col1": "Combines Horizontal and Vertical partitioning in tree hierarchy",
-            "col2": "Combined UNION and NATURAL JOIN",
-            "col3": "Hierarchical reconstruction tree matching decomposition",
-            "col4": "Hospital DB: Horizontal by department, then vertical by medical vs billing",
+            "feature": "Duplicate Handling",
+            "col1": "Allows duplicates (e.g. `ARRAY['A', 'A', 'B']`)",
+            "col2": "Allows duplicates (e.g. `MULTISET['Java', 'Java']`)",
+            "verdict": "Both allow duplicates, unlike relational strict mathematical sets",
+            "status": "info"
+          },
+          {
+            "feature": "Set Operations Support",
+            "col1": "\u274c Limited (Index operations, concatenation `||`, slicing)",
+            "col2": "\u2705 Rich (`MULTISET UNION`, `INTERSECT`, `EXCEPT`, `SET(M)` to deduplicate)",
+            "verdict": "MULTISET supports algebraic set operations natively",
+            "status": "better-col2"
+          },
+          {
+            "feature": "Relational Transformation",
+            "col1": "`UNNEST(arr) WITH ORDINALITY` preserves index position",
+            "col2": "`UNNEST(mset)` flattens bag into normal relational rows",
+            "verdict": "Easily integrated into standard SQL SELECT/FROM queries",
+            "status": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2.3",
+    "moduleId": 2,
+    "moduleName": "Object-Based Databases and XML",
+    "title": "Object Identity (OI) and Reference Types",
+    "timeEstimate": "18 min",
+    "pageRange": "43 - 47",
+    "overview": {
+      "whatIsIt": "",
+      "whyItMatters": "",
+      "quickSummary": ""
+    },
+    "beginnerIntro": {
+      "simpleExplanation": "",
+      "keywords": []
+    },
+    "analogies": [],
+    "detailedExplanation": {
+      "subsections": [
+        {
+          "title": "Core Theoretical Framework",
+          "content": "Detailed theoretical concepts and principles."
+        }
+      ],
+      "raw": ""
+    },
+    "stepByStep": [],
+    "diagramsDescription": "",
+    "visualIllustrations": "",
+    "tablesRaw": "",
+    "importantTerms": "",
+    "terms": [],
+    "examples": [],
+    "advantages": [
+      "Removes repeated declaration of shared attributes",
+      "Models IS-A relationships directly in the schema",
+      "ARRAY/MULTISET avoid a separate bridge table for small, always-together lists",
+      "Querying the supertype automatically covers all subtypes"
+    ],
+    "limitations": [
+      "Advantages:",
+      "Removes repeated declaration of shared attributes",
+      "Models IS-A relationships directly in the schema",
+      "ARRAY/MULTISET avoid a separate bridge table for small, always-together lists",
+      "Querying the supertype automatically covers all subtypes",
+      "Limitations:",
+      "Deep hierarchies can complicate schema evolution (changing the supertype affects every subtype)",
+      "Not all databases implement SQL-standard table inheritance the same way",
+      "ARRAY has to declare a maximum size in advance",
+      "Indexing and querying inside a MULTISET is generally slower than a normal join"
+    ],
+    "advantagesLimitations": "11. Advantages & Limitations\nAdvantages:\n\u2022 Removes repeated declaration of shared attributes\n\u2022 Models IS-A relationships directly in the schema\n\u2022 ARRAY/MULTISET avoid a separate bridge table for small, always-together lists\n\u2022 Querying the supertype automatically covers all subtypes\nLimitations:\n\u2022 Deep hierarchies can complicate schema evolution (changing the supertype affects every subtype)\n\u2022 Not all databases implement SQL-standard table inheritance the same way\n\u2022 ARRAY has to declare a maximum size in advance\n\u2022 Indexing and querying inside a MULTISET is generally slower than a normal join",
+    "applications": [
+      "University/ERP systems with Person-Student-Employee hierarchies",
+      "Product catalogues with variable-length attribute lists",
+      "Vehicle/asset management (Vehicle -> Car -> ElectricCar)"
+    ],
+    "keyPoints": {
+      "takeaways": [
+        "CREATE TYPE ... UNDER ... builds a type hierarchy; NOT FINAL permits further subtyping.",
+        "A subtable declared UNDER a supertable automatically appears in supertable queries.",
+        "ARRAY is ordered and indexed with a fixed maximum size; MULTISET is an unordered bag with no fixed size.",
+        "Both collection types allow duplicate values, unlike a mathematical SET.",
+        "Topic 2.3: Object Identity (OI) and Reference Types",
+        "1. Topic Name - Object Identity and Reference (REF) Types",
+        "What is it? In a pure relational table, one row is identified only by its key values - if every attribute value changes,",
+        "there is no way left to say \"this is still the same row it was before\". Object Identity (OID) solves this by giving every",
+        "row of a typed table a unique, system-generated identifier that never changes and is independent of the row's attribute",
+        "values. A REF type is simply a typed pointer that stores another row's OID, letting one row reference another directly",
+        "instead of through a foreign-key join.",
+        "Why do we need it? Keys can change (an email address or employee code might be reassigned) and keys can be",
+        "composite and clumsy to carry around as a \"pointer\". Object identity gives a stable handle to an object that survives",
+        "attribute updates, and REF columns let related objects be reached directly, closer to how a pointer/reference works in a",
+        "programming language.",
+        "Where is it used? - Modelling one-to-many and many-to-one relationships without an explicit join, e.g. an Employee",
+        "row holding REF(Department) instead of a DeptID foreign key",
+        "CAD systems where a part references its sub-parts by identity",
+        "Any ORDBMS schema (Oracle, PostgreSQL) using typed tables",
+        "Important: An OID is not the same as a primary key. A primary key is a value chosen from the data (e.g. RollNo); an",
+        "OID is generated and managed entirely by the system and is never shown to or chosen by the user.",
+        "2. Beginner Friendly Introduction",
+        "Think of an OID like the unique serial number stamped inside every car engine. The car's number plate (like a primary",
+        "key) can be changed if the owner moves to another state, and the owner's name can change, but the engine's serial",
+        "number never changes and always identifies exactly that one engine. A REF is like writing down someone else's engine",
+        "serial number on your own paperwork instead of writing their full changeable address - you always know exactly",
+        "which object you mean.",
+        "In databases: - OID (Object Identifier) = a unique, immutable, system-generated value attached to every row of a",
+        "typed table",
+        "REF(TypeName) = a column type that stores the OID of a row of TypeName",
+        "Dereferencing = following a REF value to fetch the object it points to, written with the -> operator in SQL",
+        "Typed table = a table created OF a structured type, which is what makes OIDs possible",
+        "Technical words explained simply",
+        "Simple Meaning",
+        "A unique, system-assigned identifier attached to a row of a typed table",
+        "A column type holding the OID of a row of type T",
+        "Dereference (->)",
+        "The operation of following a REF to read the attributes of the object it points to",
+        "Typed table",
+        "A table created OF a structured type, enabling identity and REFs",
+        "3. Real-Life Analogies",
+        "Analogy 1 - A library book's barcode. A book's title, author or even its shelf location can be updated, but the",
+        "barcode sticker glued inside the cover never changes for that physical copy. Anyone can write down that barcode",
+        "number and always find the exact same copy later - that barcode is the object identity. Writing the barcode number on",
+        "a reservation slip instead of copying the whole book description is exactly what a REF column does.",
+        "Analogy 2 - A locker key vs. a name tag. A name tag can be wrong, duplicated, or changed (a foreign key value). A",
+        "locker's key/number is unique and assigned once when the locker was built (an OID). If your friend says \"my things are",
+        "in locker 42\", you go straight to locker 42 - you don't have to search through every locker's name tag.",
+        "4. Complete Detailed Explanation",
+        "2.3.1 Why OIDs are needed",
+        "Relational identity is value-based: two rows are \"the same\" only if the compared attribute values match. This breaks",
+        "down when (a) two genuinely different objects happen to share all current attribute values, or (b) the same object's",
+        "attributes are updated over time and old references must still find it. Object identity is existence-based instead of",
+        "value-based: the OID identifies the object regardless of what its attributes currently hold.",
+        "2.3.2 Creating typed tables with identity",
+        "CREATE TYPE DeptType AS (DeptNo INT, DeptName VARCHAR(20)) NOT FINAL;",
+        "CREATE TABLE Department OF DeptType",
+        "REF IS DeptOID SYSTEM GENERATED;",
+        "Every row of Department now automatically carries a hidden, unique DeptOID managed",
+        "entirely by the system.",
+        "2.3.3 Using REF to model relationships",
+        "CREATE TYPE EmpType AS (",
+        "Name VARCHAR(30),",
+        "WorksIn REF(DeptType) SCOPE Department",
+        "CREATE TABLE Employee OF EmpType;",
+        "SCOPE Department restricts the REF so it can only ever point to a row of the Department",
+        "table, giving the same referential safety a foreign key gives, but stored as a direct",
+        "2.3.4 Dereferencing with ->",
+        "SELECT Name, WorksIn->DeptName",
+        "FROM Employee;",
+        "The -> operator follows the REF stored in WorksIn straight to the referenced Department",
+        "row and reads its DeptName attribute, with no explicit JOIN ... ON clause needed.",
+        "5. Step-by-Step Working",
+        "1. Create a structured type for the entity that needs a stable identity (e.g. DeptType).",
+        "2. Create a typed table OF that type, letting the system generate the REF/OID for every row.",
+        "3. In a related type, declare an attribute as REF(OtherType), optionally scoped to one specific table.",
+        "4. Insert data: assign the REF attribute the OID of the target row (often obtained from a prior SELECT REF(row)",
+        "5. Query related data by dereferencing with -> instead of writing an explicit join.",
+        "6. Diagrams",
+        "Figure: An object's state, its system-generated OID, and its behaviour, plus a REF attribute pointing to another object's OID",
+        "Figure: How a REF attribute stores another object's OID instead of a copied foreign-key value",
+        "Foreign Key vs. REF/OID",
+        "Foreign Key (relational)",
+        "REF / OID (object-based)",
+        "What is stored",
+        "A copy of the referenced row's key value",
+        "The referenced row's system-generated",
+        "Changes if key value changes",
+        "Yes, needs cascading update",
+        "No, OID is immutable",
+        "How it is followed",
+        "Explicit JOIN ... ON",
+        "Direct dereference with ->",
+        "The database designer, from the data",
+        "The system, automatically",
+        "Typical use",
+        "Any relational schema",
+        "Typed/object-relational tables (Oracle,",
+        "PostgreSQL)",
+        "9. Important Terms",
+        "Simple Meaning",
+        "Object identity (OI)",
+        "The property that lets an object be identified independently of its attribute values",
+        "SYSTEM GENERATED",
+        "Clause requesting the DBMS to create and manage the OID/REF automatically",
+        "Clause restricting a REF attribute to point only to rows of a named table",
+        "Dangling reference",
+        "A REF whose target row has been deleted, left pointing to nothing",
+        "10. Examples",
+        "Example 1: Employee.WorksIn REF(DeptType) SCOPE Department lets SELECT Name, WorksIn->DeptName",
+        "FROM Employee fetch each employee's department name without a JOIN clause.",
+        "Example 2: A Part typed table where AssemblyOf REF(PartType) lets a sub-part point directly to the OID of the larger",
+        "assembly it belongs to.",
+        "11. Advantages & Limitations",
+        "Advantages:",
+        "Identity survives attribute updates, unlike value-based keys",
+        "Navigating relationships via -> is closer to how application/object code already thinks",
+        "SCOPE keeps the referential integrity a foreign key would give",
+        "Avoids carrying and re-validating composite key values as pointers",
+        "Limitations:",
+        "OIDs are implementation-specific - not portable in the exact same form across every DBMS",
+        "Deleting a referenced row can leave dangling REFs if not handled carefully",
+        "Adds conceptual overhead for teams used to plain relational foreign keys",
+        "Query optimisers must specifically support REF dereferencing to do it efficiently",
+        "12. Applications",
+        "Object-relational schemas in Oracle and PostgreSQL",
+        "CAD/CAM part-of-assembly graphs",
+        "Network/graph-like relationships stored inside an SQL engine",
+        "OID is a unique, system-generated, immutable identifier attached to rows of a typed table.",
+        "REF(TypeName) is a typed pointer storing another row's OID.",
+        "> dereferences a REF to read the target object's attributes, replacing an explicit join."
+      ],
+      "misconceptions": [],
+      "examTips": []
+    },
+    "fullRawText": "Example 1: PersonType(Name, DOB) NOT FINAL, with StudentType and EmployeeType both declared UNDER\nPersonType, each adding their own two or three fields.\nExample 2: A Product table with Tags VARCHAR(15) MULTISET holding an unordered set of category tags such as\n{'electronics','sale','new'}.\n11. Advantages & Limitations\nAdvantages:\n\u2022 Removes repeated declaration of shared attributes\n\u2022 Models IS-A relationships directly in the schema\n\u2022 ARRAY/MULTISET avoid a separate bridge table for small, always-together lists\n\u2022 Querying the supertype automatically covers all subtypes\nLimitations:\n\u2022 Deep hierarchies can complicate schema evolution (changing the supertype affects every subtype)\n\u2022 Not all databases implement SQL-standard table inheritance the same way\n\u2022 ARRAY has to declare a maximum size in advance\n\u2022 Indexing and querying inside a MULTISET is generally slower than a normal join\n12. Applications\n\u2022 University/ERP systems with Person-Student-Employee hierarchies\n\u2022 Product catalogues with variable-length attribute lists\n\u2022 Vehicle/asset management (Vehicle -> Car -> ElectricCar)\n13. Key Points to Remember\n\u2022 CREATE TYPE ... UNDER ... builds a type hierarchy; NOT FINAL permits further subtyping.\n\u2022 A subtable declared UNDER a supertable automatically appears in supertable queries.\n\u2022 ARRAY is ordered and indexed with a fixed maximum size; MULTISET is an unordered bag with no fixed size.\n\u2022 Both collection types allow duplicate values, unlike a mathematical SET.\nTopic 2.3: Object Identity (OI) and Reference Types\n1. Topic Name - Object Identity and Reference (REF) Types\nWhat is it? In a pure relational table, one row is identified only by its key values - if every attribute value changes,\nthere is no way left to say \"this is still the same row it was before\". Object Identity (OID) solves this by giving every\nrow of a typed table a unique, system-generated identifier that never changes and is independent of the row's attribute\nvalues. A REF type is simply a typed pointer that stores another row's OID, letting one row reference another directly\ninstead of through a foreign-key join.\nWhy do we need it? Keys can change (an email address or employee code might be reassigned) and keys can be\ncomposite and clumsy to carry around as a \"pointer\". Object identity gives a stable handle to an object that survives\nattribute updates, and REF columns let related objects be reached directly, closer to how a pointer/reference works in a\nprogramming language.\nWhere is it used? - Modelling one-to-many and many-to-one relationships without an explicit join, e.g. an Employee\nrow holding REF(Department) instead of a DeptID foreign key\n- CAD systems where a part references its sub-parts by identity\n- Any ORDBMS schema (Oracle, PostgreSQL) using typed tables\nImportant: An OID is not the same as a primary key. A primary key is a value chosen from the data (e.g. RollNo); an\nOID is generated and managed entirely by the system and is never shown to or chosen by the user.\n2. Beginner Friendly Introduction\nThink of an OID like the unique serial number stamped inside every car engine. The car's number plate (like a primary\nkey) can be changed if the owner moves to another state, and the owner's name can change, but the engine's serial\nnumber never changes and always identifies exactly that one engine. A REF is like writing down someone else's engine\nserial number on your own paperwork instead of writing their full changeable address - you always know exactly\nwhich object you mean.\nIn databases: - OID (Object Identifier) = a unique, immutable, system-generated value attached to every row of a\ntyped table\n- REF(TypeName) = a column type that stores the OID of a row of TypeName\n- Dereferencing = following a REF value to fetch the object it points to, written with the -> operator in SQL\n- Typed table = a table created OF a structured type, which is what makes OIDs possible\nTechnical words explained simply\nWord\nSimple Meaning\nOID\nA unique, system-assigned identifier attached to a row of a typed table\nREF(T)\nA column type holding the OID of a row of type T\nDereference (->)\nThe operation of following a REF to read the attributes of the object it points to\nTyped table\nA table created OF a structured type, enabling identity and REFs\n3. Real-Life Analogies\nAnalogy 1 - A library book's barcode. A book's title, author or even its shelf location can be updated, but the\nbarcode sticker glued inside the cover never changes for that physical copy. Anyone can write down that barcode\nnumber and always find the exact same copy later - that barcode is the object identity. Writing the barcode number on\na reservation slip instead of copying the whole book description is exactly what a REF column does.\nAnalogy 2 - A locker key vs. a name tag. A name tag can be wrong, duplicated, or changed (a foreign key value). A\nlocker's key/number is unique and assigned once when the locker was built (an OID). If your friend says \"my things are\nin locker 42\", you go straight to locker 42 - you don't have to search through every locker's name tag.\n4. Complete Detailed Explanation\n2.3.1 Why OIDs are needed\nRelational identity is value-based: two rows are \"the same\" only if the compared attribute values match. This breaks\ndown when (a) two genuinely different objects happen to share all current attribute values, or (b) the same object's\nattributes are updated over time and old references must still find it. Object identity is existence-based instead of\nvalue-based: the OID identifies the object regardless of what its attributes currently hold.\n2.3.2 Creating typed tables with identity\nCREATE TYPE DeptType AS (DeptNo INT, DeptName VARCHAR(20)) NOT FINAL;\nCREATE TABLE Department OF DeptType\nREF IS DeptOID SYSTEM GENERATED;\nEvery row of Department now automatically carries a hidden, unique DeptOID managed\nentirely by the system.\n2.3.3 Using REF to model relationships\nCREATE TYPE EmpType AS (\nName VARCHAR(30),\nWorksIn REF(DeptType) SCOPE Department\n);\nCREATE TABLE Employee OF EmpType;\nSCOPE Department restricts the REF so it can only ever point to a row of the Department\ntable, giving the same referential safety a foreign key gives, but stored as a direct\npointer.\n2.3.4 Dereferencing with ->\nSELECT Name, WorksIn->DeptName\nFROM Employee;\nThe -> operator follows the REF stored in WorksIn straight to the referenced Department\nrow and reads its DeptName attribute, with no explicit JOIN ... ON clause needed.\n5. Step-by-Step Working\n\u2022 1. Create a structured type for the entity that needs a stable identity (e.g. DeptType).\n\u2022 2. Create a typed table OF that type, letting the system generate the REF/OID for every row.\n\u2022 3. In a related type, declare an attribute as REF(OtherType), optionally scoped to one specific table.\n\u2022 4. Insert data: assign the REF attribute the OID of the target row (often obtained from a prior SELECT REF(row)\nquery).\n\u2022 5. Query related data by dereferencing with -> instead of writing an explicit join.\n6. Diagrams\nFigure: An object's state, its system-generated OID, and its behaviour, plus a REF attribute pointing to another object's OID\n7. Images\nFigure: How a REF attribute stores another object's OID instead of a copied foreign-key value\n8. Tables\nForeign Key vs. REF/OID\nAspect\nForeign Key (relational)\nREF / OID (object-based)\nWhat is stored\nA copy of the referenced row's key value\nThe referenced row's system-generated\nOID\nChanges if key value changes\nYes, needs cascading update\nNo, OID is immutable\nHow it is followed\nExplicit JOIN ... ON\nDirect dereference with ->\nChosen by\nThe database designer, from the data\nThe system, automatically\nTypical use\nAny relational schema\nTyped/object-relational tables (Oracle,\nPostgreSQL)\n9. Important Terms\nTerm\nSimple Meaning\nObject identity (OI)\nThe property that lets an object be identified independently of its attribute values\nSYSTEM GENERATED\nClause requesting the DBMS to create and manage the OID/REF automatically\nSCOPE\nClause restricting a REF attribute to point only to rows of a named table\nDangling reference\nA REF whose target row has been deleted, left pointing to nothing\n10. Examples\nExample 1: Employee.WorksIn REF(DeptType) SCOPE Department lets SELECT Name, WorksIn->DeptName\nFROM Employee fetch each employee's department name without a JOIN clause.\nExample 2: A Part typed table where AssemblyOf REF(PartType) lets a sub-part point directly to the OID of the larger\nassembly it belongs to.\n11. Advantages & Limitations\nAdvantages:\n\u2022 Identity survives attribute updates, unlike value-based keys\n\u2022 Navigating relationships via -> is closer to how application/object code already thinks\n\u2022 SCOPE keeps the referential integrity a foreign key would give\n\u2022 Avoids carrying and re-validating composite key values as pointers\nLimitations:\n\u2022 OIDs are implementation-specific - not portable in the exact same form across every DBMS\n\u2022 Deleting a referenced row can leave dangling REFs if not handled carefully\n\u2022 Adds conceptual overhead for teams used to plain relational foreign keys\n\u2022 Query optimisers must specifically support REF dereferencing to do it efficiently\n12. Applications\n\u2022 Object-relational schemas in Oracle and PostgreSQL\n\u2022 CAD/CAM part-of-assembly graphs\n\u2022 Network/graph-like relationships stored inside an SQL engine\n13. Key Points to Remember\n\u2022 OID is a unique, system-generated, immutable identifier attached to rows of a typed table.\n\u2022 REF(TypeName) is a typed pointer storing another row's OID.\n\u2022 -> dereferences a REF to read the target object's attributes, replacing an explicit join.",
+    "structuredTables": [
+      {
+        "id": "t2_3_oid_fk",
+        "title": "Primary Key / Foreign Key Joins vs. Object Identity (OID) & REF Types",
+        "subtitle": "Detailed comparison of relational value-based joins vs. object-relational pointer dereferencing",
+        "badge": "GTU High-Yield Topic",
+        "headers": [
+          "Comparison Criteria",
+          "Relational Foreign Key (Value-Based)",
+          "Object Identity (OID) & REF Types (Identity-Based)",
+          "Architectural Advantage"
+        ],
+        "rows": [
+          {
+            "feature": "Identity Generation",
+            "col1": "User-defined or domain value (e.g. `RollNo`, `SSN`, `Email`)",
+            "col2": "System-generated, globally unique, immutable 64/128-bit handle",
+            "verdict": "OID survives attribute modifications and email reassignments",
+            "status": "better-col2"
+          },
+          {
+            "feature": "Relationship Traversal",
+            "col1": "Requires explicit relational `JOIN ... ON S.DeptNo = D.DeptNo`",
+            "col2": "Direct pointer dereferencing with arrow operator `e.dept->dept_name`",
+            "verdict": "Arrow dereferencing is syntactically concise and eliminates join plans",
+            "status": "better-col2"
+          },
+          {
+            "feature": "Query Execution Overhead",
+            "col1": "Hash Join, Merge Join, or Index Nested Loops over table indexes",
+            "col2": "Direct disk/memory block address lookup via OID index pointer",
+            "verdict": "Faster navigation in deeply nested CAD/graph structures",
+            "status": "better-col2"
+          },
+          {
+            "feature": "Scope & Integrity Checking",
+            "col1": "Enforced via `FOREIGN KEY ... REFERENCES OtherTable(PK)`",
+            "col2": "Enforced via `SCOPE TargetTable` clause on the REF attribute",
+            "verdict": "Unscoped REFs risk dangling references if target is dropped",
+            "status": "warning"
+          },
+          {
+            "feature": "Dangling Reference Behavior",
+            "col1": "Prevented by `ON DELETE RESTRICT / CASCADE` constraints",
+            "col2": "Dereferencing a deleted OID safely yields `NULL` in SQL standard",
+            "verdict": "Scoped REFs ensure referential integrity",
+            "status": "info"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2.4",
+    "moduleId": 2,
+    "moduleName": "Object-Based Databases and XML",
+    "title": "XML: Structure, Schema, XPath, and XQuery (FLWOR Expressions)",
+    "timeEstimate": "22 min",
+    "pageRange": "48 - 51",
+    "overview": {
+      "whatIsIt": "What is it? XML (eXtensible Markup Language) stores data as nested, labelled elements inside angle brackets, forming a tree rather than a table. XPath is a small language for addressing a location (a node or set of nodes) inside that tree. XQuery is a full query language built on top of XPath that can filter, join, restructure and output XML, most often written using a FLWOR expression (For, Let, Where, Order by, Return). Why do we need it? Not all data is naturally tabular - documents, configuration files and messages exchanged between systems are naturally hierarchical and self-describing. XML lets two completely different systems exchange data because the tags themselves describe the meaning of each piece of data, and a schema (DTD or XML Schema) can validate that an XML document has the expected structure before it is trusted. Where is it used? - Web service messages (SOAP, many REST APIs) - Configuration files (Android layouts, Maven/Ant build files) - Publishing and document interchange (DocBook, Office Open XML) - Data export/import between heterogeneous database systems Important: XML is semi-structured: unlike a relational table, different elements of the same tag name are not forced to have exactly the same set of children - some optional elements may be missing, which is what makes XML flexible for irregular data.",
+      "whyItMatters": "",
+      "quickSummary": ""
+    },
+    "beginnerIntro": {
+      "simpleExplanation": "2. Beginner Friendly Introduction\nPicture a family tree drawn on paper: one box for the grandparent at the top, lines going down to boxes for each child,\nand further lines going down to boxes for each grandchild. XML is exactly this kind of drawing, but written as text\nusing tags: .... XPath is like giving turn-by-turn directions to walk from the top box down to one particular box, e.g. \"go\nto family, then parent, then the second child\". XQuery is like asking a librarian a full question - \"find me every\ngrandchild born after 2010, sorted by name\" - using those directions as building blocks.\nIn databases: - Element = a tagged node, e.g. ...\n- Attribute = a name=\"value\" pair written inside an element's opening tag, e.g.\n- DTD (Document Type Definition) = an older, simple schema language for XML\n- XML Schema (XSD) = a richer, type-aware schema language for XML\n- FLWOR = the For-Let-Where-Order by-Return pipeline used to write an XQuery query\nTechnical words explained simply\nWord\nSimple Meaning\nWell-formed XML\nXML that follows the basic syntax rules (matching tags, one root element, proper nesting)\nValid XML\nWell-formed XML that also conforms to a given DTD or XML Schema\nRoot element\nThe single outermost element that contains every other element\nWord\nSimple Meaning\nNamespace\nA mechanism to avoid tag-name clashes when combining XML from different\nvocabularies",
+      "keywords": []
+    },
+    "analogies": [
+      "A postal address written as nested boxes. An envelope has a Country box, inside it a State box, inside\nit a City box, inside it a Street box. You cannot skip levels - you always go Country -> State -> City -> Street. XML\nelements nest the exact same way, and XPath is simply the postal sequence written as a path:\n/Country/State/City/Street.",
+      "A restaurant order slip with FLWOR. FOR each dish on the menu, LET the discounted price be\ncomputed, WHERE the dish is vegetarian, ORDER BY price, RETURN a printed line for the kitchen. FLWOR in",
+      "XQuery works exactly like this: loop over items, optionally compute something extra, filter, sort, and finally decide\nwhat the output line should look like."
+    ],
+    "detailedExplanation": {
+      "subsections": [
+        {
+          "title": "Core Theoretical Framework",
+          "content": "4. Complete Detailed Explanation\n2.4.1 XML as a tree\nDB Systems\nNavathe\nXML Guide\nEvery XML document has exactly one root element ( here); every other element is a descendant of it, forming an\nordered, labelled tree that a database can store and query directly (native XML/XML-enabled databases) or shred into\nrelational tables.\n2.4.2 DTD vs. XML Schema\nA DTD declares allowed elements and their nesting with a compact but weakly-typed grammar, e.g. . An XML Schema\n(XSD) is itself written in XML and can additionally constrain data types (xs:integer, xs:date), cardinalities\n(minOccurs/maxOccurs), and reusable complex types - closer in spirit to a relational schema than a DTD is.\n2.4.3 XPath basics\n/library/book -> selects every child of\n//title -> selects every anywhere in the document\n/library/book[@id='1']/title -> selects the title of the book whose id attribute is '1'\n/library/book[price>500] -> selects books whose price element is greater than 500\nA leading / anchors the path at the root; // means \"anywhere in the document\"; [ ] is a predicate/filter; @ selects an\nattribute rather than an element.\n2.4.4 XQuery FLWOR expressions\nFOR $b IN /library/book\nWHERE $b/price > 500\nORDER BY $b/title\nRETURN { $b/title }{ $b/author }\nFOR binds a variable to each matching node in turn; the optional LET binds a computed\nvalue; WHERE filters; ORDER BY sorts; RETURN builds the output XML for every surviving\nbinding - this is the same shape as a relational SELECT ... FROM ... WHERE ... ORDER BY,\nbut the output is itself a new XML fragment rather than a flat row."
+        }
+      ],
+      "raw": "4. Complete Detailed Explanation\n2.4.1 XML as a tree\nDB Systems\nNavathe\nXML Guide\nEvery XML document has exactly one root element ( here); every other element is a descendant of it, forming an\nordered, labelled tree that a database can store and query directly (native XML/XML-enabled databases) or shred into\nrelational tables.\n2.4.2 DTD vs. XML Schema\nA DTD declares allowed elements and their nesting with a compact but weakly-typed grammar, e.g. . An XML Schema\n(XSD) is itself written in XML and can additionally constrain data types (xs:integer, xs:date), cardinalities\n(minOccurs/maxOccurs), and reusable complex types - closer in spirit to a relational schema than a DTD is.\n2.4.3 XPath basics\n/library/book -> selects every child of\n//title -> selects every anywhere in the document\n/library/book[@id='1']/title -> selects the title of the book whose id attribute is '1'\n/library/book[price>500] -> selects books whose price element is greater than 500\nA leading / anchors the path at the root; // means \"anywhere in the document\"; [ ] is a predicate/filter; @ selects an\nattribute rather than an element.\n2.4.4 XQuery FLWOR expressions\nFOR $b IN /library/book\nWHERE $b/price > 500\nORDER BY $b/title\nRETURN { $b/title }{ $b/author }\nFOR binds a variable to each matching node in turn; the optional LET binds a computed\nvalue; WHERE filters; ORDER BY sorts; RETURN builds the output XML for every surviving\nbinding - this is the same shape as a relational SELECT ... FROM ... WHERE ... ORDER BY,\nbut the output is itself a new XML fragment rather than a flat row."
+    },
+    "stepByStep": [
+      {
+        "step": 1,
+        "title": "Step-by-Step Working",
+        "description": "\u2022 1. Model the data as a nested tree and write it as well-formed XML with a single root element.\n\u2022 2. Write a DTD or an XML Schema describing the allowed structure, and validate the document against it.\n\u2022 3. Write an XPath expression to locate the exact node(s) needed, starting from the root and stepping down through\nchild/attribute names.\n\u2022 4. Wrap that navigation inside a FLWOR expression when the result needs filtering, sorting, or restructuring into\nnew XML.\n\u2022 5. Execute the XQuery against the document/database and consume the returned XML fragment."
+      }
+    ],
+    "diagramsDescription": "6. Diagrams\nFigure: An XML document viewed as a labelled, ordered tree rooted at\nFigure: The FOR-LET-WHERE-ORDER BY-RETURN pipeline that an XQuery expression follows",
+    "visualIllustrations": "7. Images\nFigure: Stage-by-stage view of how a FLWOR expression is evaluated",
+    "tablesRaw": "8. Tables\nDTD vs. XML Schema (XSD)\nFeature\nDTD\nXML Schema (XSD)\nWritten in\nIts own compact grammar\nXML itself\nData types\nNo real data typing\nRich built-in types (xs:integer, xs:date, ...)\nNamespaces\nNot well supported\nFully supported\nReusability\nLimited\nReusable complex types, like classes\nTypical use\nSimple, legacy document formats\nModern web-service and enterprise XML",
+    "importantTerms": "9. Important Terms\nTerm\nSimple Meaning\nXPath\nA path-expression language used to address nodes inside an XML tree\nXQuery\nA full query language for XML, built on top of XPath\nFLWOR\nFor-Let-Where-Order by-Return, the standard structure of an XQuery expression\nPredicate\nA [ ] filter condition placed after a step in an XPath expression",
+    "terms": [],
+    "examples": [],
+    "advantages": [],
+    "limitations": [],
+    "advantagesLimitations": "",
+    "applications": [],
+    "keyPoints": {
+      "takeaways": [],
+      "misconceptions": [],
+      "examTips": []
+    },
+    "fullRawText": "\u2022 SCOPE restricts a REF to a specific table, preserving referential integrity.\nTopic 2.4: XML: Structure, Schema, XPath, and XQuery (FLWOR\nExpressions)\n1. Topic Name - XML Data Model, DTD/XML Schema, XPath and XQuery\nWhat is it? XML (eXtensible Markup Language) stores data as nested, labelled elements inside angle brackets,\nforming a tree rather than a table. XPath is a small language for addressing a location (a node or set of nodes) inside\nthat tree. XQuery is a full query language built on top of XPath that can filter, join, restructure and output XML, most\noften written using a FLWOR expression (For, Let, Where, Order by, Return).\nWhy do we need it? Not all data is naturally tabular - documents, configuration files and messages exchanged\nbetween systems are naturally hierarchical and self-describing. XML lets two completely different systems exchange\ndata because the tags themselves describe the meaning of each piece of data, and a schema (DTD or XML Schema) can\nvalidate that an XML document has the expected structure before it is trusted.\nWhere is it used? - Web service messages (SOAP, many REST APIs)\n- Configuration files (Android layouts, Maven/Ant build files)\n- Publishing and document interchange (DocBook, Office Open XML)\n- Data export/import between heterogeneous database systems\nImportant: XML is semi-structured: unlike a relational table, different elements of the same tag name are not forced\nto have exactly the same set of children - some optional elements may be missing, which is what makes XML flexible\nfor irregular data.\n2. Beginner Friendly Introduction\nPicture a family tree drawn on paper: one box for the grandparent at the top, lines going down to boxes for each child,\nand further lines going down to boxes for each grandchild. XML is exactly this kind of drawing, but written as text\nusing tags: .... XPath is like giving turn-by-turn directions to walk from the top box down to one particular box, e.g. \"go\nto family, then parent, then the second child\". XQuery is like asking a librarian a full question - \"find me every\ngrandchild born after 2010, sorted by name\" - using those directions as building blocks.\nIn databases: - Element = a tagged node, e.g. ...\n- Attribute = a name=\"value\" pair written inside an element's opening tag, e.g.\n- DTD (Document Type Definition) = an older, simple schema language for XML\n- XML Schema (XSD) = a richer, type-aware schema language for XML\n- FLWOR = the For-Let-Where-Order by-Return pipeline used to write an XQuery query\nTechnical words explained simply\nWord\nSimple Meaning\nWell-formed XML\nXML that follows the basic syntax rules (matching tags, one root element, proper nesting)\nValid XML\nWell-formed XML that also conforms to a given DTD or XML Schema\nRoot element\nThe single outermost element that contains every other element\nWord\nSimple Meaning\nNamespace\nA mechanism to avoid tag-name clashes when combining XML from different\nvocabularies\n3. Real-Life Analogies\nAnalogy 1 - A postal address written as nested boxes. An envelope has a Country box, inside it a State box, inside\nit a City box, inside it a Street box. You cannot skip levels - you always go Country -> State -> City -> Street. XML\nelements nest the exact same way, and XPath is simply the postal sequence written as a path:\n/Country/State/City/Street.\nAnalogy 2 - A restaurant order slip with FLWOR. FOR each dish on the menu, LET the discounted price be\ncomputed, WHERE the dish is vegetarian, ORDER BY price, RETURN a printed line for the kitchen. FLWOR in\nXQuery works exactly like this: loop over items, optionally compute something extra, filter, sort, and finally decide\nwhat the output line should look like.\n4. Complete Detailed Explanation\n2.4.1 XML as a tree\nDB Systems\nNavathe\nXML Guide\nEvery XML document has exactly one root element ( here); every other element is a descendant of it, forming an\nordered, labelled tree that a database can store and query directly (native XML/XML-enabled databases) or shred into\nrelational tables.\n2.4.2 DTD vs. XML Schema\nA DTD declares allowed elements and their nesting with a compact but weakly-typed grammar, e.g. . An XML Schema\n(XSD) is itself written in XML and can additionally constrain data types (xs:integer, xs:date), cardinalities\n(minOccurs/maxOccurs), and reusable complex types - closer in spirit to a relational schema than a DTD is.\n2.4.3 XPath basics\n/library/book -> selects every child of\n//title -> selects every anywhere in the document\n/library/book[@id='1']/title -> selects the title of the book whose id attribute is '1'\n/library/book[price>500] -> selects books whose price element is greater than 500\nA leading / anchors the path at the root; // means \"anywhere in the document\"; [ ] is a predicate/filter; @ selects an\nattribute rather than an element.\n2.4.4 XQuery FLWOR expressions\nFOR $b IN /library/book\nWHERE $b/price > 500\nORDER BY $b/title\nRETURN { $b/title }{ $b/author }\nFOR binds a variable to each matching node in turn; the optional LET binds a computed\nvalue; WHERE filters; ORDER BY sorts; RETURN builds the output XML for every surviving\nbinding - this is the same shape as a relational SELECT ... FROM ... WHERE ... ORDER BY,\nbut the output is itself a new XML fragment rather than a flat row.\n5. Step-by-Step Working\n\u2022 1. Model the data as a nested tree and write it as well-formed XML with a single root element.\n\u2022 2. Write a DTD or an XML Schema describing the allowed structure, and validate the document against it.\n\u2022 3. Write an XPath expression to locate the exact node(s) needed, starting from the root and stepping down through\nchild/attribute names.\n\u2022 4. Wrap that navigation inside a FLWOR expression when the result needs filtering, sorting, or restructuring into\nnew XML.\n\u2022 5. Execute the XQuery against the document/database and consume the returned XML fragment.\n6. Diagrams\nFigure: An XML document viewed as a labelled, ordered tree rooted at\nFigure: The FOR-LET-WHERE-ORDER BY-RETURN pipeline that an XQuery expression follows\n7. Images\nFigure: Stage-by-stage view of how a FLWOR expression is evaluated\n8. Tables\nDTD vs. XML Schema (XSD)\nFeature\nDTD\nXML Schema (XSD)\nWritten in\nIts own compact grammar\nXML itself\nData types\nNo real data typing\nRich built-in types (xs:integer, xs:date, ...)\nNamespaces\nNot well supported\nFully supported\nReusability\nLimited\nReusable complex types, like classes\nTypical use\nSimple, legacy document formats\nModern web-service and enterprise XML\n9. Important Terms\nTerm\nSimple Meaning\nXPath\nA path-expression language used to address nodes inside an XML tree\nXQuery\nA full query language for XML, built on top of XPath\nFLWOR\nFor-Let-Where-Order by-Return, the standard structure of an XQuery expression\nPredicate\nA [ ] filter condition placed after a step in an XPath expression",
+    "structuredTables": [
+      {
+        "id": "t2_4_dtd_xsd",
+        "title": "DTD (Document Type Definition) vs. XML Schema (XSD)",
+        "subtitle": "Head-to-head engineering comparison for semi-structured XML document validation",
+        "badge": "GTU 7-Mark Question",
+        "headers": [
+          "Feature / Metric",
+          "DTD (Document Type Definition)",
+          "XML Schema Definition (XSD)",
+          "Verdict / Modern Standard"
+        ],
+        "rows": [
+          {
+            "feature": "Syntax Language",
+            "col1": "Custom non-XML EBNF grammar (`<!ELEMENT ...>`)",
+            "col2": "Standard XML syntax (`<xs:schema xmlns:xs=...>` tags)",
+            "verdict": "XSD can be parsed with standard XML parsers and tools",
+            "status": "better-col2"
+          },
+          {
+            "feature": "Data Types Support",
+            "col1": "Very limited: Only `#PCDATA` (raw text), `CDATA`, ID/IDREF",
+            "col2": "Rich 40+ built-in types (integer, decimal, date, boolean, regex patterns)",
+            "verdict": "XSD enforces strict database-grade data type validation",
+            "status": "better-col2"
+          },
+          {
+            "feature": "Cardinallity & Occurrences",
+            "col1": "Regex symbols only: `?` (0 or 1), `*` (0 or more), `+` (1 or more)",
+            "col2": "Exact numeric bounds: `minOccurs=\"2\" maxOccurs=\"10\"`",
+            "verdict": "XSD allows precise enterprise business rule constraints",
+            "status": "better-col2"
+          },
+          {
+            "feature": "Namespace Support",
+            "col1": "\u274c No native support for XML namespaces",
+            "col2": "\u2705 Full support for multiple imported namespaces",
+            "verdict": "Essential for combining enterprise schemas (e.g. SOAP, WSDL)",
+            "status": "better-col2"
+          },
+          {
+            "feature": "Extensibility & Derivation",
+            "col1": "\u274c None (Cannot inherit or extend element definitions)",
+            "col2": "\u2705 Supports type inheritance via `extension` and `restriction`",
+            "verdict": "XSD supports object-oriented XML data modeling",
+            "status": "success"
+          }
+        ]
+      },
+      {
+        "id": "t2_4_xpath_xquery",
+        "title": "XPath vs. XQuery vs. SQL Comparison Matrix",
+        "subtitle": "Navigation, transformation, and querying paradigms across hierarchical and relational data",
+        "badge": "Query Language Taxonomy",
+        "headers": [
+          "Language",
+          "Primary Purpose",
+          "Underlying Data Model",
+          "Core Syntax Mechanism",
+          "Transformation Capability"
+        ],
+        "rows": [
+          {
+            "feature": "XPath",
+            "col1": "Addressing and locating nodes in an XML tree",
+            "col2": "XML Node Tree (Element, Attribute, Text nodes)",
+            "col3": "Path expressions and predicates (`/store/book[price < 30]`)",
+            "col4": "Returns existing node subsets; cannot restructure output",
+            "status": "info"
+          },
+          {
+            "feature": "XQuery",
+            "col1": "Full query, filtering, joining, and XML restructuring",
+            "col2": "XML Node Tree / Sequences of Items",
+            "col3": "FLWOR expressions (`FOR`, `LET`, `WHERE`, `ORDER BY`, `RETURN`)",
+            "col4": "Full transformation: construct brand-new XML schemas on the fly",
+            "status": "success"
+          },
+          {
+            "feature": "SQL",
+            "col1": "Relational data querying and CRUD operations",
+            "col2": "Relational Tables (2D rows and columns)",
+            "col3": "Declarative `SELECT ... FROM ... WHERE ... GROUP BY`",
+            "col4": "Produces flat 2D tabular result sets",
+            "status": "info"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2.5",
+    "moduleId": 2,
+    "moduleName": "Object-Based Databases and XML",
+    "title": "Joins, Nested Queries, Aggregate Functions, and User-Defined Functions",
+    "timeEstimate": "20 min",
+    "pageRange": "52 - 57",
+    "overview": {
+      "whatIsIt": "",
+      "whyItMatters": "",
+      "quickSummary": ""
+    },
+    "beginnerIntro": {
+      "simpleExplanation": "",
+      "keywords": []
+    },
+    "analogies": [],
+    "detailedExplanation": {
+      "subsections": [
+        {
+          "title": "Core Theoretical Framework",
+          "content": "Detailed theoretical concepts and principles."
+        }
+      ],
+      "raw": ""
+    },
+    "stepByStep": [],
+    "diagramsDescription": "",
+    "visualIllustrations": "",
+    "tablesRaw": "",
+    "importantTerms": "",
+    "terms": [],
+    "examples": [
+      "//book[author='Navathe']/title selects the titles of every book anywhere in the document whose author is\n'Navathe'.",
+      "FOR $s IN /class/student LET $avg := avg($s/marks) WHERE $avg >= 60 ORDER BY $avg\nDESCENDING RETURN {$s/name}{$avg} lists passing students sorted by average marks, highest first."
+    ],
+    "advantages": [
+      "Self-describing tags make XML readable and tool-independent",
+      "A tree naturally models irregular, hierarchical data",
+      "XML Schema adds real data typing and reuse over plain DTDs",
+      "FLWOR reads almost like SQL, making XQuery approachable for database users"
+    ],
+    "limitations": [
+      "Advantages:",
+      "Self-describing tags make XML readable and tool-independent",
+      "A tree naturally models irregular, hierarchical data",
+      "XML Schema adds real data typing and reuse over plain DTDs",
+      "FLWOR reads almost like SQL, making XQuery approachable for database users",
+      "Limitations:",
+      "Verbose compared to formats such as JSON, larger file sizes",
+      "Deep trees can make some queries harder to express than a flat table would",
+      "Needs a schema (DTD/XSD) to be reliably validated, otherwise structure can drift",
+      "Full XQuery engines are more complex to implement than plain SQL engines"
+    ],
+    "advantagesLimitations": "11. Advantages & Limitations\nAdvantages:\n\u2022 Self-describing tags make XML readable and tool-independent\n\u2022 A tree naturally models irregular, hierarchical data\n\u2022 XML Schema adds real data typing and reuse over plain DTDs\n\u2022 FLWOR reads almost like SQL, making XQuery approachable for database users\nLimitations:\n\u2022 Verbose compared to formats such as JSON, larger file sizes\n\u2022 Deep trees can make some queries harder to express than a flat table would\n\u2022 Needs a schema (DTD/XSD) to be reliably validated, otherwise structure can drift\n\u2022 Full XQuery engines are more complex to implement than plain SQL engines",
+    "applications": [
+      "Web service messaging (SOAP/XML-RPC)",
+      "Configuration and document interchange formats",
+      "Publishing/DocBook and office document formats",
+      "Cross-system data export/import"
+    ],
+    "keyPoints": {
+      "takeaways": [
+        "XML data is a labelled, ordered tree with exactly one root element.",
+        "A DTD or XML Schema defines the allowed structure; XML Schema adds proper data types.",
+        "XPath addresses nodes with path steps, //, and [ ] predicates.",
+        "XQuery wraps XPath navigation inside a FLWOR pipeline: For, Let, Where, Order by, Return.",
+        "Topic 2.5: Joins, Nested Queries, Aggregate Functions, and User-Defined",
+        "1. Topic Name - Joins, Nested Queries, Aggregate Functions and UDFs",
+        "What is it? This topic revisits four core SQL querying tools that become even more useful once object-relational",
+        "features (Topics 2.1-2.3) are in play: joins (combining rows from two or more tables on a matching condition),",
+        "nested/sub-queries (a SELECT written inside another SELECT), aggregate functions (COUNT, SUM, AVG, MIN,",
+        "MAX that summarise many rows into one value), and User-Defined Functions (UDFs) (custom, reusable pieces of",
+        "logic written once and called like a built-in SQL function).",
+        "Why do we need it? Almost no real report is a single-table SELECT: it needs data pulled together from related tables",
+        "(joins), a condition that itself depends on other data (sub-queries), a summary number per group (aggregates), and often",
+        "a calculation that is reused across many queries and is cleaner to write once as a function (UDF) than to repeat",
+        "everywhere.",
+        "Where is it used? - Every non-trivial business report (sales per region, top students per class)",
+        "Dashboards that need running totals, averages and rankings",
+        "Reusable business rules encoded once as a UDF (e.g. calculate late fee, calculate GST) and called from many queries",
+        "or triggers",
+        "Important: A UDF can be scalar (returns one value, used like a built-in function inside SELECT/WHERE) or",
+        "table-valued (returns a whole result set, used in the FROM clause like a table).",
+        "2. Beginner Friendly Introduction",
+        "Think about combining a class attendance sheet with a marks sheet by roll number - that is exactly what a JOIN does",
+        "with two tables. A nested query is like answering \"who scored above the class average?\" - you first have to work out",
+        "the class average (the inner query) before you can answer the outer question. An aggregate function is like a calculator's",
+        "SUM button run down a column of marks. A UDF is like writing your own named formula in a spreadsheet once, then",
+        "reusing =MyGrade(marks) in every row instead of retyping the formula.",
+        "In databases: - Join = combine rows from two tables where a condition matches (commonly a key = foreign key)",
+        "Sub-query/nested query = a SELECT placed inside another SELECT's WHERE, FROM or SELECT clause",
+        "Correlated sub-query = a sub-query that refers to a column of the outer query, so it is re-evaluated once per outer",
+        "Aggregate function = COUNT, SUM, AVG, MIN, MAX - collapse many rows into one summary value, often",
+        "combined with GROUP BY",
+        "UDF = CREATE FUNCTION ... a named, reusable block of SQL logic",
+        "Technical words explained simply",
+        "Simple Meaning",
+        "Returns only rows that have a match in both tables",
+        "Returns matching rows plus unmatched rows from one or both sides",
+        "(LEFT/RIGHT/FULL)",
+        "Correlated sub-query",
+        "A nested query that references a column from the outer query",
+        "Clause that groups rows sharing a value so aggregate functions summarise per group",
+        "3. Real-Life Analogies",
+        "Analogy 1 - Matching socks from two baskets. A JOIN is like laying out socks from a \"left foot basket\" and a \"right",
+        "foot basket\" and pairing every sock with its matching partner by pattern. An INNER JOIN keeps only complete pairs; a",
+        "LEFT (OUTER) JOIN also keeps every left sock even if its partner is missing, showing an empty slot for the right foot.",
+        "Analogy 2 - A recipe that calls another recipe. A nested query is like a recipe that says \"first prepare the sauce (a",
+        "separate sub-recipe), then use that sauce as one ingredient in the main dish\". You cannot plate the main dish until the",
+        "sauce sub-recipe has finished. A UDF is like writing that sauce recipe on its own card once, so any future main dish can",
+        "simply say \"add one batch of Sauce()\" without rewriting the sauce steps.",
+        "4. Complete Detailed Explanation",
+        "2.5.1 Join types",
+        "SELECT S.Name, D.DeptName",
+        "FROM Student S JOIN Department D",
+        "ON S.DeptNo = D.DeptNo;",
+        "An INNER JOIN (the default JOIN) keeps only rows with a match on both sides. LEFT OUTER",
+        "JOIN additionally keeps every row from the left table with NULLs for the right side when",
+        "there is no match; RIGHT OUTER JOIN does the same from the right side; FULL OUTER JOIN",
+        "keeps unmatched rows from both sides.",
+        "2.5.2 Nested (sub-) queries",
+        "SELECT Name FROM Student",
+        "WHERE Marks > (SELECT AVG(Marks) FROM Student);",
+        "SELECT Name FROM Employee E",
+        "WHERE EXISTS (",
+        "SELECT 1 FROM Project P",
+        "WHERE P.LeadEmpId = E.EmpId);",
+        "The first example is an uncorrelated sub-query, computed once. The second is a",
+        "correlated sub-query - it references E.EmpId from the outer query, so it logically runs",
+        "once per outer row; EXISTS simply checks whether the sub-query returns any row.",
+        "2.5.3 Aggregate functions and GROUP BY",
+        "SELECT DeptNo, COUNT(*) AS NumEmp, AVG(Salary) AS AvgSal",
+        "FROM Employee",
+        "GROUP BY DeptNo",
+        "HAVING COUNT(*) > 5;",
+        "GROUP BY collapses rows sharing the same DeptNo into one group per department; the",
+        "aggregate functions then compute one summary value per group. HAVING filters groups",
+        "after aggregation, while WHERE would filter individual rows before aggregation.",
+        "2.5.4 User-Defined Functions",
+        "CREATE FUNCTION LateFee(daysLate INT)",
+        "RETURNS DECIMAL(6,2)",
+        "RETURN daysLate * 10.00;",
+        "SELECT BookId, LateFee(DaysLate) AS Fee FROM Loan;",
+        "Once created, LateFee behaves exactly like a built-in function such as ROUND - it can be",
+        "called inside SELECT, WHERE, or any expression, keeping the calculation defined in",
+        "exactly one place.",
+        "5. Step-by-Step Working",
+        "1. Decide which tables hold the pieces of information the report needs and identify the matching columns for a",
+        "2. Choose INNER or an OUTER join depending on whether unmatched rows from one side must still appear.",
+        "3. If part of the condition itself depends on a computed value (an average, a max, an existence check), express it",
+        "as a nested sub-query.",
+        "4. Add GROUP BY and an aggregate function when the report needs one summary row per category, and",
+        "HAVING to filter those summaries.",
+        "5. If a calculation is reused across several queries, wrap it once in CREATE FUNCTION and call it like any",
+        "built-in function afterwards.",
+        "6. Diagrams",
+        "Figure: How the inner (nested) query is evaluated and its result fed into the outer query",
+        "Figure: INNER, LEFT and RIGHT join coverage shown as overlapping sets",
+        "Figure: Join types visualised as overlapping regions of two tables",
+        "Aggregate functions at a glance",
+        "What it computes",
+        "Number of rows in the group",
+        "COUNT(*) FROM Employee",
+        "Total of a numeric column",
+        "SUM(Salary)",
+        "Average of a numeric column",
+        "MIN(col) / MAX(col)",
+        "Smallest / largest value",
+        "MAX(Salary)",
+        "GROUP BY + HAVING",
+        "One row per group, filtered after",
+        "aggregation",
+        "GROUP BY DeptNo HAVING",
+        "9. Important Terms",
+        "Simple Meaning",
+        "A join whose condition uses equality (=) between columns",
+        "Simple Meaning",
+        "Correlated sub-query",
+        "A nested query that depends on a column from the outer query, evaluated per outer row",
+        "A user-defined function that returns a single value",
+        "Table-valued UDF",
+        "A user-defined function that returns a full result set, usable in FROM",
+        "Filters groups after GROUP BY aggregation, unlike WHERE which filters rows before",
+        "10. Examples",
+        "Example 1: SELECT DeptName, COUNT(*) FROM Department D JOIN Employee E ON D.DeptNo=E.DeptNo",
+        "GROUP BY DeptName - number of employees per department using a join plus an aggregate.",
+        "Example 2: SELECT Name FROM Student WHERE RollNo NOT IN (SELECT RollNo FROM Attendance WHERE",
+        "Date=CURRENT_DATE) - a nested query listing students absent today.",
+        "11. Advantages & Limitations",
+        "Advantages:",
+        "Joins avoid duplicating related data across tables",
+        "Nested queries let a condition depend on a computed result cleanly",
+        "Aggregates turn thousands of rows into a readable summary in one step",
+        "A UDF centralises business logic so it is written and fixed in one place only",
+        "Limitations:",
+        "Multi-table joins and correlated sub-queries can be slow on very large tables without good indexing",
+        "Deeply nested sub-queries can become hard to read and debug",
+        "Overuse of GROUP BY on huge datasets can be memory intensive",
+        "UDFs can sometimes prevent the query optimiser from choosing the best plan compared to inline SQL",
+        "12. Applications",
+        "Business intelligence reports and dashboards",
+        "Payroll and billing systems using UDFs for tax/fee calculation",
+        "Academic result and ranking systems",
+        "Any multi-table transactional application",
+        "INNER JOIN keeps only matches; OUTER JOINs also keep unmatched rows from one or both sides.",
+        "A correlated sub-query re-evaluates once per outer row; an uncorrelated one evaluates once.",
+        "GROUP BY plus an aggregate function produces one summary row per group; HAVING filters those groups.",
+        "CREATE FUNCTION lets custom logic be reused like a built-in SQL function."
+      ],
+      "misconceptions": [],
+      "examTips": []
+    },
+    "fullRawText": "Term\nSimple Meaning\nSchema validation\nChecking that an XML document conforms to a DTD or XSD\n10. Examples\nExample 1: //book[author='Navathe']/title selects the titles of every book anywhere in the document whose author is\n'Navathe'.\nExample 2: FOR $s IN /class/student LET $avg := avg($s/marks) WHERE $avg >= 60 ORDER BY $avg\nDESCENDING RETURN {$s/name}{$avg} lists passing students sorted by average marks, highest first.\n11. Advantages & Limitations\nAdvantages:\n\u2022 Self-describing tags make XML readable and tool-independent\n\u2022 A tree naturally models irregular, hierarchical data\n\u2022 XML Schema adds real data typing and reuse over plain DTDs\n\u2022 FLWOR reads almost like SQL, making XQuery approachable for database users\nLimitations:\n\u2022 Verbose compared to formats such as JSON, larger file sizes\n\u2022 Deep trees can make some queries harder to express than a flat table would\n\u2022 Needs a schema (DTD/XSD) to be reliably validated, otherwise structure can drift\n\u2022 Full XQuery engines are more complex to implement than plain SQL engines\n12. Applications\n\u2022 Web service messaging (SOAP/XML-RPC)\n\u2022 Configuration and document interchange formats\n\u2022 Publishing/DocBook and office document formats\n\u2022 Cross-system data export/import\n13. Key Points to Remember\n\u2022 XML data is a labelled, ordered tree with exactly one root element.\n\u2022 A DTD or XML Schema defines the allowed structure; XML Schema adds proper data types.\n\u2022 XPath addresses nodes with path steps, //, and [ ] predicates.\n\u2022 XQuery wraps XPath navigation inside a FLWOR pipeline: For, Let, Where, Order by, Return.\nTopic 2.5: Joins, Nested Queries, Aggregate Functions, and User-Defined\nFunctions\n1. Topic Name - Joins, Nested Queries, Aggregate Functions and UDFs\nWhat is it? This topic revisits four core SQL querying tools that become even more useful once object-relational\nfeatures (Topics 2.1-2.3) are in play: joins (combining rows from two or more tables on a matching condition),\nnested/sub-queries (a SELECT written inside another SELECT), aggregate functions (COUNT, SUM, AVG, MIN,\nMAX that summarise many rows into one value), and User-Defined Functions (UDFs) (custom, reusable pieces of\nlogic written once and called like a built-in SQL function).\nWhy do we need it? Almost no real report is a single-table SELECT: it needs data pulled together from related tables\n(joins), a condition that itself depends on other data (sub-queries), a summary number per group (aggregates), and often\na calculation that is reused across many queries and is cleaner to write once as a function (UDF) than to repeat\neverywhere.\nWhere is it used? - Every non-trivial business report (sales per region, top students per class)\n- Dashboards that need running totals, averages and rankings\n- Reusable business rules encoded once as a UDF (e.g. calculate late fee, calculate GST) and called from many queries\nor triggers\nImportant: A UDF can be scalar (returns one value, used like a built-in function inside SELECT/WHERE) or\ntable-valued (returns a whole result set, used in the FROM clause like a table).\n2. Beginner Friendly Introduction\nThink about combining a class attendance sheet with a marks sheet by roll number - that is exactly what a JOIN does\nwith two tables. A nested query is like answering \"who scored above the class average?\" - you first have to work out\nthe class average (the inner query) before you can answer the outer question. An aggregate function is like a calculator's\nSUM button run down a column of marks. A UDF is like writing your own named formula in a spreadsheet once, then\nreusing =MyGrade(marks) in every row instead of retyping the formula.\nIn databases: - Join = combine rows from two tables where a condition matches (commonly a key = foreign key)\n- Sub-query/nested query = a SELECT placed inside another SELECT's WHERE, FROM or SELECT clause\n- Correlated sub-query = a sub-query that refers to a column of the outer query, so it is re-evaluated once per outer\nrow\n- Aggregate function = COUNT, SUM, AVG, MIN, MAX - collapse many rows into one summary value, often\ncombined with GROUP BY\n- UDF = CREATE FUNCTION ... a named, reusable block of SQL logic\nTechnical words explained simply\nWord\nSimple Meaning\nINNER JOIN\nReturns only rows that have a match in both tables\nOUTER JOIN\nReturns matching rows plus unmatched rows from one or both sides\n(LEFT/RIGHT/FULL)\nCorrelated sub-query\nA nested query that references a column from the outer query\nGROUP BY\nClause that groups rows sharing a value so aggregate functions summarise per group\n3. Real-Life Analogies\nAnalogy 1 - Matching socks from two baskets. A JOIN is like laying out socks from a \"left foot basket\" and a \"right\nfoot basket\" and pairing every sock with its matching partner by pattern. An INNER JOIN keeps only complete pairs; a\nLEFT (OUTER) JOIN also keeps every left sock even if its partner is missing, showing an empty slot for the right foot.\nAnalogy 2 - A recipe that calls another recipe. A nested query is like a recipe that says \"first prepare the sauce (a\nseparate sub-recipe), then use that sauce as one ingredient in the main dish\". You cannot plate the main dish until the\nsauce sub-recipe has finished. A UDF is like writing that sauce recipe on its own card once, so any future main dish can\nsimply say \"add one batch of Sauce()\" without rewriting the sauce steps.\n4. Complete Detailed Explanation\n2.5.1 Join types\nSELECT S.Name, D.DeptName\nFROM Student S JOIN Department D\nON S.DeptNo = D.DeptNo;\nAn INNER JOIN (the default JOIN) keeps only rows with a match on both sides. LEFT OUTER\nJOIN additionally keeps every row from the left table with NULLs for the right side when\nthere is no match; RIGHT OUTER JOIN does the same from the right side; FULL OUTER JOIN\nkeeps unmatched rows from both sides.\n2.5.2 Nested (sub-) queries\nSELECT Name FROM Student\nWHERE Marks > (SELECT AVG(Marks) FROM Student);\nSELECT Name FROM Employee E\nWHERE EXISTS (\nSELECT 1 FROM Project P\nWHERE P.LeadEmpId = E.EmpId);\nThe first example is an uncorrelated sub-query, computed once. The second is a\ncorrelated sub-query - it references E.EmpId from the outer query, so it logically runs\nonce per outer row; EXISTS simply checks whether the sub-query returns any row.\n2.5.3 Aggregate functions and GROUP BY\nSELECT DeptNo, COUNT(*) AS NumEmp, AVG(Salary) AS AvgSal\nFROM Employee\nGROUP BY DeptNo\nHAVING COUNT(*) > 5;\nGROUP BY collapses rows sharing the same DeptNo into one group per department; the\naggregate functions then compute one summary value per group. HAVING filters groups\nafter aggregation, while WHERE would filter individual rows before aggregation.\n2.5.4 User-Defined Functions\nCREATE FUNCTION LateFee(daysLate INT)\nRETURNS DECIMAL(6,2)\nBEGIN\nRETURN daysLate * 10.00;\nEND;\nSELECT BookId, LateFee(DaysLate) AS Fee FROM Loan;\nOnce created, LateFee behaves exactly like a built-in function such as ROUND - it can be\ncalled inside SELECT, WHERE, or any expression, keeping the calculation defined in\nexactly one place.\n5. Step-by-Step Working\n\u2022 1. Decide which tables hold the pieces of information the report needs and identify the matching columns for a\nJOIN.\n\u2022 2. Choose INNER or an OUTER join depending on whether unmatched rows from one side must still appear.\n\u2022 3. If part of the condition itself depends on a computed value (an average, a max, an existence check), express it\nas a nested sub-query.\n\u2022 4. Add GROUP BY and an aggregate function when the report needs one summary row per category, and\nHAVING to filter those summaries.\n\u2022 5. If a calculation is reused across several queries, wrap it once in CREATE FUNCTION and call it like any\nbuilt-in function afterwards.\n6. Diagrams\nFigure: How the inner (nested) query is evaluated and its result fed into the outer query\nFigure: INNER, LEFT and RIGHT join coverage shown as overlapping sets\n7. Images\nFigure: Join types visualised as overlapping regions of two tables\n8. Tables\nAggregate functions at a glance\nFunction\nWhat it computes\nExample\nCOUNT(*)\nNumber of rows in the group\nCOUNT(*) FROM Employee\nSUM(col)\nTotal of a numeric column\nSUM(Salary)\nAVG(col)\nAverage of a numeric column\nAVG(Marks)\nMIN(col) / MAX(col)\nSmallest / largest value\nMAX(Salary)\nGROUP BY + HAVING\nOne row per group, filtered after\naggregation\nGROUP BY DeptNo HAVING\nCOUNT(*)>5\n9. Important Terms\nTerm\nSimple Meaning\nEqui-join\nA join whose condition uses equality (=) between columns\nTerm\nSimple Meaning\nCorrelated sub-query\nA nested query that depends on a column from the outer query, evaluated per outer row\nScalar UDF\nA user-defined function that returns a single value\nTable-valued UDF\nA user-defined function that returns a full result set, usable in FROM\nHAVING\nFilters groups after GROUP BY aggregation, unlike WHERE which filters rows before\n10. Examples\nExample 1: SELECT DeptName, COUNT(*) FROM Department D JOIN Employee E ON D.DeptNo=E.DeptNo\nGROUP BY DeptName - number of employees per department using a join plus an aggregate.\nExample 2: SELECT Name FROM Student WHERE RollNo NOT IN (SELECT RollNo FROM Attendance WHERE\nDate=CURRENT_DATE) - a nested query listing students absent today.\n11. Advantages & Limitations\nAdvantages:\n\u2022 Joins avoid duplicating related data across tables\n\u2022 Nested queries let a condition depend on a computed result cleanly\n\u2022 Aggregates turn thousands of rows into a readable summary in one step\n\u2022 A UDF centralises business logic so it is written and fixed in one place only\nLimitations:\n\u2022 Multi-table joins and correlated sub-queries can be slow on very large tables without good indexing\n\u2022 Deeply nested sub-queries can become hard to read and debug\n\u2022 Overuse of GROUP BY on huge datasets can be memory intensive\n\u2022 UDFs can sometimes prevent the query optimiser from choosing the best plan compared to inline SQL\n12. Applications\n\u2022 Business intelligence reports and dashboards\n\u2022 Payroll and billing systems using UDFs for tax/fee calculation\n\u2022 Academic result and ranking systems\n\u2022 Any multi-table transactional application\n13. Key Points to Remember\n\u2022 INNER JOIN keeps only matches; OUTER JOINs also keep unmatched rows from one or both sides.\n\u2022 A correlated sub-query re-evaluates once per outer row; an uncorrelated one evaluates once.\n\u2022 GROUP BY plus an aggregate function produces one summary row per group; HAVING filters those groups.\n\u2022 CREATE FUNCTION lets custom logic be reused like a built-in SQL function.",
+    "structuredTables": [
+      {
+        "id": "t2_5_joins",
+        "title": "SQL Join Types Comprehensive Comparison Matrix",
+        "subtitle": "Detailed mechanics, match rules, unmatched row handling, NULL padding, and relational algebra equivalents",
+        "badge": "Core SQL Query Matrix",
+        "headers": [
+          "Join Type",
+          "Match Condition Required?",
+          "Unmatched Left Rows",
+          "Unmatched Right Rows",
+          "Null Padding Applied?",
+          "Typical Real-World Use"
+        ],
+        "rows": [
+          {
+            "feature": "INNER JOIN",
+            "col1": "\u2705 Yes (`ON T1.id = T2.id`)",
+            "col2": "\u274c Dropped (Excluded from output)",
+            "col3": "\u274c Dropped (Excluded from output)",
+            "col4": "\u274c None (Only valid matching pairs)",
+            "col5": "Finding enrolled students with registered courses",
+            "status": "info"
+          },
+          {
+            "feature": "LEFT OUTER JOIN",
+            "col1": "\u2705 Yes",
+            "col2": "\u2705 Kept (Preserved in output)",
+            "col3": "\u274c Dropped",
+            "col4": "\u2705 Right table columns padded with `NULL`",
+            "col5": "Listing ALL customers and their orders (including non-buyers)",
+            "status": "better-col2"
+          },
+          {
+            "feature": "RIGHT OUTER JOIN",
+            "col1": "\u2705 Yes",
+            "col2": "\u274c Dropped",
+            "col3": "\u2705 Kept (Preserved in output)",
+            "col4": "\u2705 Left table columns padded with `NULL`",
+            "col5": "Listing ALL departments and their assigned managers",
+            "status": "info"
+          },
+          {
+            "feature": "FULL OUTER JOIN",
+            "col1": "\u2705 Yes",
+            "col2": "\u2705 Kept (Preserved)",
+            "col3": "\u2705 Kept (Preserved)",
+            "col4": "\u2705 `NULL` padded on whichever side lacks a match",
+            "col5": "Audit reconciliation between two independent accounting ledgers",
+            "status": "better-col2"
+          },
+          {
+            "feature": "CROSS JOIN",
+            "col1": "\u274c No condition (Cartesian Product)",
+            "col2": "\u2705 Every row paired with all right rows",
+            "col3": "\u2705 Every row paired with all left rows",
+            "col4": "\u274c No nulls (Full $M \\times N$ combinatorial multiplication)",
+            "col5": "Generating all size and color variations for product inventory",
+            "status": "warning"
+          }
+        ]
+      },
+      {
+        "id": "t2_5_udf",
+        "title": "Scalar UDF vs. Table-Valued UDF (TVF) vs. Stored Procedures",
+        "subtitle": "Comparison of return types, invocation syntax, execution context, and performance optimization",
+        "badge": "Programmable SQL Matrix",
+        "headers": [
+          "Construct Type",
+          "Return Value Nature",
+          "Invocation Location in SQL",
+          "Side Effects (INSERT/UPDATE)?",
+          "Query Optimizer Inline Ability"
+        ],
+        "rows": [
+          {
+            "feature": "Scalar UDF",
+            "col1": "Returns exactly one atomic value (e.g. `DECIMAL`, `INT`, `VARCHAR`)",
+            "col2": "Inside `SELECT`, `WHERE`, `ORDER BY` like `ROUND()`",
+            "col3": "\u274c No (Deterministic read-only computation)",
+            "col4": "Moderate (May run row-by-row / RBAR overhead)",
+            "status": "info"
+          },
+          {
+            "feature": "Table-Valued UDF (TVF)",
+            "col1": "Returns an entire tabular result set (`TABLE(...)`)",
+            "col2": "Inside `FROM` clause like a view or table",
+            "col3": "\u274c No (Read-only parameterized view)",
+            "col4": "\u2705 High (Inline TVFs are merged into query execution plan)",
+            "status": "success"
+          },
+          {
+            "feature": "Stored Procedure",
+            "col1": "Returns status code / multiple result sets / OUT parameters",
+            "col2": "Standalone execution via `CALL` or `EXEC`",
+            "col3": "\u2705 Yes (Can perform full ACID transactions and DDL/DML)",
+            "col4": "\u274c Cannot be embedded inside a SELECT query statement",
             "status": "info"
           }
         ]
@@ -1174,170 +2551,89 @@ export const TOPICS_DATA = [
     "moduleId": 3,
     "moduleName": "Advanced Database Techniques",
     "title": "Structured vs Unstructured Data",
-    "pages": "34 - 38",
-    "estimatedTime": "12 min",
+    "timeEstimate": "12 min",
+    "pageRange": "58 - 61",
     "overview": {
-      "whatIsIt": "Structured data\nis data that is organized in a fixed, predictable format,\nsuch as rows and columns in a table.\nUnstructured data\nis data that has no fixed\nformat or structure, such as photos, videos, emails, or social media posts.",
-      "whyNeed": "Modern organizations deal with both k\ninds of data. Understanding\nthe difference helps decide which type of database (relational SQL vs NoSQL) is best\nsuited to store and process it.",
-      "whereUsed": "- Structured: banking records, inventory tables, student databases\n-\nUnstructured: social media content, images, video streaming, sensor logs, emails",
-      "importantNotes": ""
+      "whatIsIt": "Structured data\nis data that is organized in a fixed, predictable format,\nsuch as rows and columns in a table.\nUnstructured data\nis data that has no fixed\nformat or structure, such as photos, videos, emails, or social media posts.\nWhy do we need it?\nModern organizations deal with both k\ninds of data. Understanding\nthe difference helps decide which type of database (relational SQL vs NoSQL) is best\nsuited to store and process it.\nWhere is it used?\n- Structured: banking records, inventory tables, student databases\n-\nUnstructured: social media content, images, video streaming, sensor logs, emails",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Think of structured data like a neatly filled Excel sheet\n- every row is a record, every\ncolumn has a clear meaning (Name, Age, Marks). Unstructured data is like a m\nessy\ndrawer full of photos, handwritten notes, and voice recordings\n- valuable, but not\norganized into rows and columns.",
-      "keywords": [
-        {
-          "term": "Structured Data",
-          "meaning": "Data organized into a fixed schema (rows/columns)"
-        },
-        {
-          "term": "Unstructured Data",
-          "meaning": "Data with no fixed format"
-        },
-        {
-          "term": "Semi",
-          "meaning": "Structured"
-        },
-        {
-          "term": "Data",
-          "meaning": "Data with some organization (tags/labels) but not a strict table"
-        },
-        {
-          "term": "format, e.g., XML, JSON",
-          "meaning": "Schema"
-        }
-      ]
+      "simpleExplanation": "2. Beginner Friendly Introduction\nThink of structured data like a neatly filled Excel sheet\n- every row is a record, every\ncolumn has a clear meaning (Name, Age, Marks). Unstructured data is like a m\nessy\ndrawer full of photos, handwritten notes, and voice recordings\n- valuable, but not\norganized into rows and columns.\nKey words explained:\nWord\nSimple Meaning\nStructured Data\nData organized into a fixed schema (rows/columns)\nUnstructured Data\nData with no fixed format\nSemi - Structured\nData\nData with some organization (tags/labels) but not a strict table\nformat, e.g., XML, JSON\nSchema\nThe predefined structure/rules data must follow",
+      "keywords": []
     },
     "analogies": [
-      {
-        "num": "1",
-        "title": "Library Catalog vs Storage Room",
-        "description": "A library catalog (structured) lists every\nbook with author, title, and shelf number in neat fields. A storage room full of unlabeled\nboxes (unstructured) contains valuable items, but you must search through everything\nto find what you need."
-      },
-      {
-        "num": "2",
-        "title": "Form vs Diary",
-        "description": "A filled application form (structured, fixed fields) versus a\npersonal diary (unstructured, free\n- flowing text)\n- both contain information, but only\none is easy for a computer to search and sort automatically."
-      }
+      "Library Catalog vs Storage Room:\nA library catalog (structured) lists every\nbook with author, title, and shelf number in neat fields. A storage room full of unlabeled\nboxes (unstructured) contains valuable items, but you must search through everything\nto find what you need.",
+      "Form vs Diary:\nA filled application form (structured, fixed fields) versus a\npersonal diary (unstructured, free\n- flowing text)\n- both contain information, but only\none is easy for a computer to search and sort automatically."
     ],
     "detailedExplanation": {
       "subsections": [
         {
           "title": "4.1 Structured Data",
-          "content": "\u2022\nStored in relational databases using well\n- defined tables, rows, and columns.\n\u2022\nFollows a strict\nschema defined in advance (data types, constraints).\n\u2022\nEasily searched and analyzed using SQL.\n\u2022\nExamples: customer tables, sales records, payroll data."
+          "content": "\u2022"
+        },
+        {
+          "title": "Stored in relational databases using well",
+          "content": "- defined tables, rows, and columns.\n\u2022"
+        },
+        {
+          "title": "Follows a strict",
+          "content": "schema defined in advance (data types, constraints).\n\u2022\nEasily searched and analyzed using SQL.\n\u2022"
         },
         {
           "title": "4.2 Unstructured Data",
-          "content": "\u2022\nHas no predefined format or organization.\n\u2022\nCannot be directly placed into rows and columns without extra processing.\n\u2022\nRequires special tools (NoSQL databases, data lakes, AI\n- based text/image\nanalysis) for storage and analysis.\n\u2022\nExamp les: images, videos, PDF documents, social media posts, audio recordings."
+          "content": "\u2022\nHas no predefined format or organization.\n\u2022\nCannot be directly placed into rows and columns without extra processing.\n\u2022\nRequires special tools (NoSQL databases, data lakes, AI\n- based text/image\nanalysis) for storage and analysis.\n\u2022"
         },
         {
           "title": "4.3 Semi - Structured Data",
-          "content": "\u2022\nSits between structured and unstructured; contains tags or markers that give\nsome organization but not a strict rows\n- and - columns format.\n\u2022\nExamples: XML documents, JSON files, emails (structured headers +\nunstructured body)."
+          "content": "\u2022\nSits between structured and unstructured; contains tags or markers that give\nsome organization but not a strict rows\n- and - columns format.\n\u2022"
+        },
+        {
+          "title": "Examples: XML documents, JSON files, emails (structured headers +",
+          "content": "unstructured body)."
         },
         {
           "title": "4.4 Why This Distinction Matters for Database Choice",
-          "content": "\u2022\nStructured data fits naturally into relational (SQL) databases.\n\u2022\nUnstructured and semi\n- structured data often fit better into NoSQL databas\nes\n(document stores, key\n- value stores) which do not require a rigid schema."
+          "content": "\u2022\nStructured data fits naturally into relational (SQL) databases.\n\u2022"
+        },
+        {
+          "title": "Unstructured and semi",
+          "content": "- structured data often fit better into NoSQL databas\nes\n(document stores, key\n- value stores) which do not require a rigid schema."
         }
       ],
       "raw": "4. Complete Detailed Explanation\n4.1 Structured Data\n\u2022\nStored in relational databases using well\n- defined tables, rows, and columns.\n\u2022\nFollows a strict\nschema defined in advance (data types, constraints).\n\u2022\nEasily searched and analyzed using SQL.\n\u2022\nExamples: customer tables, sales records, payroll data.\n4.2 Unstructured Data\n\u2022\nHas no predefined format or organization.\n\u2022\nCannot be directly placed into rows and columns without extra processing.\n\u2022\nRequires special tools (NoSQL databases, data lakes, AI\n- based text/image\nanalysis) for storage and analysis.\n\u2022\nExamp les: images, videos, PDF documents, social media posts, audio recordings.\n4.3 Semi - Structured Data\n\u2022\nSits between structured and unstructured; contains tags or markers that give\nsome organization but not a strict rows\n- and - columns format.\n\u2022\nExamples: XML documents, JSON files, emails (structured headers +\nunstructured body).\n4.4 Why This Distinction Matters for Database Choice\n\u2022\nStructured data fits naturally into relational (SQL) databases.\n\u2022\nUnstructured and semi\n- structured data often fit better into NoSQL databas\nes\n(document stores, key\n- value stores) which do not require a rigid schema."
     },
     "stepByStep": [
       {
-        "title": "Data Generated (from users, sensors, social media, transactions)",
-        "isHeader": false
-      },
-      {
-        "title": "Identify Format: Structured / Semi",
-        "isHeader": false
-      },
-      {
-        "title": "- Structured / Unstructured",
-        "isHeader": false
-      },
-      {
-        "title": "Choose Storage: SQL (structured) or NoSQL/Data Lake (semi/unstructured)",
-        "isHeader": false
-      },
-      {
-        "title": "Process and Analyze using appropriate tools",
-        "isHeader": false
+        "step": 1,
+        "title": "Step - by- Step Working",
+        "description": "Data Generated (from users, sensors, social media, transactions)\n\u2193\nIdentify Format: Structured / Semi\n- Structured / Unstructured\n\u2193\nChoose Storage: SQL (structured) or NoSQL/Data Lake (semi/unstructured)\n\u2193\nProcess and Analyze using appropriate tools"
       }
     ],
-    "tablesRaw": "Feature\nStructured Data\nSemi - Structured\nData\nUnstructured Data\nFormat\nFixed\n(rows/columns)\nTagged, flexible\nNo fixed format\nSchema\nSt rict, predefined\nFlexible\nNone\nStorage\nRelational (SQL) DB\nXML/JSON, NoSQL\nNoSQL, data lakes, file\nstorage\nExample\nBank account table\nJSON API response\nPhotos, videos, PDFs\nEase of\nQuerying\nVery easy (SQL)\nModerate\nDifficult without special\ntools",
-    "terms": [
-      {
-        "term": "Semi",
-        "definition": "Structured"
-      }
-    ],
+    "diagramsDescription": "6. Diagrams\nA Venn - diagram - style spectrum bar showing 'Structured' on\nthe left, 'Semi\n- Structured' in the\nmidd\u2026\nFigure: A Venn\n- diagram - style spectrum bar showing 'Structured' on the left, 'Semi\n-\nStructured' in the midd\u2026",
+    "visualIllustrations": "7. Images\nSide - by - side comparison graphic: a neat spreadsheet table (structured) next to a collage of\nphoto\u2026\nFigure: Side - by- side comparison graphic: a neat spreadsheet table (structured) next to\na collage of photo\u2026",
+    "tablesRaw": "8. Tables\nFeature\nStructured Data\nSemi - Structured\nData\nUnstructured Data\nFormat\nFixed\n(rows/columns)\nTagged, flexible\nNo fixed format\nSchema\nSt rict, predefined\nFlexible\nNone\nStorage\nRelational (SQL) DB\nXML/JSON, NoSQL\nNoSQL, data lakes, file\nstorage\nExample\nBank account table\nJSON API response\nPhotos, videos, PDFs\nEase of\nQuerying\nVery easy (SQL)\nModerate\nDifficult without special\ntools",
+    "importantTerms": "9. Important Terms\nTerm\nSimple Meaning\nStructured Data\nData in a fixed table format\nUnstructured Data\nData without any fixed format\nSemi - Structured\nData\nData with partial/flexible organization (tags)\nData Lake\nA storage system that holds large amounts of ra\nw,\nunstructured/structured data",
+    "terms": [],
     "examples": [
-      {
-        "type": "Easy example",
-        "content": "A student marksheet (structured) vs a collection of exam answer\n-\nsheet photos (unstructured)."
-      },
-      {
-        "type": "Practical example",
-        "content": "A hospital's patient ID table (structured) vs X\n- ray images\n(unstructured)."
-      },
-      {
-        "type": "Industry example",
-        "content": "Retail companies store sales transactions (structured) and\ncustomer reviews/social posts (unstructured) together for analysis."
-      },
-      {
-        "type": "Real-life example",
-        "content": "YouTube stores video metadata (structured: views, likes,\nupload date) separately from the actual vide\no files (unstructured)."
-      }
+      "10. Examples\n\u2022\nEasy example: A student marksheet (structured) vs a collection of exam answer\n-\nsheet photos (unstructured).\n\u2022\nPractical example:\nA hospital's patient ID table (structured) vs X\n- ray images\n(unstructured).\n\u2022\nIndustry example:\nRetail companies store sales transactions (structured) and\ncustomer reviews/social posts (unstructured) together for analysis.\n\u2022\nReal - life example:\nYouTube stores video metadata (structured: views, likes,\nupload date) separately from the actual vide\no files (unstructured)."
     ],
     "advantages": [
-      "Easy to query and analyze; Limitation: Rigid,",
-      "Captures rich, real"
+      "Easy to query and analyze;"
     ],
     "limitations": [
-      "video, text); Limitation: Harder and more expensive to search, process, and"
+      "Structured Data",
+      "Advantage: Easy to query and analyze; Limitation: Rigid,",
+      "cannot easily store rich media or free text."
     ],
-    "applications": [
-      {
-        "category": "Industry",
-        "details": "Retail (structured sales + unstructured reviews), healthcare\n(structured records + unstructured scans)."
-      },
-      {
-        "category": "Companies",
-        "details": "Amazon, Netflix use both structure\nd (orders, subscriptions) and\nunstructured (viewing history patterns, images) data."
-      },
-      {
-        "category": "Daily life",
-        "details": "Social media platforms manage huge unstructured content (photos,\nvideos, posts)."
-      },
-      {
-        "category": "Software",
-        "details": "Data lakes (e.g., Hadoop, Amazon S3), NoSQL databases."
-      },
-      {
-        "category": "Websites",
-        "details": "E- commerce sites combining structured product data with\nunstructured customer reviews."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Photo/video sharing apps manage massive unstructured data."
-      }
-    ],
+    "advantagesLimitations": "11. Advantages & Limitations\n\u2022\nStructured Data\n- Advantage: Easy to query and analyze; Limitation: Rigid,\ncannot easily store rich media or free text.",
+    "applications": [],
     "keyPoints": {
-      "takeaways": [
-        "Structured data fits into tables with a fixed schema; unstructured data does not.",
-        "Semi - structured data (XML, JSON) is a middle ground with flexible tags.",
-        "Structured data suits SQL databases; unstructured/semi",
-        "structured data often",
-        "suits NoSQL databases.",
-        "Unstructured does not mean \"useless\" or \"disorganized",
-        "information\" - it simply means the data doesn't fit a predefined table schema; it",
-        "can still be extremely valuable (e.g., images, videos).",
-        "Real - world big data systems usuall",
-        "y manage a mix of all three data types together."
-      ],
-      "misconceptions": [
-        ""
-      ],
+      "takeaways": [],
+      "misconceptions": [],
       "examTips": []
     },
+    "fullRawText": "MODULE 3: Advanced Database Techniques\nTopic 3.1: Structured vs Unstructured Data\n1. Topic Name - Structured vs Unstructured Data\nWhat is it?\nStructured data\nis data that is organized in a fixed, predictable format,\nsuch as rows and columns in a table.\nUnstructured data\nis data that has no fixed\nformat or structure, such as photos, videos, emails, or social media posts.\nWhy do we need it?\nModern organizations deal with both k\ninds of data. Understanding\nthe difference helps decide which type of database (relational SQL vs NoSQL) is best\nsuited to store and process it.\nWhere is it used?\n- Structured: banking records, inventory tables, student databases\n-\nUnstructured: social media content, images, video streaming, sensor logs, emails\n2. Beginner Friendly Introduction\nThink of structured data like a neatly filled Excel sheet\n- every row is a record, every\ncolumn has a clear meaning (Name, Age, Marks). Unstructured data is like a m\nessy\ndrawer full of photos, handwritten notes, and voice recordings\n- valuable, but not\norganized into rows and columns.\nKey words explained:\nWord\nSimple Meaning\nStructured Data\nData organized into a fixed schema (rows/columns)\nUnstructured Data\nData with no fixed format\nSemi - Structured\nData\nData with some organization (tags/labels) but not a strict table\nformat, e.g., XML, JSON\nSchema\nThe predefined structure/rules data must follow\n3. Real - Life Analogies\nAnalogy 1 - Library Catalog vs Storage Room:\nA library catalog (structured) lists every\nbook with author, title, and shelf number in neat fields. A storage room full of unlabeled\nboxes (unstructured) contains valuable items, but you must search through everything\nto find what you need.\nAnalogy 2 - Form vs Diary:\nA filled application form (structured, fixed fields) versus a\npersonal diary (unstructured, free\n- flowing text)\n- both contain information, but only\none is easy for a computer to search and sort automatically.\n4. Complete Detailed Explanation\n4.1 Structured Data\n\u2022\nStored in relational databases using well\n- defined tables, rows, and columns.\n\u2022\nFollows a strict\nschema defined in advance (data types, constraints).\n\u2022\nEasily searched and analyzed using SQL.\n\u2022\nExamples: customer tables, sales records, payroll data.\n4.2 Unstructured Data\n\u2022\nHas no predefined format or organization.\n\u2022\nCannot be directly placed into rows and columns without extra processing.\n\u2022\nRequires special tools (NoSQL databases, data lakes, AI\n- based text/image\nanalysis) for storage and analysis.\n\u2022\nExamp les: images, videos, PDF documents, social media posts, audio recordings.\n4.3 Semi - Structured Data\n\u2022\nSits between structured and unstructured; contains tags or markers that give\nsome organization but not a strict rows\n- and - columns format.\n\u2022\nExamples: XML documents, JSON files, emails (structured headers +\nunstructured body).\n4.4 Why This Distinction Matters for Database Choice\n\u2022\nStructured data fits naturally into relational (SQL) databases.\n\u2022\nUnstructured and semi\n- structured data often fit better into NoSQL databas\nes\n(document stores, key\n- value stores) which do not require a rigid schema.\n5. Step - by- Step Working\nData Generated (from users, sensors, social media, transactions)\n\u2193\nIdentify Format: Structured / Semi\n- Structured / Unstructured\n\u2193\nChoose Storage: SQL (structured) or NoSQL/Data Lake (semi/unstructured)\n\u2193\nProcess and Analyze using appropriate tools\n6. Diagrams\nA Venn - diagram - style spectrum bar showing 'Structured' on\nthe left, 'Semi\n- Structured' in the\nmidd\u2026\nFigure: A Venn\n- diagram - style spectrum bar showing 'Structured' on the left, 'Semi\n-\nStructured' in the midd\u2026\n7. Images\nSide - by - side comparison graphic: a neat spreadsheet table (structured) next to a collage of\nphoto\u2026\nFigure: Side - by- side comparison graphic: a neat spreadsheet table (structured) next to\na collage of photo\u2026\n8. Tables\nFeature\nStructured Data\nSemi - Structured\nData\nUnstructured Data\nFormat\nFixed\n(rows/columns)\nTagged, flexible\nNo fixed format\nSchema\nSt rict, predefined\nFlexible\nNone\nStorage\nRelational (SQL) DB\nXML/JSON, NoSQL\nNoSQL, data lakes, file\nstorage\nExample\nBank account table\nJSON API response\nPhotos, videos, PDFs\nEase of\nQuerying\nVery easy (SQL)\nModerate\nDifficult without special\ntools\n9. Important Terms\nTerm\nSimple Meaning\nStructured Data\nData in a fixed table format\nUnstructured Data\nData without any fixed format\nSemi - Structured\nData\nData with partial/flexible organization (tags)\nData Lake\nA storage system that holds large amounts of ra\nw,\nunstructured/structured data\n10. Examples\n\u2022\nEasy example: A student marksheet (structured) vs a collection of exam answer\n-\nsheet photos (unstructured).\n\u2022\nPractical example:\nA hospital's patient ID table (structured) vs X\n- ray images\n(unstructured).\n\u2022\nIndustry example:\nRetail companies store sales transactions (structured) and\ncustomer reviews/social posts (unstructured) together for analysis.\n\u2022\nReal - life example:\nYouTube stores video metadata (structured: views, likes,\nupload date) separately from the actual vide\no files (unstructured).\n11. Advantages & Limitations\n\u2022\nStructured Data\n- Advantage: Easy to query and analyze; Limitation: Rigid,\ncannot easily store rich media or free text.",
     "structuredTables": [
       {
         "id": "t3_1_data_types",
@@ -1368,24 +2664,6 @@ export const TOPICS_DATA = [
             "col1": "Relational Databases (MySQL, Oracle, PostgreSQL)",
             "col2": "Document / Key-Value Stores (MongoDB, Couchbase, JSON/XML)",
             "col3": "Data Lakes, Object Storage (S3, HDFS, MinIO)"
-          },
-          {
-            "feature": "Querying Ease & Language",
-            "col1": "Very High (Declarative SQL with indexes and joins)",
-            "col2": "Moderate (JSONPath, MQL, XPath, XQuery)",
-            "col3": "Specialized (Vector search, NLP, OCR, Audio processing)"
-          },
-          {
-            "feature": "Share of Enterprise Data",
-            "col1": "~20% of enterprise information",
-            "col2": "~30% (Logs, APIs, IoT payloads)",
-            "col3": "~80% of newly generated world data"
-          },
-          {
-            "feature": "Concrete Real Example",
-            "col1": "Bank account ledger with AccNo, Balance, KYC date",
-            "col2": "E-commerce product catalog with dynamic custom specs",
-            "col3": "Customer call recordings, medical X-ray scans, PDFs"
           }
         ]
       }
@@ -1396,186 +2674,268 @@ export const TOPICS_DATA = [
     "moduleId": 3,
     "moduleName": "Advanced Database Techniques",
     "title": "NoSQL Database Concepts",
-    "pages": "38 - 44",
-    "estimatedTime": "18 min",
+    "timeEstimate": "18 min",
+    "pageRange": "62 - 67",
     "overview": {
-      "whatIsIt": "NoSQL (\"Not Only SQL\") databases are a category of databases designed to\nstore data\nwithout requiring a fixed table schema\n, built to handle large volumes of\nunstructured/semi\n- structured data with high scalability and flexibility.",
-      "whyNeed": "Relational databases struggle with massive\n- scale, fast - changing,\nand unstructured data (e.g., social media, IoT sensors). NoSQL databas\nes were\ndesigned to scale out easily across many servers and handle flexible, evolving data\nmodels.",
-      "whereUsed": "- Social media platforms (Facebook, Twitter)\n- Real - time big data\napplications (IoT, sensor data)\n- Content management systems\n- Gaming and mobile\napplications needing fast, flexible storage",
-      "importantNotes": ""
+      "whatIsIt": "",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Imagine a relational database as a strict office filing cabinet where every folder must\nfollow the exact same format. NoSQL is like a flexible storage box where each ite\nm can\nbe organized differently\n- perfect when your data doesn't always look the same.",
-      "keywords": [
-        {
-          "term": "Schema",
-          "meaning": "less"
-        },
-        {
-          "term": "Horizontal",
-          "meaning": "Scaling"
-        },
-        {
-          "term": "single machine)",
-          "meaning": "Document"
-        },
-        {
-          "term": "Key",
-          "meaning": "Value Store"
-        }
-      ]
+      "simpleExplanation": "",
+      "keywords": []
     },
-    "analogies": [
-      {
-        "num": "2",
-        "title": "Library Index Card vs Sticky Notes",
-        "description": "SQL is like a library's precise index\ncard system; NoSQL is like a wall of sticky notes\n- quick, flexible, and easy to scale by\nsimply adding more space, though less strictly organized."
-      }
-    ],
+    "analogies": [],
     "detailedExplanation": {
       "subsections": [
         {
-          "title": "4.1 Types of N oSQL Databases",
-          "content": "1.\nKey - Value Store\n- data is stored as simple key\n- value pairs, like a giant\ndictionary (e.g., Redis, DynamoDB). Extremely fast for simple lookups.\n2.\nDocument Store\n- data is stored as flexible, JSON\n- like documents that can have\nnested structures (e.g., MongoDB, CouchDB). Good for semi\n- structured data.\n3.\nColumn - Family Store\n- data is stored in columns grouped into families rather\nthan rows, optimized for fast reads/writes over huge datasets (e.g., Cassandra,\nHBase).\n4.\nGraph Database\n- data is stored as\nnodes and edges representing entities and\ntheir relationships, ideal for highly connected data (e.g., Neo4j). Good for social\nnetworks, recommendation engines."
-        },
-        {
-          "title": "4.2 NoSQL Data Modeling",
-          "content": "\u2022\nUnlike relational modeling (normalize into many related tables), NoSQL\nmodeling often\ndenormalizes\ndata - related information is stored together in\none document/record to avoid the cost of joins.\n\u2022\nData modeling is driven by\nhow the application will query the data\n, not by\nminimizing redundancy (a very different philosophy from\nSQL normalization).\n\u2022\nEmbedding related data (e.g., storing a customer's orders directly inside the\ncustomer document) is common in document stores for fast reads."
-        },
-        {
-          "title": "4.3 Advantages of NoSQL Databases",
-          "content": "\u2022\nFlexible schema\n- can store data without defining structure in advance,\nadapting easily as requirements change.\n\u2022\nHorizontal scalability\n- easily add more servers to handle increasing load\n(scale - out), unlike traditional vertical scaling (bigger single machine).\n\u2022\nHigh performance\nfor specific access patterns (e.g., si\nmple key lookups).\n\u2022\nHandles large volumes of unstructured/semi\n- structured data\neffectively.\n\u2022\nGood fit for distributed, cloud\n- based systems\n."
-        },
-        {
-          "title": "4.4 Comparison Between SQL and NoSQL Database Systems",
-          "content": "\u2022\nSQL databases use a\nfixed schema\n; NoSQL databases are typically\nschema - less\nor flexible .\n\u2022\nSQL databases are\ntable - based ; NoSQL databases can be key\n- value, document,\ncolumn - family, or graph\n- based.\n\u2022\nSQL databases strongly support\nACID transactions\n; many NoSQL databases\nfavor eventual consistency\nand high availability inste\nad (though some modern\nNoSQL systems now support stronger consistency options).\n\u2022\nSQL scales\nvertically (bigger server) more naturally; NoSQL scales\nhorizontally\n(more servers) more naturally.\n\u2022\nSQL is ideal for complex queries and relationships; NoSQL is ideal for massive\nscale, flexible/evolving data, and simple, fast access patterns."
+          "title": "Core Theoretical Framework",
+          "content": "Detailed theoretical concepts and principles."
         }
       ],
-      "raw": "4. Complete Detailed Explanation\n4.1 Types of N oSQL Databases\n1.\nKey - Value Store\n- data is stored as simple key\n- value pairs, like a giant\ndictionary (e.g., Redis, DynamoDB). Extremely fast for simple lookups.\n2.\nDocument Store\n- data is stored as flexible, JSON\n- like documents that can have\nnested structures (e.g., MongoDB, CouchDB). Good for semi\n- structured data.\n3.\nColumn - Family Store\n- data is stored in columns grouped into families rather\nthan rows, optimized for fast reads/writes over huge datasets (e.g., Cassandra,\nHBase).\n4.\nGraph Database\n- data is stored as\nnodes and edges representing entities and\ntheir relationships, ideal for highly connected data (e.g., Neo4j). Good for social\nnetworks, recommendation engines.\n4.2 NoSQL Data Modeling\n\u2022\nUnlike relational modeling (normalize into many related tables), NoSQL\nmodeling often\ndenormalizes\ndata - related information is stored together in\none document/record to avoid the cost of joins.\n\u2022\nData modeling is driven by\nhow the application will query the data\n, not by\nminimizing redundancy (a very different philosophy from\nSQL normalization).\n\u2022\nEmbedding related data (e.g., storing a customer's orders directly inside the\ncustomer document) is common in document stores for fast reads.\n4.3 Advantages of NoSQL Databases\n\u2022\nFlexible schema\n- can store data without defining structure in advance,\nadapting easily as requirements change.\n\u2022\nHorizontal scalability\n- easily add more servers to handle increasing load\n(scale - out), unlike traditional vertical scaling (bigger single machine).\n\u2022\nHigh performance\nfor specific access patterns (e.g., si\nmple key lookups).\n\u2022\nHandles large volumes of unstructured/semi\n- structured data\neffectively.\n\u2022\nGood fit for distributed, cloud\n- based systems\n.\n4.4 Comparison Between SQL and NoSQL Database Systems\n\u2022\nSQL databases use a\nfixed schema\n; NoSQL databases are typically\nschema - less\nor flexible .\n\u2022\nSQL databases are\ntable - based ; NoSQL databases can be key\n- value, document,\ncolumn - family, or graph\n- based.\n\u2022\nSQL databases strongly support\nACID transactions\n; many NoSQL databases\nfavor eventual consistency\nand high availability inste\nad (though some modern\nNoSQL systems now support stronger consistency options).\n\u2022\nSQL scales\nvertically (bigger server) more naturally; NoSQL scales\nhorizontally\n(more servers) more naturally.\n\u2022\nSQL is ideal for complex queries and relationships; NoSQL is ideal for massive\nscale, flexible/evolving data, and simple, fast access patterns."
+      "raw": ""
     },
-    "stepByStep": [
-      {
-        "title": "Application Needs Data Storage",
-        "isHeader": false
-      },
-      {
-        "title": "Is data highly structured with complex relationships?",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 Yes \u2192 Use SQL (Relational Database)",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 No, needs flexibility/huge scale",
-        "isHeader": false
-      },
-      {
-        "title": "\u2192 Use NoSQL",
-        "isHeader": false
-      },
-      {
-        "title": "Choose NoSQL Type based on access pattern:",
-        "isHeader": false
-      },
-      {
-        "title": "Simple lookups",
-        "isHeader": false
-      },
-      {
-        "title": "\u2192 Key - Value",
-        "isHeader": false
-      },
-      {
-        "title": "Flexible nested documents",
-        "isHeader": false
-      },
-      {
-        "title": "\u2192 Document Store",
-        "isHeader": false
-      },
-      {
-        "title": "Massive write - heavy data \u2192 Column - Family",
-        "isHeader": false
-      },
-      {
-        "title": "Highly connected data",
-        "isHeader": false
-      },
-      {
-        "title": "\u2192 Graph Database",
-        "isHeader": false
-      }
-    ],
-    "tablesRaw": "Feature\nSQL Database\nNoSQL Database\nSchema\nFixed\nFlexible/Schema\n- less\nData Model\nTables (rows/columns)\nKey - Value, Document, Column\n-\nFamily, Graph\nScaling\nVertical (mostly)\nHorizontal\nTransactions\nStrong ACID support\nOften eventual consistency (varies)\nQuery\nLanguage\nSQL\nVaries by database (e.g., MongoDB\nquery language)\nBest For\nComplex relationships,\nstructured data\nHuge scale, flexible/evolving,\nunstructured data\nExamples\nMySQL, Oracle, PostgreSQL\nMongoDB, Cassandra, Redis, Neo4j",
-    "terms": [
-      {
-        "term": "- relatio nal, flexible",
-        "definition": "schema databases"
-      },
-      {
-        "term": "Key",
-        "definition": "Value Store"
-      },
-      {
-        "term": "Column",
-        "definition": "Family"
-      }
-    ],
-    "examples": [
-      {
-        "type": "Easy example",
-        "content": "Storing a simp\nle username - password pair using a key\n- value store."
-      },
-      {
-        "type": "Practical example",
-        "content": "An e - commerce site storing each product as a flexible JSON\ndocument with varying attributes (some products have \"color,\" others have\n\"size,\" etc.)."
-      },
-      {
-        "type": "Industry example",
-        "content": "Twitter/Facebook use NoSQL databases to handle billions of\nposts and connections."
-      },
-      {
-        "type": "Real-life example",
-        "content": "Netflix uses Cassandra (column\n- family NoSQL) to handle\nmassive - scale viewing data across the globe."
-      }
-    ],
-    "advantages": [
-      "Extremely scalable, handles huge an",
-      "Easier to evolve schema as application requirements change."
-    ],
-    "limitations": [
-      "Weaker support for complex multi",
-      "Many NoSQL systems trade strict consistency for availability and"
-    ],
+    "stepByStep": [],
+    "diagramsDescription": "",
+    "visualIllustrations": "",
+    "tablesRaw": "",
+    "importantTerms": "",
+    "terms": [],
+    "examples": [],
+    "advantages": [],
+    "limitations": [],
+    "advantagesLimitations": "",
     "applications": [
-      {
-        "category": "Industry",
-        "details": "Social media, IoT, real\n- time analytics, gaming."
-      },
-      {
-        "category": "Companies",
-        "details": "Facebook, Twitter, Netflix, Amazon (DynamoDB), Uber."
-      },
-      {
-        "category": "Daily life",
-        "details": "Every time you use a social media feed or a recommendation system,\nNoSQL is often working behind the scenes."
-      },
-      {
-        "category": "Software",
-        "details": "MongoDB, Cassandra, Redis, Neo4j, DynamoDB."
-      },
-      {
-        "category": "Websites",
-        "details": "High - traffic"
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Apps needing offline\n- first, flexible data sync (e.g., chat apps)."
-      }
+      "Retail (structured sales + unstructured reviews), healthcare",
+      "(structured records + unstructured scans).",
+      "Companies: Amazon, Netflix use both structure",
+      "d (orders, subscriptions) and",
+      "unstructured (viewing history patterns, images) data.",
+      "Daily life: Social media platforms manage huge unstructured content (photos,",
+      "videos, posts).",
+      "Software: Data lakes (e.g., Hadoop, Amazon S3), NoSQL databases.",
+      "Websites: E- commerce sites combining structured product data with",
+      "unstructured customer reviews.",
+      "Mobile Apps: Photo/video sharing apps manage massive unstructured data."
     ],
     "keyPoints": {
       "takeaways": [
+        "Structured data fits into tables with a fixed schema; unstructured data does not.",
+        "Semi - structured data (XML, JSON) is a middle ground with flexible tags.",
+        "Structured data suits SQL databases; unstructured/semi",
+        "structured data often",
+        "suits NoSQL databases.",
+        "Common misconception:",
+        "Unstructured does not mean \"useless\" or \"disorganized",
+        "information\" - it simply means the data doesn't fit a predefined table schema; it",
+        "can still be extremely valuable (e.g., images, videos).",
+        "Real - world big data systems usuall",
+        "y manage a mix of all three data types together.",
+        "Topic 3.2: NoSQL Database Concepts",
+        "1. Topic Name - NoSQL Databases",
+        "What is it? NoSQL (\"Not Only SQL\") databases are a category of databases designed to",
+        "without requiring a fixed table schema",
+        ", built to handle large volumes of",
+        "unstructured/semi",
+        "structured data with high scalability and flexibility.",
+        "Why do we need it?",
+        "Relational databases struggle with massive",
+        "scale, fast - changing,",
+        "and unstructured data (e.g., social media, IoT sensors). NoSQL databas",
+        "designed to scale out easily across many servers and handle flexible, evolving data",
+        "Where is it used?",
+        "Social media platforms (Facebook, Twitter)",
+        "Real - time big data",
+        "applications (IoT, sensor data)",
+        "Content management systems",
+        "Gaming and mobile",
+        "applications needing fast, flexible storage",
+        "2. Beginner Friendly Introduction",
+        "Imagine a relational database as a strict office filing cabinet where every folder must",
+        "follow the exact same format. NoSQL is like a flexible storage box where each ite",
+        "be organized differently",
+        "perfect when your data doesn't always look the same.",
+        "Key words explained:",
+        "Simple Meaning",
+        "Schema - less",
+        "No fixed structure required before storing data",
+        "Adding more machines to handle more load (instead of a bigger",
+        "single machine)",
+        "A single unit of data (like a JSON object) in a document database",
+        "Key - Value Store",
+        "A simple database storing data as pairs of a unique key and its value",
+        "3. Real - Life Analogies",
+        "Filing Cabinet vs Flexible",
+        "Storage Bin:",
+        "A filing cabinet (SQL) requires",
+        "every folder to have the exact same tabs and sections. A flexible storage bin (NoSQL)",
+        "lets you toss in items of different shapes and sizes without needing them to match a",
+        "strict format.",
+        "Analogy 2 - Library Index Card vs Sticky Notes:",
+        "SQL is like a library's precise index",
+        "card system; NoSQL is like a wall of sticky notes",
+        "quick, flexible, and easy to scale by",
+        "simply adding more space, though less strictly organized.",
+        "4. Complete Detailed Explanation",
+        "4.1 Types of N oSQL Databases",
+        "Key - Value Store",
+        "data is stored as simple key",
+        "value pairs, like a giant",
+        "dictionary (e.g., Redis, DynamoDB). Extremely fast for simple lookups.",
+        "Document Store",
+        "data is stored as flexible, JSON",
+        "like documents that can have",
+        "nested structures (e.g., MongoDB, CouchDB). Good for semi",
+        "structured data.",
+        "Column - Family Store",
+        "data is stored in columns grouped into families rather",
+        "than rows, optimized for fast reads/writes over huge datasets (e.g., Cassandra,",
+        "Graph Database",
+        "data is stored as",
+        "nodes and edges representing entities and",
+        "their relationships, ideal for highly connected data (e.g., Neo4j). Good for social",
+        "networks, recommendation engines.",
+        "4.2 NoSQL Data Modeling",
+        "Unlike relational modeling (normalize into many related tables), NoSQL",
+        "modeling often",
+        "denormalizes",
+        "data - related information is stored together in",
+        "one document/record to avoid the cost of joins.",
+        "Data modeling is driven by",
+        "how the application will query the data",
+        "minimizing redundancy (a very different philosophy from",
+        "SQL normalization).",
+        "Embedding related data (e.g., storing a customer's orders directly inside the",
+        "customer document) is common in document stores for fast reads.",
+        "4.3 Advantages of NoSQL Databases",
+        "Flexible schema",
+        "can store data without defining structure in advance,",
+        "adapting easily as requirements change.",
+        "Horizontal scalability",
+        "easily add more servers to handle increasing load",
+        "(scale - out), unlike traditional vertical scaling (bigger single machine).",
+        "High performance",
+        "for specific access patterns (e.g., si",
+        "mple key lookups).",
+        "Handles large volumes of unstructured/semi",
+        "structured data",
+        "effectively.",
+        "Good fit for distributed, cloud",
+        "based systems",
+        "4.4 Comparison Between SQL and NoSQL Database Systems",
+        "SQL databases use a",
+        "fixed schema",
+        "; NoSQL databases are typically",
+        "schema - less",
+        "or flexible .",
+        "SQL databases are",
+        "table - based ; NoSQL databases can be key",
+        "value, document,",
+        "column - family, or graph",
+        "SQL databases strongly support",
+        "ACID transactions",
+        "; many NoSQL databases",
+        "favor eventual consistency",
+        "and high availability inste",
+        "ad (though some modern",
+        "NoSQL systems now support stronger consistency options).",
+        "vertically (bigger server) more naturally; NoSQL scales",
+        "horizontally",
+        "(more servers) more naturally.",
+        "SQL is ideal for complex queries and relationships; NoSQL is ideal for massive",
+        "scale, flexible/evolving data, and simple, fast access patterns.",
+        "5. Step - by- Step Working",
+        "Application Needs Data Storage",
+        "Is data highly structured with complex relationships?",
+        "\u2193 Yes \u2192 Use SQL (Relational Database)",
+        "\u2193 No, needs flexibility/huge scale",
+        "\u2192 Use NoSQL",
+        "Choose NoSQL Type based on access pattern:",
+        "Simple lookups",
+        "\u2192 Key - Value",
+        "Flexible nested documents",
+        "\u2192 Document Store",
+        "Massive write - heavy data \u2192 Column - Family",
+        "Highly connected data",
+        "\u2192 Graph Database",
+        "6. Diagrams",
+        "Four small icons in a row representing the four NoSQL types: a",
+        "dictionary/key icon for Key",
+        "Figure: Four small icons in a row representing the four NoSQL",
+        "types: a dictionary/key",
+        "icon for Key",
+        "Nor required",
+        "SQL Database",
+        "NoSQL Database",
+        "Flexible/Schema",
+        "Tables (rows/columns)",
+        "Key - Value, Document, Column",
+        "Family, Graph",
+        "Vertical (mostly)",
+        "Transactions",
+        "Strong ACID support",
+        "Often eventual consistency (varies)",
+        "Varies by database (e.g., MongoDB",
+        "query language)",
+        "Complex relationships,",
+        "structured data",
+        "Huge scale, flexible/evolving,",
+        "unstructured data",
+        "MySQL, Oracle, PostgreSQL",
+        "MongoDB, Cassandra, Redis, Neo4j",
+        "9. Important Terms",
+        "Simple Meaning",
+        "A category of non",
+        "relatio nal, flexible - schema databases",
+        "Key - Value Store",
+        "Database storing simple key",
+        "value pairs",
+        "Document Store",
+        "Database storing flexible, JSON",
+        "like documents",
+        "Column - Family",
+        "Database organizing data in column groups for fast large",
+        "scale access",
+        "Graph Database",
+        "Database storing data as connected nodes and edges",
+        "Horizontal Scaling",
+        "Growing capacity by adding more servers",
+        "Consistency",
+        "A model where data becomes consistent across replicas over time, not",
+        "10. Examples",
+        "Easy example: Storing a simp",
+        "le username - password pair using a key",
+        "value store.",
+        "Practical example:",
+        "An e - commerce site storing each product as a flexible JSON",
+        "document with varying attributes (some products have \"color,\" others have",
+        "\"size,\" etc.).",
+        "Industry example:",
+        "Twitter/Facebook use NoSQL databases to handle billions of",
+        "posts and connections.",
+        "Real - life example:",
+        "Netflix uses Cassandra (column",
+        "family NoSQL) to handle",
+        "massive - scale viewing data across the globe.",
+        "11. Advantages & Limitations",
+        "Advantage: Extremely scalable, handles huge an",
+        "d flexible datasets well.",
+        "Advantage: Easier to evolve schema as application requirements change.",
+        "Limitation: Weaker support for complex multi",
+        "table relationships and joins",
+        "compared to SQL.",
+        "Limitation: Many NoSQL systems trade strict consistency for availability and",
+        "speed (per the CAP theorem).",
+        "12. Applications",
+        "Industry: Social media, IoT, real",
+        "time analytics, gaming.",
+        "Companies: Facebook, Twitter, Netflix, Amazon (DynamoDB), Uber.",
+        "Daily life: Every time you use a social media feed or a recommendation system,",
+        "NoSQL is often working behind the scenes.",
+        "Software: MongoDB, Cassandra, Redis, Neo4j, DynamoDB.",
+        "Websites: High - traffic websites needing fast, flexible content storage.",
+        "Mobile Apps: Apps needing offline",
+        "first, flexible data sync (e.g., chat apps).",
         "NoSQL = \"Not Only SQL\"",
         "flexible schema, built for scale and",
         "unstructured/semi",
@@ -1586,21 +2946,235 @@ export const TOPICS_DATA = [
         "NoSQL data modeling favors denormalization (storing related data together)",
         "based on query patterns.",
         "SQL scales vertically and favors strong consistency; NoSQL scales horizontally",
-        "and often favors availability/flexibility.",
-        "NoSQL does not mean \"no structure at all\"",
-        "data still",
-        "has structure, just not a rigid, predefined re",
-        "lational schema.",
-        "Choice between SQL and NoSQL should be driven by the application's data",
-        "shape, scale needs, and consistency requirements",
-        "not by which is \"better\" in",
-        "general."
+        "and often favors availability/flexibility."
       ],
       "misconceptions": [
-        ""
+        "Unstructured does not mean \"useless\" or \"disorganized",
+        "information\" - it simply means the data doesn't fit a predefined table schema; it",
+        "can still be extremely valuable (e.g., images, videos).",
+        "Real - world big data systems usuall",
+        "y manage a mix of all three data types together.",
+        "Topic 3.2: NoSQL Database Concepts",
+        "1. Topic Name - NoSQL Databases",
+        "What is it? NoSQL (\"Not Only SQL\") databases are a category of databases designed to",
+        "without requiring a fixed table schema",
+        ", built to handle large volumes of",
+        "unstructured/semi",
+        "structured data with high scalability and flexibility.",
+        "Why do we need it?",
+        "Relational databases struggle with massive",
+        "scale, fast - changing,",
+        "and unstructured data (e.g., social media, IoT sensors). NoSQL databas",
+        "designed to scale out easily across many servers and handle flexible, evolving data",
+        "Where is it used?",
+        "Social media platforms (Facebook, Twitter)",
+        "Real - time big data",
+        "applications (IoT, sensor data)",
+        "Content management systems",
+        "Gaming and mobile",
+        "applications needing fast, flexible storage",
+        "2. Beginner Friendly Introduction",
+        "Imagine a relational database as a strict office filing cabinet where every folder must",
+        "follow the exact same format. NoSQL is like a flexible storage box where each ite",
+        "be organized differently",
+        "perfect when your data doesn't always look the same.",
+        "Key words explained:",
+        "Simple Meaning",
+        "Schema - less",
+        "No fixed structure required before storing data",
+        "Adding more machines to handle more load (instead of a bigger",
+        "single machine)",
+        "A single unit of data (like a JSON object) in a document database",
+        "Key - Value Store",
+        "A simple database storing data as pairs of a unique key and its value",
+        "3. Real - Life Analogies",
+        "Filing Cabinet vs Flexible",
+        "Storage Bin:",
+        "A filing cabinet (SQL) requires",
+        "every folder to have the exact same tabs and sections. A flexible storage bin (NoSQL)",
+        "lets you toss in items of different shapes and sizes without needing them to match a",
+        "strict format.",
+        "Analogy 2 - Library Index Card vs Sticky Notes:",
+        "SQL is like a library's precise index",
+        "card system; NoSQL is like a wall of sticky notes",
+        "quick, flexible, and easy to scale by",
+        "simply adding more space, though less strictly organized.",
+        "4. Complete Detailed Explanation",
+        "4.1 Types of N oSQL Databases",
+        "Key - Value Store",
+        "data is stored as simple key",
+        "value pairs, like a giant",
+        "dictionary (e.g., Redis, DynamoDB). Extremely fast for simple lookups.",
+        "Document Store",
+        "data is stored as flexible, JSON",
+        "like documents that can have",
+        "nested structures (e.g., MongoDB, CouchDB). Good for semi",
+        "structured data.",
+        "Column - Family Store",
+        "data is stored in columns grouped into families rather",
+        "than rows, optimized for fast reads/writes over huge datasets (e.g., Cassandra,",
+        "Graph Database",
+        "data is stored as",
+        "nodes and edges representing entities and",
+        "their relationships, ideal for highly connected data (e.g., Neo4j). Good for social",
+        "networks, recommendation engines.",
+        "4.2 NoSQL Data Modeling",
+        "Unlike relational modeling (normalize into many related tables), NoSQL",
+        "modeling often",
+        "denormalizes",
+        "data - related information is stored together in",
+        "one document/record to avoid the cost of joins.",
+        "Data modeling is driven by",
+        "how the application will query the data",
+        "minimizing redundancy (a very different philosophy from",
+        "SQL normalization).",
+        "Embedding related data (e.g., storing a customer's orders directly inside the",
+        "customer document) is common in document stores for fast reads.",
+        "4.3 Advantages of NoSQL Databases",
+        "Flexible schema",
+        "can store data without defining structure in advance,",
+        "adapting easily as requirements change.",
+        "Horizontal scalability",
+        "easily add more servers to handle increasing load",
+        "(scale - out), unlike traditional vertical scaling (bigger single machine).",
+        "High performance",
+        "for specific access patterns (e.g., si",
+        "mple key lookups).",
+        "Handles large volumes of unstructured/semi",
+        "structured data",
+        "effectively.",
+        "Good fit for distributed, cloud",
+        "based systems",
+        "4.4 Comparison Between SQL and NoSQL Database Systems",
+        "SQL databases use a",
+        "fixed schema",
+        "; NoSQL databases are typically",
+        "schema - less",
+        "or flexible .",
+        "SQL databases are",
+        "table - based ; NoSQL databases can be key",
+        "value, document,",
+        "column - family, or graph",
+        "SQL databases strongly support",
+        "ACID transactions",
+        "; many NoSQL databases",
+        "favor eventual consistency",
+        "and high availability inste",
+        "ad (though some modern",
+        "NoSQL systems now support stronger consistency options).",
+        "vertically (bigger server) more naturally; NoSQL scales",
+        "horizontally",
+        "(more servers) more naturally.",
+        "SQL is ideal for complex queries and relationships; NoSQL is ideal for massive",
+        "scale, flexible/evolving data, and simple, fast access patterns.",
+        "5. Step - by- Step Working",
+        "Application Needs Data Storage",
+        "Is data highly structured with complex relationships?",
+        "\u2193 Yes \u2192 Use SQL (Relational Database)",
+        "\u2193 No, needs flexibility/huge scale",
+        "\u2192 Use NoSQL",
+        "Choose NoSQL Type based on access pattern:",
+        "Simple lookups",
+        "\u2192 Key - Value",
+        "Flexible nested documents",
+        "\u2192 Document Store",
+        "Massive write - heavy data \u2192 Column - Family",
+        "Highly connected data",
+        "\u2192 Graph Database",
+        "6. Diagrams",
+        "Four small icons in a row representing the four NoSQL types: a",
+        "dictionary/key icon for Key",
+        "Figure: Four small icons in a row representing the four NoSQL",
+        "types: a dictionary/key",
+        "icon for Key",
+        "Nor required",
+        "SQL Database",
+        "NoSQL Database",
+        "Flexible/Schema",
+        "Tables (rows/columns)",
+        "Key - Value, Document, Column",
+        "Family, Graph",
+        "Vertical (mostly)",
+        "Transactions",
+        "Strong ACID support",
+        "Often eventual consistency (varies)",
+        "Varies by database (e.g., MongoDB",
+        "query language)",
+        "Complex relationships,",
+        "structured data",
+        "Huge scale, flexible/evolving,",
+        "unstructured data",
+        "MySQL, Oracle, PostgreSQL",
+        "MongoDB, Cassandra, Redis, Neo4j",
+        "9. Important Terms",
+        "Simple Meaning",
+        "A category of non",
+        "relatio nal, flexible - schema databases",
+        "Key - Value Store",
+        "Database storing simple key",
+        "value pairs",
+        "Document Store",
+        "Database storing flexible, JSON",
+        "like documents",
+        "Column - Family",
+        "Database organizing data in column groups for fast large",
+        "scale access",
+        "Graph Database",
+        "Database storing data as connected nodes and edges",
+        "Horizontal Scaling",
+        "Growing capacity by adding more servers",
+        "Consistency",
+        "A model where data becomes consistent across replicas over time, not",
+        "10. Examples",
+        "Easy example: Storing a simp",
+        "le username - password pair using a key",
+        "value store.",
+        "Practical example:",
+        "An e - commerce site storing each product as a flexible JSON",
+        "document with varying attributes (some products have \"color,\" others have",
+        "\"size,\" etc.).",
+        "Industry example:",
+        "Twitter/Facebook use NoSQL databases to handle billions of",
+        "posts and connections.",
+        "Real - life example:",
+        "Netflix uses Cassandra (column",
+        "family NoSQL) to handle",
+        "massive - scale viewing data across the globe.",
+        "11. Advantages & Limitations",
+        "Advantage: Extremely scalable, handles huge an",
+        "d flexible datasets well.",
+        "Advantage: Easier to evolve schema as application requirements change.",
+        "Limitation: Weaker support for complex multi",
+        "table relationships and joins",
+        "compared to SQL.",
+        "Limitation: Many NoSQL systems trade strict consistency for availability and",
+        "speed (per the CAP theorem).",
+        "12. Applications",
+        "Industry: Social media, IoT, real",
+        "time analytics, gaming.",
+        "Companies: Facebook, Twitter, Netflix, Amazon (DynamoDB), Uber.",
+        "Daily life: Every time you use a social media feed or a recommendation system,",
+        "NoSQL is often working behind the scenes.",
+        "Software: MongoDB, Cassandra, Redis, Neo4j, DynamoDB.",
+        "Websites: High - traffic websites needing fast, flexible content storage.",
+        "Mobile Apps: Apps needing offline",
+        "first, flexible data sync (e.g., chat apps).",
+        "13. Key Points to Remember",
+        "NoSQL = \"Not Only SQL\"",
+        "flexible schema, built for scale and",
+        "unstructured/semi",
+        "structured data.",
+        "Four main types: Key",
+        "Value, Document, Column",
+        "Family, Graph.",
+        "NoSQL data modeling favors denormalization (storing related data together)",
+        "based on query patterns.",
+        "SQL scales vertically and favors strong consistency; NoSQL scales horizontally",
+        "and often favors availability/flexibility."
       ],
       "examTips": []
     },
+    "fullRawText": "\u2022\nUnstructured Data\n- Advantage: Captures rich, real\n- world information (images,\nvideo, text); Limitation: Harder and more expensive to search, process, and\nanalyze.\n12. Applications\n\u2022\nIndustry:\nRetail (structured sales + unstructured reviews), healthcare\n(structured records + unstructured scans).\n\u2022\nCompanies: Amazon, Netflix use both structure\nd (orders, subscriptions) and\nunstructured (viewing history patterns, images) data.\n\u2022\nDaily life: Social media platforms manage huge unstructured content (photos,\nvideos, posts).\n\u2022\nSoftware: Data lakes (e.g., Hadoop, Amazon S3), NoSQL databases.\n\u2022\nWebsites: E- commerce sites combining structured product data with\nunstructured customer reviews.\n\u2022\nMobile Apps: Photo/video sharing apps manage massive unstructured data.\n13. Key Points to Remember\n\u2022 Structured data fits into tables with a fixed schema; unstructured data does not.\n\u2022 Semi - structured data (XML, JSON) is a middle ground with flexible tags.\n\u2022 Structured data suits SQL databases; unstructured/semi\n- structured data often\nsuits NoSQL databases.\n\u2022 Common misconception:\nUnstructured does not mean \"useless\" or \"disorganized\ninformation\" - it simply means the data doesn't fit a predefined table schema; it\ncan still be extremely valuable (e.g., images, videos).\n\u2022 Real - world big data systems usuall\ny manage a mix of all three data types together.\nTopic 3.2: NoSQL Database Concepts\n1. Topic Name - NoSQL Databases\nWhat is it? NoSQL (\"Not Only SQL\") databases are a category of databases designed to\nstore data\nwithout requiring a fixed table schema\n, built to handle large volumes of\nunstructured/semi\n- structured data with high scalability and flexibility.\nWhy do we need it?\nRelational databases struggle with massive\n- scale, fast - changing,\nand unstructured data (e.g., social media, IoT sensors). NoSQL databas\nes were\ndesigned to scale out easily across many servers and handle flexible, evolving data\nmodels.\nWhere is it used?\n- Social media platforms (Facebook, Twitter)\n- Real - time big data\napplications (IoT, sensor data)\n- Content management systems\n- Gaming and mobile\napplications needing fast, flexible storage\n2. Beginner Friendly Introduction\nImagine a relational database as a strict office filing cabinet where every folder must\nfollow the exact same format. NoSQL is like a flexible storage box where each ite\nm can\nbe organized differently\n- perfect when your data doesn't always look the same.\nKey words explained:\nWord\nSimple Meaning\nSchema - less\nNo fixed structure required before storing data\nHorizontal\nScaling\nAdding more machines to handle more load (instead of a bigger\nsingle machine)\nDocument\nA single unit of data (like a JSON object) in a document database\nKey - Value Store\nA simple database storing data as pairs of a unique key and its value\n3. Real - Life Analogies\nAnalogy 1\n- Filing Cabinet vs Flexible\nStorage Bin:\nA filing cabinet (SQL) requires\nevery folder to have the exact same tabs and sections. A flexible storage bin (NoSQL)\nlets you toss in items of different shapes and sizes without needing them to match a\nstrict format.\nAnalogy 2 - Library Index Card vs Sticky Notes:\nSQL is like a library's precise index\ncard system; NoSQL is like a wall of sticky notes\n- quick, flexible, and easy to scale by\nsimply adding more space, though less strictly organized.\n4. Complete Detailed Explanation\n4.1 Types of N oSQL Databases\n1.\nKey - Value Store\n- data is stored as simple key\n- value pairs, like a giant\ndictionary (e.g., Redis, DynamoDB). Extremely fast for simple lookups.\n2.\nDocument Store\n- data is stored as flexible, JSON\n- like documents that can have\nnested structures (e.g., MongoDB, CouchDB). Good for semi\n- structured data.\n3.\nColumn - Family Store\n- data is stored in columns grouped into families rather\nthan rows, optimized for fast reads/writes over huge datasets (e.g., Cassandra,\nHBase).\n4.\nGraph Database\n- data is stored as\nnodes and edges representing entities and\ntheir relationships, ideal for highly connected data (e.g., Neo4j). Good for social\nnetworks, recommendation engines.\n4.2 NoSQL Data Modeling\n\u2022\nUnlike relational modeling (normalize into many related tables), NoSQL\nmodeling often\ndenormalizes\ndata - related information is stored together in\none document/record to avoid the cost of joins.\n\u2022\nData modeling is driven by\nhow the application will query the data\n, not by\nminimizing redundancy (a very different philosophy from\nSQL normalization).\n\u2022\nEmbedding related data (e.g., storing a customer's orders directly inside the\ncustomer document) is common in document stores for fast reads.\n4.3 Advantages of NoSQL Databases\n\u2022\nFlexible schema\n- can store data without defining structure in advance,\nadapting easily as requirements change.\n\u2022\nHorizontal scalability\n- easily add more servers to handle increasing load\n(scale - out), unlike traditional vertical scaling (bigger single machine).\n\u2022\nHigh performance\nfor specific access patterns (e.g., si\nmple key lookups).\n\u2022\nHandles large volumes of unstructured/semi\n- structured data\neffectively.\n\u2022\nGood fit for distributed, cloud\n- based systems\n.\n4.4 Comparison Between SQL and NoSQL Database Systems\n\u2022\nSQL databases use a\nfixed schema\n; NoSQL databases are typically\nschema - less\nor flexible .\n\u2022\nSQL databases are\ntable - based ; NoSQL databases can be key\n- value, document,\ncolumn - family, or graph\n- based.\n\u2022\nSQL databases strongly support\nACID transactions\n; many NoSQL databases\nfavor eventual consistency\nand high availability inste\nad (though some modern\nNoSQL systems now support stronger consistency options).\n\u2022\nSQL scales\nvertically (bigger server) more naturally; NoSQL scales\nhorizontally\n(more servers) more naturally.\n\u2022\nSQL is ideal for complex queries and relationships; NoSQL is ideal for massive\nscale, flexible/evolving data, and simple, fast access patterns.\n5. Step - by- Step Working\nApplication Needs Data Storage\n\u2193\nIs data highly structured with complex relationships?\n\u2193 Yes \u2192 Use SQL (Relational Database)\n\u2193 No, needs flexibility/huge scale\n\u2192 Use NoSQL\n\u2193\nChoose NoSQL Type based on access pattern:\nSimple lookups\n\u2192 Key - Value\nFlexible nested documents\n\u2192 Document Store\nMassive write - heavy data \u2192 Column - Family\nHighly connected data\n\u2192 Graph Database\n6. Diagrams\nFour small icons in a row representing the four NoSQL types: a\ndictionary/key icon for Key\n- Value,\u2026\nFigure: Four small icons in a row representing the four NoSQL\ntypes: a dictionary/key\nicon for Key\n- Value,\u2026\n7. Images\nNor required\n8. Tables\nFeature\nSQL Database\nNoSQL Database\nSchema\nFixed\nFlexible/Schema\n- less\nData Model\nTables (rows/columns)\nKey - Value, Document, Column\n-\nFamily, Graph\nScaling\nVertical (mostly)\nHorizontal\nTransactions\nStrong ACID support\nOften eventual consistency (varies)\nQuery\nLanguage\nSQL\nVaries by database (e.g., MongoDB\nquery language)\nBest For\nComplex relationships,\nstructured data\nHuge scale, flexible/evolving,\nunstructured data\nExamples\nMySQL, Oracle, PostgreSQL\nMongoDB, Cassandra, Redis, Neo4j\n9. Important Terms\nTerm\nSimple Meaning\nNoSQL\nA category of non\n- relatio nal, flexible - schema databases\nKey - Value Store\nDatabase storing simple key\n- value pairs\nDocument Store\nDatabase storing flexible, JSON\n- like documents\nColumn - Family\nStore\nDatabase organizing data in column groups for fast large\n- scale access\nGraph Database\nDatabase storing data as connected nodes and edges\nHorizontal Scaling\nGrowing capacity by adding more servers\nEventual\nConsistency\nA model where data becomes consistent across replicas over time, not\ninstantly\n10. Examples\n\u2022\nEasy example: Storing a simp\nle username - password pair using a key\n- value store.\n\u2022\nPractical example:\nAn e - commerce site storing each product as a flexible JSON\ndocument with varying attributes (some products have \"color,\" others have\n\"size,\" etc.).\n\u2022\nIndustry example:\nTwitter/Facebook use NoSQL databases to handle billions of\nposts and connections.\n\u2022\nReal - life example:\nNetflix uses Cassandra (column\n- family NoSQL) to handle\nmassive - scale viewing data across the globe.\n11. Advantages & Limitations\n\u2022\nAdvantage: Extremely scalable, handles huge an\nd flexible datasets well.\n\u2022\nAdvantage: Easier to evolve schema as application requirements change.\n\u2022\nLimitation: Weaker support for complex multi\n- table relationships and joins\ncompared to SQL.\n\u2022\nLimitation: Many NoSQL systems trade strict consistency for availability and\nspeed (per the CAP theorem).\n12. Applications\n\u2022\nIndustry: Social media, IoT, real\n- time analytics, gaming.\n\u2022\nCompanies: Facebook, Twitter, Netflix, Amazon (DynamoDB), Uber.\n\u2022\nDaily life: Every time you use a social media feed or a recommendation system,\nNoSQL is often working behind the scenes.\n\u2022\nSoftware: MongoDB, Cassandra, Redis, Neo4j, DynamoDB.\n\u2022\nWebsites: High - traffic websites needing fast, flexible content storage.\n\u2022\nMobile Apps: Apps needing offline\n- first, flexible data sync (e.g., chat apps).\n13. Key Points to Remember\n\u2022 NoSQL = \"Not Only SQL\"\n-\nflexible schema, built for scale and\nunstructured/semi\n- structured data.\n\u2022 Four main types: Key\n- Value, Document, Column\n- Family, Graph.\n\u2022 NoSQL data modeling favors denormalization (storing related data together)\nbased on query patterns.\n\u2022 SQL scales vertically and favors strong consistency; NoSQL scales horizontally\nand often favors availability/flexibility.",
     "structuredTables": [
       {
         "id": "t3_2_sql_nosql",
@@ -1622,13 +3196,6 @@ export const TOPICS_DATA = [
             "status": "info"
           },
           {
-            "feature": "Schema Flexibility",
-            "col1": "Rigid DDL: Altering schema requires migrations & locking",
-            "col2": "Dynamic / Schema-less: Documents can have varying fields",
-            "verdict": "NoSQL is ideal for agile, rapidly evolving data models",
-            "status": "better-col2"
-          },
-          {
             "feature": "Scaling Strategy",
             "col1": "Vertical Scaling (Scale-Up: beefier CPU, RAM, NVMe)",
             "col2": "Horizontal Scaling (Scale-Out: distributed sharding)",
@@ -1641,27 +3208,6 @@ export const TOPICS_DATA = [
             "col2": "BASE model (Basically Available, Soft-state, Eventual consistency)",
             "verdict": "SQL guarantees financial accuracy; NoSQL maximizes availability",
             "status": "info"
-          },
-          {
-            "feature": "Complex Joins & Aggregations",
-            "col1": "Native multi-table JOINs optimized by relational query engine",
-            "col2": "Denormalized embedding preferred; joins ($lookup) are expensive",
-            "verdict": "Use SQL when deep relational joins are critical",
-            "status": "better-col1"
-          },
-          {
-            "feature": "Primary Industry Fit",
-            "col1": "Banking, ERP, Accounting, CRM, Inventory systems",
-            "col2": "Real-time analytics, Social Feeds, Mobile apps, IoT, Catalogs",
-            "verdict": "Choose based on consistency vs elasticity requirements",
-            "status": "info"
-          },
-          {
-            "feature": "Leading Systems",
-            "col1": "PostgreSQL, MySQL, Oracle, Microsoft SQL Server",
-            "col2": "MongoDB, Apache Cassandra, Redis, Neo4j, Couchbase",
-            "verdict": "Polyglot persistence combines both in modern architectures",
-            "status": "info"
           }
         ]
       }
@@ -1672,60 +3218,63 @@ export const TOPICS_DATA = [
     "moduleId": 3,
     "moduleName": "Advanced Database Techniques",
     "title": "NoSQL Using MongoDB",
-    "pages": "44 - 51",
-    "estimatedTime": "20 min",
+    "timeEstimate": "20 min",
+    "pageRange": "68 - 74",
     "overview": {
-      "whatIsIt": "Mon goDB is a popular open\n- source document - oriented NoSQL database\nthat stores data as flexible, JSON\n- like documents called\nBSON (Binary JSON), organized\ninto collections instead of tables.",
-      "whyNeed": "MongoDB makes it easy to store complex, nested, and\nevolving\ndata structures without needing to design a fixed schema in advance, which is ideal for\nmodern applications with rapidly changing requirements.",
-      "whereUsed": "- Content management systems\n- Real - time analytics applications\n-\nMobile and web application backends\n- Catalogs with varying product attributes",
-      "importantNotes": ""
+      "whatIsIt": "Mon goDB is a popular open\n- source document - oriented NoSQL database\nthat stores data as flexible, JSON\n- like documents called\nBSON (Binary JSON), organized\ninto collections instead of tables.\nWhy do we need it?\nMongoDB makes it easy to store complex, nested, and\nevolving\ndata structures without needing to design a fixed schema in advance, which is ideal for\nmodern applications with rapidly changing requirements.\nWhere is it used?\n- Content management systems\n- Real - time analytics applications\n-\nMobile and web application backends\n- Catalogs with varying product attributes",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "If a relational database is like a set of spreadsheets with strict columns, MongoDB is\nlike a folder full of flexible forms (documents) where each form can have\ndifferent\nfields depending on what it needs to describe\n- while still being organized into labeled\nfolders (collections).",
-      "keywords": [
-        {
-          "term": "Collection",
-          "meaning": "A group of documents (equivalent to a \"table\" in SQL)"
-        },
-        {
-          "term": "Database",
-          "meaning": "A container holding multiple collections"
-        },
-        {
-          "term": "BSON",
-          "meaning": "Binary JSON"
-        },
-        {
-          "term": "Shell",
-          "meaning": "A command - line interface used to interact directly with MongoDB"
-        }
-      ]
+      "simpleExplanation": "2. Beginner Friendly Introduction\nIf a relational database is like a set of spreadsheets with strict columns, MongoDB is\nlike a folder full of flexible forms (documents) where each form can have\ndifferent\nfields depending on what it needs to describe\n- while still being organized into labeled\nfolders (collections).\nKey words explained:\nWord\nSimple Meaning\nDocument A single record, stored in a JSON\n- like format (equivalent to a \"row\" in SQL)\nCollection\nA group of documents (equivalent to a \"table\" in SQL)\nDatabase\nA container holding multiple collections\nBSON\nBinary JSON\n- the format MongoDB actually stores documents in\nShell\nA command - line interface used to interact directly with MongoDB\n3. Re al- Life Analogies\nAnalogy 1\n- Folder of Forms:\nA MongoDB\ncollection is like a folder, and each\ndocument inside it is like an individual filled\n- out form. Unlike a filing cabinet with\nidentical forms, each form in this folder can have slightly different fields.\nAnalogy 2\n- Sticky Note Board:\nEach document is like a sticky note with different\ninformation written on it; you can pin many different\n- looking notes on the same board\n(collection) without needing them all to look identical.",
+      "keywords": []
     },
-    "analogies": [
-      {
-        "num": "1",
-        "title": "Folder of Forms",
-        "description": "A MongoDB\ncollection is like a folder, and each\ndocument inside it is like an individual filled\n- out form. Unlike a filing cabinet with\nidentical forms, each form in this folder can have slightly different fields."
-      },
-      {
-        "num": "2",
-        "title": "Sticky Note Board",
-        "description": "Each document is like a sticky note with different\ninformation written on it; you can pin many different\n- looking notes on the same board\n(collection) without needing them all to look identical."
-      }
-    ],
+    "analogies": [],
     "detailedExplanation": {
       "subsections": [
         {
           "title": "4.1 Introduction to MongoDB",
-          "content": "\u2022\nMongoDB is schema\n- less, meaning documents in the same collection do not\nneed to have identical fields.\n\u2022\nData is stored in\ncollections (like tables), which contain\ndocuments (like rows),\nwhich contain\nfields (like columns), written in JSON\n- like syntax.\n\u2022\nExample document:\n{\n\"_id\": 1,\n\"name\": \"Riya Shah\",\n\"age\": 20,\n\"department\": \"Computer Science\"\n}\n\u2022\nEvery document automatically gets a unique _id field acting as its primary key."
+          "content": "\u2022"
+        },
+        {
+          "title": "MongoDB is schema",
+          "content": "- less, meaning documents in the same collection do not\nneed to have identical fields.\n\u2022"
+        },
+        {
+          "title": "Data is stored in",
+          "content": "collections (like tables), which contain\ndocuments (like rows),\nwhich contain\nfields (like columns), written in JSON\n- like syntax.\n\u2022"
+        },
+        {
+          "title": "Example document",
+          "content": "{\n\"_id\": 1,\n\"name\": \"Riya Shah\",\n\"age\": 20,\n\"department\": \"Computer Science\"\n}\n\u2022\nEvery document automatically gets a unique _id field acting as its primary key."
         },
         {
           "title": "4.2 MongoDB Shell and MongoDB Client",
-          "content": "\u2022\nThe MongoDB S\nhell (mongosh)\nis a command\n- line JavaScript interface used to\nconnect to a MongoDB server, run commands, and manage data directly.\n\u2022\nA MongoDB Client\n(or driver) is a library used within an application's\nprogramming language (Python, Java, Node.js, etc.) to connect to and interact\nwith MongoDB programmatically.\n\u2022\nBoth the shell and client ultimately send the same types of operations (insert,\nfind, update, delete) to the database."
+          "content": "\u2022"
+        },
+        {
+          "title": "The MongoDB S",
+          "content": "hell (mongosh)\nis a command\n- line JavaScript interface used to\nconnect to a MongoDB server, run commands, and manage data directly.\n\u2022"
+        },
+        {
+          "title": "A MongoDB Client",
+          "content": "(or driver) is a library used within an application's\nprogramming language (Python, Java, Node.js, etc.) to connect to and interact\nwith MongoDB programmatically.\n\u2022\nBoth the shell and client ultimately send the same types of operations (insert,\nfind, update, delete) to the database."
         },
         {
           "title": "4.3 Basic Operations (CRUD)",
-          "content": "\u2022\nCreate: db.students.insertOne({\u2026}) or insertMany([\u2026])\nto add new documents.\n\u2022\nRead: db.students.find({\u2026}) to retrieve documents matching a condition.\n\u2022\nUpdate: db.students.updateOne({\u2026}, {\n\\ $set: {\u2026}}) to modify existing documents.\n\u2022\nDelete: db.students.deleteOne({\u2026}) or deleteMany({\u2026}) to remove documents."
+          "content": "\u2022"
+        },
+        {
+          "title": "Create: db.students.insertOne({\u2026}) or insertMany([\u2026])",
+          "content": "to add new documents.\n\u2022"
+        },
+        {
+          "title": "Read: db.students.find({\u2026}) to retrieve documents matching a condition.",
+          "content": "\u2022"
+        },
+        {
+          "title": "Update: db.students.updateOne({\u2026}, {",
+          "content": "\\ $set: {\u2026}}) to modify existing documents.\n\u2022"
         },
         {
           "title": "4.4 Basic Data Types",
@@ -1733,95 +3282,63 @@ export const TOPICS_DATA = [
         },
         {
           "title": "4.5 Arrays",
-          "content": "\u2022\nMongoDB fields can hold an\narray - a list of multiple values within a single\ndocument, e.g., \"skills\": [\"Java\", \"Python\", \"SQL\"].\n\u2022\nArrays allow one document to naturally represent multi\n- valued attributes,\nwithout needing a separate related table."
+          "content": "\u2022"
+        },
+        {
+          "title": "MongoDB fields can hold an",
+          "content": "array - a list of multiple values within a single\ndocument, e.g., \"skills\": [\"Java\", \"Python\", \"SQL\"].\n\u2022\nArrays allow one document to naturally represent multi\n- valued attributes,\nwithout needing a separate related table."
         },
         {
           "title": "4.6 Embedded Documents",
-          "content": "\u2022\nA field within a document can itself hold another\ndocument (a nested object),\ncalled an embedded document\n, e.g.:\n{\n\"name\": \"Riya Shah\",\n\"address\": {\n\"city\": \"Vadodara\",\n\"pincod e\": \"390001\"\n}\n}\n\u2022\nEmbedded documents let related data be stored together in one place, avoiding\nthe need for a join, similar in spirit to structured types in object\n- relational SQL."
+          "content": "\u2022"
+        },
+        {
+          "title": "A field within a document can itself hold another",
+          "content": "document (a nested object),\ncalled an embedded document\n, e.g.:\n{\n\"name\": \"Riya Shah\",\n\"address\": {\n\"city\": \"Vadodara\",\n\"pincod e\": \"390001\"\n}\n}\n\u2022\nEmbedded documents let related data be stored together in one place, avoiding\nthe need for a join, similar in spirit to structured types in object\n- relational SQL."
         }
       ],
       "raw": "4. Complete Detailed Explan\nation\n4.1 Introduction to MongoDB\n\u2022\nMongoDB is schema\n- less, meaning documents in the same collection do not\nneed to have identical fields.\n\u2022\nData is stored in\ncollections (like tables), which contain\ndocuments (like rows),\nwhich contain\nfields (like columns), written in JSON\n- like syntax.\n\u2022\nExample document:\n{\n\"_id\": 1,\n\"name\": \"Riya Shah\",\n\"age\": 20,\n\"department\": \"Computer Science\"\n}\n\u2022\nEvery document automatically gets a unique _id field acting as its primary key.\n4.2 MongoDB Shell and MongoDB Client\n\u2022\nThe MongoDB S\nhell (mongosh)\nis a command\n- line JavaScript interface used to\nconnect to a MongoDB server, run commands, and manage data directly.\n\u2022\nA MongoDB Client\n(or driver) is a library used within an application's\nprogramming language (Python, Java, Node.js, etc.) to connect to and interact\nwith MongoDB programmatically.\n\u2022\nBoth the shell and client ultimately send the same types of operations (insert,\nfind, update, delete) to the database.\n4.3 Basic Operations (CRUD)\n\u2022\nCreate: db.students.insertOne({\u2026}) or insertMany([\u2026])\nto add new documents.\n\u2022\nRead: db.students.find({\u2026}) to retrieve documents matching a condition.\n\u2022\nUpdate: db.students.updateOne({\u2026}, {\n\\ $set: {\u2026}}) to modify existing documents.\n\u2022\nDelete: db.students.deleteOne({\u2026}) or deleteMany({\u2026}) to remove documents.\n4.4 Basic Data Types\nMongoDB supports rich data types within documents, including:\n- String - text values.\n- Number (Integer, Double)\n- numeric values.\n- Boolean - true/false values.\n- Date -\ndate/time values.\n- Null - represents a missing/empty value.\n- ObjectId - a special\nunique identifier type, often used for _id.\n4.5 Arrays\n\u2022\nMongoDB fields can hold an\narray - a list of multiple values within a single\ndocument, e.g., \"skills\": [\"Java\", \"Python\", \"SQL\"].\n\u2022\nArrays allow one document to naturally represent multi\n- valued attributes,\nwithout needing a separate related table.\n4.6 Embedded Documents\n\u2022\nA field within a document can itself hold another\ndocument (a nested object),\ncalled an embedded document\n, e.g.:\n{\n\"name\": \"Riya Shah\",\n\"address\": {\n\"city\": \"Vadodara\",\n\"pincod e\": \"390001\"\n}\n}\n\u2022\nEmbedded documents let related data be stored together in one place, avoiding\nthe need for a join, similar in spirit to structured types in object\n- relational SQL."
     },
     "stepByStep": [
       {
-        "title": "Connect to MongoDB (via Shell or Client Driver)",
-        "isHeader": false
-      },
-      {
-        "title": "Select Database and Collection",
-        "isHeader": false
-      },
-      {
-        "title": "Perform CRUD Operation (Insert / Find / Update / Delete)",
-        "isHeader": false
-      },
-      {
-        "title": "MongoDB Engine processes the request on relevant documents",
-        "isHeader": false
-      },
-      {
-        "title": "Result Returned (document(s) or acknowledgement)",
-        "isHeader": false
+        "step": 1,
+        "title": "Step - by- Step Working",
+        "description": "Connect to MongoDB (via Shell or Client Driver)\n\u2193\nSelect Database and Collection\n\u2193\nPerform CRUD Operation (Insert / Find / Update / Delete)\n\u2193\nMongoDB Engine processes the request on relevant documents\n\u2193\nResult Returned (document(s) or acknowledgement)"
       }
     ],
-    "tablesRaw": "SQL Term\nMongoDB Equivalent\nDatabase\nDatabase\nTable\nCollection\nRow\nDocument\nColumn\nField\nPrimary Key\n_id field\nJOIN\nEmbedded Document / Manual Reference",
-    "terms": [
-      {
-        "term": "Command",
-        "definition": "line tool to interact with MongoDB"
-      }
-    ],
+    "diagramsDescription": "6. Diagrams\nA diagram showing MongoDB hierarchy:\nDatabase box at top, containing Collection boxes,\neach conta\u2026\nFigure: A diagram showing MongoDB hierarchy: Database box at top, containing\nCollection boxes, each conta\u2026",
+    "visualIllustrations": "7. Images\nMongoDB Compass or Shell screenshot\n- style illustration showing a JSON document being\nviewed\nFigure: MongoDB Compass or Shell screenshot\n- style illustration showing a JSON\ndocument being viewed\nComparison chart mapping SQL terms (Database, Table, Row, Column) to MongoDB terms\n(Database, Col\u2026\nFigure: Comparison chart mapping SQL\nterms (Database, Table, Row, Column) to\nMongoDB terms (Database, Col\u2026",
+    "tablesRaw": "8. Tables\nSQL Term\nMongoDB Equivalent\nDatabase\nDatabase\nTable\nCollection\nRow\nDocument\nColumn\nField\nPrimary Key\n_id field\nJOIN\nEmbedded Document / Manual Reference",
+    "importantTerms": "9. Important Terms\nTerm\nSimple Meaning\nDocument\nA single JSON\n- like record in MongoDB\nCollection\nA group of documents (like a table)\nBSON\nBinary JSON, MongoDB's storage format\nShell (mongosh)\nCommand - line tool to interact with MongoDB\nEmbedded Document\nA document nest\ned inside another document's field\nArray Field\nA field holding a list of multiple values",
+    "terms": [],
     "examples": [
-      {
-        "type": "Easy example",
-        "content": "Storing a single student's name and age as one simple document."
-      },
-      {
-        "type": "Practical example",
-        "content": "Storing a student's multiple enrolled courses as an array field\nwithin their document."
-      },
-      {
-        "type": "Industry example",
-        "content": "An e - commerce platform storing a customer's shipping\naddress as an embedded document inside their profile."
-      },
-      {
-        "type": "Real-life example",
-        "content": "A blogging platform storing each blog post, including nested\ncomments, as one Mo\nngoDB document."
-      }
+      "10. Examples\n\u2022\nEasy example: Storing a single student's name and age as one simple document.\n\u2022\nPractical example:\nStoring a student's multiple enrolled courses as an array field\nwithin their document.\n\u2022\nIndustry example:\nAn e - commerce platform storing a customer's shipping\naddress as an embedded document inside their profile.\n\u2022\nReal - life example: A blogging platform storing each blog post, including nested\ncomments, as one Mo\nngoDB document."
     ],
     "advantages": [
       "Flexible schema makes it easy to store varied, evolving data.",
-      "Embedded documents and arrays reduce the need for joins for"
+      "Advantage: Embedded documents and arrays reduce the need for joins for",
+      "related data."
     ],
     "limitations": [
-      "Can lead to data duplication if not modeled carefully.",
-      "Complex multi"
+      "Advantage: Flexible schema makes it easy to store varied, evolving data.",
+      "Advantage: Embedded documents and arrays reduce the need for joins for",
+      "related data.",
+      "Limitation: Can lead to data duplication if not modeled carefully.",
+      "Limitation: Complex multi",
+      "collection relationships are harder to manage than in"
     ],
+    "advantagesLimitations": "11. Advantages & Limitations\n\u2022\nAdvantage: Flexible schema makes it easy to store varied, evolving data.\n\u2022\nAdvantage: Embedded documents and arrays reduce the need for joins for\nrelated data.\n\u2022\nLimitation: Can lead to data duplication if not modeled carefully.\n\u2022\nLimitation: Complex multi\n- collection relationships are harder to manage than in\nSQL.",
     "applications": [
-      {
-        "category": "Industry",
-        "details": "Content management, real\n- time analytics, IoT data storage."
-      },
-      {
-        "category": "Companies",
-        "details": "eBay, Adobe, and many startups use MongoDB for flexible back\nends."
-      },
-      {
-        "category": "Daily life",
-        "details": "Many"
-      },
-      {
-        "category": "Software",
-        "details": "MongoDB Atlas (cloud), MongoDB Compass (GUI tool)."
-      },
-      {
-        "category": "Websites",
-        "details": "News sites, blogs, and catalogs with varying content structures."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Chat apps, social apps needing flexible, fast\n- changing data."
-      }
+      "Industry: Content management, real",
+      "time analytics, IoT data storage.",
+      "Companies: eBay, Adobe, and many startups use MongoDB for flexible back",
+      "Daily life:",
+      "Many mobile apps store user profiles and content using MongoDB",
+      "behind the scenes.",
+      "Software: MongoDB Atlas (cloud), MongoDB Compass (GUI tool).",
+      "Websites: News sites, blogs, and catalogs with varying content structures.",
+      "Mobile Apps: Chat apps, social apps needing flexible, fast",
+      "changing data."
     ],
     "keyPoints": {
       "takeaways": [
@@ -1831,18 +3348,21 @@ export const TOPICS_DATA = [
         "Arrays store multiple values in one field; embedded documents store nested",
         "objects in one field.",
         "MongoDB Shell (mongosh) and client drivers are two ways to interact with",
-        "MongoDB.",
+        "Common misconception:",
         "MongoDB documents in the same collection do NOT",
         "need identical fields",
         "this flexibility is a defining feature, unlike SQL tables",
-        "where every row must follow the same column",
-        "structure."
+        "where every row must follow the same column"
       ],
       "misconceptions": [
-        ""
+        "MongoDB documents in the same collection do NOT",
+        "need identical fields",
+        "this flexibility is a defining feature, unlike SQL tables",
+        "where every row must follow the same column"
       ],
       "examTips": []
     },
+    "fullRawText": "\u2022 Common misconception:\nNoSQL does not mean \"no structure at all\"\n- data still\nhas structure, just not a rigid, predefined re\nlational schema.\n\u2022 Choice between SQL and NoSQL should be driven by the application's data\nshape, scale needs, and consistency requirements\n- not by which is \"better\" in\ngeneral.\nTopic 3.3: NoSQL Using MongoDB\n1. Topic Name - MongoDB Basics\nWhat is it?\nMon goDB is a popular open\n- source document - oriented NoSQL database\nthat stores data as flexible, JSON\n- like documents called\nBSON (Binary JSON), organized\ninto collections instead of tables.\nWhy do we need it?\nMongoDB makes it easy to store complex, nested, and\nevolving\ndata structures without needing to design a fixed schema in advance, which is ideal for\nmodern applications with rapidly changing requirements.\nWhere is it used?\n- Content management systems\n- Real - time analytics applications\n-\nMobile and web application backends\n- Catalogs with varying product attributes\n2. Beginner Friendly Introduction\nIf a relational database is like a set of spreadsheets with strict columns, MongoDB is\nlike a folder full of flexible forms (documents) where each form can have\ndifferent\nfields depending on what it needs to describe\n- while still being organized into labeled\nfolders (collections).\nKey words explained:\nWord\nSimple Meaning\nDocument A single record, stored in a JSON\n- like format (equivalent to a \"row\" in SQL)\nCollection\nA group of documents (equivalent to a \"table\" in SQL)\nDatabase\nA container holding multiple collections\nBSON\nBinary JSON\n- the format MongoDB actually stores documents in\nShell\nA command - line interface used to interact directly with MongoDB\n3. Re al- Life Analogies\nAnalogy 1\n- Folder of Forms:\nA MongoDB\ncollection is like a folder, and each\ndocument inside it is like an individual filled\n- out form. Unlike a filing cabinet with\nidentical forms, each form in this folder can have slightly different fields.\nAnalogy 2\n- Sticky Note Board:\nEach document is like a sticky note with different\ninformation written on it; you can pin many different\n- looking notes on the same board\n(collection) without needing them all to look identical.\n4. Complete Detailed Explan\nation\n4.1 Introduction to MongoDB\n\u2022\nMongoDB is schema\n- less, meaning documents in the same collection do not\nneed to have identical fields.\n\u2022\nData is stored in\ncollections (like tables), which contain\ndocuments (like rows),\nwhich contain\nfields (like columns), written in JSON\n- like syntax.\n\u2022\nExample document:\n{\n\"_id\": 1,\n\"name\": \"Riya Shah\",\n\"age\": 20,\n\"department\": \"Computer Science\"\n}\n\u2022\nEvery document automatically gets a unique _id field acting as its primary key.\n4.2 MongoDB Shell and MongoDB Client\n\u2022\nThe MongoDB S\nhell (mongosh)\nis a command\n- line JavaScript interface used to\nconnect to a MongoDB server, run commands, and manage data directly.\n\u2022\nA MongoDB Client\n(or driver) is a library used within an application's\nprogramming language (Python, Java, Node.js, etc.) to connect to and interact\nwith MongoDB programmatically.\n\u2022\nBoth the shell and client ultimately send the same types of operations (insert,\nfind, update, delete) to the database.\n4.3 Basic Operations (CRUD)\n\u2022\nCreate: db.students.insertOne({\u2026}) or insertMany([\u2026])\nto add new documents.\n\u2022\nRead: db.students.find({\u2026}) to retrieve documents matching a condition.\n\u2022\nUpdate: db.students.updateOne({\u2026}, {\n\\ $set: {\u2026}}) to modify existing documents.\n\u2022\nDelete: db.students.deleteOne({\u2026}) or deleteMany({\u2026}) to remove documents.\n4.4 Basic Data Types\nMongoDB supports rich data types within documents, including:\n- String - text values.\n- Number (Integer, Double)\n- numeric values.\n- Boolean - true/false values.\n- Date -\ndate/time values.\n- Null - represents a missing/empty value.\n- ObjectId - a special\nunique identifier type, often used for _id.\n4.5 Arrays\n\u2022\nMongoDB fields can hold an\narray - a list of multiple values within a single\ndocument, e.g., \"skills\": [\"Java\", \"Python\", \"SQL\"].\n\u2022\nArrays allow one document to naturally represent multi\n- valued attributes,\nwithout needing a separate related table.\n4.6 Embedded Documents\n\u2022\nA field within a document can itself hold another\ndocument (a nested object),\ncalled an embedded document\n, e.g.:\n{\n\"name\": \"Riya Shah\",\n\"address\": {\n\"city\": \"Vadodara\",\n\"pincod e\": \"390001\"\n}\n}\n\u2022\nEmbedded documents let related data be stored together in one place, avoiding\nthe need for a join, similar in spirit to structured types in object\n- relational SQL.\n5. Step - by- Step Working\nConnect to MongoDB (via Shell or Client Driver)\n\u2193\nSelect Database and Collection\n\u2193\nPerform CRUD Operation (Insert / Find / Update / Delete)\n\u2193\nMongoDB Engine processes the request on relevant documents\n\u2193\nResult Returned (document(s) or acknowledgement)\n6. Diagrams\nA diagram showing MongoDB hierarchy:\nDatabase box at top, containing Collection boxes,\neach conta\u2026\nFigure: A diagram showing MongoDB hierarchy: Database box at top, containing\nCollection boxes, each conta\u2026\n7. Images\nMongoDB Compass or Shell screenshot\n- style illustration showing a JSON document being\nviewed\nFigure: MongoDB Compass or Shell screenshot\n- style illustration showing a JSON\ndocument being viewed\nComparison chart mapping SQL terms (Database, Table, Row, Column) to MongoDB terms\n(Database, Col\u2026\nFigure: Comparison chart mapping SQL\nterms (Database, Table, Row, Column) to\nMongoDB terms (Database, Col\u2026\n8. Tables\nSQL Term\nMongoDB Equivalent\nDatabase\nDatabase\nTable\nCollection\nRow\nDocument\nColumn\nField\nPrimary Key\n_id field\nJOIN\nEmbedded Document / Manual Reference\n9. Important Terms\nTerm\nSimple Meaning\nDocument\nA single JSON\n- like record in MongoDB\nCollection\nA group of documents (like a table)\nBSON\nBinary JSON, MongoDB's storage format\nShell (mongosh)\nCommand - line tool to interact with MongoDB\nEmbedded Document\nA document nest\ned inside another document's field\nArray Field\nA field holding a list of multiple values\n10. Examples\n\u2022\nEasy example: Storing a single student's name and age as one simple document.\n\u2022\nPractical example:\nStoring a student's multiple enrolled courses as an array field\nwithin their document.\n\u2022\nIndustry example:\nAn e - commerce platform storing a customer's shipping\naddress as an embedded document inside their profile.\n\u2022\nReal - life example: A blogging platform storing each blog post, including nested\ncomments, as one Mo\nngoDB document.\n11. Advantages & Limitations\n\u2022\nAdvantage: Flexible schema makes it easy to store varied, evolving data.\n\u2022\nAdvantage: Embedded documents and arrays reduce the need for joins for\nrelated data.\n\u2022\nLimitation: Can lead to data duplication if not modeled carefully.\n\u2022\nLimitation: Complex multi\n- collection relationships are harder to manage than in\nSQL.\n12. Applications\n\u2022\nIndustry: Content management, real\n- time analytics, IoT data storage.\n\u2022\nCompanies: eBay, Adobe, and many startups use MongoDB for flexible back\nends.\n\u2022\nDaily life:\nMany mobile apps store user profiles and content using MongoDB\nbehind the scenes.\n\u2022\nSoftware: MongoDB Atlas (cloud), MongoDB Compass (GUI tool).\n\u2022\nWebsites: News sites, blogs, and catalogs with varying content structures.\n\u2022\nMobile Apps: Chat apps, social apps needing flexible, fast\n- changing data.\n13. Key Points to Remember\n\u2022 MongoDB stores data as documents (JSON\n- like) inside collections (like tables).\n\u2022 Every document automatically gets a unique _id.\n\u2022 Arrays store multiple values in one field; embedded documents store nested\nobjects in one field.\n\u2022 MongoDB Shell (mongosh) and client drivers are two ways to interact with\nMongoDB.\n\u2022 Common misconception:\nMongoDB documents in the same collection do NOT\nneed identical fields\n- this flexibility is a defining feature, unlike SQL tables\nwhere every row must follow the same column\nstructure.",
     "structuredTables": [
       {
         "id": "t3_3_mapping",
@@ -1856,12 +3376,6 @@ export const TOPICS_DATA = [
         ],
         "rows": [
           {
-            "feature": "Database (Catalog)",
-            "col1": "Database (`CREATE DATABASE my_app;`)",
-            "col2": "Database (`use my_app`)",
-            "verdict": "High-level logical container for collections/tables"
-          },
-          {
             "feature": "Table (Relation)",
             "col1": "Table (`CREATE TABLE users (...);`)",
             "col2": "Collection (`db.createCollection('users')`)",
@@ -1874,28 +3388,10 @@ export const TOPICS_DATA = [
             "verdict": "Documents can contain nested arrays and sub-documents"
           },
           {
-            "feature": "Column (Attribute)",
-            "col1": "Column / Field (Fixed datatype per table definition)",
-            "col2": "Field (Dynamic key-value pair within BSON object)",
-            "verdict": "Different documents in same collection can have different fields"
-          },
-          {
             "feature": "Primary Key",
             "col1": "Primary Key (User-defined or AUTO_INCREMENT int)",
             "col2": "`_id` Field (12-byte unique BSON `ObjectId` by default)",
             "verdict": "Every document must have a unique immutable `_id`"
-          },
-          {
-            "feature": "Foreign Key & Joins",
-            "col1": "Foreign Key + `JOIN` clause in SQL query",
-            "col2": "Embedded Subdocuments OR `$lookup` aggregation stage",
-            "verdict": "Embedding avoids expensive distributed network joins"
-          },
-          {
-            "feature": "Index",
-            "col1": "B-Tree Index (`CREATE INDEX idx_email ON ...`)",
-            "col2": "B-Tree / Compound / Text / Geo Index (`db.users.createIndex({...})`)",
-            "verdict": "Supports single field, compound, multikey (arrays), and geospatial"
           }
         ]
       }
@@ -1906,56 +3402,50 @@ export const TOPICS_DATA = [
     "moduleId": 3,
     "moduleName": "Advanced Database Techniques",
     "title": "Querying with MongoDB",
-    "pages": "51 - 56",
-    "estimatedTime": "16 min",
+    "timeEstimate": "16 min",
+    "pageRange": "75 - 79",
     "overview": {
-      "whatIsIt": "Querying in MongoDB means retrieving specific documents from a\ncollection using the\nfind() function along with conditions, similar to how SELECT \u2026\nWHERE works in SQL.",
-      "whyNeed": "Simply storing data is not useful without the ability to search,\nfilter, and retrieve exactly the information needed for an application.",
-      "whereUsed": "- Searching user profiles by criteria\n- Filtering product catalogs\n-\nRetrievi ng specific records for reports or dashboards",
-      "importantNotes": ""
+      "whatIsIt": "Querying in MongoDB means retrieving specific documents from a\ncollection using the\nfind() function along with conditions, similar to how SELECT \u2026\nWHERE works in SQL.\nWhy do we need it?\nSimply storing data is not useful without the ability to search,\nfilter, and retrieve exactly the information needed for an application.\nWhere is it used?\n- Searching user profiles by criteria\n- Filtering product catalogs\n-\nRetrievi ng specific records for reports or dashboards",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "If your MongoDB collection is a folder full of documents, querying is like telling an\nassistant, \"Bring me only the forms where the age is above 18 and the city is Vadodara.\"\nThe assistant (MongoDB) scans through and hands you only the matching documents.",
-      "keywords": [
-        {
-          "term": "find()",
-          "meaning": "The main function used to search for documents in a collection"
-        },
-        {
-          "term": "Projection",
-          "meaning": "Choosing which fields to include/exclude in the retu"
-        },
-        {
-          "term": "rned result",
-          "meaning": "Query Criteria"
-        },
-        {
-          "term": "Operator",
-          "meaning": "A special symbol/keyword (like"
-        }
-      ]
+      "simpleExplanation": "2. Beginner Friendly Introduction\nIf your MongoDB collection is a folder full of documents, querying is like telling an\nassistant, \"Bring me only the forms where the age is above 18 and the city is Vadodara.\"\nThe assistant (MongoDB) scans through and hands you only the matching documents.\nKey words explained:\nWord\nSimple Meaning\nfind()\nThe main function used to search for documents in a collection\nProjection\nChoosing which fields to include/exclude in the retu\nrned result\nQuery Criteria\nThe condition(s) used to filter documents\nOperator\nA special symbol/keyword (like\n\\ $gt, \\ $or) used to build conditions",
+      "keywords": []
     },
     "analogies": [
-      {
-        "num": "1",
-        "title": "Library Search Desk",
-        "description": "Asking a librarian \"find me all books published after\n2015 by this author\" is like using find() with query criteria\n- you specify conditions, and\nonly matching results come back."
-      },
-      {
-        "num": "2",
-        "title": "Filtering a Shopping Website",
-        "description": "When you filter products by \"price under\n500\" and \"brand: Nike,\" you're doing exactly\nwhat MongoDB query criteria do\n-\nnarrowing down a huge collection to just what matches."
-      }
+      "Library Search Desk:\nAsking a librarian \"find me all books published after\n2015 by this author\" is like using find() with query criteria\n- you specify conditions, and\nonly matching results come back.",
+      "Filtering a Shopping Website:\nWhen you filter products by \"price under\n500\" and \"brand: Nike,\" you're doing exactly\nwhat MongoDB query criteria do\n-\nnarrowing down a huge collection to just what matches."
     ],
     "detailedExplanation": {
       "subsections": [
         {
           "title": "4.1 The find() Function",
-          "content": "\u2022\nBasic syntax: db.collection.find(query, projection).\n\u2022\nCalling find() with no arguments returns\nall documents in the collection.\n\u2022\nExample: db.students.find({ department: \"Computer Science\" }) returns all\nstudents in that department.\n\u2022\nfindOne() returns only the first matching document instead of all matches."
+          "content": "\u2022"
+        },
+        {
+          "title": "Basic syntax: db.collection.find(query, projection).",
+          "content": "\u2022"
+        },
+        {
+          "title": "Calling find() with no arguments returns",
+          "content": "all documents in the collection.\n\u2022"
+        },
+        {
+          "title": "Example: db.students.find({ department: \"Computer Science\" }) returns all",
+          "content": "students in that department.\n\u2022\nfindOne() returns only the first matching document instead of all matches."
         },
         {
           "title": "4.2 Projection of Fields",
-          "content": "\u2022\nProjection controls which fields are\nincluded or excluded in the query result\n(similar to selecting specific columns in SQL instead of SELECT *).\n\u2022\nExample: db.students.find({ department: \"Computer Science\" }, { name: 1, marks:\n1, _id: 0 }) returns only the name and marks fields (excluding _id).\n\u2022\nUsing 1 includes a field; using 0 excludes a field."
+          "content": "\u2022"
+        },
+        {
+          "title": "Projection controls which fields are",
+          "content": "included or excluded in the query result\n(similar to selecting specific columns in SQL instead of SELECT *).\n\u2022"
+        },
+        {
+          "title": "Example: db.students.find({ department: \"Computer Science\" }, { name: 1, marks",
+          "content": "1, _id: 0 }) returns only the name and marks fields (excluding _id).\n\u2022\nUsing 1 includes a field; using 0 excludes a field."
         },
         {
           "title": "4.3 Query Criteria (Comparison Operators)",
@@ -1963,113 +3453,81 @@ export const TOPICS_DATA = [
         },
         {
           "title": "4.4 OR Queries",
-          "content": "\u2022\nThe \\ $or operator allows matching documents that satisfy\nat least one\nof\nmultiple conditions.\n\u2022\nExample: db.students.find({\n\\ $or: [ { department: \"CS\" }, { marks: {\n\\ $gt: 90 } } ] })\nfinds students who are either in CS\nor have marks above 90.\n\u2022\nSimilarly, \\ $and can be used to require\nall conditions to be true (often i\nmplicit\nwhen listing multiple fields directly)."
+          "content": "\u2022\nThe \\ $or operator allows matching documents that satisfy\nat least one\nof\nmultiple conditions.\n\u2022"
+        },
+        {
+          "title": "Example: db.students.find({",
+          "content": "\\ $or: [ { department: \"CS\" }, { marks: {\n\\ $gt: 90 } } ] })\nfinds students who are either in CS\nor have marks above 90.\n\u2022\nSimilarly, \\ $and can be used to require\nall conditions to be true (often i\nmplicit\nwhen listing multiple fields directly)."
         },
         {
           "title": "4.5 Type - Specific Querying",
-          "content": "\u2022\nMongoDB allows querying based on the\ndata type of a field's value using the\n\\ $type operator.\n\u2022\nExample: db.students.find({ marks: {\n\\ $type: \"int\" } }) finds documents where\nmarks is stored as an integer type.\n\u2022\nThis is useful in flexible\n- schema collections where the same field might\naccidentally be stored using different types across documents."
+          "content": "\u2022"
+        },
+        {
+          "title": "MongoDB allows querying based on the",
+          "content": "data type of a field's value using the\n\\ $type operator.\n\u2022"
+        },
+        {
+          "title": "Example: db.students.find({ marks: {",
+          "content": "\\ $type: \"int\" } }) finds documents where\nmarks is stored as an integer type.\n\u2022"
+        },
+        {
+          "title": "This is useful in flexible",
+          "content": "- schema collections where the same field might\naccidentally be stored using different types across documents."
         }
       ],
       "raw": "4. Complete Detailed Explanation\n4.1 The find() Function\n\u2022\nBasic syntax: db.collection.find(query, projection).\n\u2022\nCalling find() with no arguments returns\nall documents in the collection.\n\u2022\nExample: db.students.find({ department: \"Computer Science\" }) returns all\nstudents in that department.\n\u2022\nfindOne() returns only the first matching document instead of all matches.\n4.2 Projection of Fields\n\u2022\nProjection controls which fields are\nincluded or excluded in the query result\n(similar to selecting specific columns in SQL instead of SELECT *).\n\u2022\nExample: db.students.find({ department: \"Computer Science\" }, { name: 1, marks:\n1, _id: 0 }) returns only the name and marks fields (excluding _id).\n\u2022\nUsing 1 includes a field; using 0 excludes a field.\n4.3 Query Criteria (Comparison Operators)\nMongoDB provides operators to build flexible conditions:\n- \\ $eq - equal to - \\ $ne -\nnot equal to - \\ $gt / \\ $gte - greater than / greater than or equal to\n- \\ $lt / \\ $lte -\nless than / less than or equal to\n- \\ $in - matches any value in a given list Example:\ndb.students.find({ marks: {\n\\ $gt: 80 } }) finds students with marks greater than 80.\n4.4 OR Queries\n\u2022\nThe \\ $or operator allows matching documents that satisfy\nat least one\nof\nmultiple conditions.\n\u2022\nExample: db.students.find({\n\\ $or: [ { department: \"CS\" }, { marks: {\n\\ $gt: 90 } } ] })\nfinds students who are either in CS\nor have marks above 90.\n\u2022\nSimilarly, \\ $and can be used to require\nall conditions to be true (often i\nmplicit\nwhen listing multiple fields directly).\n4.5 Type - Specific Querying\n\u2022\nMongoDB allows querying based on the\ndata type of a field's value using the\n\\ $type operator.\n\u2022\nExample: db.students.find({ marks: {\n\\ $type: \"int\" } }) finds documents where\nmarks is stored as an integer type.\n\u2022\nThis is useful in flexible\n- schema collections where the same field might\naccidentally be stored using different types across documents."
     },
     "stepByStep": [
       {
-        "title": "Client sends find() query with criteria and optional projection",
-        "isHeader": false
-      },
-      {
-        "title": "MongoDB scans the collection (or uses an index if available)",
-        "isHeader": false
-      },
-      {
-        "title": "Documents matching the query criteria are selected",
-        "isHeader": false
-      },
-      {
-        "title": "Projection is applied (only requested fields kept)",
-        "isHeader": false
-      },
-      {
-        "title": "Matching documents returned to the client",
-        "isHeader": false
+        "step": 1,
+        "title": "Step - by- Step Working",
+        "description": "Client sends find() query with criteria and optional projection\n\u2193\nMongoDB scans the collection (or uses an index if available)\n\u2193\nDocuments matching the query criteria are selected\n\u2193\nProjection is applied (only requested fields kept)\n\u2193\nMatching documents returned to the client"
       }
     ],
-    "tablesRaw": "Operator\nMeaning\nSQL Equivalent\n$eq\nEqual to\n=\n$ne\nNot equal to\n!=\n$gt / $gte\nGreater than / or equal\n> / >=\n$lt / $lte\nLess than / or equal\n< / <=\n$in\nMatches any in a list\nIN (\u2026)\n$or\nMatches any condition\nOR\n$and\nMatches all conditions\nAND\n$type\nMatches field of a given data type\n(no direct SQL equivalent)",
+    "diagramsDescription": "6. Diagrams\nA funnel diagram with all d\nocuments entering the top, passing through a filter layer labeled\n'que\u2026\nFigure: A funnel diagram with all documents entering the top, passing through a filter\nlayer labeled 'que\u2026",
+    "visualIllustrations": "7. Images\nCode snippet style image showing a sample find() query with $gt a\nnd $or operators highlighted\nin \u2026\nFigure: Code snippet style image showing a sample find() query with $gt and $or\noperators highlighted in \u2026",
+    "tablesRaw": "8. Tables\nOperator\nMeaning\nSQL Equivalent\n$eq\nEqual to\n=\n$ne\nNot equal to\n!=\n$gt / $gte\nGreater than / or equal\n> / >=\n$lt / $lte\nLess than / or equal\n< / <=\n$in\nMatches any in a list\nIN (\u2026)\n$or\nMatches any condition\nOR\n$and\nMatches all conditions\nAND\n$type\nMatches field of a given data type\n(no direct SQL equivalent)",
+    "importantTerms": "9. Important Terms\nTerm\nSimple Meaning\nfind()\nFunction to search/retrieve documents\nfindOne()\nFunction to retrieve only the first matching document\nProjection\nChoosing which fields appear in the result\nQuery Operator\nSpecial keyword (like $gt, $or) used to build search conditions\n$or\nOperator matching any one of several conditions\n$type\nOperator matching based on a field's data type",
     "terms": [],
     "examples": [
-      {
-        "type": "Easy example",
-        "content": "db.students.find({ name: \"Riya Shah\" })\n- find a student by exact\nname."
-      },
-      {
-        "type": "Practical example",
-        "content": "db.students.find({ marks: {\n\\ $gte: 60 } },\n{ name: 1, marks: 1 })\n- find passing students, showing only name and marks."
-      },
-      {
-        "type": "Industry example",
-        "content": "An online store querying db.products.find({\n\\ $or: [ { category:\n\"Electronics\" }, { price: {\n\\ $lt: 500 } } ] }) to show electronics or cheap items."
-      },
-      {
-        "type": "Real-life example",
-        "content": "A hospital system querying patient records where\nbloodGroup is of a specific type using\n\\ $type to catch data entry errors."
-      }
+      "10. Examples\n\u2022\nEasy example:\ndb.students.find({ name: \"Riya Shah\" })\n- find a student by exact\nname.\n\u2022\nPractical example:\ndb.students.find({ marks: {\n\\ $gte: 60 } },\n{ name: 1, marks: 1 })\n- find passing students, showing only name and marks.\n\u2022\nIndustry example:\nAn online store querying db.products.find({\n\\ $or: [ { category:\n\"Electronics\" }, { price: {\n\\ $lt: 500 } } ] }) to show electronics or cheap items.\n\u2022\nReal - life example:\nA hospital system querying patient records where\nbloodGroup is of a specific type using\n\\ $type to catch data entry errors."
     ],
     "advantages": [
       "Very expressive and flexible querying with operators for many",
-      "Pro"
+      "conditions.",
+      "Advantage: Pro",
+      "jection reduces unnecessary data transfer, improving",
+      "performance."
     ],
     "limitations": [
-      "Complex multi",
-      "Without proper indexing, queries on large collections can be slow."
+      "Advantage: Very expressive and flexible querying with operators for many",
+      "conditions.",
+      "Advantage: Pro",
+      "jection reduces unnecessary data transfer, improving",
+      "performance.",
+      "Limitation: Complex multi",
+      "collection queries (joins) are less natural than in SQL.",
+      "Limitation: Without proper indexing, queries on large collections can be slow."
     ],
+    "advantagesLimitations": "11. Advantages & Limitations\n\u2022\nAdvantage: Very expressive and flexible querying with operators for many\nconditions.\n\u2022\nAdvantage: Pro\njection reduces unnecessary data transfer, improving\nperformance.\n\u2022\nLimitation: Complex multi\n- collection queries (joins) are less natural than in SQL.\n\u2022\nLimitation: Without proper indexing, queries on large collections can be slow.",
     "applications": [
-      {
-        "category": "Industry",
-        "details": "E- commerce filtering, healthcare record searches, financial reporting."
-      },
-      {
-        "category": "Companies",
-        "details": "Any company using MongoDB as a backend relies heavily on find()\nqueries for application features."
-      },
-      {
-        "category": "Daily life",
-        "details": "Searching and filtering products, articles, or user profiles on"
-      },
-      {
-        "category": "Software",
-        "details": "Backend APIs built with Node.js/Express and MongoDB."
-      },
-      {
-        "category": "Websites",
-        "details": "Search and filter features on e\n- commerce and content sites."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "In - app search and filter functionality."
-      }
+      "Industry: E- commerce filtering, healthcare record searches, financial reporting.",
+      "Companies: Any company using MongoDB as a backend relies heavily on find()",
+      "queries for application features.",
+      "Daily life:",
+      "Searching and filtering products, articles, or user profiles on",
+      "websites/apps.",
+      "Software: Backend APIs built with Node.js/Express and MongoDB.",
+      "Websites: Search and filter features on e",
+      "commerce and content sites."
     ],
     "keyPoints": {
-      "takeaways": [
-        "find() is MongoDB's core querying function, similar to SQL's SELECT with",
-        "WHERE.",
-        "Projection controls which fields are returned (1 = include, 0 = exclude).",
-        "Comparison operators ($gt, $lt, $eq, etc.) build flexible query criteria.",
-        "\\ $or matches documen",
-        "ts meeting at least one condition;",
-        "\\ $and requires all",
-        "conditions.",
-        "find() without any query argument does NOT return",
-        "an empty result",
-        "it returns all documents in the collection.",
-        "\\ $type querying is especially useful in flexible",
-        "sch ema NoSQL collections where",
-        "the same field could have inconsistent data types."
-      ],
-      "misconceptions": [
-        ""
-      ],
+      "takeaways": [],
+      "misconceptions": [],
       "examTips": []
     },
+    "fullRawText": "Topic 3.4: Querying with MongoDB\n1. Topic Name - Querying with MongoDB\nWhat is it?\nQuerying in MongoDB means retrieving specific documents from a\ncollection using the\nfind() function along with conditions, similar to how SELECT \u2026\nWHERE works in SQL.\nWhy do we need it?\nSimply storing data is not useful without the ability to search,\nfilter, and retrieve exactly the information needed for an application.\nWhere is it used?\n- Searching user profiles by criteria\n- Filtering product catalogs\n-\nRetrievi ng specific records for reports or dashboards\n2. Beginner Friendly Introduction\nIf your MongoDB collection is a folder full of documents, querying is like telling an\nassistant, \"Bring me only the forms where the age is above 18 and the city is Vadodara.\"\nThe assistant (MongoDB) scans through and hands you only the matching documents.\nKey words explained:\nWord\nSimple Meaning\nfind()\nThe main function used to search for documents in a collection\nProjection\nChoosing which fields to include/exclude in the retu\nrned result\nQuery Criteria\nThe condition(s) used to filter documents\nOperator\nA special symbol/keyword (like\n\\ $gt, \\ $or) used to build conditions\n3. Real - Life Analogies\nAnalogy 1 - Library Search Desk:\nAsking a librarian \"find me all books published after\n2015 by this author\" is like using find() with query criteria\n- you specify conditions, and\nonly matching results come back.\nAnalogy 2 - Filtering a Shopping Website:\nWhen you filter products by \"price under\n500\" and \"brand: Nike,\" you're doing exactly\nwhat MongoDB query criteria do\n-\nnarrowing down a huge collection to just what matches.\n4. Complete Detailed Explanation\n4.1 The find() Function\n\u2022\nBasic syntax: db.collection.find(query, projection).\n\u2022\nCalling find() with no arguments returns\nall documents in the collection.\n\u2022\nExample: db.students.find({ department: \"Computer Science\" }) returns all\nstudents in that department.\n\u2022\nfindOne() returns only the first matching document instead of all matches.\n4.2 Projection of Fields\n\u2022\nProjection controls which fields are\nincluded or excluded in the query result\n(similar to selecting specific columns in SQL instead of SELECT *).\n\u2022\nExample: db.students.find({ department: \"Computer Science\" }, { name: 1, marks:\n1, _id: 0 }) returns only the name and marks fields (excluding _id).\n\u2022\nUsing 1 includes a field; using 0 excludes a field.\n4.3 Query Criteria (Comparison Operators)\nMongoDB provides operators to build flexible conditions:\n- \\ $eq - equal to - \\ $ne -\nnot equal to - \\ $gt / \\ $gte - greater than / greater than or equal to\n- \\ $lt / \\ $lte -\nless than / less than or equal to\n- \\ $in - matches any value in a given list Example:\ndb.students.find({ marks: {\n\\ $gt: 80 } }) finds students with marks greater than 80.\n4.4 OR Queries\n\u2022\nThe \\ $or operator allows matching documents that satisfy\nat least one\nof\nmultiple conditions.\n\u2022\nExample: db.students.find({\n\\ $or: [ { department: \"CS\" }, { marks: {\n\\ $gt: 90 } } ] })\nfinds students who are either in CS\nor have marks above 90.\n\u2022\nSimilarly, \\ $and can be used to require\nall conditions to be true (often i\nmplicit\nwhen listing multiple fields directly).\n4.5 Type - Specific Querying\n\u2022\nMongoDB allows querying based on the\ndata type of a field's value using the\n\\ $type operator.\n\u2022\nExample: db.students.find({ marks: {\n\\ $type: \"int\" } }) finds documents where\nmarks is stored as an integer type.\n\u2022\nThis is useful in flexible\n- schema collections where the same field might\naccidentally be stored using different types across documents.\n5. Step - by- Step Working\nClient sends find() query with criteria and optional projection\n\u2193\nMongoDB scans the collection (or uses an index if available)\n\u2193\nDocuments matching the query criteria are selected\n\u2193\nProjection is applied (only requested fields kept)\n\u2193\nMatching documents returned to the client\n6. Diagrams\nA funnel diagram with all d\nocuments entering the top, passing through a filter layer labeled\n'que\u2026\nFigure: A funnel diagram with all documents entering the top, passing through a filter\nlayer labeled 'que\u2026\n7. Images\nCode snippet style image showing a sample find() query with $gt a\nnd $or operators highlighted\nin \u2026\nFigure: Code snippet style image showing a sample find() query with $gt and $or\noperators highlighted in \u2026\n8. Tables\nOperator\nMeaning\nSQL Equivalent\n$eq\nEqual to\n=\n$ne\nNot equal to\n!=\n$gt / $gte\nGreater than / or equal\n> / >=\n$lt / $lte\nLess than / or equal\n< / <=\n$in\nMatches any in a list\nIN (\u2026)\n$or\nMatches any condition\nOR\n$and\nMatches all conditions\nAND\n$type\nMatches field of a given data type\n(no direct SQL equivalent)\n9. Important Terms\nTerm\nSimple Meaning\nfind()\nFunction to search/retrieve documents\nfindOne()\nFunction to retrieve only the first matching document\nProjection\nChoosing which fields appear in the result\nQuery Operator\nSpecial keyword (like $gt, $or) used to build search conditions\n$or\nOperator matching any one of several conditions\n$type\nOperator matching based on a field's data type\n10. Examples\n\u2022\nEasy example:\ndb.students.find({ name: \"Riya Shah\" })\n- find a student by exact\nname.\n\u2022\nPractical example:\ndb.students.find({ marks: {\n\\ $gte: 60 } },\n{ name: 1, marks: 1 })\n- find passing students, showing only name and marks.\n\u2022\nIndustry example:\nAn online store querying db.products.find({\n\\ $or: [ { category:\n\"Electronics\" }, { price: {\n\\ $lt: 500 } } ] }) to show electronics or cheap items.\n\u2022\nReal - life example:\nA hospital system querying patient records where\nbloodGroup is of a specific type using\n\\ $type to catch data entry errors.\n11. Advantages & Limitations\n\u2022\nAdvantage: Very expressive and flexible querying with operators for many\nconditions.\n\u2022\nAdvantage: Pro\njection reduces unnecessary data transfer, improving\nperformance.\n\u2022\nLimitation: Complex multi\n- collection queries (joins) are less natural than in SQL.\n\u2022\nLimitation: Without proper indexing, queries on large collections can be slow.\n12. Applications\n\u2022\nIndustry: E- commerce filtering, healthcare record searches, financial reporting.\n\u2022\nCompanies: Any company using MongoDB as a backend relies heavily on find()\nqueries for application features.\n\u2022\nDaily life:\nSearching and filtering products, articles, or user profiles on\nwebsites/apps.\n\u2022\nSoftware: Backend APIs built with Node.js/Express and MongoDB.\n\u2022\nWebsites: Search and filter features on e\n- commerce and content sites.",
     "structuredTables": [
       {
         "id": "t3_4_operators",
@@ -2084,58 +3542,22 @@ export const TOPICS_DATA = [
         ],
         "rows": [
           {
-            "feature": "$eq",
-            "col1": "Equals comparison",
-            "col2": "`WHERE field = value`",
+            "feature": "$eq / $ne",
+            "col1": "Equals / Not Equals comparison",
+            "col2": "`WHERE field = val` / `!=`",
             "col3": "`db.students.find({ dept: { $eq: \"IT\" } })`"
-          },
-          {
-            "feature": "$ne",
-            "col1": "Not Equal comparison",
-            "col2": "`WHERE field != value` or `<>`",
-            "col3": "`db.students.find({ status: { $ne: \"Graduated\" } })`"
           },
           {
             "feature": "$gt / $gte",
             "col1": "Greater Than / Greater Than or Equal",
-            "col2": "`WHERE field > value` / `>=`",
+            "col2": "`WHERE field > val` / `>=`",
             "col3": "`db.students.find({ cpi: { $gte: 8.5 } })`"
           },
           {
-            "feature": "$lt / $lte",
-            "col1": "Less Than / Less Than or Equal",
-            "col2": "`WHERE field < value` / `<=`",
-            "col3": "`db.products.find({ price: { $lte: 999 } })`"
-          },
-          {
-            "feature": "$in",
-            "col1": "Match any value in specified array",
-            "col2": "`WHERE field IN (v1, v2, ...)`",
+            "feature": "$in / $nin",
+            "col1": "Match in / not in array",
+            "col2": "`WHERE field IN (...)`",
             "col3": "`db.students.find({ sem: { $in: [3, 5, 7] } })`"
-          },
-          {
-            "feature": "$nin",
-            "col1": "Not in specified array",
-            "col2": "`WHERE field NOT IN (v1, v2, ...)`",
-            "col3": "`db.users.find({ role: { $nin: [\"admin\", \"root\"] } })`"
-          },
-          {
-            "feature": "$or",
-            "col1": "Logical OR joining array of clauses",
-            "col2": "`WHERE cond1 OR cond2`",
-            "col3": "`db.students.find({ $or: [{ dept: \"IT\" }, { cpi: { $gt: 9 } }] })`"
-          },
-          {
-            "feature": "$and",
-            "col1": "Logical AND joining multiple conditions",
-            "col2": "`WHERE cond1 AND cond2`",
-            "col3": "`db.students.find({ $and: [{ sem: 5 }, { cpi: { $gte: 8 } }] })`"
-          },
-          {
-            "feature": "$exists",
-            "col1": "Matches documents containing field",
-            "col2": "`WHERE field IS NOT NULL`",
-            "col3": "`db.users.find({ phoneNumber: { $exists: true } })`"
           }
         ]
       }
@@ -2146,160 +3568,425 @@ export const TOPICS_DATA = [
     "moduleId": 3,
     "moduleName": "Advanced Database Techniques",
     "title": "Aggregation Concepts in MongoDB",
-    "pages": "56 - 62",
-    "estimatedTime": "22 min",
+    "timeEstimate": "22 min",
+    "pageRange": "80 - 85",
     "overview": {
-      "whatIsIt": "Aggregation is the process of processing multiple documents in a\nMongoDB collection\nto compute combined results\n- such as totals, averages,\ngroupings, and transformations\n- similar to SQL's GROUP BY with aggregate\nfunctions.",
-      "whyNeed": "Raw documents alone often aren't enough; applications frequently\nneed summarized insights (e.g., \"average marks per department,\" \"total sales per\nmonth\"). Aggregation provides this in a flexible, multi\n- step way.",
-      "whereUsed": "- Business dashboards and reports\n- Analytics platforms\n-\nSummarizing large datasets for decision\n- making\n2. Beginner Frie\nndly Introduction\nImagine a factory assembly line: raw material (documents) enters at one end, passes\nthrough several processing stations (stages), and comes out as a finished, refined\nproduct (summarized result) at the other end. MongoDB's aggregation pipeline works\nexactly this way.\nKey words explained:\nWord\nSimple Meaning\nAggregation Pipeline\nA sequence of processing steps (stages) applied to documents\nStage\nOne step in the pipeline (e.g., filter, group, sort)\nMapReduce\nAn older technique for processi\nng large datasets using custom\nmap and reduce functions\nSingle - Purpose\nAggregation\nSimple, built\n- in operations like count() or distinct() for basic\nsummaries",
-      "importantNotes": ""
+      "whatIsIt": "",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "",
+      "simpleExplanation": "",
       "keywords": []
     },
-    "analogies": [
-      {
-        "num": "1",
-        "title": "Assembly Line",
-        "description": "Raw car parts (documents) move through different\nstations\n- welding, painting, inspection (pipeline stages)\n- and a finished car\n(aggregated result) comes out at the end."
-      },
-      {
-        "num": "2",
-        "title": "Exam Result Processing",
-        "description": "A teacher first filters only passing students, then\ngroups them by class, then calculates the a\nverage marks per class, then sorts by\nhighest average\n- this is exactly a multi\n- stage aggregation pipeline."
-      }
-    ],
+    "analogies": [],
     "detailedExplanation": {
       "subsections": [
         {
-          "title": "4.1 Introduction to the Aggregation Pipeline",
-          "content": "The aggregation pipeline\nis MongoDB's primary and most powerful framework for data\nprocessing. It consists of multiple\nstages , each transforming the documents before\npassing them to the next stage. Common stages include:\n- \\ $match\n- filters\ndocuments (similar to WHERE in SQL).\n- \\ $group - groups documents by a specified\nfiel d and computes aggregate values (similar to GROUP BY).\n- \\ $sort - sorts\ndocuments based on a field.\n- \\ $project - reshapes documents, selecting/computing\nspecific fields (similar to projection/SELECT).\n- \\ $limit /\n\\ $skip - restrict or skip a\nnumber of documents (useful for pagination).\nExample pipeline (average marks per department):\ndb.students.aggregate([\n{ \\ $match: { marks: {\n\\ $gte: 40 } } },\n{ \\ $group: { _id: \"\n\\ $department\", avgMarks: {\n\\ $avg: \" \\ $marks\" } } },\n{ \\ $sort: { avgMarks:\n- 1 } }\n])\nThis filter s passing students, groups them by department, computes the average marks\nper department, and sorts departments by highest average."
-        },
-        {
-          "title": "4.2 Aggregation Using MapReduce",
-          "content": "\u2022\nMapReduce is an older, more general\n- purpose technique for processing large\ndatasets using two custom JavaScript functions:\n-\nMap function\n- processes each document and emits key\n- value pairs.\n-\nReduce function\n- combines all values for each key into a single\nsummarized result.\n\u2022\nMapReduce is more flexible for very complex, custom processing logic, but i\nt is\ngenerally slower and more complex to write than the aggregation pipeline.\n\u2022\nModern MongoDB usage strongly favors the aggregation pipeline over\nMapReduce for most tasks, since the pipeline is faster and easier to understand."
-        },
-        {
-          "title": "4.3 Single - Purpose Aggregation Operations",
-          "content": "MongoDB also provides simple, built\n- in functions for basic, common aggregation tasks\nwithout needing a full pipeline:\n- count() - returns the number of documents matching\na query.\n- distinct()\n- returns the unique values for a specified field\nacross the\ncollection. These are convenient for quick, simple summaries when a full aggregation\npipeline is not necessary."
+          "title": "Core Theoretical Framework",
+          "content": "Detailed theoretical concepts and principles."
         }
       ],
-      "raw": "4. Complete Detailed Explanation\n4.1 Introduction to the Aggregation Pipeline\nThe aggregation pipeline\nis MongoDB's primary and most powerful framework for data\nprocessing. It consists of multiple\nstages , each transforming the documents before\npassing them to the next stage. Common stages include:\n- \\ $match\n- filters\ndocuments (similar to WHERE in SQL).\n- \\ $group - groups documents by a specified\nfiel d and computes aggregate values (similar to GROUP BY).\n- \\ $sort - sorts\ndocuments based on a field.\n- \\ $project - reshapes documents, selecting/computing\nspecific fields (similar to projection/SELECT).\n- \\ $limit /\n\\ $skip - restrict or skip a\nnumber of documents (useful for pagination).\nExample pipeline (average marks per department):\ndb.students.aggregate([\n{ \\ $match: { marks: {\n\\ $gte: 40 } } },\n{ \\ $group: { _id: \"\n\\ $department\", avgMarks: {\n\\ $avg: \" \\ $marks\" } } },\n{ \\ $sort: { avgMarks:\n- 1 } }\n])\nThis filter s passing students, groups them by department, computes the average marks\nper department, and sorts departments by highest average.\n4.2 Aggregation Using MapReduce\n\u2022\nMapReduce is an older, more general\n- purpose technique for processing large\ndatasets using two custom JavaScript functions:\n-\nMap function\n- processes each document and emits key\n- value pairs.\n-\nReduce function\n- combines all values for each key into a single\nsummarized result.\n\u2022\nMapReduce is more flexible for very complex, custom processing logic, but i\nt is\ngenerally slower and more complex to write than the aggregation pipeline.\n\u2022\nModern MongoDB usage strongly favors the aggregation pipeline over\nMapReduce for most tasks, since the pipeline is faster and easier to understand.\n4.3 Single - Purpose Aggregation Operations\nMongoDB also provides simple, built\n- in functions for basic, common aggregation tasks\nwithout needing a full pipeline:\n- count() - returns the number of documents matching\na query.\n- distinct()\n- returns the unique values for a specified field\nacross the\ncollection. These are convenient for quick, simple summaries when a full aggregation\npipeline is not necessary."
+      "raw": ""
     },
-    "stepByStep": [
-      {
-        "title": "Aggregation Pipeline Flow:",
-        "isHeader": true
-      },
-      {
-        "title": "All Documents in Collection",
-        "isHeader": false
-      },
-      {
-        "title": "Stage 1: \\ $match (filter documents)",
-        "isHeader": false
-      },
-      {
-        "title": "Stage 2: \\ $group (group and calculate aggregates)",
-        "isHeader": false
-      },
-      {
-        "title": "Stage 3: \\ $sort (order the grouped results)",
-        "isHeader": false
-      },
-      {
-        "title": "Final Aggregated Result",
-        "isHeader": false
-      }
-    ],
-    "tablesRaw": "Stag e/Operation\nPurpose\nSQL Equivalent\n$match\nFilter documents\nWHERE\n$group\nGroup and aggregate\nGROUP BY\n$sort\nOrder results\nORDER BY\n$project\nReshape/select fields\nSELECT\n$limit / $skip\nRestrict number of results\nLIMIT / OFFSET\ncount()\nCount matching documents\nCOUNT()\ndistinct()\nUnique values of a field\nDISTINCT",
-    "terms": [
-      {
-        "term": "Single",
-        "definition": "Purpose"
-      },
-      {
-        "term": "Simple built",
-        "definition": "in functions like count() and distinct()"
-      }
-    ],
-    "examples": [
-      {
-        "type": "Easy example",
-        "content": "Using count() to find the total number of students in a collection."
-      },
-      {
-        "type": "Practical example",
-        "content": "Using an aggregation pipeline to compute total sales per\nproduct category."
-      },
-      {
-        "type": "Industry example",
-        "content": "An e - commerce company uses aggregation to generate a\nmonthly revenue report grouped b\ny region."
-      },
-      {
-        "type": "Real-life example",
-        "content": "A social media platform aggregates total likes per post per\nday for trending analysis."
-      }
-    ],
-    "advantages": [
-      "Aggregation pipeline is powerful, flexible, and optimized for",
-      "Single"
-    ],
-    "limitations": [
-      "Complex pipelines can become difficult to read and debug.",
-      "MapReduce, while flexible, is generally slower and more complex"
-    ],
-    "applications": [
-      {
-        "category": "Industry",
-        "details": "Business analytics, financial reporting, marketing insights."
-      },
-      {
-        "category": "Companies",
-        "details": "Any company using MongoDB for backend data relies on\naggregation for dashboards and reports."
-      },
-      {
-        "category": "Daily life",
-        "details": "App usage statistics, trending content calculations."
-      },
-      {
-        "category": "Software",
-        "details": "MongoDB Atlas Charts, BI tools connecting to MongoDB."
-      },
-      {
-        "category": "Websites",
-        "details": "Analytics dashboards, sales reports."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "In - app statistics and summary screens (e.g., \"Your monthly\nspending\")."
-      }
-    ],
+    "stepByStep": [],
+    "diagramsDescription": "",
+    "visualIllustrations": "",
+    "tablesRaw": "",
+    "importantTerms": "",
+    "terms": [],
+    "examples": [],
+    "advantages": [],
+    "limitations": [],
+    "advantagesLimitations": "",
+    "applications": [],
     "keyPoints": {
       "takeaways": [
+        "find() is MongoDB's core querying function, similar to SQL's SELECT with",
+        "Projection controls which fields are returned (1 = include, 0 = exclude).",
+        "Comparison operators ($gt, $lt, $eq, etc.) build flexible query criteria.",
+        "\\ $or matches documen",
+        "ts meeting at least one condition;",
+        "\\ $and requires all",
+        "conditions.",
+        "Common misconception:",
+        "find() without any query argument does NOT return",
+        "an empty result",
+        "it returns all documents in the collection.",
+        "\\ $type querying is especially useful in flexible",
+        "sch ema NoSQL collections where",
+        "the same field could have inconsistent data types.",
+        "Topic 3.5: Aggregation Concepts in MongoDB",
+        "1. Topic Name - Aggregation in MongoDB",
+        "What is it?",
+        "Aggregation is the process of processing multiple documents in a",
+        "MongoDB collection",
+        "to compute combined results",
+        "such as totals, averages,",
+        "groupings, and transformations",
+        "similar to SQL's GROUP BY with aggregate",
+        "Why do we need it?",
+        "Raw documents alone often aren't enough; applications frequently",
+        "need summarized insights (e.g., \"average marks per department,\" \"total sales per",
+        "month\"). Aggregation provides this in a flexible, multi",
+        "Where is it used?",
+        "Business dashboards and reports",
+        "Analytics platforms",
+        "Summarizing large datasets for decision",
+        "2. Beginner Frie",
+        "ndly Introduction",
+        "Imagine a factory assembly line: raw material (documents) enters at one end, passes",
+        "through several processing stations (stages), and comes out as a finished, refined",
+        "product (summarized result) at the other end. MongoDB's aggregation pipeline works",
+        "exactly this way.",
+        "Key words explained:",
+        "Simple Meaning",
+        "Aggregation Pipeline",
+        "A sequence of processing steps (stages) applied to documents",
+        "One step in the pipeline (e.g., filter, group, sort)",
+        "An older technique for processi",
+        "ng large datasets using custom",
+        "map and reduce functions",
+        "Single - Purpose",
+        "Aggregation",
+        "Simple, built",
+        "in operations like count() or distinct() for basic",
+        "3. Real - Life Analogies",
+        "Assembly Line:",
+        "Raw car parts (documents) move through different",
+        "welding, painting, inspection (pipeline stages)",
+        "and a finished car",
+        "(aggregated result) comes out at the end.",
+        "Analogy 2 - Exam Result Processing:",
+        "A teacher first filters only passing students, then",
+        "groups them by class, then calculates the a",
+        "verage marks per class, then sorts by",
+        "highest average",
+        "this is exactly a multi",
+        "stage aggregation pipeline.",
+        "4. Complete Detailed Explanation",
+        "4.1 Introduction to the Aggregation Pipeline",
+        "The aggregation pipeline",
+        "is MongoDB's primary and most powerful framework for data",
+        "processing. It consists of multiple",
+        "stages , each transforming the documents before",
+        "passing them to the next stage. Common stages include:",
+        "documents (similar to WHERE in SQL).",
+        "\\ $group - groups documents by a specified",
+        "fiel d and computes aggregate values (similar to GROUP BY).",
+        "\\ $sort - sorts",
+        "documents based on a field.",
+        "\\ $project - reshapes documents, selecting/computing",
+        "specific fields (similar to projection/SELECT).",
+        "\\ $skip - restrict or skip a",
+        "number of documents (useful for pagination).",
+        "Example pipeline (average marks per department):",
+        "db.students.aggregate([",
+        "{ \\ $match: { marks: {",
+        "\\ $gte: 40 } } },",
+        "{ \\ $group: { _id: \"",
+        "\\ $department\", avgMarks: {",
+        "\\ $avg: \" \\ $marks\" } } },",
+        "{ \\ $sort: { avgMarks:",
+        "This filter s passing students, groups them by department, computes the average marks",
+        "per department, and sorts departments by highest average.",
+        "4.2 Aggregation Using MapReduce",
+        "MapReduce is an older, more general",
+        "purpose technique for processing large",
+        "datasets using two custom JavaScript functions:",
+        "Map function",
+        "processes each document and emits key",
+        "value pairs.",
+        "Reduce function",
+        "combines all values for each key into a single",
+        "summarized result.",
+        "MapReduce is more flexible for very complex, custom processing logic, but i",
+        "generally slower and more complex to write than the aggregation pipeline.",
+        "Modern MongoDB usage strongly favors the aggregation pipeline over",
+        "MapReduce for most tasks, since the pipeline is faster and easier to understand.",
+        "4.3 Single - Purpose Aggregation Operations",
+        "MongoDB also provides simple, built",
+        "in functions for basic, common aggregation tasks",
+        "without needing a full pipeline:",
+        "count() - returns the number of documents matching",
+        "returns the unique values for a specified field",
+        "collection. These are convenient for quick, simple summaries when a full aggregation",
+        "pipeline is not necessary.",
+        "5. Step - by- Step Working",
+        "Aggregation Pipeline Flow:",
+        "All Documents in Collection",
+        "Stage 1: \\ $match (filter documents)",
+        "Stage 2: \\ $group (group and calculate aggregates)",
+        "Stage 3: \\ $sort (order the grouped results)",
+        "Final Aggregated Result",
+        "6. Diagrams",
+        "An assembly",
+        "line style diagram with document icons entering on the left, passi",
+        "Figure: An assembly",
+        "line style diagram with document icons entering on the left,",
+        "passing through labeled \u2026",
+        "MongoDB Aggregation Pipeline diagram showing stages as connected boxes with arrows",
+        "Figure: MongoDB Aggregation Pipeline diagram showing stages as connected boxes",
+        "with arrows",
+        "Bar chart illustrating a sample aggregation output, e.g., average marks per department",
+        "Figure: Bar chart illustrating a sample aggregation output, e.g., average marks per",
+        "Stag e/Operation",
+        "SQL Equivalent",
+        "Filter documents",
+        "Group and aggregate",
+        "Order results",
+        "Reshape/select fields",
+        "$limit / $skip",
+        "Restrict number of results",
+        "LIMIT / OFFSET",
+        "Count matching documents",
+        "Unique values of a field",
+        "9. Important Terms",
+        "Simple Meaning",
+        "Aggregation Pipeline",
+        "A sequence of stages processing documents step by step",
+        "One processing step within the pipeline",
+        "Stage that filters doc",
+        "Stage that groups and summarizes documents",
+        "Custom map and reduce functions for flexible large",
+        "Single - Purpose",
+        "Aggregation",
+        "Simple built - in functions like count() and distinct()",
+        "10. Examples",
+        "Easy example: Using count() to find the total number of students in a collection.",
+        "Practical example:",
+        "Using an aggregation pipeline to compute total sales per",
+        "product category.",
+        "Industry example:",
+        "An e - commerce company uses aggregation to generate a",
+        "monthly revenue report grouped b",
+        "Real - life example:",
+        "A social media platform aggregates total likes per post per",
+        "day for trending analysis.",
+        "11. Advantages & Limitations",
+        "Advantage: Aggregation pipeline is powerful, flexible, and optimized for",
+        "performance within MongoDB.",
+        "Advantage: Single",
+        "purpose operations offer a quick, simple way to get basic",
+        "Limitation: Complex pipelines can become difficult to read and debug.",
+        "Limitation: MapReduce, while flexible, is generally slower and more complex",
+        "than the aggregation pipeline for",
+        "most common tasks.",
+        "12. Applications",
+        "Industry: Business analytics, financial reporting, marketing insights.",
+        "Companies: Any company using MongoDB for backend data relies on",
+        "aggregation for dashboards and reports.",
+        "Daily life: App usage statistics, trending content calculations.",
+        "Software: MongoDB Atlas Charts, BI tools connecting to MongoDB.",
+        "Websites: Analytics dashboards, sales reports.",
+        "Mobile Apps:",
+        "In - app statistics and summary screens (e.g., \"Your monthly",
+        "spending\").",
         "The aggregation pipeline processes documents through a sequence of stages",
         "($match, $group, $sort, etc.).",
         "$match works like WHERE; $group works like GROUP BY; $sort works like",
-        "ORDER BY.",
         "MapReduce is an older, more flexible but slower alternative to the aggregation",
-        "pipeline.",
         "count() and distinct() are simple single",
         "purpose aggregation operations for quick",
-        "summaries.",
+        "Common misconception:",
         "Aggregation pipeline stages are NOT optional single",
         "commands - they execute",
         "in sequence",
         ", with each stage's output",
         "becoming the",
-        "next stage's input, similar to a data processing assembly line.",
-        "MODULE 4: Advanced Transaction Processing"
+        "next stage's input, similar to a data processing assembly line."
       ],
       "misconceptions": [
-        ""
+        "find() without any query argument does NOT return",
+        "an empty result",
+        "it returns all documents in the collection.",
+        "\\ $type querying is especially useful in flexible",
+        "sch ema NoSQL collections where",
+        "the same field could have inconsistent data types.",
+        "Topic 3.5: Aggregation Concepts in MongoDB",
+        "1. Topic Name - Aggregation in MongoDB",
+        "What is it?",
+        "Aggregation is the process of processing multiple documents in a",
+        "MongoDB collection",
+        "to compute combined results",
+        "such as totals, averages,",
+        "groupings, and transformations",
+        "similar to SQL's GROUP BY with aggregate",
+        "Why do we need it?",
+        "Raw documents alone often aren't enough; applications frequently",
+        "need summarized insights (e.g., \"average marks per department,\" \"total sales per",
+        "month\"). Aggregation provides this in a flexible, multi",
+        "Where is it used?",
+        "Business dashboards and reports",
+        "Analytics platforms",
+        "Summarizing large datasets for decision",
+        "2. Beginner Frie",
+        "ndly Introduction",
+        "Imagine a factory assembly line: raw material (documents) enters at one end, passes",
+        "through several processing stations (stages), and comes out as a finished, refined",
+        "product (summarized result) at the other end. MongoDB's aggregation pipeline works",
+        "exactly this way.",
+        "Key words explained:",
+        "Simple Meaning",
+        "Aggregation Pipeline",
+        "A sequence of processing steps (stages) applied to documents",
+        "One step in the pipeline (e.g., filter, group, sort)",
+        "An older technique for processi",
+        "ng large datasets using custom",
+        "map and reduce functions",
+        "Single - Purpose",
+        "Aggregation",
+        "Simple, built",
+        "in operations like count() or distinct() for basic",
+        "3. Real - Life Analogies",
+        "Assembly Line:",
+        "Raw car parts (documents) move through different",
+        "welding, painting, inspection (pipeline stages)",
+        "and a finished car",
+        "(aggregated result) comes out at the end.",
+        "Analogy 2 - Exam Result Processing:",
+        "A teacher first filters only passing students, then",
+        "groups them by class, then calculates the a",
+        "verage marks per class, then sorts by",
+        "highest average",
+        "this is exactly a multi",
+        "stage aggregation pipeline.",
+        "4. Complete Detailed Explanation",
+        "4.1 Introduction to the Aggregation Pipeline",
+        "The aggregation pipeline",
+        "is MongoDB's primary and most powerful framework for data",
+        "processing. It consists of multiple",
+        "stages , each transforming the documents before",
+        "passing them to the next stage. Common stages include:",
+        "documents (similar to WHERE in SQL).",
+        "\\ $group - groups documents by a specified",
+        "fiel d and computes aggregate values (similar to GROUP BY).",
+        "\\ $sort - sorts",
+        "documents based on a field.",
+        "\\ $project - reshapes documents, selecting/computing",
+        "specific fields (similar to projection/SELECT).",
+        "\\ $skip - restrict or skip a",
+        "number of documents (useful for pagination).",
+        "Example pipeline (average marks per department):",
+        "db.students.aggregate([",
+        "{ \\ $match: { marks: {",
+        "\\ $gte: 40 } } },",
+        "{ \\ $group: { _id: \"",
+        "\\ $department\", avgMarks: {",
+        "\\ $avg: \" \\ $marks\" } } },",
+        "{ \\ $sort: { avgMarks:",
+        "This filter s passing students, groups them by department, computes the average marks",
+        "per department, and sorts departments by highest average.",
+        "4.2 Aggregation Using MapReduce",
+        "MapReduce is an older, more general",
+        "purpose technique for processing large",
+        "datasets using two custom JavaScript functions:",
+        "Map function",
+        "processes each document and emits key",
+        "value pairs.",
+        "Reduce function",
+        "combines all values for each key into a single",
+        "summarized result.",
+        "MapReduce is more flexible for very complex, custom processing logic, but i",
+        "generally slower and more complex to write than the aggregation pipeline.",
+        "Modern MongoDB usage strongly favors the aggregation pipeline over",
+        "MapReduce for most tasks, since the pipeline is faster and easier to understand.",
+        "4.3 Single - Purpose Aggregation Operations",
+        "MongoDB also provides simple, built",
+        "in functions for basic, common aggregation tasks",
+        "without needing a full pipeline:",
+        "count() - returns the number of documents matching",
+        "returns the unique values for a specified field",
+        "collection. These are convenient for quick, simple summaries when a full aggregation",
+        "pipeline is not necessary.",
+        "5. Step - by- Step Working",
+        "Aggregation Pipeline Flow:",
+        "All Documents in Collection",
+        "Stage 1: \\ $match (filter documents)",
+        "Stage 2: \\ $group (group and calculate aggregates)",
+        "Stage 3: \\ $sort (order the grouped results)",
+        "Final Aggregated Result",
+        "6. Diagrams",
+        "An assembly",
+        "line style diagram with document icons entering on the left, passi",
+        "Figure: An assembly",
+        "line style diagram with document icons entering on the left,",
+        "passing through labeled \u2026",
+        "MongoDB Aggregation Pipeline diagram showing stages as connected boxes with arrows",
+        "Figure: MongoDB Aggregation Pipeline diagram showing stages as connected boxes",
+        "with arrows",
+        "Bar chart illustrating a sample aggregation output, e.g., average marks per department",
+        "Figure: Bar chart illustrating a sample aggregation output, e.g., average marks per",
+        "Stag e/Operation",
+        "SQL Equivalent",
+        "Filter documents",
+        "Group and aggregate",
+        "Order results",
+        "Reshape/select fields",
+        "$limit / $skip",
+        "Restrict number of results",
+        "LIMIT / OFFSET",
+        "Count matching documents",
+        "Unique values of a field",
+        "9. Important Terms",
+        "Simple Meaning",
+        "Aggregation Pipeline",
+        "A sequence of stages processing documents step by step",
+        "One processing step within the pipeline",
+        "Stage that filters doc",
+        "Stage that groups and summarizes documents",
+        "Custom map and reduce functions for flexible large",
+        "Single - Purpose",
+        "Aggregation",
+        "Simple built - in functions like count() and distinct()",
+        "10. Examples",
+        "Easy example: Using count() to find the total number of students in a collection.",
+        "Practical example:",
+        "Using an aggregation pipeline to compute total sales per",
+        "product category.",
+        "Industry example:",
+        "An e - commerce company uses aggregation to generate a",
+        "monthly revenue report grouped b",
+        "Real - life example:",
+        "A social media platform aggregates total likes per post per",
+        "day for trending analysis.",
+        "11. Advantages & Limitations",
+        "Advantage: Aggregation pipeline is powerful, flexible, and optimized for",
+        "performance within MongoDB.",
+        "Advantage: Single",
+        "purpose operations offer a quick, simple way to get basic",
+        "Limitation: Complex pipelines can become difficult to read and debug.",
+        "Limitation: MapReduce, while flexible, is generally slower and more complex",
+        "than the aggregation pipeline for",
+        "most common tasks.",
+        "12. Applications",
+        "Industry: Business analytics, financial reporting, marketing insights.",
+        "Companies: Any company using MongoDB for backend data relies on",
+        "aggregation for dashboards and reports.",
+        "Daily life: App usage statistics, trending content calculations.",
+        "Software: MongoDB Atlas Charts, BI tools connecting to MongoDB.",
+        "Websites: Analytics dashboards, sales reports.",
+        "Mobile Apps:",
+        "In - app statistics and summary screens (e.g., \"Your monthly",
+        "spending\").",
+        "13. Key Points to Remember",
+        "The aggregation pipeline processes documents through a sequence of stages",
+        "($match, $group, $sort, etc.).",
+        "$match works like WHERE; $group works like GROUP BY; $sort works like",
+        "MapReduce is an older, more flexible but slower alternative to the aggregation",
+        "count() and distinct() are simple single",
+        "purpose aggregation operations for quick",
+        "Common misconception:",
+        "Aggregation pipeline stages are NOT optional single",
+        "commands - they execute",
+        "in sequence",
+        ", with each stage's output",
+        "becoming the",
+        "next stage's input, similar to a data processing assembly line."
       ],
       "examTips": []
     },
+    "fullRawText": "\u2022\nMobile Apps: In - app search and filter functionality.\n13. Key Points to Remember\n\u2022 find() is MongoDB's core querying function, similar to SQL's SELECT with\nWHERE.\n\u2022 Projection controls which fields are returned (1 = include, 0 = exclude).\n\u2022 Comparison operators ($gt, $lt, $eq, etc.) build flexible query criteria.\n\u2022 \\ $or matches documen\nts meeting at least one condition;\n\\ $and requires all\nconditions.\n\u2022 Common misconception:\nfind() without any query argument does NOT return\nan empty result\n- it returns all documents in the collection.\n\u2022 \\ $type querying is especially useful in flexible\n- sch ema NoSQL collections where\nthe same field could have inconsistent data types.\nTopic 3.5: Aggregation Concepts in MongoDB\n1. Topic Name - Aggregation in MongoDB\nWhat is it?\nAggregation is the process of processing multiple documents in a\nMongoDB collection\nto compute combined results\n- such as totals, averages,\ngroupings, and transformations\n- similar to SQL's GROUP BY with aggregate\nfunctions.\nWhy do we need it?\nRaw documents alone often aren't enough; applications frequently\nneed summarized insights (e.g., \"average marks per department,\" \"total sales per\nmonth\"). Aggregation provides this in a flexible, multi\n- step way.\nWhere is it used?\n- Business dashboards and reports\n- Analytics platforms\n-\nSummarizing large datasets for decision\n- making\n2. Beginner Frie\nndly Introduction\nImagine a factory assembly line: raw material (documents) enters at one end, passes\nthrough several processing stations (stages), and comes out as a finished, refined\nproduct (summarized result) at the other end. MongoDB's aggregation pipeline works\nexactly this way.\nKey words explained:\nWord\nSimple Meaning\nAggregation Pipeline\nA sequence of processing steps (stages) applied to documents\nStage\nOne step in the pipeline (e.g., filter, group, sort)\nMapReduce\nAn older technique for processi\nng large datasets using custom\nmap and reduce functions\nSingle - Purpose\nAggregation\nSimple, built\n- in operations like count() or distinct() for basic\nsummaries\n3. Real - Life Analogies\nAnalogy 1\n- Assembly Line:\nRaw car parts (documents) move through different\nstations\n- welding, painting, inspection (pipeline stages)\n- and a finished car\n(aggregated result) comes out at the end.\nAnalogy 2 - Exam Result Processing:\nA teacher first filters only passing students, then\ngroups them by class, then calculates the a\nverage marks per class, then sorts by\nhighest average\n- this is exactly a multi\n- stage aggregation pipeline.\n4. Complete Detailed Explanation\n4.1 Introduction to the Aggregation Pipeline\nThe aggregation pipeline\nis MongoDB's primary and most powerful framework for data\nprocessing. It consists of multiple\nstages , each transforming the documents before\npassing them to the next stage. Common stages include:\n- \\ $match\n- filters\ndocuments (similar to WHERE in SQL).\n- \\ $group - groups documents by a specified\nfiel d and computes aggregate values (similar to GROUP BY).\n- \\ $sort - sorts\ndocuments based on a field.\n- \\ $project - reshapes documents, selecting/computing\nspecific fields (similar to projection/SELECT).\n- \\ $limit /\n\\ $skip - restrict or skip a\nnumber of documents (useful for pagination).\nExample pipeline (average marks per department):\ndb.students.aggregate([\n{ \\ $match: { marks: {\n\\ $gte: 40 } } },\n{ \\ $group: { _id: \"\n\\ $department\", avgMarks: {\n\\ $avg: \" \\ $marks\" } } },\n{ \\ $sort: { avgMarks:\n- 1 } }\n])\nThis filter s passing students, groups them by department, computes the average marks\nper department, and sorts departments by highest average.\n4.2 Aggregation Using MapReduce\n\u2022\nMapReduce is an older, more general\n- purpose technique for processing large\ndatasets using two custom JavaScript functions:\n-\nMap function\n- processes each document and emits key\n- value pairs.\n-\nReduce function\n- combines all values for each key into a single\nsummarized result.\n\u2022\nMapReduce is more flexible for very complex, custom processing logic, but i\nt is\ngenerally slower and more complex to write than the aggregation pipeline.\n\u2022\nModern MongoDB usage strongly favors the aggregation pipeline over\nMapReduce for most tasks, since the pipeline is faster and easier to understand.\n4.3 Single - Purpose Aggregation Operations\nMongoDB also provides simple, built\n- in functions for basic, common aggregation tasks\nwithout needing a full pipeline:\n- count() - returns the number of documents matching\na query.\n- distinct()\n- returns the unique values for a specified field\nacross the\ncollection. These are convenient for quick, simple summaries when a full aggregation\npipeline is not necessary.\n5. Step - by- Step Working\nAggregation Pipeline Flow:\nAll Documents in Collection\n\u2193\nStage 1: \\ $match (filter documents)\n\u2193\nStage 2: \\ $group (group and calculate aggregates)\n\u2193\nStage 3: \\ $sort (order the grouped results)\n\u2193\nFinal Aggregated Result\n6. Diagrams\nAn assembly\n- line style diagram with document icons entering on the left, passi\nng through\nlabeled \u2026\nFigure: An assembly\n- line style diagram with document icons entering on the left,\npassing through labeled \u2026\n7. Images\nMongoDB Aggregation Pipeline diagram showing stages as connected boxes with arrows\nFigure: MongoDB Aggregation Pipeline diagram showing stages as connected boxes\nwith arrows\nBar chart illustrating a sample aggregation output, e.g., average marks per department\nFigure: Bar chart illustrating a sample aggregation output, e.g., average marks per\ndepartment\n8. Tables\nStag e/Operation\nPurpose\nSQL Equivalent\n$match\nFilter documents\nWHERE\n$group\nGroup and aggregate\nGROUP BY\n$sort\nOrder results\nORDER BY\n$project\nReshape/select fields\nSELECT\n$limit / $skip\nRestrict number of results\nLIMIT / OFFSET\ncount()\nCount matching documents\nCOUNT()\ndistinct()\nUnique values of a field\nDISTINCT\n9. Important Terms\nTerm\nSimple Meaning\nAggregation Pipeline\nA sequence of stages processing documents step by step\nStage\nOne processing step within the pipeline\n$match\nStage that filters doc\numents\n$group\nStage that groups and summarizes documents\nMapReduce\nCustom map and reduce functions for flexible large\n- scale\nprocessing\nSingle - Purpose\nAggregation\nSimple built - in functions like count() and distinct()\n10. Examples\n\u2022\nEasy example: Using count() to find the total number of students in a collection.\n\u2022\nPractical example:\nUsing an aggregation pipeline to compute total sales per\nproduct category.\n\u2022\nIndustry example:\nAn e - commerce company uses aggregation to generate a\nmonthly revenue report grouped b\ny region.\n\u2022\nReal - life example:\nA social media platform aggregates total likes per post per\nday for trending analysis.\n11. Advantages & Limitations\n\u2022\nAdvantage: Aggregation pipeline is powerful, flexible, and optimized for\nperformance within MongoDB.\n\u2022\nAdvantage: Single\n- purpose operations offer a quick, simple way to get basic\nsummaries.\n\u2022\nLimitation: Complex pipelines can become difficult to read and debug.\n\u2022\nLimitation: MapReduce, while flexible, is generally slower and more complex\nthan the aggregation pipeline for\nmost common tasks.\n12. Applications\n\u2022\nIndustry: Business analytics, financial reporting, marketing insights.\n\u2022\nCompanies: Any company using MongoDB for backend data relies on\naggregation for dashboards and reports.\n\u2022\nDaily life: App usage statistics, trending content calculations.\n\u2022\nSoftware: MongoDB Atlas Charts, BI tools connecting to MongoDB.\n\u2022\nWebsites: Analytics dashboards, sales reports.\n\u2022\nMobile Apps:\nIn - app statistics and summary screens (e.g., \"Your monthly\nspending\").\n13. Key Points to Remember\n\u2022 The aggregation pipeline processes documents through a sequence of stages\n($match, $group, $sort, etc.).\n\u2022 $match works like WHERE; $group works like GROUP BY; $sort works like\nORDER BY.\n\u2022 MapReduce is an older, more flexible but slower alternative to the aggregation\npipeline.\n\u2022 count() and distinct() are simple single\n- purpose aggregation operations for quick\nsummaries.\n\u2022 Common misconception:\nAggregation pipeline stages are NOT optional single\ncommands - they execute\nin sequence\n, with each stage's output\nbecoming the\nnext stage's input, similar to a data processing assembly line.",
     "structuredTables": [
       {
         "id": "t3_5_pipeline",
@@ -2323,43 +4010,13 @@ export const TOPICS_DATA = [
             "feature": "$group",
             "col1": "Groups input documents by identifier expression and accumulates metrics",
             "col2": "`GROUP BY col, AVG(), SUM()`",
-            "col3": "`{ $group: { _id: \"$dept\", avgCpi: { $avg: \"$cpi\" }, count: { $sum: 1 } } }`"
-          },
-          {
-            "feature": "$sort",
-            "col1": "Reorders documents by specified field (1 for ASC, -1 for DESC)",
-            "col2": "`ORDER BY col ASC / DESC`",
-            "col3": "`{ $sort: { avgCpi: -1, count: 1 } }`"
-          },
-          {
-            "feature": "$project",
-            "col1": "Reshapes document stream: selects, computes, or renames fields",
-            "col2": "`SELECT col1, col2 AS alias, (col1 * 2)`",
-            "col3": "`{ $project: { deptName: \"$_id\", avgScore: \"$avgCpi\", _id: 0 } }`"
-          },
-          {
-            "feature": "$limit",
-            "col1": "Restricts the number of output documents passed forward",
-            "col2": "`LIMIT n`",
-            "col3": "`{ $limit: 5 }`"
-          },
-          {
-            "feature": "$skip",
-            "col1": "Skips past the first n documents in the stream",
-            "col2": "`OFFSET n`",
-            "col3": "`{ $skip: 10 }`"
+            "col3": "`{ $group: { _id: \"$dept\", avgCpi: { $avg: \"$cpi\" } } }`"
           },
           {
             "feature": "$unwind",
             "col1": "Deconstructs an array field into individual output documents per element",
             "col2": "`CROSS JOIN LATERAL` / Unnesting",
             "col3": "`{ $unwind: \"$skills\" }`"
-          },
-          {
-            "feature": "$lookup",
-            "col1": "Performs left outer join to an unsharded collection in the same database",
-            "col2": "`LEFT OUTER JOIN other ON ...`",
-            "col3": "`{ $lookup: { from: \"grades\", localField: \"id\", foreignField: \"studId\", as: \"history\" } }`"
           }
         ]
       }
@@ -2370,60 +4027,31 @@ export const TOPICS_DATA = [
     "moduleId": 4,
     "moduleName": "Advanced Transaction Processing",
     "title": "Basics of Transactions and ACID Properties",
-    "pages": "62 - 66",
-    "estimatedTime": "15 min",
+    "timeEstimate": "15 min",
+    "pageRange": "86 - 89",
     "overview": {
-      "whatIsIt": "A transaction\nis a single logical unit of work in a database, made up of one\nor more operations, that must be executed completely or not at all.\nACID is a set of\nfour properties (Atomicity, Consistency, Isolation, Durability) that guarantee\ntransactions are processed reliably.",
-      "whyNeed": "Without these guarantees, a system crash or concurrent access\ncould leave data in a broken, inconsistent, or partially updated state\n- a serious risk for\ncritical systems like banking.",
-      "whereUsed": "- Banking and financial systems\n- E- commerce order processing\n-\nAirline reservation systems\n- Any system where correctness of multi\n- step operations\nmatters",
-      "importantNotes": ""
+      "whatIsIt": "A transaction\nis a single logical unit of work in a database, made up of one\nor more operations, that must be executed completely or not at all.\nACID is a set of\nfour properties (Atomicity, Consistency, Isolation, Durability) that guarantee\ntransactions are processed reliably.\nWhy do we need it?\nWithout these guarantees, a system crash or concurrent access\ncould leave data in a broken, inconsistent, or partially updated state\n- a serious risk for\ncritical systems like banking.\nWhere is it used?\n- Banking and financial systems\n- E- commerce order processing\n-\nAirline reservation systems\n- Any system where correctness of multi\n- step operations\nmatters",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Think of transferring money from Account A to Account B. This requires two steps:\nsubtract from A,\nadd to B. If the system crashes after subtracting but before adding,\nmoney disappears! A transaction bundles both steps together so that either\nboth\nhappen, or neither happens.",
-      "keywords": [
-        {
-          "term": "Transaction",
-          "meaning": "A group of operations treated as one single unit"
-        },
-        {
-          "term": "Commit",
-          "meaning": "Successfully finishing and saving a transaction permanently"
-        },
-        {
-          "term": "Rollback",
-          "meaning": "Undoing a transaction's changes because something went wrong"
-        },
-        {
-          "term": "Atomicity",
-          "meaning": "All- or- nothing execution"
-        },
-        {
-          "term": "Durability",
-          "meaning": "Once saved, data survives even a crash"
-        }
-      ]
+      "simpleExplanation": "2. Beginner Friendly Introduction\nThink of transferring money from Account A to Account B. This requires two steps:\nsubtract from A,\nadd to B. If the system crashes after subtracting but before adding,\nmoney disappears! A transaction bundles both steps together so that either\nboth\nhappen, or neither happens.\nKey words explained:\nWord\nSimple Meaning\nTransaction\nA group of operations treated as one single unit\nCommit\nSuccessfully finishing and saving a transaction permanently\nRollback\nUndoing a transaction's changes because something went wrong\nAtomicity\nAll- or- nothing execution\nDurability\nOnce saved, data survives even a crash\n3. Re al- Life Analogies\nAnalogy 1 - Money Transfer:\nWithdrawing cash from one envelope and putting it in\nanother envelope must happen together\n- you would never want to take money out\nand then simply lose it if you got interrupted halfway.\nAnalogy 2\n- Online Shopping Checkout:\nPlacing an order involves reducing stock,\ncharging payment, and creating an order record. If payment fails, the stock reduction\nmust also be undone\n- all steps succeed together, or none of them do.",
+      "keywords": []
     },
-    "analogies": [
-      {
-        "num": "1",
-        "title": "Money Transfer",
-        "description": "Withdrawing cash from one envelope and putting it in\nanother envelope must happen together\n- you would never want to take money out\nand then simply lose it if you got interrupted halfway."
-      },
-      {
-        "num": "2",
-        "title": "Online Shopping Checkout",
-        "description": "Placing an order involves reducing stock,\ncharging payment, and creating an order record. If payment fails, the stock reduction\nmust also be undone\n- all steps succeed together, or none of them do."
-      }
-    ],
+    "analogies": [],
     "detailedExplanation": {
       "subsections": [
         {
-          "title": "4.1 What is a Transaction?",
-          "content": "A transaction moves a database from one\nconsistent state\nto another. It typically ends\nwith either:\n- Commit - all changes are made permanent.\n- Rollback (Abort)\n- all\nchanges are undone, as if the transaction never happened."
+          "title": "A transaction moves a database from one",
+          "content": "consistent state\nto another. It typically ends\nwith either:\n- Commit - all changes are made permanent.\n- Rollback (Abort)\n- all\nchanges are undone, as if the transaction never happened."
         },
         {
           "title": "4.2 The ACID Properties",
-          "content": "1.\nAtomicity - a transaction is treated as a single, indivisible unit; either\nall its\noperations complete successfully, or\nnone of them do. If any step fails, the entire\ntransaction is rolled back.\n2.\nConsistency\n- a transaction must take the databas\ne from one valid state to\nanother valid state, preserving all defined rules (constraints, triggers)\n- it should\nnever leave the database violating its own rules.\n3.\nIsolation - concurrently executing transactions should not interfere with each\nother; the result should be as if transactions ran one after another (serially), even\nthough they may actually run concurrently for performance.\n4.\nDurability - once a transaction commits, its changes are permanent and will\nsurvive even a system crash or power failure (usua\nlly achieved by writing\nchanges to non\n- volatile storage/logs)."
+          "content": "1.\nAtomicity - a transaction is treated as a single, indivisible unit; either\nall its\noperations complete successfully, or\nnone of them do. If any step fails, the entire\ntransaction is rolled back.\n2."
+        },
+        {
+          "title": "Consistency",
+          "content": "- a transaction must take the databas\ne from one valid state to\nanother valid state, preserving all defined rules (constraints, triggers)\n- it should\nnever leave the database violating its own rules.\n3.\nIsolation - concurrently executing transactions should not interfere with each\nother; the result should be as if transactions ran one after another (serially), even\nthough they may actually run concurrently for performance.\n4.\nDurability - once a transaction commits, its changes are permanent and will\nsurvive even a system crash or power failure (usua\nlly achieved by writing\nchanges to non\n- volatile storage/logs)."
         },
         {
           "title": "4.3 Transaction States",
@@ -2434,109 +4062,29 @@ export const TOPICS_DATA = [
     },
     "stepByStep": [
       {
-        "title": "Transaction Begins (Active State)",
-        "isHeader": false
-      },
-      {
-        "title": "Operations Execute (Read/Write)",
-        "isHeader": false
-      },
-      {
-        "title": "All Operations Successful?",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 Yes \u2192 Partially Committed",
-        "isHeader": false
-      },
-      {
-        "title": "\u2192 Commit (Durable, Permanent)",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 No \u2192 Failed \u2192 Rol lback \u2192 Aborted (Database restored to original state)",
-        "isHeader": false
+        "step": 1,
+        "title": "Step - by- Step Working",
+        "description": "Transaction Begins (Active State)\n\u2193\nOperations Execute (Read/Write)\n\u2193\nAll Operations Successful?\n\u2193 Yes \u2192 Partially Committed\n\u2192 Commit (Durable, Permanent)\n\u2193 No \u2192 Failed \u2192 Rol lback \u2192 Aborted (Database restored to original state)"
       }
     ],
-    "tablesRaw": "Property\nMeaning\nWhat Happens If Violated\nAtomicity\nAll- or- nothing execution\nPartial, broken updates\nConsistency\nValid state to valid state\nDatabase rules/constraints\nviolated\nIsolation\nConcurrent tran\nsactions don't\ninterfere\nDirty reads, lost updates\nDurability\nCommitted data survives crashes\nData loss after a crash",
+    "diagramsDescription": "6. Diagrams\nTransaction State Diagram\nFigure: Transaction State Diagram\nA state - transition diagram with circles labeled Active, Partially Committed, Committed, Failed,\na\u2026\nFigure: A state\n- transition\ndiagram with circles labeled Active, Partially Committed,\nCommitted, Failed, a\u2026",
+    "visualIllustrations": "7. Images\nACID Properties infographic showing four icons: a puzzle piece for\nAtomicity, a checkmark for Con\u2026\nFigure: ACID Properties infographic showing four icons: a\npuzzle piece for Atomicity, a checkmark for Con\u2026",
+    "tablesRaw": "8. Tables\nProperty\nMeaning\nWhat Happens If Violated\nAtomicity\nAll- or- nothing execution\nPartial, broken updates\nConsistency\nValid state to valid state\nDatabase rules/constraints\nviolated\nIsolation\nConcurrent tran\nsactions don't\ninterfere\nDirty reads, lost updates\nDurability\nCommitted data survives crashes\nData loss after a crash",
+    "importantTerms": "9. Important Terms\nTerm\nSimple Meaning\nTransaction\nA single logical unit of work\nCommit\nMaking a transaction's changes permanent\nRollback\nUndoing a transaction's changes\nACID\nAtomicity, Consistency, Isolation, Durability\nActive State\nTransaction is currently executing\nAborted State Transaction was rolled back",
     "terms": [],
     "examples": [
-      {
-        "type": "Easy example",
-        "content": "Transferring money between two accounts must be\natomic."
-      },
-      {
-        "type": "Practical example",
-        "content": "Booking a train ticket\n- seat allocation and payment must\nboth succeed or both fail."
-      },
-      {
-        "type": "Industry example",
-        "content": "Banking systems use ACID transactions to ensure account\nbalances are never corrupted."
-      },
-      {
-        "type": "Real-life example",
-        "content": "E- commerce checkout ensures stock reduction and order\ncreation happen together."
-      }
+      "10. Examples\n\u2022\nEasy example: Transferring money between two accounts must be\natomic.\n\u2022\nPractical example:\nBooking a train ticket\n- seat allocation and payment must\nboth succeed or both fail.\n\u2022\nIndustry example:\nBanking systems use ACID transactions to ensure account\nbalances are never corrupted.\n\u2022\nReal - life example:\nE- commerce checkout ensures stock reduction and order\ncreation happen together."
     ],
-    "advantages": [
-      "ACID guarantees reliability and correctness for critical operations.",
-      "Prevents data corruption from crashes or concurrent access."
-    ],
-    "limitations": [
-      "Stri",
-      "Not all modern distributed systems (e.g., many NoSQL databases)"
-    ],
-    "applications": [
-      {
-        "category": "Industry",
-        "details": "Banking, insurance, airline reservations, healthcare records."
-      },
-      {
-        "category": "Companies",
-        "details": "All major banks and payment processors rely on ACID transactions."
-      },
-      {
-        "category": "Daily life",
-        "details": "Every online payment, ticket booking, or fund transfer depends on\ntransaction reliability."
-      },
-      {
-        "category": "Software",
-        "details": "Relational database engines (O\nracle, PostgreSQL, MySQL InnoDB)."
-      },
-      {
-        "category": "Websites",
-        "details": "E- commerce checkout systems."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Banking and payment apps."
-      }
-    ],
+    "advantages": [],
+    "limitations": [],
+    "advantagesLimitations": "",
+    "applications": [],
     "keyPoints": {
-      "takeaways": [
-        "A transaction is a single, all",
-        "or- nothing unit of work.",
-        "ACID = Atomicity, Consistency, Isolation, Durability.",
-        "Atomicity ensures all",
-        "or- nothing; Durability ensures permanence after commit.",
-        "Transaction states: Active",
-        "\u2192",
-        "Partially Committed",
-        "\u2192",
-        "Committed, or",
-        "Active/Partially Committed",
-        "\u2192 Failed \u2192 Aborted.",
-        "Consistency in ACID refers to the databas",
-        "e obeying its",
-        "defined rules/constraints",
-        "it is not the same as \"consistency\" in distributed",
-        "systems (like eventual consistency in NoSQL), which is a different concept."
-      ],
-      "misconceptions": [
-        ""
-      ],
+      "takeaways": [],
+      "misconceptions": [],
       "examTips": []
     },
+    "fullRawText": "MODULE 4: Advanced Transaction Processing\nTopic 4.1: Basics of Transactions and ACID Properties\n1. Topic Name - Transactions and ACID Properties\nWhat is it?\nA transaction\nis a single logical unit of work in a database, made up of one\nor more operations, that must be executed completely or not at all.\nACID is a set of\nfour properties (Atomicity, Consistency, Isolation, Durability) that guarantee\ntransactions are processed reliably.\nWhy do we need it?\nWithout these guarantees, a system crash or concurrent access\ncould leave data in a broken, inconsistent, or partially updated state\n- a serious risk for\ncritical systems like banking.\nWhere is it used?\n- Banking and financial systems\n- E- commerce order processing\n-\nAirline reservation systems\n- Any system where correctness of multi\n- step operations\nmatters\n2. Beginner Friendly Introduction\nThink of transferring money from Account A to Account B. This requires two steps:\nsubtract from A,\nadd to B. If the system crashes after subtracting but before adding,\nmoney disappears! A transaction bundles both steps together so that either\nboth\nhappen, or neither happens.\nKey words explained:\nWord\nSimple Meaning\nTransaction\nA group of operations treated as one single unit\nCommit\nSuccessfully finishing and saving a transaction permanently\nRollback\nUndoing a transaction's changes because something went wrong\nAtomicity\nAll- or- nothing execution\nDurability\nOnce saved, data survives even a crash\n3. Re al- Life Analogies\nAnalogy 1 - Money Transfer:\nWithdrawing cash from one envelope and putting it in\nanother envelope must happen together\n- you would never want to take money out\nand then simply lose it if you got interrupted halfway.\nAnalogy 2\n- Online Shopping Checkout:\nPlacing an order involves reducing stock,\ncharging payment, and creating an order record. If payment fails, the stock reduction\nmust also be undone\n- all steps succeed together, or none of them do.\n4. Complete Detailed Explanation\n4.1 What is a Transaction?\nA transaction moves a database from one\nconsistent state\nto another. It typically ends\nwith either:\n- Commit - all changes are made permanent.\n- Rollback (Abort)\n- all\nchanges are undone, as if the transaction never happened.\n4.2 The ACID Properties\n1.\nAtomicity - a transaction is treated as a single, indivisible unit; either\nall its\noperations complete successfully, or\nnone of them do. If any step fails, the entire\ntransaction is rolled back.\n2.\nConsistency\n- a transaction must take the databas\ne from one valid state to\nanother valid state, preserving all defined rules (constraints, triggers)\n- it should\nnever leave the database violating its own rules.\n3.\nIsolation - concurrently executing transactions should not interfere with each\nother; the result should be as if transactions ran one after another (serially), even\nthough they may actually run concurrently for performance.\n4.\nDurability - once a transaction commits, its changes are permanent and will\nsurvive even a system crash or power failure (usua\nlly achieved by writing\nchanges to non\n- volatile storage/logs).\n4.3 Transaction States\nA transaction moves through these states during its lifecycle:\n- Active - the\ntransaction is currently executing.\n- Partially Committed\n- the final operation has\nexecuted, but changes aren't yet permanently saved.\n- Committed - the transaction\nhas completed successfully, and changes are permanent.\n- Failed - an error occurred,\nand the transaction cannot proceed.\n- Aborted - the transaction has been rolled back,\nand the dat abase restored to its state before the transaction began.\n5. Step - by- Step Working\nTransaction Begins (Active State)\n\u2193\nOperations Execute (Read/Write)\n\u2193\nAll Operations Successful?\n\u2193 Yes \u2192 Partially Committed\n\u2192 Commit (Durable, Permanent)\n\u2193 No \u2192 Failed \u2192 Rol lback \u2192 Aborted (Database restored to original state)\n6. Diagrams\nTransaction State Diagram\nFigure: Transaction State Diagram\nA state - transition diagram with circles labeled Active, Partially Committed, Committed, Failed,\na\u2026\nFigure: A state\n- transition\ndiagram with circles labeled Active, Partially Committed,\nCommitted, Failed, a\u2026\n7. Images\nACID Properties infographic showing four icons: a puzzle piece for\nAtomicity, a checkmark for Con\u2026\nFigure: ACID Properties infographic showing four icons: a\npuzzle piece for Atomicity, a checkmark for Con\u2026\n8. Tables\nProperty\nMeaning\nWhat Happens If Violated\nAtomicity\nAll- or- nothing execution\nPartial, broken updates\nConsistency\nValid state to valid state\nDatabase rules/constraints\nviolated\nIsolation\nConcurrent tran\nsactions don't\ninterfere\nDirty reads, lost updates\nDurability\nCommitted data survives crashes\nData loss after a crash\n9. Important Terms\nTerm\nSimple Meaning\nTransaction\nA single logical unit of work\nCommit\nMaking a transaction's changes permanent\nRollback\nUndoing a transaction's changes\nACID\nAtomicity, Consistency, Isolation, Durability\nActive State\nTransaction is currently executing\nAborted State Transaction was rolled back\n10. Examples\n\u2022\nEasy example: Transferring money between two accounts must be\natomic.\n\u2022\nPractical example:\nBooking a train ticket\n- seat allocation and payment must\nboth succeed or both fail.\n\u2022\nIndustry example:\nBanking systems use ACID transactions to ensure account\nbalances are never corrupted.\n\u2022\nReal - life example:\nE- commerce checkout ensures stock reduction and order\ncreation happen together.",
     "structuredTables": [
       {
         "id": "t4_1_acid",
@@ -2552,35 +4100,35 @@ export const TOPICS_DATA = [
         ],
         "rows": [
           {
-            "feature": "Atomicity (All-or-Nothing)",
+            "feature": "Atomicity",
             "col1": "Either all transaction operations complete successfully or none take effect",
             "col2": "Write-Ahead Logging (WAL) & Undo Log Rollback",
             "col3": "Partial execution leaves database corrupted and inconsistent",
-            "col4": "\u20b95000 deducted from Alice's account, but power cut occurs before Bob's balance is credited.",
+            "col4": "\u20b95000 deducted from Alice, power cut before Bob is credited.",
             "status": "warning"
           },
           {
-            "feature": "Consistency (Invariant Preservation)",
-            "col1": "Transaction transforms database from one valid state satisfying all schema rules to another",
+            "feature": "Consistency",
+            "col1": "Transforms database from one valid state satisfying all schema rules to another",
             "col2": "Schema constraints, triggers, primary/foreign keys, assertions",
-            "col3": "Negative bank balances, orphan records, violated domain invariants",
-            "col4": "Total sum of money across all bank accounts before and after transfer must remain identical.",
+            "col3": "Negative bank balances, orphan records, violated invariants",
+            "col4": "Total sum across all bank accounts before and after transfer must remain identical.",
             "status": "info"
           },
           {
-            "feature": "Isolation (Concurrency Guard)",
+            "feature": "Isolation",
             "col1": "Concurrent transactions execute independently without mutual interference",
-            "col2": "Concurrency control protocols (2PL, Timestamp Ordering, MVCC, Snapshot Isolation)",
-            "col3": "Dirty reads, Non-repeatable reads, Phantom tuples, Lost updates",
-            "col4": "Alice deposits \u20b92000 while Bob withdraws \u20b91000 simultaneously; balance calculation is corrupted.",
+            "col2": "Concurrency control (2PL, Timestamp Ordering, MVCC)",
+            "col3": "Dirty reads, Non-repeatable reads, Phantom tuples",
+            "col4": "Alice deposits \u20b92000 while Bob withdraws \u20b91000 simultaneously.",
             "status": "better-col2"
           },
           {
-            "feature": "Durability (Persistence Guarantee)",
-            "col1": "Once transaction is committed, its updates persist permanently, even through system crashes",
-            "col2": "Redo Logs flushed to non-volatile disk/SSD, Battery-backed NVRAM, Checkpointing",
+            "feature": "Durability",
+            "col1": "Once transaction commits, updates persist permanently across crashes",
+            "col2": "Redo Logs flushed to non-volatile disk/SSD, Checkpointing",
             "col3": "Committed customer purchases vanish upon server reboot",
-            "col4": "After ATM displays 'Transaction Success', electricity cuts out; account balance update remains saved.",
+            "col4": "ATM displays 'Success'; power cut occurs; balance stays saved.",
             "status": "success"
           }
         ]
@@ -2592,193 +4140,456 @@ export const TOPICS_DATA = [
     "moduleId": 4,
     "moduleName": "Advanced Transaction Processing",
     "title": "TP Monitors, Transactional Workflows, and Recovery of Workflow",
-    "pages": "66 - 72",
-    "estimatedTime": "20 min",
+    "timeEstimate": "20 min",
+    "pageRange": "90 - 95",
     "overview": {
-      "whatIsIt": "A Transaction Processing (TP) Monitor\nis software that manages and\ncoordinates transactions across multiple applications, databases, and even multiple\nservers, ensuring reliability\nat large scale. A\nworkflow is a series of connected tasks\n(which may involve multiple systems and even human steps) that together accomplish\na larger business process.",
-      "whyNeed": "Large organizations run business processes that involve many\nsteps across different systems (e.g., loan approval involves credit checks, manager\napproval, document verification). TP monitors and workflow systems coordinate all\nthese pieces reliably.",
-      "whereUsed": "- Large enterprise systems (banking, insurance, telecom)\n- Business\nprocess automation (loan processing, order fulfillment)\n- Airline and travel booking\nsystems involving multiple providers",
-      "importantNotes": ""
+      "whatIsIt": "",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Imagine a factory manager coordinating multiple departments to build a product\n-\none team makes parts, another assembles, another does quality control. A TP monitor\nis like this manager, making sure every step across many systems happens correctly\nand in the right order, even if one department temporarily has a problem.",
-      "keywords": [
-        {
-          "term": "TP Monitor",
-          "meaning": "Software that coordinates transactions across multiple systems"
-        },
-        {
-          "term": "Workflow",
-          "meaning": "A sequence of connected tasks (steps) that make up a business"
-        },
-        {
-          "term": "Task",
-          "meaning": "One individual step in a workflow"
-        },
-        {
-          "term": "Workflow",
-          "meaning": "Engine"
-        }
-      ]
+      "simpleExplanation": "",
+      "keywords": []
     },
-    "analogies": [
-      {
-        "num": "1",
-        "title": "Restaurant Kitchen Coordination",
-        "description": "A head chef (TP monitor) coordinates\nmultiple cooking stations (systems) so that starters, mains, and desserts are all ready\nand served together, i\nn the correct order, without one part failing and ruining the\nwhole meal."
-      },
-      {
-        "num": "2",
-        "title": "Loan Approval at a Bank",
-        "description": "Getting a loan involves several connected steps\n- application submission, credit check, manager approval, document verification, and\nfund disbursement. This entire connected sequence is a workflow, tracked from start\nto finish."
-      }
-    ],
+    "analogies": [],
     "detailedExplanation": {
       "subsections": [
         {
-          "title": "4.1 TP Monitor Architecture",
-          "content": "A TP monitor typically sits between client applications and one or more\ndatabase/resource managers, and performs\nfunctions such as:\n- Routing client requests to the correct application/server.\n- Managing transaction boundaries\n(starting, committing, aborting transactions)\nacross multiple resource managers.\n- Load balancing\n- distributing requests across available servers.\n- Coordinating distributed transactions\n(often using protocols like Two\n- Phase\nCommit) when a transaction spans multiple databases/resources.\n- Providing reliability and recovery\nfor transactions even when individual application\nservers fail."
-        },
-        {
-          "title": "4.2 Tra nsactional Workflows",
-          "content": "A transactional workflow\napplies transaction\n- like properties (as much as\npossible) to a\nmulti - step business process\nthat might span multiple systems and take\nmuch longer than a typical database transaction (sometimes hours, days, or even\nweeks). - Each individual step in the workflow can be its own smaller transaction.\n- The\noverall workflow tracks the state of the whole process (which steps are done, which\nare pending)."
-        },
-        {
-          "title": "4.3 Workflow Architectures",
-          "content": "Common workflow architectures include:\n- Centralized Workflow Architecture\n- one central workflow engine coordinates and\ntracks every step of the process.\n- Decentralized (Distributed) Workflow Architecture\n- multiple systems/engines\ncoordinate among themselves without one single central controller, offering more\nresilience but added complexity.\n- State - Based (Persistent) Architecture\n- the workflow engine stores the current\nstate persistently at every step, so that progress is not lost even if the system crashes\nmid - process."
-        },
-        {
-          "title": "4.4 Recovery of Wor",
-          "content": "kflow\nBecause workflows can run for a long time and span multiple systems, robust recovery\nmechanisms are essential:\n- The workflow engine maintains a\npersistent log\nof completed and pending steps.\n- If a failure occurs, the workflow can be\nresumed from the last successfully completed\nstep, rather than restarting from scratch.\n- Failed steps may trigger\ncompensating actions\n(undoing the effects of already\n-\ncompleted steps) if the overall workflow cannot continue successfully (this connects\nwith compensating\ntransactions, covered later in this module)."
+          "title": "Core Theoretical Framework",
+          "content": "Detailed theoretical concepts and principles."
         }
       ],
-      "raw": "4. Complete Detailed Explanation\n4.1 TP Monitor Architecture\nA TP monitor typically sits between client applications and one or more\ndatabase/resource managers, and performs\nfunctions such as:\n- Routing client requests to the correct application/server.\n- Managing transaction boundaries\n(starting, committing, aborting transactions)\nacross multiple resource managers.\n- Load balancing\n- distributing requests across available servers.\n- Coordinating distributed transactions\n(often using protocols like Two\n- Phase\nCommit) when a transaction spans multiple databases/resources.\n- Providing reliability and recovery\nfor transactions even when individual application\nservers fail.\n4.2 Tra nsactional Workflows\nA transactional workflow\napplies transaction\n- like properties (as much as\npossible) to a\nmulti - step business process\nthat might span multiple systems and take\nmuch longer than a typical database transaction (sometimes hours, days, or even\nweeks). - Each individual step in the workflow can be its own smaller transaction.\n- The\noverall workflow tracks the state of the whole process (which steps are done, which\nare pending).\n4.3 Workflow Architectures\nCommon workflow architectures include:\n- Centralized Workflow Architecture\n- one central workflow engine coordinates and\ntracks every step of the process.\n- Decentralized (Distributed) Workflow Architecture\n- multiple systems/engines\ncoordinate among themselves without one single central controller, offering more\nresilience but added complexity.\n- State - Based (Persistent) Architecture\n- the workflow engine stores the current\nstate persistently at every step, so that progress is not lost even if the system crashes\nmid - process.\n4.4 Recovery of Wor\nkflow\nBecause workflows can run for a long time and span multiple systems, robust recovery\nmechanisms are essential:\n- The workflow engine maintains a\npersistent log\nof completed and pending steps.\n- If a failure occurs, the workflow can be\nresumed from the last successfully completed\nstep, rather than restarting from scratch.\n- Failed steps may trigger\ncompensating actions\n(undoing the effects of already\n-\ncompleted steps) if the overall workflow cannot continue successfully (this connects\nwith compensating\ntransactions, covered later in this module)."
+      "raw": ""
     },
-    "stepByStep": [
-      {
-        "title": "Workflow Started (e.g., Loan Application Submitted)",
-        "isHeader": false
-      },
-      {
-        "title": "Step 1: Credit Check (own mini",
-        "isHeader": false
-      },
-      {
-        "title": "- transaction)",
-        "isHeader": false
-      },
-      {
-        "title": "Step 2: Manager Approval (own mini",
-        "isHeader": false
-      },
-      {
-        "title": "- transaction)",
-        "isHeader": false
-      },
-      {
-        "title": "Step 3: Document Verification (own mi",
-        "isHeader": false
-      },
-      {
-        "title": "ni- transaction)",
-        "isHeader": false
-      },
-      {
-        "title": "Step 4: Fund Disbursement (own mini",
-        "isHeader": false
-      },
-      {
-        "title": "- transaction)",
-        "isHeader": false
-      },
-      {
-        "title": "If any step fails",
-        "isHeader": false
-      },
-      {
-        "title": "\u2192 Trigger Recovery/Compensation for completed steps",
-        "isHeader": false
-      },
-      {
-        "title": "Workflow Completed or Rolled Back via Compensation",
-        "isHeader": false
-      }
-    ],
-    "tablesRaw": "Workflow\nArchitecture\nDescription\nTrade - off\nCentralized\nOne engine controls entire\nworkflow\nSimple but a single point of\nfailure\nDecentralized\nMultiple systems coordinate\ntogether\nResilient but complex to\ndesign\nState - Based\n(Persistent)\nProgress is saved persistently at\neach step\nReliable recovery, some\nstorage overhead",
+    "stepByStep": [],
+    "diagramsDescription": "",
+    "visualIllustrations": "",
+    "tablesRaw": "",
+    "importantTerms": "",
     "terms": [],
-    "examples": [
-      {
-        "type": "Easy example",
-        "content": "An online order workflow: place order\n\u2192 process payment\n\u2192 ship\nitem \u2192 deliver.\n\u2022\nPract ical example:\nA university admission workflow: application submission\n\u2192\ndocument check\n\u2192 interview \u2192 final approval."
-      },
-      {
-        "type": "Industry example",
-        "content": "Airline systems coordinate booking, seat allocation, and\npayment across multiple partner systems using TP monitors."
-      },
-      {
-        "type": "Real-life example",
-        "content": "Insurance claim processing involves multiple steps\n(submission, verification, approval, payout) tracked as a workflow."
-      }
-    ],
+    "examples": [],
     "advantages": [
-      "TP monitors and workflows allow reliable coordination of complex,",
-      "Persistent recovery ensures long"
+      "ACID guarantees reliability and correctness for critical operations.",
+      "Advantage: Prevents data corruption from crashes or concurrent access."
     ],
     "limitations": [
-      "Adds significant architectural complexity compared to a single,",
-      "Coordinating across many systems can int"
+      "Advantage: ACID guarantees reliability and correctness for critical operations.",
+      "Advantage: Prevents data corruption from crashes or concurrent access.",
+      "Limitation: Stri",
+      "ct ACID compliance can reduce performance/scalability",
+      "compared to relaxed consistency models.",
+      "Limitation: Not all modern distributed systems (e.g., many NoSQL databases)",
+      "fully guarantee ACID by default."
     ],
+    "advantagesLimitations": "11. Advantages & Limitations\n\u2022\nAdvantage: ACID guarantees reliability and correctness for critical operations.\n\u2022\nAdvantage: Prevents data corruption from crashes or concurrent access.\n\u2022\nLimitation: Stri\nct ACID compliance can reduce performance/scalability\ncompared to relaxed consistency models.\n\u2022\nLimitation: Not all modern distributed systems (e.g., many NoSQL databases)\nfully guarantee ACID by default.",
     "applications": [
-      {
-        "category": "Industry",
-        "details": "Banking (loan processing), insurance (claims), telecom (service\nprovisioning)."
-      },
-      {
-        "category": "Companies",
-        "details": "Large enterprises using ERP systems (SAP, Oracle) rely on TP\nmonitors and workflow engines."
-      },
-      {
-        "category": "Daily life",
-        "details": "Any multi - step online process (loan applications, visa applications)\nuses workflow\n- like coordination."
-      },
-      {
-        "category": "Software",
-        "details": "BPM (Business Process Management) tools, TP monitors like IBM\nCICS, Oracle Tuxedo."
-      },
-      {
-        "category": "Websites",
-        "details": "E- commerce order fulfillment pipelines\n."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Multi - step onboarding or verification processes in apps."
-      }
+      "Industry: Banking, insurance, airline reservations, healthcare records.",
+      "Companies: All major banks and payment processors rely on ACID transactions.",
+      "Daily life:",
+      "Every online payment, ticket booking, or fund transfer depends on",
+      "transaction reliability.",
+      "Software: Relational database engines (O",
+      "racle, PostgreSQL, MySQL InnoDB).",
+      "Websites: E- commerce checkout systems.",
+      "Mobile Apps: Banking and payment apps."
     ],
     "keyPoints": {
       "takeaways": [
-        "A TP Monitor coordinates transactions across multiple applications/resource",
-        "managers, often using Two",
-        "Phase Commit for distributed transactions.",
-        "A workflow is a longer",
-        "running, multi",
-        "step business process, often spanning",
-        "multiple systems.",
-        "Workflow architectures can be centralized, decentralized, or state",
-        "based",
-        "(persistent).",
-        "Recovery of workflows relies on persistent logs to resume from the last",
-        "complet ed step after a failure.",
-        "A workflow is NOT the same as a single database",
-        "transaction",
-        "workflows are typically much longer, may involve human steps,",
-        "and often cannot be rolled back instantly like a normal transaction (they may",
-        "need compensation instead)."
+        "A transaction is a single, all",
+        "or- nothing unit of work.",
+        "ACID = Atomicity, Consistency, Isolation, Durability.",
+        "Atomicity ensures all",
+        "or- nothing; Durability ensures permanence after commit.",
+        "Transaction states: Active",
+        "Partially Committed",
+        "Committed, or",
+        "Active/Partially Committed",
+        "\u2192 Failed \u2192 Aborted.",
+        "Common misconception:",
+        "Consistency in ACID refers to the databas",
+        "e obeying its",
+        "defined rules/constraints",
+        "it is not the same as \"consistency\" in distributed",
+        "systems (like eventual consistency in NoSQL), which is a different concept.",
+        "Topic 4.2: Transaction Processing Monitors, Transactional",
+        "Workflows, and Recovery of Workflow",
+        "1. Topic Name - TP Monitors and Transactional Workflows",
+        "What is it?",
+        "A Transaction Processing (TP) Monitor",
+        "is software that manages and",
+        "coordinates transactions across multiple applications, databases, and even multiple",
+        "servers, ensuring reliability",
+        "at large scale. A",
+        "workflow is a series of connected tasks",
+        "(which may involve multiple systems and even human steps) that together accomplish",
+        "a larger business process.",
+        "Why do we need it?",
+        "Large organizations run business processes that involve many",
+        "steps across different systems (e.g., loan approval involves credit checks, manager",
+        "approval, document verification). TP monitors and workflow systems coordinate all",
+        "these pieces reliably.",
+        "Where is it used?",
+        "Large enterprise systems (banking, insurance, telecom)",
+        "process automation (loan processing, order fulfillment)",
+        "Airline and travel booking",
+        "systems involving multiple providers",
+        "2. Beginner Friendly Introduction",
+        "Imagine a factory manager coordinating multiple departments to build a product",
+        "one team makes parts, another assembles, another does quality control. A TP monitor",
+        "is like this manager, making sure every step across many systems happens correctly",
+        "and in the right order, even if one department temporarily has a problem.",
+        "Key words explained:",
+        "Simple Meaning",
+        "Software that coordinates transactions across multiple systems",
+        "A sequence of connected tasks (steps) that make up a business",
+        "One individual step in a workflow",
+        "The software component that runs and tracks a workflow's progress",
+        "3. Real - Life Analogies",
+        "Analogy 1 - Restaurant Kitchen Coordination:",
+        "A head chef (TP monitor) coordinates",
+        "multiple cooking stations (systems) so that starters, mains, and desserts are all ready",
+        "and served together, i",
+        "n the correct order, without one part failing and ruining the",
+        "whole meal.",
+        "Analogy 2 - Loan Approval at a Bank:",
+        "Getting a loan involves several connected steps",
+        "application submission, credit check, manager approval, document verification, and",
+        "fund disbursement. This entire connected sequence is a workflow, tracked from start",
+        "4. Complete Detailed Explanation",
+        "4.1 TP Monitor Architecture",
+        "A TP monitor typically sits between client applications and one or more",
+        "database/resource managers, and performs",
+        "functions such as:",
+        "Routing client requests to the correct application/server.",
+        "Managing transaction boundaries",
+        "(starting, committing, aborting transactions)",
+        "across multiple resource managers.",
+        "Load balancing",
+        "distributing requests across available servers.",
+        "Coordinating distributed transactions",
+        "(often using protocols like Two",
+        "Commit) when a transaction spans multiple databases/resources.",
+        "Providing reliability and recovery",
+        "for transactions even when individual application",
+        "servers fail.",
+        "4.2 Tra nsactional Workflows",
+        "A transactional workflow",
+        "applies transaction",
+        "like properties (as much as",
+        "possible) to a",
+        "multi - step business process",
+        "that might span multiple systems and take",
+        "much longer than a typical database transaction (sometimes hours, days, or even",
+        "weeks). - Each individual step in the workflow can be its own smaller transaction.",
+        "overall workflow tracks the state of the whole process (which steps are done, which",
+        "are pending).",
+        "4.3 Workflow Architectures",
+        "Common workflow architectures include:",
+        "Centralized Workflow Architecture",
+        "one central workflow engine coordinates and",
+        "tracks every step of the process.",
+        "Decentralized (Distributed) Workflow Architecture",
+        "multiple systems/engines",
+        "coordinate among themselves without one single central controller, offering more",
+        "resilience but added complexity.",
+        "State - Based (Persistent) Architecture",
+        "the workflow engine stores the current",
+        "state persistently at every step, so that progress is not lost even if the system crashes",
+        "mid - process.",
+        "4.4 Recovery of Wor",
+        "Because workflows can run for a long time and span multiple systems, robust recovery",
+        "mechanisms are essential:",
+        "The workflow engine maintains a",
+        "persistent log",
+        "of completed and pending steps.",
+        "If a failure occurs, the workflow can be",
+        "resumed from the last successfully completed",
+        "step, rather than restarting from scratch.",
+        "Failed steps may trigger",
+        "compensating actions",
+        "(undoing the effects of already",
+        "completed steps) if the overall workflow cannot continue successfully (this connects",
+        "with compensating",
+        "transactions, covered later in this module).",
+        "5. Step - by- Step Working",
+        "Workflow Started (e.g., Loan Application Submitted)",
+        "Step 1: Credit Check (own mini",
+        "transaction)",
+        "Step 2: Manager Approval (own mini",
+        "transaction)",
+        "Step 3: Document Verification (own mi",
+        "ni- transaction)",
+        "Step 4: Fund Disbursement (own mini",
+        "transaction)",
+        "If any step fails",
+        "\u2192 Trigger Recovery/Compensation for completed steps",
+        "Workflow Completed or Rolled Back via Compensation",
+        "6. Diagrams",
+        "Sample Transactional Workflow",
+        "Figure: Sample Trans",
+        "actional Workflow",
+        "A flowchart showing a loan approval workflow with boxes for each step (Application, Credit",
+        "Figure: A flowchart showing a loan approval workflow with boxes for each step",
+        "(Application, Credit Check,\u2026",
+        "TP Monitor architecture diagram showing multiple client applications connecting through a",
+        "Figure: TP Monitor architecture diagram showing multiple client applications",
+        "connecting through a central\u2026",
+        "Architecture",
+        "Description",
+        "Trade - off",
+        "Centralized",
+        "One engine controls entire",
+        "Simple but a single point of",
+        "Decentralized",
+        "Multiple systems coordinate",
+        "Resilient but complex to",
+        "State - Based",
+        "(Persistent)",
+        "Progress is saved persistently at",
+        "Reliable recovery, some",
+        "storage overhead",
+        "9. Important Terms",
+        "Simple Meaning",
+        "Software coordinating transactions across multiple systems",
+        "A connected sequence of tasks forming a business process",
+        "Software that runs and tracks a workflow",
+        "Persiste nt Log",
+        "A saved record of workflow progress, used for recovery",
+        "Compensation",
+        "Undoing the effect of already",
+        "completed steps when a workflow",
+        "10. Examples",
+        "Easy example: An online order workflow: place order",
+        "\u2192 process payment",
+        "item \u2192 deliver.",
+        "Pract ical example:",
+        "A university admission workflow: application submission",
+        "document check",
+        "\u2192 interview \u2192 final approval.",
+        "Industry example:",
+        "Airline systems coordinate booking, seat allocation, and",
+        "payment across multiple partner systems using TP monitors.",
+        "Real - life example:",
+        "Insurance claim processing involves multiple steps",
+        "(submission, verification, approval, payout) tracked as a workflow.",
+        "11. Advantages & Limitations",
+        "Advantage: TP monitors and workflows allow reliable coordination of complex,",
+        "multi - system business processes.",
+        "Advantage: Persistent recovery ensures long",
+        "running processes are not lost due",
+        "to failures.",
+        "Limitation: Adds significant architectural complexity compared to a single,",
+        "simple transaction.",
+        "Limitation: Coordinating across many systems can int",
+        "roduce performance",
+        "overhead and failure points.",
+        "12. Applications",
+        "Industry: Banking (loan processing), insurance (claims), telecom (service",
+        "provisioning).",
+        "Companies: Large enterprises using ERP systems (SAP, Oracle) rely on TP",
+        "monitors and workflow engines.",
+        "Daily life:",
+        "Any multi - step online process (loan applications, visa applications)",
+        "uses workflow",
+        "like coordination.",
+        "Software: BPM (Business Process Management) tools, TP monitors like IBM",
+        "CICS, Oracle Tuxedo.",
+        "Websites: E- commerce order fulfillment pipelines"
       ],
       "misconceptions": [
-        ""
+        "Consistency in ACID refers to the databas",
+        "e obeying its",
+        "defined rules/constraints",
+        "it is not the same as \"consistency\" in distributed",
+        "systems (like eventual consistency in NoSQL), which is a different concept.",
+        "Topic 4.2: Transaction Processing Monitors, Transactional",
+        "Workflows, and Recovery of Workflow",
+        "1. Topic Name - TP Monitors and Transactional Workflows",
+        "What is it?",
+        "A Transaction Processing (TP) Monitor",
+        "is software that manages and",
+        "coordinates transactions across multiple applications, databases, and even multiple",
+        "servers, ensuring reliability",
+        "at large scale. A",
+        "workflow is a series of connected tasks",
+        "(which may involve multiple systems and even human steps) that together accomplish",
+        "a larger business process.",
+        "Why do we need it?",
+        "Large organizations run business processes that involve many",
+        "steps across different systems (e.g., loan approval involves credit checks, manager",
+        "approval, document verification). TP monitors and workflow systems coordinate all",
+        "these pieces reliably.",
+        "Where is it used?",
+        "Large enterprise systems (banking, insurance, telecom)",
+        "process automation (loan processing, order fulfillment)",
+        "Airline and travel booking",
+        "systems involving multiple providers",
+        "2. Beginner Friendly Introduction",
+        "Imagine a factory manager coordinating multiple departments to build a product",
+        "one team makes parts, another assembles, another does quality control. A TP monitor",
+        "is like this manager, making sure every step across many systems happens correctly",
+        "and in the right order, even if one department temporarily has a problem.",
+        "Key words explained:",
+        "Simple Meaning",
+        "Software that coordinates transactions across multiple systems",
+        "A sequence of connected tasks (steps) that make up a business",
+        "One individual step in a workflow",
+        "The software component that runs and tracks a workflow's progress",
+        "3. Real - Life Analogies",
+        "Analogy 1 - Restaurant Kitchen Coordination:",
+        "A head chef (TP monitor) coordinates",
+        "multiple cooking stations (systems) so that starters, mains, and desserts are all ready",
+        "and served together, i",
+        "n the correct order, without one part failing and ruining the",
+        "whole meal.",
+        "Analogy 2 - Loan Approval at a Bank:",
+        "Getting a loan involves several connected steps",
+        "application submission, credit check, manager approval, document verification, and",
+        "fund disbursement. This entire connected sequence is a workflow, tracked from start",
+        "4. Complete Detailed Explanation",
+        "4.1 TP Monitor Architecture",
+        "A TP monitor typically sits between client applications and one or more",
+        "database/resource managers, and performs",
+        "functions such as:",
+        "Routing client requests to the correct application/server.",
+        "Managing transaction boundaries",
+        "(starting, committing, aborting transactions)",
+        "across multiple resource managers.",
+        "Load balancing",
+        "distributing requests across available servers.",
+        "Coordinating distributed transactions",
+        "(often using protocols like Two",
+        "Commit) when a transaction spans multiple databases/resources.",
+        "Providing reliability and recovery",
+        "for transactions even when individual application",
+        "servers fail.",
+        "4.2 Tra nsactional Workflows",
+        "A transactional workflow",
+        "applies transaction",
+        "like properties (as much as",
+        "possible) to a",
+        "multi - step business process",
+        "that might span multiple systems and take",
+        "much longer than a typical database transaction (sometimes hours, days, or even",
+        "weeks). - Each individual step in the workflow can be its own smaller transaction.",
+        "overall workflow tracks the state of the whole process (which steps are done, which",
+        "are pending).",
+        "4.3 Workflow Architectures",
+        "Common workflow architectures include:",
+        "Centralized Workflow Architecture",
+        "one central workflow engine coordinates and",
+        "tracks every step of the process.",
+        "Decentralized (Distributed) Workflow Architecture",
+        "multiple systems/engines",
+        "coordinate among themselves without one single central controller, offering more",
+        "resilience but added complexity.",
+        "State - Based (Persistent) Architecture",
+        "the workflow engine stores the current",
+        "state persistently at every step, so that progress is not lost even if the system crashes",
+        "mid - process.",
+        "4.4 Recovery of Wor",
+        "Because workflows can run for a long time and span multiple systems, robust recovery",
+        "mechanisms are essential:",
+        "The workflow engine maintains a",
+        "persistent log",
+        "of completed and pending steps.",
+        "If a failure occurs, the workflow can be",
+        "resumed from the last successfully completed",
+        "step, rather than restarting from scratch.",
+        "Failed steps may trigger",
+        "compensating actions",
+        "(undoing the effects of already",
+        "completed steps) if the overall workflow cannot continue successfully (this connects",
+        "with compensating",
+        "transactions, covered later in this module).",
+        "5. Step - by- Step Working",
+        "Workflow Started (e.g., Loan Application Submitted)",
+        "Step 1: Credit Check (own mini",
+        "transaction)",
+        "Step 2: Manager Approval (own mini",
+        "transaction)",
+        "Step 3: Document Verification (own mi",
+        "ni- transaction)",
+        "Step 4: Fund Disbursement (own mini",
+        "transaction)",
+        "If any step fails",
+        "\u2192 Trigger Recovery/Compensation for completed steps",
+        "Workflow Completed or Rolled Back via Compensation",
+        "6. Diagrams",
+        "Sample Transactional Workflow",
+        "Figure: Sample Trans",
+        "actional Workflow",
+        "A flowchart showing a loan approval workflow with boxes for each step (Application, Credit",
+        "Figure: A flowchart showing a loan approval workflow with boxes for each step",
+        "(Application, Credit Check,\u2026",
+        "TP Monitor architecture diagram showing multiple client applications connecting through a",
+        "Figure: TP Monitor architecture diagram showing multiple client applications",
+        "connecting through a central\u2026",
+        "Architecture",
+        "Description",
+        "Trade - off",
+        "Centralized",
+        "One engine controls entire",
+        "Simple but a single point of",
+        "Decentralized",
+        "Multiple systems coordinate",
+        "Resilient but complex to",
+        "State - Based",
+        "(Persistent)",
+        "Progress is saved persistently at",
+        "Reliable recovery, some",
+        "storage overhead",
+        "9. Important Terms",
+        "Simple Meaning",
+        "Software coordinating transactions across multiple systems",
+        "A connected sequence of tasks forming a business process",
+        "Software that runs and tracks a workflow",
+        "Persiste nt Log",
+        "A saved record of workflow progress, used for recovery",
+        "Compensation",
+        "Undoing the effect of already",
+        "completed steps when a workflow",
+        "10. Examples",
+        "Easy example: An online order workflow: place order",
+        "\u2192 process payment",
+        "item \u2192 deliver.",
+        "Pract ical example:",
+        "A university admission workflow: application submission",
+        "document check",
+        "\u2192 interview \u2192 final approval.",
+        "Industry example:",
+        "Airline systems coordinate booking, seat allocation, and",
+        "payment across multiple partner systems using TP monitors.",
+        "Real - life example:",
+        "Insurance claim processing involves multiple steps",
+        "(submission, verification, approval, payout) tracked as a workflow.",
+        "11. Advantages & Limitations",
+        "Advantage: TP monitors and workflows allow reliable coordination of complex,",
+        "multi - system business processes.",
+        "Advantage: Persistent recovery ensures long",
+        "running processes are not lost due",
+        "to failures.",
+        "Limitation: Adds significant architectural complexity compared to a single,",
+        "simple transaction.",
+        "Limitation: Coordinating across many systems can int",
+        "roduce performance",
+        "overhead and failure points.",
+        "12. Applications",
+        "Industry: Banking (loan processing), insurance (claims), telecom (service",
+        "provisioning).",
+        "Companies: Large enterprises using ERP systems (SAP, Oracle) rely on TP",
+        "monitors and workflow engines.",
+        "Daily life:",
+        "Any multi - step online process (loan applications, visa applications)",
+        "uses workflow",
+        "like coordination.",
+        "Software: BPM (Business Process Management) tools, TP monitors like IBM",
+        "CICS, Oracle Tuxedo.",
+        "Websites: E- commerce order fulfillment pipelines"
       ],
       "examTips": []
     },
+    "fullRawText": "11. Advantages & Limitations\n\u2022\nAdvantage: ACID guarantees reliability and correctness for critical operations.\n\u2022\nAdvantage: Prevents data corruption from crashes or concurrent access.\n\u2022\nLimitation: Stri\nct ACID compliance can reduce performance/scalability\ncompared to relaxed consistency models.\n\u2022\nLimitation: Not all modern distributed systems (e.g., many NoSQL databases)\nfully guarantee ACID by default.\n12. Applications\n\u2022\nIndustry: Banking, insurance, airline reservations, healthcare records.\n\u2022\nCompanies: All major banks and payment processors rely on ACID transactions.\n\u2022\nDaily life:\nEvery online payment, ticket booking, or fund transfer depends on\ntransaction reliability.\n\u2022\nSoftware: Relational database engines (O\nracle, PostgreSQL, MySQL InnoDB).\n\u2022\nWebsites: E- commerce checkout systems.\n\u2022\nMobile Apps: Banking and payment apps.\n13. Key Points to Remember\n\u2022 A transaction is a single, all\n- or- nothing unit of work.\n\u2022 ACID = Atomicity, Consistency, Isolation, Durability.\n\u2022 Atomicity ensures all\n- or- nothing; Durability ensures permanence after commit.\n\u2022 Transaction states: Active\n\u2192\nPartially Committed\n\u2192\nCommitted, or\nActive/Partially Committed\n\u2192 Failed \u2192 Aborted.\n\u2022 Common misconception:\nConsistency in ACID refers to the databas\ne obeying its\ndefined rules/constraints\n- it is not the same as \"consistency\" in distributed\nsystems (like eventual consistency in NoSQL), which is a different concept.\nTopic 4.2: Transaction Processing Monitors, Transactional\nWorkflows, and Recovery of Workflow\n1. Topic Name - TP Monitors and Transactional Workflows\nWhat is it?\nA Transaction Processing (TP) Monitor\nis software that manages and\ncoordinates transactions across multiple applications, databases, and even multiple\nservers, ensuring reliability\nat large scale. A\nworkflow is a series of connected tasks\n(which may involve multiple systems and even human steps) that together accomplish\na larger business process.\nWhy do we need it?\nLarge organizations run business processes that involve many\nsteps across different systems (e.g., loan approval involves credit checks, manager\napproval, document verification). TP monitors and workflow systems coordinate all\nthese pieces reliably.\nWhere is it used?\n- Large enterprise systems (banking, insurance, telecom)\n- Business\nprocess automation (loan processing, order fulfillment)\n- Airline and travel booking\nsystems involving multiple providers\n2. Beginner Friendly Introduction\nImagine a factory manager coordinating multiple departments to build a product\n-\none team makes parts, another assembles, another does quality control. A TP monitor\nis like this manager, making sure every step across many systems happens correctly\nand in the right order, even if one department temporarily has a problem.\nKey words explained:\nWord\nSimple Meaning\nTP Monitor\nSoftware that coordinates transactions across multiple systems\nWorkflow\nA sequence of connected tasks (steps) that make up a business\nprocess\nTask\nOne individual step in a workflow\nWorkflow\nEngine\nThe software component that runs and tracks a workflow's progress\n3. Real - Life Analogies\nAnalogy 1 - Restaurant Kitchen Coordination:\nA head chef (TP monitor) coordinates\nmultiple cooking stations (systems) so that starters, mains, and desserts are all ready\nand served together, i\nn the correct order, without one part failing and ruining the\nwhole meal.\nAnalogy 2 - Loan Approval at a Bank:\nGetting a loan involves several connected steps\n- application submission, credit check, manager approval, document verification, and\nfund disbursement. This entire connected sequence is a workflow, tracked from start\nto finish.\n4. Complete Detailed Explanation\n4.1 TP Monitor Architecture\nA TP monitor typically sits between client applications and one or more\ndatabase/resource managers, and performs\nfunctions such as:\n- Routing client requests to the correct application/server.\n- Managing transaction boundaries\n(starting, committing, aborting transactions)\nacross multiple resource managers.\n- Load balancing\n- distributing requests across available servers.\n- Coordinating distributed transactions\n(often using protocols like Two\n- Phase\nCommit) when a transaction spans multiple databases/resources.\n- Providing reliability and recovery\nfor transactions even when individual application\nservers fail.\n4.2 Tra nsactional Workflows\nA transactional workflow\napplies transaction\n- like properties (as much as\npossible) to a\nmulti - step business process\nthat might span multiple systems and take\nmuch longer than a typical database transaction (sometimes hours, days, or even\nweeks). - Each individual step in the workflow can be its own smaller transaction.\n- The\noverall workflow tracks the state of the whole process (which steps are done, which\nare pending).\n4.3 Workflow Architectures\nCommon workflow architectures include:\n- Centralized Workflow Architecture\n- one central workflow engine coordinates and\ntracks every step of the process.\n- Decentralized (Distributed) Workflow Architecture\n- multiple systems/engines\ncoordinate among themselves without one single central controller, offering more\nresilience but added complexity.\n- State - Based (Persistent) Architecture\n- the workflow engine stores the current\nstate persistently at every step, so that progress is not lost even if the system crashes\nmid - process.\n4.4 Recovery of Wor\nkflow\nBecause workflows can run for a long time and span multiple systems, robust recovery\nmechanisms are essential:\n- The workflow engine maintains a\npersistent log\nof completed and pending steps.\n- If a failure occurs, the workflow can be\nresumed from the last successfully completed\nstep, rather than restarting from scratch.\n- Failed steps may trigger\ncompensating actions\n(undoing the effects of already\n-\ncompleted steps) if the overall workflow cannot continue successfully (this connects\nwith compensating\ntransactions, covered later in this module).\n5. Step - by- Step Working\nWorkflow Started (e.g., Loan Application Submitted)\n\u2193\nStep 1: Credit Check (own mini\n- transaction)\n\u2193\nStep 2: Manager Approval (own mini\n- transaction)\n\u2193\nStep 3: Document Verification (own mi\nni- transaction)\n\u2193\nStep 4: Fund Disbursement (own mini\n- transaction)\n\u2193\nIf any step fails\n\u2192 Trigger Recovery/Compensation for completed steps\n\u2193\nWorkflow Completed or Rolled Back via Compensation\n6. Diagrams\nSample Transactional Workflow\nFigure: Sample Trans\nactional Workflow\nA flowchart showing a loan approval workflow with boxes for each step (Application, Credit\nCheck,\u2026\nFigure: A flowchart showing a loan approval workflow with boxes for each step\n(Application, Credit Check,\u2026\n7. Images\nTP Monitor architecture diagram showing multiple client applications connecting through a\ncentral\u2026\nFigure: TP Monitor architecture diagram showing multiple client applications\nconnecting through a central\u2026\n8. Tables\nWorkflow\nArchitecture\nDescription\nTrade - off\nCentralized\nOne engine controls entire\nworkflow\nSimple but a single point of\nfailure\nDecentralized\nMultiple systems coordinate\ntogether\nResilient but complex to\ndesign\nState - Based\n(Persistent)\nProgress is saved persistently at\neach step\nReliable recovery, some\nstorage overhead\n9. Important Terms\nTerm\nSimple Meaning\nTP Monitor\nSoftware coordinating transactions across multiple systems\nWorkflow\nA connected sequence of tasks forming a business process\nWorkflow\nEngine\nSoftware that runs and tracks a workflow\nPersiste nt Log\nA saved record of workflow progress, used for recovery\nCompensation\nUndoing the effect of already\n- completed steps when a workflow\nfails\n10. Examples\n\u2022\nEasy example: An online order workflow: place order\n\u2192 process payment\n\u2192 ship\nitem \u2192 deliver.\n\u2022\nPract ical example:\nA university admission workflow: application submission\n\u2192\ndocument check\n\u2192 interview \u2192 final approval.\n\u2022\nIndustry example:\nAirline systems coordinate booking, seat allocation, and\npayment across multiple partner systems using TP monitors.\n\u2022\nReal - life example:\nInsurance claim processing involves multiple steps\n(submission, verification, approval, payout) tracked as a workflow.\n11. Advantages & Limitations\n\u2022\nAdvantage: TP monitors and workflows allow reliable coordination of complex,\nmulti - system business processes.\n\u2022\nAdvantage: Persistent recovery ensures long\n- running processes are not lost due\nto failures.\n\u2022\nLimitation: Adds significant architectural complexity compared to a single,\nsimple transaction.\n\u2022\nLimitation: Coordinating across many systems can int\nroduce performance\noverhead and failure points.\n12. Applications\n\u2022\nIndustry: Banking (loan processing), insurance (claims), telecom (service\nprovisioning).\n\u2022\nCompanies: Large enterprises using ERP systems (SAP, Oracle) rely on TP\nmonitors and workflow engines.\n\u2022\nDaily life:\nAny multi - step online process (loan applications, visa applications)\nuses workflow\n- like coordination.\n\u2022\nSoftware: BPM (Business Process Management) tools, TP monitors like IBM\nCICS, Oracle Tuxedo.\n\u2022\nWebsites: E- commerce order fulfillment pipelines\n.",
     "structuredTables": [
       {
         "id": "t4_2_tp_monitors",
@@ -2798,28 +4609,19 @@ export const TOPICS_DATA = [
             "feature": "Centralized TP Monitor",
             "col1": "Single dedicated central coordinator server",
             "col2": "Limited scalability; coordinator becomes bottleneck under high load",
-            "col3": "Single Point of Failure (SPoF) unless active-passive standby exists",
-            "col4": "Low to Moderate: Straightforward centralized state management",
+            "col3": "Single Point of Failure (SPoF) unless standby exists",
+            "col4": "Low to Moderate: Straightforward state management",
             "col5": "Traditional enterprise mainframes, legacy ERP architectures",
             "status": "warning"
           },
           {
-            "feature": "Decentralized (Distributed) TP Monitor",
+            "feature": "Decentralized TP Monitor",
             "col1": "Multiple cooperating peer nodes running distributed consensus",
             "col2": "High horizontal scalability; load distributed across cluster nodes",
             "col3": "Resilient: Survives single node crashes through peer failover",
             "col4": "High: Requires distributed consensus, quorum, and global clocks",
-            "col5": "Cloud-native microservices, global financial clearing networks",
+            "col5": "Cloud-native microservices, global financial networks",
             "status": "success"
-          },
-          {
-            "feature": "State-Based (Persistent) Workflow",
-            "col1": "Durable database-backed workflow execution engine",
-            "col2": "High throughput for long-running, multi-step asynchronous processes",
-            "col3": "Maximum resilience: Steps persisted to WAL before dispatching external events",
-            "col4": "Moderate: Requires robust idempotency and compensation handlers",
-            "col5": "Temporal, AWS Step Functions, Order fulfillment sagas",
-            "status": "better-col2"
           }
         ]
       }
@@ -2830,197 +4632,437 @@ export const TOPICS_DATA = [
     "moduleId": 4,
     "moduleName": "Advanced Transaction Processing",
     "title": "Real - Time Transaction Systems",
-    "pages": "72 - 78",
-    "estimatedTime": "18 min",
+    "timeEstimate": "18 min",
+    "pageRange": "96 - 101",
     "overview": {
-      "whatIsIt": "A real - time transaction system\nis a database system where transactions\nmust be completed within a\nstrict, predictable time limit (dead\nline) , not just \"as fast\nas possible\" - correctness includes both the right result AND meeting the deadline.",
-      "whyNeed": "Some applications (like flight control, medical monitoring,\nindustrial automation) fail dangerously if results arrive too late, even if the result itself\nis correct. Regular database systems don't guarantee timing, only eventual correctness.",
-      "whereUsed": "- Air traffic control systems\n- Patient monitoring in hospitals (ICU\nsystems) - Industrial process control (factories, power\nplants) - Stock trading systems\nneeding rapid response",
-      "importantNotes": ""
+      "whatIsIt": "",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Imagine a fire alarm system\n- even a perfectly accurate alert is useless if it takes 10\nminutes to sound after a fire starts. In a real\n- time transaction system, being \"correct\nbut late\" can be just as bad as being wrong.",
-      "keywords": [
-        {
-          "term": "Deadline",
-          "meaning": "The maximum time by which a transaction must finish"
-        },
-        {
-          "term": "Time",
-          "meaning": "A system where missing a deadline causes serious/catastrophic"
-        },
-        {
-          "term": "failure",
-          "meaning": "Soft Real - T ime"
-        },
-        {
-          "term": "catastrophic",
-          "meaning": "Scheduling"
-        }
-      ]
+      "simpleExplanation": "",
+      "keywords": []
     },
-    "analogies": [
-      {
-        "num": "1",
-        "title": "Airbag Deployment",
-        "description": "A car's airbag system must react within milliseconds\nof a crash. A \"correct\" decision to deploy the airbag one second too late is completely\nuseless - timing is as important as correctness."
-      },
-      {
-        "num": "2",
-        "title": "Live Sports Broadcast",
-        "description": "A slightly delayed video feed by a few seconds\nmight be acceptable (soft real\n- time), but a pacemaker regulating a heartbeat cannot\ntolerate delay at all (hard real\n- time) - the required strictness of timing varies by\napplication."
-      }
-    ],
+    "analogies": [],
     "detailedExplanation": {
       "subsections": [
         {
-          "title": "4.1 Characteristics of Real",
-          "content": "- Time Transactions\n\u2022\nTransactions have an associated\ndeadline - a time by which they must\ncomplete.\n\u2022\nCorrectness is defined by\nboth the logical result AND meeting the timing\nconstraint.\n\u2022\nTraditional concurrency control (like standard 2PL) may need modification,\nsince blocking/waiting for locks can cause d\neadlines to be missed."
-        },
-        {
-          "title": "4.2 Types of Real",
-          "content": "- Time Systems\n\u2022\nHard Real\n- Time Systems\n- missing a deadline is considered a total system\nfailure (e.g., missile guidance, life\n- support systems). Absolutely no exceptions\nallowed.\n\u2022\nSoft Real - Time Systems\n- missing a deadline reduces the value/quality of the\nresult but does not cause total failure (e.g., video streaming, some financial\ntrading systems).\n\u2022\nFirm Real - Time Systems\n- a middle ground; late results are considered useless\n(the value drops to zero) but do not cause\na catastrophic failure, unlike hard\nreal - time."
-        },
-        {
-          "title": "4.3 Scheduling in Real",
-          "content": "- Time Transaction Systems\nSince correctness depends on timing, transaction scheduling must consider\ndeadlines, not just fairness or throughput:\n- Earliest Deadline First (EDF)\n- prioritize the transaction with the closest/soonest\ndeadline.\n- Priority - based scheduling\n- assign priorities based on how critical or urgent a\ntransaction is.\n- Concurrency control protocols may need to be\ndeadline - aware , sometimes allowing\na lower - priority transa\nction to be aborted/preempted if it risks blocking a higher\n-\npriority, more urgent transaction."
-        },
-        {
-          "title": "4.4 Challenges",
-          "content": "\u2022\nBalancing strict timing requirements with the correctness guarantees (like ACID)\nof traditional transactions is difficult.\n\u2022\nPredicting exactly how long a transaction will take (worst\n- case execution time)\nis hard in complex systems.\n\u2022\nLocking - based concurrency control can cause\npriority inversion\n(a high -\npriority transaction waiting on a lock held by a low\n- priority one), which must be\nspecifically handl\ned in real - time systems."
+          "title": "Core Theoretical Framework",
+          "content": "Detailed theoretical concepts and principles."
         }
       ],
-      "raw": "4. Complete Detailed Explanation\n4.1 Characteristics of Real\n- Time Transactions\n\u2022\nTransactions have an associated\ndeadline - a time by which they must\ncomplete.\n\u2022\nCorrectness is defined by\nboth the logical result AND meeting the timing\nconstraint.\n\u2022\nTraditional concurrency control (like standard 2PL) may need modification,\nsince blocking/waiting for locks can cause d\neadlines to be missed.\n4.2 Types of Real\n- Time Systems\n\u2022\nHard Real\n- Time Systems\n- missing a deadline is considered a total system\nfailure (e.g., missile guidance, life\n- support systems). Absolutely no exceptions\nallowed.\n\u2022\nSoft Real - Time Systems\n- missing a deadline reduces the value/quality of the\nresult but does not cause total failure (e.g., video streaming, some financial\ntrading systems).\n\u2022\nFirm Real - Time Systems\n- a middle ground; late results are considered useless\n(the value drops to zero) but do not cause\na catastrophic failure, unlike hard\nreal - time.\n4.3 Scheduling in Real\n- Time Transaction Systems\nSince correctness depends on timing, transaction scheduling must consider\ndeadlines, not just fairness or throughput:\n- Earliest Deadline First (EDF)\n- prioritize the transaction with the closest/soonest\ndeadline.\n- Priority - based scheduling\n- assign priorities based on how critical or urgent a\ntransaction is.\n- Concurrency control protocols may need to be\ndeadline - aware , sometimes allowing\na lower - priority transa\nction to be aborted/preempted if it risks blocking a higher\n-\npriority, more urgent transaction.\n4.4 Challenges\n\u2022\nBalancing strict timing requirements with the correctness guarantees (like ACID)\nof traditional transactions is difficult.\n\u2022\nPredicting exactly how long a transaction will take (worst\n- case execution time)\nis hard in complex systems.\n\u2022\nLocking - based concurrency control can cause\npriority inversion\n(a high -\npriority transaction waiting on a lock held by a low\n- priority one), which must be\nspecifically handl\ned in real - time systems."
+      "raw": ""
     },
-    "stepByStep": [
-      {
-        "title": "Transaction Arrives with a Deadline",
-        "isHeader": false
-      },
-      {
-        "title": "Scheduler evaluates urgency (e.g., Earliest Deadline First)",
-        "isHeader": false
-      },
-      {
-        "title": "Transaction is scheduled/prioritized accordingly",
-        "isHeader": false
-      },
-      {
-        "title": "Transaction executes, closely monitored against its deadline",
-        "isHeader": false
-      },
-      {
-        "title": "Completed before deadline?",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 Yes \u2192 Success (Correct and On",
-        "isHeader": false
-      },
-      {
-        "title": "- Time)",
-        "isHeader": false
-      },
-      {
-        "title": "\u2193 No \u2192 Missed Deadline (Failure severity depends on Hard/Firm/Soft classification)",
-        "isHeader": false
-      }
-    ],
-    "tablesRaw": "Type\nMissing Deadline Impact\nExample\nHard Real\n-\nTime\nCatastrophic failure\nMissile guidance, life support\nFirm Real\n-\nTime\nResult becomes useless, no\ncatastrophe\nSome financial trading systems\nSoft Real\n-\nTime\nReduced quality, still useful\nVideo streaming, soft deadlines in\nscheduling",
-    "terms": [
-      {
-        "term": "Hard Real",
-        "definition": "Time"
-      },
-      {
-        "term": "Soft Real",
-        "definition": "Time"
-      },
-      {
-        "term": "Firm Real",
-        "definition": "Time"
-      },
-      {
-        "term": "A high",
-        "definition": "priority transaction blocked by a lower"
-      }
-    ],
-    "examples": [
-      {
-        "type": "Easy example",
-        "content": "A microwave oven's timer\n- based control system (soft/firm real\n-\ntime)."
-      },
-      {
-        "type": "Practical example",
-        "content": "A hospital ICU monitoring system that must alert staff\nimmediately if a patient's vitals become critical (hard r\neal- time)."
-      },
-      {
-        "type": "Industry example",
-        "content": "Air traffic control systems must process aircraft position\nupdates within strict time limits."
-      },
-      {
-        "type": "Real-life example",
-        "content": "Stock trading systems where a delayed trade execution could\ncause massive financial loss (firm/hard real\n- time depending on context)."
-      }
-    ],
-    "advantages": [
-      "Ensures time",
-      "Specialized scheduling (like EDF) helps meet critical deadlines"
-    ],
-    "limitations": [
-      "Much har",
-      "May require sacrificing some standard database guarantees (like"
-    ],
-    "applications": [
-      {
-        "category": "Industry",
-        "details": "Aerospace, healthcare, industrial automation, defense."
-      },
-      {
-        "category": "Companies",
-        "details": "Airlines (air traffic control vendors), medical device manufacturers."
-      },
-      {
-        "category": "Daily life",
-        "details": "Anti - lock braking systems (ABS) in cars react in real time."
-      },
-      {
-        "category": "Software",
-        "details": "Real - time operating systems (RTOS)\n, embedded database systems."
-      },
-      {
-        "category": "Websites",
-        "details": "High - frequency trading platforms."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Emergency alert systems needing immediate delivery."
-      }
-    ],
+    "stepByStep": [],
+    "diagramsDescription": "",
+    "visualIllustrations": "",
+    "tablesRaw": "",
+    "importantTerms": "",
+    "terms": [],
+    "examples": [],
+    "advantages": [],
+    "limitations": [],
+    "advantagesLimitations": "",
+    "applications": [],
     "keyPoints": {
       "takeaways": [
+        "A TP Monitor coordinates transactions across multiple applications/resource",
+        "managers, often using Two",
+        "Phase Commit for distributed transactions.",
+        "A workflow is a longer",
+        "running, multi",
+        "step business process, often spanning",
+        "multiple systems.",
+        "Workflow architectures can be centralized, decentralized, or state",
+        "(persistent).",
+        "Recovery of workflows relies on persistent logs to resume from the last",
+        "complet ed step after a failure.",
+        "Common misconception:",
+        "A workflow is NOT the same as a single database",
+        "transaction",
+        "workflows are typically much longer, may involve human steps,",
+        "and often cannot be rolled back instantly like a normal transaction (they may",
+        "need compensation instead).",
+        "Topic 4.3: Real",
+        "Time Transaction Systems",
+        "1. Topic Name - Real - Time Transaction Systems",
+        "What is it?",
+        "A real - time transaction system",
+        "is a database system where transactions",
+        "must be completed within a",
+        "strict, predictable time limit (dead",
+        "line) , not just \"as fast",
+        "as possible\" - correctness includes both the right result AND meeting the deadline.",
+        "Why do we need it?",
+        "Some applications (like flight control, medical monitoring,",
+        "industrial automation) fail dangerously if results arrive too late, even if the result itself",
+        "is correct. Regular database systems don't guarantee timing, only eventual correctness.",
+        "Where is it used?",
+        "Air traffic control systems",
+        "Patient monitoring in hospitals (ICU",
+        "systems) - Industrial process control (factories, power",
+        "plants) - Stock trading systems",
+        "needing rapid response",
+        "2. Beginner Friendly Introduction",
+        "Imagine a fire alarm system",
+        "even a perfectly accurate alert is useless if it takes 10",
+        "minutes to sound after a fire starts. In a real",
+        "time transaction system, being \"correct",
+        "but late\" can be just as bad as being wrong.",
+        "Key words explained:",
+        "Simple Meaning",
+        "The maximum time by which a transaction must finish",
+        "A system where missing a deadline causes serious/catastrophic",
+        "Soft Real - T ime",
+        "A system where missing a deadline degrades quality but isn't",
+        "catastrophic",
+        "Deciding the order in which transactions run to meet deadlines",
+        "3. Real - Life Analogies",
+        "Analogy 1 - Airbag Deployment:",
+        "A car's airbag system must react within milliseconds",
+        "of a crash. A \"correct\" decision to deploy the airbag one second too late is completely",
+        "useless - timing is as important as correctness.",
+        "Live Sports Broadcast:",
+        "A slightly delayed video feed by a few seconds",
+        "might be acceptable (soft real",
+        "time), but a pacemaker regulating a heartbeat cannot",
+        "tolerate delay at all (hard real",
+        "time) - the required strictness of timing varies by",
+        "application.",
+        "4. Complete Detailed Explanation",
+        "4.1 Characteristics of Real",
+        "Time Transactions",
+        "Transactions have an associated",
+        "deadline - a time by which they must",
+        "Correctness is defined by",
+        "both the logical result AND meeting the timing",
+        "constraint.",
+        "Traditional concurrency control (like standard 2PL) may need modification,",
+        "since blocking/waiting for locks can cause d",
+        "eadlines to be missed.",
+        "4.2 Types of Real",
+        "Time Systems",
+        "Time Systems",
+        "missing a deadline is considered a total system",
+        "failure (e.g., missile guidance, life",
+        "support systems). Absolutely no exceptions",
+        "Soft Real - Time Systems",
+        "missing a deadline reduces the value/quality of the",
+        "result but does not cause total failure (e.g., video streaming, some financial",
+        "trading systems).",
+        "Firm Real - Time Systems",
+        "a middle ground; late results are considered useless",
+        "(the value drops to zero) but do not cause",
+        "a catastrophic failure, unlike hard",
+        "real - time.",
+        "4.3 Scheduling in Real",
+        "Time Transaction Systems",
+        "Since correctness depends on timing, transaction scheduling must consider",
+        "deadlines, not just fairness or throughput:",
+        "Earliest Deadline First (EDF)",
+        "prioritize the transaction with the closest/soonest",
+        "Priority - based scheduling",
+        "assign priorities based on how critical or urgent a",
+        "transaction is.",
+        "Concurrency control protocols may need to be",
+        "deadline - aware , sometimes allowing",
+        "a lower - priority transa",
+        "ction to be aborted/preempted if it risks blocking a higher",
+        "priority, more urgent transaction.",
+        "4.4 Challenges",
+        "Balancing strict timing requirements with the correctness guarantees (like ACID)",
+        "of traditional transactions is difficult.",
+        "Predicting exactly how long a transaction will take (worst",
+        "case execution time)",
+        "is hard in complex systems.",
+        "Locking - based concurrency control can cause",
+        "priority inversion",
+        "priority transaction waiting on a lock held by a low",
+        "priority one), which must be",
+        "specifically handl",
+        "ed in real - time systems.",
+        "5. Step - by- Step Working",
+        "Transaction Arrives with a Deadline",
+        "Scheduler evaluates urgency (e.g., Earliest Deadline First)",
+        "Transaction is scheduled/prioritized accordingly",
+        "Transaction executes, closely monitored against its deadline",
+        "Completed before deadline?",
+        "\u2193 Yes \u2192 Success (Correct and On",
+        "\u2193 No \u2192 Missed Deadline (Failure severity depends on Hard/Firm/Soft classification)",
+        "6. Diagrams",
+        "A timeline diagram showing a transaction's execution as a bar, with a vertical line marking the",
+        "Figure: A timeline diagram showing a transaction's execution as a bar, with a vertical",
+        "line marking the '\u2026",
+        "Comparison graphic showing Hard, Firm, and Soft real",
+        "time systems, each with a small graph",
+        "Figure: Comparison graphic showing Hard, Firm, and Soft real",
+        "time systems, each with",
+        "a small graph of 'va\u2026",
+        "Missing Deadline Impact",
+        "Catastrophic failure",
+        "Missile guidance, life support",
+        "Result becomes useless, no",
+        "catastrophe",
+        "Some financial trading systems",
+        "Reduced quality, still useful",
+        "Video streaming, soft deadlines in",
+        "9. Important Terms",
+        "Simple Meaning",
+        "The maximum allowed time for a transaction to finish",
+        "Hard Real - Time",
+        "System where missing a deadline is catastrophic",
+        "Soft Real - Time",
+        "System where missing a deadline is tol",
+        "erable but undesirable",
+        "Firm Real - Time",
+        "Late results become worthless but aren't catastrophic",
+        "EDF (Earliest Deadline",
+        "A scheduling method prioritizing the most urgent deadline",
+        "Priority Inversion",
+        "A high - priority transaction blocked by a lower",
+        "priority one",
+        "holding a needed lock",
+        "10. Examples",
+        "Easy example:",
+        "A microwave oven's timer",
+        "based control system (soft/firm real",
+        "Practical example:",
+        "A hospital ICU monitoring system that must alert staff",
+        "immediately if a patient's vitals become critical (hard r",
+        "eal- time).",
+        "Industry example:",
+        "Air traffic control systems must process aircraft position",
+        "updates within strict time limits.",
+        "Real - life example: Stock trading systems where a delayed trade execution could",
+        "cause massive financial loss (firm/hard real",
+        "time depending on context).",
+        "11. Advantages & Limitations",
+        "Advantage: Ensures time",
+        "critical operations happen when they are actually",
+        "needed, not just eventually.",
+        "Advantage: Specialized scheduling (like EDF) helps meet critical deadlines",
+        "Limitation: Much har",
+        "der to design and guarantee correctness under both logical",
+        "and timing constraints simultaneously.",
+        "Limitation: May require sacrificing some standard database guarantees (like",
+        "strict serializability) for the sake of meeting deadlines.",
+        "12. Applications",
+        "Industry: Aerospace, healthcare, industrial automation, defense.",
+        "Companies: Airlines (air traffic control vendors), medical device manufacturers.",
+        "Daily life: Anti - lock braking systems (ABS) in cars react in real time.",
+        "Software: Real - time operating systems (RTOS)",
+        ", embedded database systems.",
+        "Websites: High - frequency trading platforms.",
+        "Mobile Apps: Emergency alert systems needing immediate delivery.",
         "Real - time transactions must be both logically correct AND meet strict timing",
-        "deadlines.",
         "Hard real - time = missing deadline is catastrophic; Firm = result becomes useless;",
         "Soft = quality degrades but still usable.",
         "Earliest Deadline First (EDF) is a common scheduling strategy in real",
-        "time",
-        "systems.",
         "Priority inversion is a key challenge, wher",
         "e high - priority transactions get",
         "blocked by lower",
         "priority ones holding locks.",
+        "Common misconception:",
         "\"Real - time\" does NOT mean \"instant\"",
-        "it means",
         "meeting a specific, defined deadline, which could even be several seconds or",
         "minutes depending on the appl",
         "ication's requirements."
       ],
       "misconceptions": [
-        ""
+        "A workflow is NOT the same as a single database",
+        "transaction",
+        "workflows are typically much longer, may involve human steps,",
+        "and often cannot be rolled back instantly like a normal transaction (they may",
+        "need compensation instead).",
+        "Topic 4.3: Real",
+        "Time Transaction Systems",
+        "1. Topic Name - Real - Time Transaction Systems",
+        "What is it?",
+        "A real - time transaction system",
+        "is a database system where transactions",
+        "must be completed within a",
+        "strict, predictable time limit (dead",
+        "line) , not just \"as fast",
+        "as possible\" - correctness includes both the right result AND meeting the deadline.",
+        "Why do we need it?",
+        "Some applications (like flight control, medical monitoring,",
+        "industrial automation) fail dangerously if results arrive too late, even if the result itself",
+        "is correct. Regular database systems don't guarantee timing, only eventual correctness.",
+        "Where is it used?",
+        "Air traffic control systems",
+        "Patient monitoring in hospitals (ICU",
+        "systems) - Industrial process control (factories, power",
+        "plants) - Stock trading systems",
+        "needing rapid response",
+        "2. Beginner Friendly Introduction",
+        "Imagine a fire alarm system",
+        "even a perfectly accurate alert is useless if it takes 10",
+        "minutes to sound after a fire starts. In a real",
+        "time transaction system, being \"correct",
+        "but late\" can be just as bad as being wrong.",
+        "Key words explained:",
+        "Simple Meaning",
+        "The maximum time by which a transaction must finish",
+        "A system where missing a deadline causes serious/catastrophic",
+        "Soft Real - T ime",
+        "A system where missing a deadline degrades quality but isn't",
+        "catastrophic",
+        "Deciding the order in which transactions run to meet deadlines",
+        "3. Real - Life Analogies",
+        "Analogy 1 - Airbag Deployment:",
+        "A car's airbag system must react within milliseconds",
+        "of a crash. A \"correct\" decision to deploy the airbag one second too late is completely",
+        "useless - timing is as important as correctness.",
+        "Live Sports Broadcast:",
+        "A slightly delayed video feed by a few seconds",
+        "might be acceptable (soft real",
+        "time), but a pacemaker regulating a heartbeat cannot",
+        "tolerate delay at all (hard real",
+        "time) - the required strictness of timing varies by",
+        "application.",
+        "4. Complete Detailed Explanation",
+        "4.1 Characteristics of Real",
+        "Time Transactions",
+        "Transactions have an associated",
+        "deadline - a time by which they must",
+        "Correctness is defined by",
+        "both the logical result AND meeting the timing",
+        "constraint.",
+        "Traditional concurrency control (like standard 2PL) may need modification,",
+        "since blocking/waiting for locks can cause d",
+        "eadlines to be missed.",
+        "4.2 Types of Real",
+        "Time Systems",
+        "Time Systems",
+        "missing a deadline is considered a total system",
+        "failure (e.g., missile guidance, life",
+        "support systems). Absolutely no exceptions",
+        "Soft Real - Time Systems",
+        "missing a deadline reduces the value/quality of the",
+        "result but does not cause total failure (e.g., video streaming, some financial",
+        "trading systems).",
+        "Firm Real - Time Systems",
+        "a middle ground; late results are considered useless",
+        "(the value drops to zero) but do not cause",
+        "a catastrophic failure, unlike hard",
+        "real - time.",
+        "4.3 Scheduling in Real",
+        "Time Transaction Systems",
+        "Since correctness depends on timing, transaction scheduling must consider",
+        "deadlines, not just fairness or throughput:",
+        "Earliest Deadline First (EDF)",
+        "prioritize the transaction with the closest/soonest",
+        "Priority - based scheduling",
+        "assign priorities based on how critical or urgent a",
+        "transaction is.",
+        "Concurrency control protocols may need to be",
+        "deadline - aware , sometimes allowing",
+        "a lower - priority transa",
+        "ction to be aborted/preempted if it risks blocking a higher",
+        "priority, more urgent transaction.",
+        "4.4 Challenges",
+        "Balancing strict timing requirements with the correctness guarantees (like ACID)",
+        "of traditional transactions is difficult.",
+        "Predicting exactly how long a transaction will take (worst",
+        "case execution time)",
+        "is hard in complex systems.",
+        "Locking - based concurrency control can cause",
+        "priority inversion",
+        "priority transaction waiting on a lock held by a low",
+        "priority one), which must be",
+        "specifically handl",
+        "ed in real - time systems.",
+        "5. Step - by- Step Working",
+        "Transaction Arrives with a Deadline",
+        "Scheduler evaluates urgency (e.g., Earliest Deadline First)",
+        "Transaction is scheduled/prioritized accordingly",
+        "Transaction executes, closely monitored against its deadline",
+        "Completed before deadline?",
+        "\u2193 Yes \u2192 Success (Correct and On",
+        "\u2193 No \u2192 Missed Deadline (Failure severity depends on Hard/Firm/Soft classification)",
+        "6. Diagrams",
+        "A timeline diagram showing a transaction's execution as a bar, with a vertical line marking the",
+        "Figure: A timeline diagram showing a transaction's execution as a bar, with a vertical",
+        "line marking the '\u2026",
+        "Comparison graphic showing Hard, Firm, and Soft real",
+        "time systems, each with a small graph",
+        "Figure: Comparison graphic showing Hard, Firm, and Soft real",
+        "time systems, each with",
+        "a small graph of 'va\u2026",
+        "Missing Deadline Impact",
+        "Catastrophic failure",
+        "Missile guidance, life support",
+        "Result becomes useless, no",
+        "catastrophe",
+        "Some financial trading systems",
+        "Reduced quality, still useful",
+        "Video streaming, soft deadlines in",
+        "9. Important Terms",
+        "Simple Meaning",
+        "The maximum allowed time for a transaction to finish",
+        "Hard Real - Time",
+        "System where missing a deadline is catastrophic",
+        "Soft Real - Time",
+        "System where missing a deadline is tol",
+        "erable but undesirable",
+        "Firm Real - Time",
+        "Late results become worthless but aren't catastrophic",
+        "EDF (Earliest Deadline",
+        "A scheduling method prioritizing the most urgent deadline",
+        "Priority Inversion",
+        "A high - priority transaction blocked by a lower",
+        "priority one",
+        "holding a needed lock",
+        "10. Examples",
+        "Easy example:",
+        "A microwave oven's timer",
+        "based control system (soft/firm real",
+        "Practical example:",
+        "A hospital ICU monitoring system that must alert staff",
+        "immediately if a patient's vitals become critical (hard r",
+        "eal- time).",
+        "Industry example:",
+        "Air traffic control systems must process aircraft position",
+        "updates within strict time limits.",
+        "Real - life example: Stock trading systems where a delayed trade execution could",
+        "cause massive financial loss (firm/hard real",
+        "time depending on context).",
+        "11. Advantages & Limitations",
+        "Advantage: Ensures time",
+        "critical operations happen when they are actually",
+        "needed, not just eventually.",
+        "Advantage: Specialized scheduling (like EDF) helps meet critical deadlines",
+        "Limitation: Much har",
+        "der to design and guarantee correctness under both logical",
+        "and timing constraints simultaneously.",
+        "Limitation: May require sacrificing some standard database guarantees (like",
+        "strict serializability) for the sake of meeting deadlines.",
+        "12. Applications",
+        "Industry: Aerospace, healthcare, industrial automation, defense.",
+        "Companies: Airlines (air traffic control vendors), medical device manufacturers.",
+        "Daily life: Anti - lock braking systems (ABS) in cars react in real time.",
+        "Software: Real - time operating systems (RTOS)",
+        ", embedded database systems.",
+        "Websites: High - frequency trading platforms.",
+        "Mobile Apps: Emergency alert systems needing immediate delivery.",
+        "13. Key Points to Remember",
+        "Real - time transactions must be both logically correct AND meet strict timing",
+        "Hard real - time = missing deadline is catastrophic; Firm = result becomes useless;",
+        "Soft = quality degrades but still usable.",
+        "Earliest Deadline First (EDF) is a common scheduling strategy in real",
+        "Priority inversion is a key challenge, wher",
+        "e high - priority transactions get",
+        "blocked by lower",
+        "priority ones holding locks.",
+        "Common misconception:",
+        "\"Real - time\" does NOT mean \"instant\"",
+        "meeting a specific, defined deadline, which could even be several seconds or",
+        "minutes depending on the appl",
+        "ication's requirements."
       ],
       "examTips": []
     },
+    "fullRawText": "\u2022\nMobile Apps: Multi - step onboarding or verification processes in apps.\n13. Key Points to Remember\n\u2022 A TP Monitor coordinates transactions across multiple applications/resource\nmanagers, often using Two\n- Phase Commit for distributed transactions.\n\u2022 A workflow is a longer\n- running, multi\n- step business process, often spanning\nmultiple systems.\n\u2022 Workflow architectures can be centralized, decentralized, or state\n- based\n(persistent).\n\u2022 Recovery of workflows relies on persistent logs to resume from the last\ncomplet ed step after a failure.\n\u2022 Common misconception:\nA workflow is NOT the same as a single database\ntransaction\n- workflows are typically much longer, may involve human steps,\nand often cannot be rolled back instantly like a normal transaction (they may\nneed compensation instead).\nTopic 4.3: Real\n- Time Transaction Systems\n1. Topic Name - Real - Time Transaction Systems\nWhat is it?\nA real - time transaction system\nis a database system where transactions\nmust be completed within a\nstrict, predictable time limit (dead\nline) , not just \"as fast\nas possible\" - correctness includes both the right result AND meeting the deadline.\nWhy do we need it?\nSome applications (like flight control, medical monitoring,\nindustrial automation) fail dangerously if results arrive too late, even if the result itself\nis correct. Regular database systems don't guarantee timing, only eventual correctness.\nWhere is it used?\n- Air traffic control systems\n- Patient monitoring in hospitals (ICU\nsystems) - Industrial process control (factories, power\nplants) - Stock trading systems\nneeding rapid response\n2. Beginner Friendly Introduction\nImagine a fire alarm system\n- even a perfectly accurate alert is useless if it takes 10\nminutes to sound after a fire starts. In a real\n- time transaction system, being \"correct\nbut late\" can be just as bad as being wrong.\nKey words explained:\nWord\nSimple Meaning\nDeadline\nThe maximum time by which a transaction must finish\nHard Real\n-\nTime\nA system where missing a deadline causes serious/catastrophic\nfailure\nSoft Real - T ime\nA system where missing a deadline degrades quality but isn't\ncatastrophic\nScheduling\nDeciding the order in which transactions run to meet deadlines\n3. Real - Life Analogies\nAnalogy 1 - Airbag Deployment:\nA car's airbag system must react within milliseconds\nof a crash. A \"correct\" decision to deploy the airbag one second too late is completely\nuseless - timing is as important as correctness.\nAnalogy 2\n- Live Sports Broadcast:\nA slightly delayed video feed by a few seconds\nmight be acceptable (soft real\n- time), but a pacemaker regulating a heartbeat cannot\ntolerate delay at all (hard real\n- time) - the required strictness of timing varies by\napplication.\n4. Complete Detailed Explanation\n4.1 Characteristics of Real\n- Time Transactions\n\u2022\nTransactions have an associated\ndeadline - a time by which they must\ncomplete.\n\u2022\nCorrectness is defined by\nboth the logical result AND meeting the timing\nconstraint.\n\u2022\nTraditional concurrency control (like standard 2PL) may need modification,\nsince blocking/waiting for locks can cause d\neadlines to be missed.\n4.2 Types of Real\n- Time Systems\n\u2022\nHard Real\n- Time Systems\n- missing a deadline is considered a total system\nfailure (e.g., missile guidance, life\n- support systems). Absolutely no exceptions\nallowed.\n\u2022\nSoft Real - Time Systems\n- missing a deadline reduces the value/quality of the\nresult but does not cause total failure (e.g., video streaming, some financial\ntrading systems).\n\u2022\nFirm Real - Time Systems\n- a middle ground; late results are considered useless\n(the value drops to zero) but do not cause\na catastrophic failure, unlike hard\nreal - time.\n4.3 Scheduling in Real\n- Time Transaction Systems\nSince correctness depends on timing, transaction scheduling must consider\ndeadlines, not just fairness or throughput:\n- Earliest Deadline First (EDF)\n- prioritize the transaction with the closest/soonest\ndeadline.\n- Priority - based scheduling\n- assign priorities based on how critical or urgent a\ntransaction is.\n- Concurrency control protocols may need to be\ndeadline - aware , sometimes allowing\na lower - priority transa\nction to be aborted/preempted if it risks blocking a higher\n-\npriority, more urgent transaction.\n4.4 Challenges\n\u2022\nBalancing strict timing requirements with the correctness guarantees (like ACID)\nof traditional transactions is difficult.\n\u2022\nPredicting exactly how long a transaction will take (worst\n- case execution time)\nis hard in complex systems.\n\u2022\nLocking - based concurrency control can cause\npriority inversion\n(a high -\npriority transaction waiting on a lock held by a low\n- priority one), which must be\nspecifically handl\ned in real - time systems.\n5. Step - by- Step Working\nTransaction Arrives with a Deadline\n\u2193\nScheduler evaluates urgency (e.g., Earliest Deadline First)\n\u2193\nTransaction is scheduled/prioritized accordingly\n\u2193\nTransaction executes, closely monitored against its deadline\n\u2193\nCompleted before deadline?\n\u2193 Yes \u2192 Success (Correct and On\n- Time)\n\u2193 No \u2192 Missed Deadline (Failure severity depends on Hard/Firm/Soft classification)\n6. Diagrams\nA timeline diagram showing a transaction's execution as a bar, with a vertical line marking the\n'\u2026\nFigure: A timeline diagram showing a transaction's execution as a bar, with a vertical\nline marking the '\u2026\n7. Images\nComparison graphic showing Hard, Firm, and Soft real\n- time systems, each with a small graph\nof 'va\u2026\nFigure: Comparison graphic showing Hard, Firm, and Soft real\n- time systems, each with\na small graph of 'va\u2026\n8. Tables\nType\nMissing Deadline Impact\nExample\nHard Real\n-\nTime\nCatastrophic failure\nMissile guidance, life support\nFirm Real\n-\nTime\nResult becomes useless, no\ncatastrophe\nSome financial trading systems\nSoft Real\n-\nTime\nReduced quality, still useful\nVideo streaming, soft deadlines in\nscheduling\n9. Important Terms\nTerm\nSimple Meaning\nDeadline\nThe maximum allowed time for a transaction to finish\nHard Real - Time\nSystem where missing a deadline is catastrophic\nSoft Real - Time\nSystem where missing a deadline is tol\nerable but undesirable\nFirm Real - Time\nLate results become worthless but aren't catastrophic\nEDF (Earliest Deadline\nFirst)\nA scheduling method prioritizing the most urgent deadline\nPriority Inversion\nA high - priority transaction blocked by a lower\n- priority one\nholding a needed lock\n10. Examples\n\u2022\nEasy example:\nA microwave oven's timer\n- based control system (soft/firm real\n-\ntime).\n\u2022\nPractical example:\nA hospital ICU monitoring system that must alert staff\nimmediately if a patient's vitals become critical (hard r\neal- time).\n\u2022\nIndustry example:\nAir traffic control systems must process aircraft position\nupdates within strict time limits.\n\u2022\nReal - life example: Stock trading systems where a delayed trade execution could\ncause massive financial loss (firm/hard real\n- time depending on context).\n11. Advantages & Limitations\n\u2022\nAdvantage: Ensures time\n- critical operations happen when they are actually\nneeded, not just eventually.\n\u2022\nAdvantage: Specialized scheduling (like EDF) helps meet critical deadlines\nreliably.\n\u2022\nLimitation: Much har\nder to design and guarantee correctness under both logical\nand timing constraints simultaneously.\n\u2022\nLimitation: May require sacrificing some standard database guarantees (like\nstrict serializability) for the sake of meeting deadlines.\n12. Applications\n\u2022\nIndustry: Aerospace, healthcare, industrial automation, defense.\n\u2022\nCompanies: Airlines (air traffic control vendors), medical device manufacturers.\n\u2022\nDaily life: Anti - lock braking systems (ABS) in cars react in real time.\n\u2022\nSoftware: Real - time operating systems (RTOS)\n, embedded database systems.\n\u2022\nWebsites: High - frequency trading platforms.\n\u2022\nMobile Apps: Emergency alert systems needing immediate delivery.\n13. Key Points to Remember\n\u2022 Real - time transactions must be both logically correct AND meet strict timing\ndeadlines.\n\u2022 Hard real - time = missing deadline is catastrophic; Firm = result becomes useless;\nSoft = quality degrades but still usable.\n\u2022 Earliest Deadline First (EDF) is a common scheduling strategy in real\n- time\nsystems.\n\u2022 Priority inversion is a key challenge, wher\ne high - priority transactions get\nblocked by lower\n- priority ones holding locks.\n\u2022 Common misconception:\n\"Real - time\" does NOT mean \"instant\"\n- it means\nmeeting a specific, defined deadline, which could even be several seconds or\nminutes depending on the appl\nication's requirements.",
     "structuredTables": [
       {
         "id": "t4_3_realtime",
@@ -3031,7 +5073,7 @@ export const TOPICS_DATA = [
           "Real-Time Category",
           "Deadline Strictness",
           "Consequence of Missing Deadline",
-          "Utility Value Drop After Deadline",
+          "Utility Value Drop",
           "Primary Scheduling Policy",
           "Concrete Real-World Example"
         ],
@@ -3040,27 +5082,18 @@ export const TOPICS_DATA = [
             "feature": "Hard Real-Time (HRTDBS)",
             "col1": "Absolute strict deadline guarantee required",
             "col2": "Catastrophic system failure, loss of life, or equipment destruction",
-            "col3": "Becomes negative infinity (Harmful / Fatal)",
+            "col3": "Becomes negative infinity (Fatal)",
             "col4": "Earliest Deadline First (EDF), Least Slack Time (LST)",
-            "col5": "Nuclear reactor temperature safety system, Missile trajectory guidance, Cardiac pacemaker controller",
+            "col5": "Nuclear reactor temperature safety system, Pacemaker controller",
             "status": "warning"
           },
           {
-            "feature": "Firm Real-Time (FRTDBS)",
-            "col1": "Strict deadline; no catastrophe if missed, but value is zero",
-            "col2": "Transaction result becomes completely useless, aborted immediately",
-            "col3": "Drops immediately to zero (0)",
-            "col4": "Value-Cognizant Priority Scheduling, Deadline Monotonic",
-            "col5": "High-frequency algorithmic stock arbitrage, Radar aircraft position refresh, Automated sensor fusion",
-            "status": "info"
-          },
-          {
             "feature": "Soft Real-Time (SRTDBS)",
-            "col1": "Flexible target deadline; system aims to minimize average tardiness",
+            "col1": "Flexible target deadline; minimizes average tardiness",
             "col2": "Degraded quality of service, user annoyance, but result is still valuable",
-            "col3": "Gradually diminishes over time (Decays smoothly)",
+            "col3": "Gradually diminishes over time (Smooth decay)",
             "col4": "Best-effort Priority Queuing, Fair Share Scheduling",
-            "col5": "YouTube 4K video packet buffering, Airline ticket booking portal, Live weather telemetry display",
+            "col5": "YouTube 4K video buffering, Airline seat selection portal",
             "status": "success"
           }
         ]
@@ -3072,58 +5105,20 @@ export const TOPICS_DATA = [
     "moduleId": 4,
     "moduleName": "Advanced Transaction Processing",
     "title": "Long Duration Transactions and Implementation Issues",
-    "pages": "78 - 84",
-    "estimatedTime": "20 min",
+    "timeEstimate": "20 min",
+    "pageRange": "102 - 107",
     "overview": {
-      "whatIsIt": "A long - duration transaction\nis a transaction that\nruns for a very long time\n(minutes, hours, or even days)\n- much longer than the typical short banking\ntransaction\n- often because it involves human decision\n- making or many connected\nsteps. Because standard transaction techniques (like holding locks for the whole\nduration) don't work well for such long transactions, special\nimplementation\ntechniques - nesting, compensation, and specialized concurrency control\n- are used.",
-      "whyNeed": "If a long transaction held locks on data for hours or days (like\nstan dard 2PL would require), it would block other users for an unacceptably long time.\nSpecial techniques are needed to keep the system usable while still preserving\ncorrectness as much as possible.",
-      "whereUsed": "- Collaborative document editing over long periods\n- Complex\nengineering design processes (CAD projects)\n- Long - running business processes (loan\nprocessing, insurance claims)\n- Travel booking systems (reserving flights, hotels, and\ncars together)",
-      "importantNotes": ""
+      "whatIsIt": "What is it? A long - duration transaction is a transaction that runs for a very long time (minutes, hours, or even days) - much longer than the typical short banking transaction - often because it involves human decision - making or many connected steps. Because standard transaction techniques (like holding locks for the whole duration) don't work well for such long transactions, special implementation techniques - nesting, compensation, and specialized concurrency control - are used. Why do we need it? If a long transaction held locks on data for hours or days (like stan dard 2PL would require), it would block other users for an unacceptably long time. Special techniques are needed to keep the system usable while still preserving correctness as much as possible. Where is it used? - Collaborative document editing over long periods - Complex engineering design processes (CAD projects) - Long - running business processes (loan processing, insurance claims) - Travel booking systems (reserving flights, hotels, and cars together)",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Imagine booking a\nflight, hotel, and rental car together as one \"trip package.\" If the\nhotel booking fails after the flight is already booked, you don't want to hold the flight\nseat locked for hours while you sort things out\n- you'd rather book the flight, and if\nsomething later fails, simply\ncancel (compensate) that booking instead. This is the core\nidea behind handling long\n- duration transactions.",
-      "keywords": [
-        {
-          "term": "Long",
-          "meaning": "Duration"
-        },
-        {
-          "term": "Transaction",
-          "meaning": "A transaction that takes a long time to complete"
-        },
-        {
-          "term": "Nested Tra nsaction",
-          "meaning": "A transaction made up of smaller sub"
-        },
-        {
-          "term": "- transactions",
-          "meaning": "Compensating"
-        },
-        {
-          "term": "Transaction",
-          "meaning": "A transaction that reverses/undoes the effect of an already"
-        },
-        {
-          "term": "-",
-          "meaning": "committed transaction"
-        },
-        {
-          "term": "Saga",
-          "meaning": "A sequence of smaller transactions, each with its own"
-        }
-      ]
+      "simpleExplanation": "2. Beginner Friendly Introduction\nImagine booking a\nflight, hotel, and rental car together as one \"trip package.\" If the\nhotel booking fails after the flight is already booked, you don't want to hold the flight\nseat locked for hours while you sort things out\n- you'd rather book the flight, and if\nsomething later fails, simply\ncancel (compensate) that booking instead. This is the core\nidea behind handling long\n- duration transactions.\nKey words explained:\nWord\nSimple Meaning\nLong - Duration\nTransaction\nA transaction that takes a long time to complete\nNested Tra nsaction\nA transaction made up of smaller sub\n- transactions\nCompensating\nTransaction\nA transaction that reverses/undoes the effect of an already\n-\ncommitted transaction\nSaga\nA sequence of smaller transactions, each with its own\ncompensation step, used to manage a long\n- running process",
+      "keywords": []
     },
     "analogies": [
-      {
-        "num": "1",
-        "title": "Trip Booking",
-        "description": "Booking a flight, then a hotel, then a car are like three sub\n-\ntransactions within a bigger \"vacation booking\" transaction. If the car rental fails,\ninstead of undoing everything\ninstantly like a normal rollback, the system issues\ncancellations\n(compensations) for the flight and hotel already booked."
-      },
-      {
-        "num": "2",
-        "title": "Home Renovation Project",
-        "description": "A renovation involves many stages (plumbing,\nelectrical, painting) that each take significant time. You wouldn't want the whole house\n\"locked\" (unusable) for the entire renovation\n- each stage is managed somewhat\nindependently, with a plan to fix/undo specific stages if something goes wrong later."
-      }
+      "Trip Booking:\nBooking a flight, then a hotel, then a car are like three sub\n-\ntransactions within a bigger \"vacation booking\" transaction. If the car rental fails,\ninstead of undoing everything\ninstantly like a normal rollback, the system issues\ncancellations\n(compensations) for the flight and hotel already booked.",
+      "Home Renovation Project:\nA renovation involves many stages (plumbing,\nelectrical, painting) that each take significant time. You wouldn't want the whole house\n\"locked\" (unusable) for the entire renovation\n- each stage is managed somewhat\nindependently, with a plan to fix/undo specific stages if something goes wrong later."
     ],
     "detailedExplanation": {
       "subsections": [
@@ -3133,151 +5128,117 @@ export const TOPICS_DATA = [
         },
         {
           "title": "4.2 Nested Transactions",
-          "content": "\u2022\nA nested transaction\nbreaks a large transaction into a hierarch\ny of smaller\nsub -\ntransactions\n.\n\u2022\nEach sub - transaction can commit or abort somewhat independently.\n\u2022\nIf a sub - transaction fails, only that portion (and its own nested sub\n- transactions)\nneeds to be rolled back\n- not the entire outer transaction.\n\u2022\nThe overall (top\n- level) transaction still ultimately commits or aborts as a whole,\nbut nesting provides more fine\n- grained control and partial recovery."
+          "content": "\u2022"
+        },
+        {
+          "title": "A nested transaction",
+          "content": "breaks a large transaction into a hierarch\ny of smaller\nsub -\ntransactions\n.\n\u2022\nEach sub - transaction can commit or abort somewhat independently.\n\u2022\nIf a sub - transaction fails, only that portion (and its own nested sub\n- transactions)\nneeds to be rolled back\n- not the entire outer transaction.\n\u2022"
+        },
+        {
+          "title": "The overall (top",
+          "content": "- level) transaction still ultimately commits or aborts as a whole,\nbut nesting provides more fine\n- grained control and partial recovery."
         },
         {
           "title": "4.3 Compensating Transactions",
-          "content": "\u2022\nSince a long transaction may have already\ncommitted some of its sub\n- parts\nbefore a later f\nailure occurs, a normal rollback isn't possible (the data is already\npermanently saved and possibly used by others).\n\u2022\nA compensating transaction\nis a separate transaction specifically designed to\nlogically \"undo\" or reverse the effect of an earlier committed transaction (e.g., a\n\"cancel booking\" transaction reversing a \"make booking\" transaction).\n\u2022\nThis concept underlies the popular\nSaga pattern\n, widely used in modern\ndistributed and microservice\n- based systems, where each step has a matching\ncompensating acti\non ready to run if a later step fails."
+          "content": "\u2022"
+        },
+        {
+          "title": "Since a long transaction may have already",
+          "content": "committed some of its sub\n- parts\nbefore a later f\nailure occurs, a normal rollback isn't possible (the data is already\npermanently saved and possibly used by others).\n\u2022"
+        },
+        {
+          "title": "A compensating transaction",
+          "content": "is a separate transaction specifically designed to\nlogically \"undo\" or reverse the effect of an earlier committed transaction (e.g., a\n\"cancel booking\" transaction reversing a \"make booking\" transaction).\n\u2022"
+        },
+        {
+          "title": "This concept underlies the popular",
+          "content": "Saga pattern\n, widely used in modern\ndistributed and microservice\n- based systems, where each step has a matching\ncompensating acti\non ready to run if a later step fails."
         },
         {
           "title": "4.4 Concurrency Control for Long",
-          "content": "- Duration Transactions\nSince traditional locking is too restrictive for long transactions, alternative\nconcurrency approaches are used:\n- Optimistic Concurrency Control\n- allow the\ntransaction to proceed without locks, then check for conflicts only at commit time; if a\nconflict is found, the transaction is rolled back and possibly retried.\n- Multi - Version\nConcurrency Control (MVCC)\n- keep multiple versions of data, allowing readers to se\ne\na consistent snapshot without blocking writers, reducing lock contention for long\n-\nrunning reads.\n- Relaxed Isolation Levels\n- deliberately allow certain controlled\ninconsistencies (instead of full strict isolation) to improve concurrency for long\n-\nrunning processes, when perfect isolation isn't strictly necessary."
+          "content": "- Duration Transactions\nSince traditional locking is too restrictive for long transactions, alternative\nconcurrency approaches are used:\n- Optimistic Concurrency Control\n- allow the\ntransaction to proceed without locks, then check for conflicts only at commit time; if a\nconflict is found, the transaction is rolled back and possibly retried.\n- Multi - Version"
+        },
+        {
+          "title": "Concurrency Control (MVCC)",
+          "content": "- keep multiple versions of data, allowing readers to se\ne\na consistent snapshot without blocking writers, reducing lock contention for long\n-\nrunning reads.\n- Relaxed Isolation Levels\n- deliberately allow certain controlled\ninconsistencies (instead of full strict isolation) to improve concurrency for long\n-\nrunning processes, when perfect isolation isn't strictly necessary."
         }
       ],
       "raw": "4. Complete Detailed Explanation\n4.1 Why Standard Tra\nnsactions Don't Work Well for Long Durations\n\u2022\nStandard concurrency control (like Strict 2PL) holds locks until commit\n- fine\nfor transactions lasting milliseconds/seconds, but very damaging if held for\nhours/days (other users get blocked for far too long).\n\u2022\nRolling back a long transaction entirely (as in a normal ACID rollback) can be\nextremely wasteful if most of the work was actually valid and just one small part\nfailed.\n4.2 Nested Transactions\n\u2022\nA nested transaction\nbreaks a large transaction into a hierarch\ny of smaller\nsub -\ntransactions\n.\n\u2022\nEach sub - transaction can commit or abort somewhat independently.\n\u2022\nIf a sub - transaction fails, only that portion (and its own nested sub\n- transactions)\nneeds to be rolled back\n- not the entire outer transaction.\n\u2022\nThe overall (top\n- level) transaction still ultimately commits or aborts as a whole,\nbut nesting provides more fine\n- grained control and partial recovery.\n4.3 Compensating Transactions\n\u2022\nSince a long transaction may have already\ncommitted some of its sub\n- parts\nbefore a later f\nailure occurs, a normal rollback isn't possible (the data is already\npermanently saved and possibly used by others).\n\u2022\nA compensating transaction\nis a separate transaction specifically designed to\nlogically \"undo\" or reverse the effect of an earlier committed transaction (e.g., a\n\"cancel booking\" transaction reversing a \"make booking\" transaction).\n\u2022\nThis concept underlies the popular\nSaga pattern\n, widely used in modern\ndistributed and microservice\n- based systems, where each step has a matching\ncompensating acti\non ready to run if a later step fails.\n4.4 Concurrency Control for Long\n- Duration Transactions\nSince traditional locking is too restrictive for long transactions, alternative\nconcurrency approaches are used:\n- Optimistic Concurrency Control\n- allow the\ntransaction to proceed without locks, then check for conflicts only at commit time; if a\nconflict is found, the transaction is rolled back and possibly retried.\n- Multi - Version\nConcurrency Control (MVCC)\n- keep multiple versions of data, allowing readers to se\ne\na consistent snapshot without blocking writers, reducing lock contention for long\n-\nrunning reads.\n- Relaxed Isolation Levels\n- deliberately allow certain controlled\ninconsistencies (instead of full strict isolation) to improve concurrency for long\n-\nrunning processes, when perfect isolation isn't strictly necessary."
     },
     "stepByStep": [
       {
-        "title": "Saga - Style Long Transaction with Compensation:",
-        "isHeader": false
+        "step": 1,
+        "title": "Step - by- Step Working",
+        "description": "Saga - Style Long Transaction with Compensation:"
       },
       {
-        "title": "Step 1: Book Flight (commits independently)",
-        "isHeader": false
+        "step": 2,
+        "title": "Book Flight (commits independently)",
+        "description": "\u2193"
       },
       {
-        "title": "Step 2: Book Hotel (commits independently)",
-        "isHeader": false
+        "step": 3,
+        "title": "Book Hotel (commits independently)",
+        "description": "\u2193"
       },
       {
-        "title": "Step 3: Book Car",
-        "isHeader": false
-      },
-      {
-        "title": "\u2192 FAILS",
-        "isHeader": false
-      },
-      {
-        "title": "Trigge r Compensation:",
-        "isHeader": false
-      },
-      {
-        "title": "Cancel Hotel Booking (compensating transaction)",
-        "isHeader": false
-      },
-      {
-        "title": "Cancel Flight Booking (compensating transaction)",
-        "isHeader": false
-      },
-      {
-        "title": "Overall Long Transaction Considered Rolled Back (via compensation, not standard",
-        "isHeader": false
-      },
-      {
-        "title": "rollback)",
-        "isHeader": false
+        "step": 4,
+        "title": "Book Car",
+        "description": "\u2192 FAILS\n\u2193\nTrigge r Compensation:\nCancel Hotel Booking (compensating transaction)\n\u2193\nCancel Flight Booking (compensating transaction)\n\u2193\nOverall Long Transaction Considered Rolled Back (via compensation, not standard\nrollback)"
       }
     ],
-    "tablesRaw": "Technique\nPurpose\nExample Use\nNested Transactions\nBreak a big transaction into\nsmaller sub - transactions\nCAD design projects with\nmultiple components\nCompensa ting\nTransactions\nUndo already\n- committed\nwork logically\nCancelling a confirmed\nbooking\nSaga Pattern\nChain of steps, each with a\ncompensation plan\nMicroservices\n- based order\nprocessing\nOptimistic\nConcurrency Control\nAvoid locks; check conflicts at\ncommit\nLong - running collaborative\nediting\nMVCC\nKeep multiple data versions\nfor consistent reads\nDatabases supporting long\nread - heavy transactions",
-    "terms": [
-      {
-        "term": "Long",
-        "definition": "Duration"
-      },
-      {
-        "term": "Multi",
-        "definition": "Version Concurrency Control; keeps multiple data"
-      }
-    ],
+    "diagramsDescription": "6. Diagrams\nA horizontal timeline showing thr\nee connected booking steps (Flight, Hotel, Car) as green\nboxes, \u2026\nFigure: A horizontal timeline showing three connected booking steps (Flight, Hotel,\nCar) as green boxes, \u2026",
+    "visualIllustrations": "7. Images\nSaga pattern diagram showing a sequence of steps each paired with a cor\nresponding\ncompensating ac\u2026\nFigure: Saga pattern diagram showing a sequence of steps each paired with a\ncorresponding compensating ac\u2026\nNested transaction tree diagram showing a top\n- level transaction branching into multiple sub\n-\ntrans\u2026\nFigure: Nested transaction tree diagram showing a top\n- level transaction branching\ninto multiple sub\n- trans\u2026",
+    "tablesRaw": "8. Tables\nTechnique\nPurpose\nExample Use\nNested Transactions\nBreak a big transaction into\nsmaller sub - transactions\nCAD design projects with\nmultiple components\nCompensa ting\nTransactions\nUndo already\n- committed\nwork logically\nCancelling a confirmed\nbooking\nSaga Pattern\nChain of steps, each with a\ncompensation plan\nMicroservices\n- based order\nprocessing\nOptimistic\nConcurrency Control\nAvoid locks; check conflicts at\ncommit\nLong - running collaborative\nediting\nMVCC\nKeep multiple data versions\nfor consistent reads\nDatabases supporting long\nread - heavy transactions",
+    "importantTerms": "9. Important Terms\nTerm\nSimple Meaning\nLong - Duration\nTransaction\nA transaction that runs for a long time\nNested Tr ansaction\nA transaction composed of smaller sub\n- transactions\nCompensating\nTransaction\nA transaction that reverses an already\n- committed\ntransaction's effect\nSaga Pattern\nA sequence of steps, each with its own compensation, for\nmanaging long processes\nOptimistic Concurrency\nControl\nChecking for conflicts at commit time instead of locking\nupfront\nMVCC\nMulti - Version Concurrency Control; keeps multiple data\nversions for consistent reads",
+    "terms": [],
     "examples": [
-      {
-        "type": "Easy example",
-        "content": "Cancelling a confirmed hotel booking is a co\nmpensating\ntransaction for the original booking transaction."
-      },
-      {
-        "type": "Practical example",
-        "content": "A CAD software project broken into nested sub\n- transactions\nfor each component (chassis, engine, wheels)."
-      },
-      {
-        "type": "Industry example",
-        "content": "Travel booking platforms use the Saga pattern to coordinate\nflights, hotels, and car rentals across different providers."
-      },
-      {
-        "type": "Real-life example",
-        "content": "E- commerce order cancellation/refund processes act as\ncompensating transactions for the original purchase."
-      }
+      "10. Examples\n\u2022\nEasy example:\nCancelling a confirmed hotel booking is a co\nmpensating\ntransaction for the original booking transaction.\n\u2022\nPractical example:\nA CAD software project broken into nested sub\n- transactions\nfor each component (chassis, engine, wheels).\n\u2022\nIndustry example:\nTravel booking platforms use the Saga pattern to coordinate\nflights, hotels, and car rentals across different providers.\n\u2022\nReal - life example:\nE- commerce order cancellation/refund processes act as\ncompensating transactions for the original purchase."
     ],
     "advantages": [
       "Nesting allows partial",
-      "Compensation enables practical handling of long processes without"
+      "failure and recovery without discarding an",
+      "entire long transaction's work.",
+      "Advantage: Compensation enables practical handling of long processes without",
+      "holding locks for extended periods."
     ],
     "limitations": [
-      "Compensating transactions must be carefully designed for every",
-      "Relaxed concurrency control (optimistic, MVCC) can allow certain"
+      "Advantage: Nesting allows partial",
+      "failure and recovery without discarding an",
+      "entire long transaction's work.",
+      "Advantage: Compensation enables practical handling of long processes without",
+      "holding locks for extended periods.",
+      "Limitation: Compensating transactions must be carefully designed for every",
+      "possible committed step, adding development complexity.",
+      "Limitation: Relaxed concurrency control (optimistic, MVCC) can allow certain",
+      "temporary inconsistencies that must be carefully managed."
     ],
+    "advantagesLimitations": "11. Advantages & Limitations\n\u2022\nAdvantage: Nesting allows partial\nfailure and recovery without discarding an\nentire long transaction's work.\n\u2022\nAdvantage: Compensation enables practical handling of long processes without\nholding locks for extended periods.\n\u2022\nLimitation: Compensating transactions must be carefully designed for every\npossible committed step, adding development complexity.\n\u2022\nLimitation: Relaxed concurrency control (optimistic, MVCC) can allow certain\ntemporary inconsistencies that must be carefully managed.",
     "applications": [
-      {
-        "category": "Industry",
-        "details": "Travel and hospitality, e\n- comm erce, engineering design, distributed\nmicroservices."
-      },
-      {
-        "category": "Companies",
-        "details": "Airlines, hotel booking platforms, and e\n- commerce giants use Saga\n-\nlike compensation patterns."
-      },
-      {
-        "category": "Daily life",
-        "details": "Cancelling and refunding an online order."
-      },
-      {
-        "category": "Software",
-        "details": "Microservices architectures using\nthe Saga pattern; databases\nsupporting MVCC (e.g., PostgreSQL)."
-      },
-      {
-        "category": "Websites",
-        "details": "Multi - vendor booking and shopping platforms."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Ride - hailing apps that must \"cancel\" a driver assignment if a later\nstep fails."
-      }
+      "Industry: Travel and hospitality, e",
+      "comm erce, engineering design, distributed",
+      "microservices.",
+      "Companies: Airlines, hotel booking platforms, and e",
+      "commerce giants use Saga",
+      "like compensation patterns.",
+      "Daily life: Cancelling and refunding an online order.",
+      "Software: Microservices architectures using",
+      "the Saga pattern; databases",
+      "supporting MVCC (e.g., PostgreSQL).",
+      "Websites: Multi - vendor booking and shopping platforms.",
+      "Mobile Apps: Ride - hailing apps that must \"cancel\" a driver assignment if a later",
+      "step fails."
     ],
     "keyPoints": {
       "takeaways": [
         "Long - duration t",
         "ransactions run far longer than typical short transactions and need",
-        "special handling.",
-        "Nested transactions break a large transaction into smaller, independently",
-        "manageable sub - transactions.",
-        "Compensating transactions logically undo already",
-        "committed work, since a",
-        "normal rollback isn't possible.",
-        "The Saga pattern chains steps together, each paired with its own compensating",
-        "action.",
-        "A compensating transaction is NOT the same as a",
-        "rollback - a rollback undoes uncommitted changes befor",
-        "e they're saved, while",
-        "compensation reverses changes that have already been permanently committed.",
-        "Optimistic concurrency control and MVCC are commonly used alternatives to",
-        "strict locking for long",
-        "running transactions.",
-        "MODULE 5: Modern Developments in Da",
-        "tabase Technologies"
+        "special handling."
       ],
-      "misconceptions": [
-        ""
-      ],
+      "misconceptions": [],
       "examTips": []
     },
+    "fullRawText": "Topic 4.4: Long Duration Transactions and Implementation\nIssues (Nesting, Compensating, Concurrency)\n1. Topic Name - Long Duration Transactions and Implementation Issues\nWhat is it? A long - duration transaction\nis a transaction that\nruns for a very long time\n(minutes, hours, or even days)\n- much longer than the typical short banking\ntransaction\n- often because it involves human decision\n- making or many connected\nsteps. Because standard transaction techniques (like holding locks for the whole\nduration) don't work well for such long transactions, special\nimplementation\ntechniques - nesting, compensation, and specialized concurrency control\n- are used.\nWhy do we need it?\nIf a long transaction held locks on data for hours or days (like\nstan dard 2PL would require), it would block other users for an unacceptably long time.\nSpecial techniques are needed to keep the system usable while still preserving\ncorrectness as much as possible.\nWhere is it used?\n- Collaborative document editing over long periods\n- Complex\nengineering design processes (CAD projects)\n- Long - running business processes (loan\nprocessing, insurance claims)\n- Travel booking systems (reserving flights, hotels, and\ncars together)\n2. Beginner Friendly Introduction\nImagine booking a\nflight, hotel, and rental car together as one \"trip package.\" If the\nhotel booking fails after the flight is already booked, you don't want to hold the flight\nseat locked for hours while you sort things out\n- you'd rather book the flight, and if\nsomething later fails, simply\ncancel (compensate) that booking instead. This is the core\nidea behind handling long\n- duration transactions.\nKey words explained:\nWord\nSimple Meaning\nLong - Duration\nTransaction\nA transaction that takes a long time to complete\nNested Tra nsaction\nA transaction made up of smaller sub\n- transactions\nCompensating\nTransaction\nA transaction that reverses/undoes the effect of an already\n-\ncommitted transaction\nSaga\nA sequence of smaller transactions, each with its own\ncompensation step, used to manage a long\n- running process\n3. Real - Life Analogies\nAnalogy 1 - Trip Booking:\nBooking a flight, then a hotel, then a car are like three sub\n-\ntransactions within a bigger \"vacation booking\" transaction. If the car rental fails,\ninstead of undoing everything\ninstantly like a normal rollback, the system issues\ncancellations\n(compensations) for the flight and hotel already booked.\nAnalogy 2 - Home Renovation Project:\nA renovation involves many stages (plumbing,\nelectrical, painting) that each take significant time. You wouldn't want the whole house\n\"locked\" (unusable) for the entire renovation\n- each stage is managed somewhat\nindependently, with a plan to fix/undo specific stages if something goes wrong later.\n4. Complete Detailed Explanation\n4.1 Why Standard Tra\nnsactions Don't Work Well for Long Durations\n\u2022\nStandard concurrency control (like Strict 2PL) holds locks until commit\n- fine\nfor transactions lasting milliseconds/seconds, but very damaging if held for\nhours/days (other users get blocked for far too long).\n\u2022\nRolling back a long transaction entirely (as in a normal ACID rollback) can be\nextremely wasteful if most of the work was actually valid and just one small part\nfailed.\n4.2 Nested Transactions\n\u2022\nA nested transaction\nbreaks a large transaction into a hierarch\ny of smaller\nsub -\ntransactions\n.\n\u2022\nEach sub - transaction can commit or abort somewhat independently.\n\u2022\nIf a sub - transaction fails, only that portion (and its own nested sub\n- transactions)\nneeds to be rolled back\n- not the entire outer transaction.\n\u2022\nThe overall (top\n- level) transaction still ultimately commits or aborts as a whole,\nbut nesting provides more fine\n- grained control and partial recovery.\n4.3 Compensating Transactions\n\u2022\nSince a long transaction may have already\ncommitted some of its sub\n- parts\nbefore a later f\nailure occurs, a normal rollback isn't possible (the data is already\npermanently saved and possibly used by others).\n\u2022\nA compensating transaction\nis a separate transaction specifically designed to\nlogically \"undo\" or reverse the effect of an earlier committed transaction (e.g., a\n\"cancel booking\" transaction reversing a \"make booking\" transaction).\n\u2022\nThis concept underlies the popular\nSaga pattern\n, widely used in modern\ndistributed and microservice\n- based systems, where each step has a matching\ncompensating acti\non ready to run if a later step fails.\n4.4 Concurrency Control for Long\n- Duration Transactions\nSince traditional locking is too restrictive for long transactions, alternative\nconcurrency approaches are used:\n- Optimistic Concurrency Control\n- allow the\ntransaction to proceed without locks, then check for conflicts only at commit time; if a\nconflict is found, the transaction is rolled back and possibly retried.\n- Multi - Version\nConcurrency Control (MVCC)\n- keep multiple versions of data, allowing readers to se\ne\na consistent snapshot without blocking writers, reducing lock contention for long\n-\nrunning reads.\n- Relaxed Isolation Levels\n- deliberately allow certain controlled\ninconsistencies (instead of full strict isolation) to improve concurrency for long\n-\nrunning processes, when perfect isolation isn't strictly necessary.\n5. Step - by- Step Working\nSaga - Style Long Transaction with Compensation:\nStep 1: Book Flight (commits independently)\n\u2193\nStep 2: Book Hotel (commits independently)\n\u2193\nStep 3: Book Car\n\u2192 FAILS\n\u2193\nTrigge r Compensation:\nCancel Hotel Booking (compensating transaction)\n\u2193\nCancel Flight Booking (compensating transaction)\n\u2193\nOverall Long Transaction Considered Rolled Back (via compensation, not standard\nrollback)\n6. Diagrams\nA horizontal timeline showing thr\nee connected booking steps (Flight, Hotel, Car) as green\nboxes, \u2026\nFigure: A horizontal timeline showing three connected booking steps (Flight, Hotel,\nCar) as green boxes, \u2026\n7. Images\nSaga pattern diagram showing a sequence of steps each paired with a cor\nresponding\ncompensating ac\u2026\nFigure: Saga pattern diagram showing a sequence of steps each paired with a\ncorresponding compensating ac\u2026\nNested transaction tree diagram showing a top\n- level transaction branching into multiple sub\n-\ntrans\u2026\nFigure: Nested transaction tree diagram showing a top\n- level transaction branching\ninto multiple sub\n- trans\u2026\n8. Tables\nTechnique\nPurpose\nExample Use\nNested Transactions\nBreak a big transaction into\nsmaller sub - transactions\nCAD design projects with\nmultiple components\nCompensa ting\nTransactions\nUndo already\n- committed\nwork logically\nCancelling a confirmed\nbooking\nSaga Pattern\nChain of steps, each with a\ncompensation plan\nMicroservices\n- based order\nprocessing\nOptimistic\nConcurrency Control\nAvoid locks; check conflicts at\ncommit\nLong - running collaborative\nediting\nMVCC\nKeep multiple data versions\nfor consistent reads\nDatabases supporting long\nread - heavy transactions\n9. Important Terms\nTerm\nSimple Meaning\nLong - Duration\nTransaction\nA transaction that runs for a long time\nNested Tr ansaction\nA transaction composed of smaller sub\n- transactions\nCompensating\nTransaction\nA transaction that reverses an already\n- committed\ntransaction's effect\nSaga Pattern\nA sequence of steps, each with its own compensation, for\nmanaging long processes\nOptimistic Concurrency\nControl\nChecking for conflicts at commit time instead of locking\nupfront\nMVCC\nMulti - Version Concurrency Control; keeps multiple data\nversions for consistent reads\n10. Examples\n\u2022\nEasy example:\nCancelling a confirmed hotel booking is a co\nmpensating\ntransaction for the original booking transaction.\n\u2022\nPractical example:\nA CAD software project broken into nested sub\n- transactions\nfor each component (chassis, engine, wheels).\n\u2022\nIndustry example:\nTravel booking platforms use the Saga pattern to coordinate\nflights, hotels, and car rentals across different providers.\n\u2022\nReal - life example:\nE- commerce order cancellation/refund processes act as\ncompensating transactions for the original purchase.\n11. Advantages & Limitations\n\u2022\nAdvantage: Nesting allows partial\nfailure and recovery without discarding an\nentire long transaction's work.\n\u2022\nAdvantage: Compensation enables practical handling of long processes without\nholding locks for extended periods.\n\u2022\nLimitation: Compensating transactions must be carefully designed for every\npossible committed step, adding development complexity.\n\u2022\nLimitation: Relaxed concurrency control (optimistic, MVCC) can allow certain\ntemporary inconsistencies that must be carefully managed.\n12. Applications\n\u2022\nIndustry: Travel and hospitality, e\n- comm erce, engineering design, distributed\nmicroservices.\n\u2022\nCompanies: Airlines, hotel booking platforms, and e\n- commerce giants use Saga\n-\nlike compensation patterns.\n\u2022\nDaily life: Cancelling and refunding an online order.\n\u2022\nSoftware: Microservices architectures using\nthe Saga pattern; databases\nsupporting MVCC (e.g., PostgreSQL).\n\u2022\nWebsites: Multi - vendor booking and shopping platforms.\n\u2022\nMobile Apps: Ride - hailing apps that must \"cancel\" a driver assignment if a later\nstep fails.\n13. Key Points to Remember\nLong - duration t\nransactions run far longer than typical short transactions and need\nspecial handling.",
     "structuredTables": [
       {
         "id": "t4_4_long_running",
@@ -3293,23 +5254,7 @@ export const TOPICS_DATA = [
         ],
         "rows": [
           {
-            "feature": "Nested Transactions",
-            "col1": "Tree hierarchy of sub-transactions; children commit conditionally into parent",
-            "col2": "Moderate (Parent holds ancestor lock hierarchy)",
-            "col3": "Sub-transaction aborts locally without aborting whole parent transaction",
-            "col4": "CAD/CAM engineering design suites, complex document editors",
-            "status": "info"
-          },
-          {
-            "feature": "Compensating Transactions",
-            "col1": "Application logic that semantically reverses an already-committed step",
-            "col2": "Zero long-term locks (Original transaction commits immediately)",
-            "col3": "Executes reverse action (e.g., Refund Payment, Cancel Reservation)",
-            "col4": "Flight & hotel booking reservation workflows",
-            "status": "better-col2"
-          },
-          {
-            "feature": "Saga Pattern (Orchestration/Choreography)",
+            "feature": "Saga Pattern (Compensating)",
             "col1": "Sequence of local transactions; failures trigger a chain of backward compensations",
             "col2": "Zero distributed 2PC locks across microservices",
             "col3": "Executes compensating transactions in reverse sequential order",
@@ -3317,19 +5262,11 @@ export const TOPICS_DATA = [
             "status": "success"
           },
           {
-            "feature": "Optimistic Concurrency Control (OCC)",
-            "col1": "Read phase \u2192 Validation phase \u2192 Write phase. Assumes conflicts are rare",
-            "col2": "Zero locks during execution; validates timestamp at commit",
-            "col3": "Aborts and restarts transaction if validation conflict is detected",
-            "col4": "Collaborative text editors, read-mostly web applications",
-            "status": "info"
-          },
-          {
             "feature": "Multi-Version Concurrency Control (MVCC)",
             "col1": "Creates timestamped snapshots for readers; writers create new version without blocking readers",
             "col2": "Readers never block writers; writers never block readers",
             "col3": "Garbage collector vacuums old invisible row versions",
-            "col4": "PostgreSQL, MySQL InnoDB, CockroachDB transactional engines",
+            "col4": "PostgreSQL, MySQL InnoDB transactional engines",
             "status": "success"
           }
         ]
@@ -3341,164 +5278,142 @@ export const TOPICS_DATA = [
     "moduleId": 5,
     "moduleName": "Modern Developments in Database Technologies",
     "title": "Introduction to Data Mining Techniques",
-    "pages": "84 - 90",
-    "estimatedTime": "22 min",
+    "timeEstimate": "22 min",
+    "pageRange": "108 - 113",
     "overview": {
-      "whatIsIt": "Data mining\nis the process of discovering hidden patterns, trends, and\nuseful knowledge from large amounts of data using statistical and computati\nonal\ntechniques.",
-      "whyNeed": "Organizations collect huge amounts of data, but raw data alone\ndoesn't tell a story. Data mining extracts meaningful, actionable insights that support\nbetter decision\n- making.",
-      "whereUsed": "- Retail (market basket analysis, recommendations)\n- Banking (fraud\ndetection, credit scoring)\n- Healthcare (disease pattern detection)\n- Marketing\n(customer segmentation)",
-      "importantNotes": ""
+      "whatIsIt": "Data mining\nis the process of discovering hidden patterns, trends, and\nuseful knowledge from large amounts of data using statistical and computati\nonal\ntechniques.\nWhy do we need it?\nOrganizations collect huge amounts of data, but raw data alone\ndoesn't tell a story. Data mining extracts meaningful, actionable insights that support\nbetter decision\n- making.\nWhere is it used?\n- Retail (market basket analysis, recommendations)\n- Banking (fraud\ndetection, credit scoring)\n- Healthcare (disease pattern detection)\n- Marketing\n(customer segmentation)",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Imagine digging through a huge pile of sand to find small pieces of gold. Dat\na mining is\nexactly this\n- searching through massive amounts of raw data to find valuable\n\"nuggets\" of useful patterns and knowledge.",
-      "keywords": [
-        {
-          "term": "Pattern",
-          "meaning": "A regularity or trend found in data"
-        },
-        {
-          "term": "Data",
-          "meaning": "Warehouse"
-        },
-        {
-          "term": "sources for analysis",
-          "meaning": "Association"
-        },
-        {
-          "term": "Rule",
-          "meaning": "A rule describing items that frequently occur together"
-        },
-        {
-          "term": "Classification",
-          "meaning": "Assigning data into predefined categories"
-        },
-        {
-          "term": "Clustering",
-          "meaning": "Grouping similar data together without pre"
-        }
-      ]
+      "simpleExplanation": "2. Beginner Friendly Introduction\nImagine digging through a huge pile of sand to find small pieces of gold. Dat\na mining is\nexactly this\n- searching through massive amounts of raw data to find valuable\n\"nuggets\" of useful patterns and knowledge.\nKey words explained:\nWord\nSimple Meaning\nPattern\nA regularity or trend found in data\nData\nWarehouse\nA large, central storage system holding historical data from multiple\nsources for analysis\nAssociation\nRule\nA rule describing items that frequently occur together\nClassification\nAssigning data into predefined categories\nClustering\nGrouping similar data together without pre\ndefined categories",
+      "keywords": []
     },
     "analogies": [
-      {
-        "num": "1",
-        "title": "Detective Investigation",
-        "description": "A detective examines many small clues (data\npoints) to uncover a hidden pattern (who committed the crime)\n- data mining works\nsimilarly, finding hidden patterns within large datasets."
-      },
-      {
-        "num": "2",
-        "title": "Supermarket Basket Observation",
-        "description": "A supermarket manager notices that\ncustomers who buy bread often also buy butter. This observed pattern (\"if bread, then\nbutter\") is exactly what association rule mining discovers automatically from sales\ndata."
-      }
+      "Detective Investigation:\nA detective examines many small clues (data\npoints) to uncover a hidden pattern (who committed the crime)\n- data mining works\nsimilarly, finding hidden patterns within large datasets.",
+      "Supermarket Basket Observation:\nA supermarket manager notices that\ncustomers who buy bread often also buy butter. This observed pattern (\"if bread, then\nbutter\") is exactly what association rule mining discovers automatically from sales\ndata."
     ],
     "detailedExplanation": {
       "subsections": [
         {
           "title": "4.1 Data Mining Technology and Its Relationship with Data Warehousing",
-          "content": "\u2022\nA data warehouse\ncollects and stores large volumes of historical, integrated data\nfrom multiple sources, organized for analysis (rather than daily transaction\nprocessing).\n\u2022\nData mining typically operates\non top of\na data warehouse\n- the warehouse\nprovides clean, organized, historical data, and data mining techniques are\napplied to that data to discover patterns.\n\u2022\nTogether, they support\ndecision suppor\nt systems\nand business intelligence\n,\nletting organizations understand trends and make informed decisions."
+          "content": "\u2022"
+        },
+        {
+          "title": "A data warehouse",
+          "content": "collects and stores large volumes of historical, integrated data\nfrom multiple sources, organized for analysis (rather than daily transaction\nprocessing).\n\u2022"
+        },
+        {
+          "title": "Data mining typically operates",
+          "content": "on top of\na data warehouse\n- the warehouse\nprovides clean, organized, historical data, and data mining techniques are\napplied to that data to discover patterns.\n\u2022\nTogether, they support\ndecision suppor\nt systems\nand business intelligence\n,\nletting organizations understand trends and make informed decisions."
         },
         {
           "title": "4.2 Association Rules",
-          "content": "\u2022\nAssociation rule mining\ndiscovers relationships between items that frequently\noccur together in data, typically expressed as \"If A, then B\" (e.g., \"If a customer\nbuys bread, they often also buy butter\").\n\u2022\nCommon measures used:\n-\nSupport - how frequently the itemset appears in the data.\n-\nConfidence - how often the rule has been found to be true (i.e., given A\noccurs, how often B also oc\ncurs).\n\u2022\nWidely used in\nmarket basket analysis\nto design store layouts, promotions, and\nrecommendations."
+          "content": "\u2022"
+        },
+        {
+          "title": "Association rule mining",
+          "content": "discovers relationships between items that frequently\noccur together in data, typically expressed as \"If A, then B\" (e.g., \"If a customer\nbuys bread, they often also buy butter\").\n\u2022"
+        },
+        {
+          "title": "Common measures used",
+          "content": "-\nSupport - how frequently the itemset appears in the data.\n-\nConfidence - how often the rule has been found to be true (i.e., given A\noccurs, how often B also oc\ncurs).\n\u2022"
+        },
+        {
+          "title": "Widely used in",
+          "content": "market basket analysis\nto design store layouts, promotions, and\nrecommendations."
         },
         {
           "title": "4.3 Classification",
-          "content": "\u2022\nClassification\nassigns data records into one of several\npredefined\ncategories/classes\nbased on their attributes, using a model trained on historical\nlabeled data.\n\u2022\nExample: classifying loan applicants as \"high risk\" or \"low risk\" based on income,\ncredit history, etc.\n\u2022\nCommon classification techniques include decision trees, Naive Bayes, and\nneural networks (studied in more depth in machine\nlearning courses)."
+          "content": "\u2022"
+        },
+        {
+          "title": "Classification",
+          "content": "assigns data records into one of several\npredefined\ncategories/classes\nbased on their attributes, using a model trained on historical\nlabeled data.\n\u2022"
+        },
+        {
+          "title": "Example: classifying loan applicants as \"high risk\" or \"low risk\" based on income,",
+          "content": "credit history, etc.\n\u2022\nCommon classification techniques include decision trees, Naive Bayes, and\nneural networks (studied in more depth in machine\nlearning courses)."
         },
         {
           "title": "4.4 Clustering",
-          "content": "\u2022\nClustering\ngroups similar data records together\nwithout predefined categories\n- the groups (clusters) themselves are discovered from the data.\n\u2022\nExample: grouping customers into segments based on purchasing behavior,\nwithout knowing the segments in advance.\n\u2022\nCommon clustering techniques include K\n- Means clustering and hierarchical\nclustering."
+          "content": "\u2022"
+        },
+        {
+          "title": "Clustering",
+          "content": "groups similar data records together\nwithout predefined categories\n- the groups (clusters) themselves are discovered from the data.\n\u2022"
+        },
+        {
+          "title": "Example: grouping customers into segments based on purchasing behavior,",
+          "content": "without knowing the segments in advance.\n\u2022"
+        },
+        {
+          "title": "Common clustering techniques include K",
+          "content": "- Means clustering and hierarchical\nclustering."
         },
         {
           "title": "4.5 Applications of Data Mining",
-          "content": "\u2022\nMarket basket analysis and recommendation systems (retail)\n\u2022\nFraud detection (banking, insurance)\n\u2022\nCustomer segmentation (marketing)\n\u2022\nDisease pattern detection (healthcare)\n\u2022\nRisk assessment (finance)"
+          "content": "\u2022\nMarket basket analysis and recommendation systems (retail)\n\u2022\nFraud detection (banking, insurance)\n\u2022"
+        },
+        {
+          "title": "Customer segmentation (marketing)",
+          "content": "\u2022"
+        },
+        {
+          "title": "Disease pattern detection (healthcare)",
+          "content": "\u2022\nRisk assessment (finance)"
         }
       ],
       "raw": "4. Complete Detailed Explanation\n4.1 Data Mining Technology and Its Relationship with Data Warehousing\n\u2022\nA data warehouse\ncollects and stores large volumes of historical, integrated data\nfrom multiple sources, organized for analysis (rather than daily transaction\nprocessing).\n\u2022\nData mining typically operates\non top of\na data warehouse\n- the warehouse\nprovides clean, organized, historical data, and data mining techniques are\napplied to that data to discover patterns.\n\u2022\nTogether, they support\ndecision suppor\nt systems\nand business intelligence\n,\nletting organizations understand trends and make informed decisions.\n4.2 Association Rules\n\u2022\nAssociation rule mining\ndiscovers relationships between items that frequently\noccur together in data, typically expressed as \"If A, then B\" (e.g., \"If a customer\nbuys bread, they often also buy butter\").\n\u2022\nCommon measures used:\n-\nSupport - how frequently the itemset appears in the data.\n-\nConfidence - how often the rule has been found to be true (i.e., given A\noccurs, how often B also oc\ncurs).\n\u2022\nWidely used in\nmarket basket analysis\nto design store layouts, promotions, and\nrecommendations.\n4.3 Classification\n\u2022\nClassification\nassigns data records into one of several\npredefined\ncategories/classes\nbased on their attributes, using a model trained on historical\nlabeled data.\n\u2022\nExample: classifying loan applicants as \"high risk\" or \"low risk\" based on income,\ncredit history, etc.\n\u2022\nCommon classification techniques include decision trees, Naive Bayes, and\nneural networks (studied in more depth in machine\nlearning courses).\n4.4 Clustering\n\u2022\nClustering\ngroups similar data records together\nwithout predefined categories\n- the groups (clusters) themselves are discovered from the data.\n\u2022\nExample: grouping customers into segments based on purchasing behavior,\nwithout knowing the segments in advance.\n\u2022\nCommon clustering techniques include K\n- Means clustering and hierarchical\nclustering.\n4.5 Applications of Data Mining\n\u2022\nMarket basket analysis and recommendation systems (retail)\n\u2022\nFraud detection (banking, insurance)\n\u2022\nCustomer segmentation (marketing)\n\u2022\nDisease pattern detection (healthcare)\n\u2022\nRisk assessment (finance)"
     },
     "stepByStep": [
       {
-        "title": "Raw Data Collected from Multiple Sources",
-        "isHeader": false
-      },
-      {
-        "title": "Stored/Integrated in a Data Warehouse",
-        "isHeader": false
-      },
-      {
-        "title": "Data Mining Techniques Applied",
-        "isHeader": false
-      },
-      {
-        "title": "(Association Rules / Classification / Clustering)",
-        "isHeader": false
-      },
-      {
-        "title": "Patterns and Insights",
-        "isHeader": false
-      },
-      {
-        "title": "Discovered",
-        "isHeader": false
-      },
-      {
-        "title": "Used for Decision",
-        "isHeader": false
-      },
-      {
-        "title": "- Making / Business Intelligence",
-        "isHeader": false
+        "step": 1,
+        "title": "Step - by- Step Working",
+        "description": "Raw Data Collected from Multiple Sources\n\u2193\nStored/Integrated in a Data Warehouse\n\u2193\nData Mining Techniques Applied\n(Association Rules / Classification / Clustering)\n\u2193\nPatterns and Insights\nDiscovered\n\u2193\nUsed for Decision\n- Making / Business Intelligence"
       }
     ],
-    "tablesRaw": "Technique\nGoal\nPredefined\nCategories?\nExample\nAssociation\nRules\nFind items occurring\ntogether\nNo (rules\ndiscovered)\n\"Bread \u2192 Butter \"\nClassification\nAssign data to known\ncategories\nYes\nLoan risk:\nHigh/Low\nClustering\nGroup similar data\ntogether\nNo\nCustomer\nsegments",
+    "diagramsDescription": "6. Diagrams\nA pipeline diagram showing mult\niple data source icons feeding into a large 'Data Warehouse'\ncylin\u2026\nFigure: A pipeline diagram showing multiple data source icons feeding into a large\n'Data Warehouse' cylin\u2026",
+    "visualIllustrations": "7. Images\nMarket basket analysis diagram showing shopping cart items connected by lines representing\nfreque\u2026\nFigure: Market basket analysis diagram showing shopping cart items connected by\nlines representing freque\u2026\nClustering scatter plot showing data points grouped into 3 different colored clusters\nFigure: Clustering scatter plot\nshowing data points grouped into 3 different colored\nclusters",
+    "tablesRaw": "8. Tables\nTechnique\nGoal\nPredefined\nCategories?\nExample\nAssociation\nRules\nFind items occurring\ntogether\nNo (rules\ndiscovered)\n\"Bread \u2192 Butter \"\nClassification\nAssign data to known\ncategories\nYes\nLoan risk:\nHigh/Low\nClustering\nGroup similar data\ntogether\nNo\nCustomer\nsegments",
+    "importantTerms": "9. Important Terms\nTerm\nSimple Meaning\nData Mining\nDiscovering hidden patterns in large datasets\nData Warehouse\nCentral storage of integrated historical data for analysi\ns\nSupport\nFrequency of an itemset in association rule mining\nConfidence\nReliability/strength of an association rule\nClassification\nAssigning data into predefined categories\nClustering\nGrouping similar data without predefined categories",
     "terms": [],
     "examples": [
-      {
-        "type": "Easy example",
-        "content": "Finding that customers who buy chips often also buy soft drinks."
-      },
-      {
-        "type": "Practical example",
-        "content": "A bank classifying loan applicants as high\n- risk or low\n- risk\nbased on past data."
-      },
-      {
-        "type": "Industry example",
-        "content": "Amazon's recommendation engine uses association rules and\nclus tering to suggest products."
-      },
-      {
-        "type": "Real-life example",
-        "content": "Hospitals use classification models to predict disease risk\nbased on patient history."
-      }
+      "10. Examples\n\u2022\nEasy example: Finding that customers who buy chips often also buy soft drinks.\n\u2022\nPractical example:\nA bank classifying loan applicants as high\n- risk or low\n- risk\nbased on past data.\n\u2022\nIndustry example:\nAmazon's recommendation engine uses association rules and\nclus tering to suggest products.\n\u2022\nReal - life example:\nHospitals use classification models to predict disease risk\nbased on patient history."
     ],
     "advantages": [
       "Uncovers valuable, non",
-      "Supports better business and operational decisions."
+      "obvious patterns hidden in large datasets.",
+      "Advantage: Supports better business and operational decisions."
     ],
     "limitations": [
-      "Requires large amounts of clean, quality data to be effective.",
-      "Discovered patterns can sometimes be misleading (correlation"
+      "Advantage: Uncovers valuable, non",
+      "obvious patterns hidden in large datasets.",
+      "Advantage: Supports better business and operational decisions.",
+      "Limitation: Requires large amounts of clean, quality data to be effective.",
+      "Limitation: Discovered patterns can sometimes be misleading (correlation",
+      "without true causation) if not interpreted carefully.",
+      "12. Appl ications",
+      "Industry: Retail, banking, healthcare, telecom.",
+      "Companies: Amazon, Flipkart (recommendations), banks (fraud detection).",
+      "Daily life: Personalized product/movie recommendations you see online.",
+      "Software: Tools like RapidMiner, Weka, Python's scikit",
+      "learn.",
+      "Websites: E- commerce recommendation engines.",
+      "Mobile Apps: Personalized content feeds and targeted notifications."
     ],
+    "advantagesLimitations": "11. Advantages & Limitations\n\u2022\nAdvantage: Uncovers valuable, non\n- obvious patterns hidden in large datasets.\n\u2022\nAdvantage: Supports better business and operational decisions.\n\u2022\nLimitation: Requires large amounts of clean, quality data to be effective.\n\u2022\nLimitation: Discovered patterns can sometimes be misleading (correlation\nwithout true causation) if not interpreted carefully.\n12. Appl ications\n\u2022\nIndustry: Retail, banking, healthcare, telecom.\n\u2022\nCompanies: Amazon, Flipkart (recommendations), banks (fraud detection).\n\u2022\nDaily life: Personalized product/movie recommendations you see online.\n\u2022\nSoftware: Tools like RapidMiner, Weka, Python's scikit\n- learn.\n\u2022\nWebsites: E- commerce recommendation engines.\n\u2022\nMobile Apps: Personalized content feeds and targeted notifications.",
     "applications": [],
     "keyPoints": {
       "takeaways": [
         "Data mining discovers hidden patterns from large datasets, often built on top of",
         "a data warehouse.",
-        "Associa tion rules find items that occur together (using support and confidence",
-        "measures).",
-        "Classification assigns data into predefined categories; clustering groups data",
-        "without predefined categories.",
-        "Classification and clustering are NOT the same",
-        "classification uses known/labeled categories, while clustering discovers groups",
-        "without pre - existing labels.",
-        "Data mining and data warehousing work together",
-        "the warehouse provides",
-        "organized data, and mining extracts insights from it.",
-        "Topic 5 .2: Introduction to Business Intelligence"
+        "Associa tion rules find items that occur together (using support and confidence"
       ],
-      "misconceptions": [
-        ""
-      ],
+      "misconceptions": [],
       "examTips": []
     },
+    "fullRawText": "\u2022 Nested transactions break a large transaction into smaller, independently\nmanageable sub - transactions.\n\u2022 Compensating transactions logically undo already\n- committed work, since a\nnormal rollback isn't possible.\n\u2022 The Saga pattern chains steps together, each paired with its own compensating\naction.\n\u2022 Common misconception:\nA compensating transaction is NOT the same as a\nrollback - a rollback undoes uncommitted changes befor\ne they're saved, while\ncompensation reverses changes that have already been permanently committed.\n\u2022 Optimistic concurrency control and MVCC are commonly used alternatives to\nstrict locking for long\n- running transactions.\nMODULE 5: Modern Developments in Da\ntabase Technologies\nTopic 5.1: Introduction to Data Mining Techniques\n1. Topic Name - Data Mining\nWhat is it?\nData mining\nis the process of discovering hidden patterns, trends, and\nuseful knowledge from large amounts of data using statistical and computati\nonal\ntechniques.\nWhy do we need it?\nOrganizations collect huge amounts of data, but raw data alone\ndoesn't tell a story. Data mining extracts meaningful, actionable insights that support\nbetter decision\n- making.\nWhere is it used?\n- Retail (market basket analysis, recommendations)\n- Banking (fraud\ndetection, credit scoring)\n- Healthcare (disease pattern detection)\n- Marketing\n(customer segmentation)\n2. Beginner Friendly Introduction\nImagine digging through a huge pile of sand to find small pieces of gold. Dat\na mining is\nexactly this\n- searching through massive amounts of raw data to find valuable\n\"nuggets\" of useful patterns and knowledge.\nKey words explained:\nWord\nSimple Meaning\nPattern\nA regularity or trend found in data\nData\nWarehouse\nA large, central storage system holding historical data from multiple\nsources for analysis\nAssociation\nRule\nA rule describing items that frequently occur together\nClassification\nAssigning data into predefined categories\nClustering\nGrouping similar data together without pre\ndefined categories\n3. Real - Life Analogies\nAnalogy 1\n- Detective Investigation:\nA detective examines many small clues (data\npoints) to uncover a hidden pattern (who committed the crime)\n- data mining works\nsimilarly, finding hidden patterns within large datasets.\nAnalogy 2\n- Supermarket Basket Observation:\nA supermarket manager notices that\ncustomers who buy bread often also buy butter. This observed pattern (\"if bread, then\nbutter\") is exactly what association rule mining discovers automatically from sales\ndata.\n4. Complete Detailed Explanation\n4.1 Data Mining Technology and Its Relationship with Data Warehousing\n\u2022\nA data warehouse\ncollects and stores large volumes of historical, integrated data\nfrom multiple sources, organized for analysis (rather than daily transaction\nprocessing).\n\u2022\nData mining typically operates\non top of\na data warehouse\n- the warehouse\nprovides clean, organized, historical data, and data mining techniques are\napplied to that data to discover patterns.\n\u2022\nTogether, they support\ndecision suppor\nt systems\nand business intelligence\n,\nletting organizations understand trends and make informed decisions.\n4.2 Association Rules\n\u2022\nAssociation rule mining\ndiscovers relationships between items that frequently\noccur together in data, typically expressed as \"If A, then B\" (e.g., \"If a customer\nbuys bread, they often also buy butter\").\n\u2022\nCommon measures used:\n-\nSupport - how frequently the itemset appears in the data.\n-\nConfidence - how often the rule has been found to be true (i.e., given A\noccurs, how often B also oc\ncurs).\n\u2022\nWidely used in\nmarket basket analysis\nto design store layouts, promotions, and\nrecommendations.\n4.3 Classification\n\u2022\nClassification\nassigns data records into one of several\npredefined\ncategories/classes\nbased on their attributes, using a model trained on historical\nlabeled data.\n\u2022\nExample: classifying loan applicants as \"high risk\" or \"low risk\" based on income,\ncredit history, etc.\n\u2022\nCommon classification techniques include decision trees, Naive Bayes, and\nneural networks (studied in more depth in machine\nlearning courses).\n4.4 Clustering\n\u2022\nClustering\ngroups similar data records together\nwithout predefined categories\n- the groups (clusters) themselves are discovered from the data.\n\u2022\nExample: grouping customers into segments based on purchasing behavior,\nwithout knowing the segments in advance.\n\u2022\nCommon clustering techniques include K\n- Means clustering and hierarchical\nclustering.\n4.5 Applications of Data Mining\n\u2022\nMarket basket analysis and recommendation systems (retail)\n\u2022\nFraud detection (banking, insurance)\n\u2022\nCustomer segmentation (marketing)\n\u2022\nDisease pattern detection (healthcare)\n\u2022\nRisk assessment (finance)\n5. Step - by- Step Working\nRaw Data Collected from Multiple Sources\n\u2193\nStored/Integrated in a Data Warehouse\n\u2193\nData Mining Techniques Applied\n(Association Rules / Classification / Clustering)\n\u2193\nPatterns and Insights\nDiscovered\n\u2193\nUsed for Decision\n- Making / Business Intelligence\n6. Diagrams\nA pipeline diagram showing mult\niple data source icons feeding into a large 'Data Warehouse'\ncylin\u2026\nFigure: A pipeline diagram showing multiple data source icons feeding into a large\n'Data Warehouse' cylin\u2026\n7. Images\nMarket basket analysis diagram showing shopping cart items connected by lines representing\nfreque\u2026\nFigure: Market basket analysis diagram showing shopping cart items connected by\nlines representing freque\u2026\nClustering scatter plot showing data points grouped into 3 different colored clusters\nFigure: Clustering scatter plot\nshowing data points grouped into 3 different colored\nclusters\n8. Tables\nTechnique\nGoal\nPredefined\nCategories?\nExample\nAssociation\nRules\nFind items occurring\ntogether\nNo (rules\ndiscovered)\n\"Bread \u2192 Butter \"\nClassification\nAssign data to known\ncategories\nYes\nLoan risk:\nHigh/Low\nClustering\nGroup similar data\ntogether\nNo\nCustomer\nsegments\n9. Important Terms\nTerm\nSimple Meaning\nData Mining\nDiscovering hidden patterns in large datasets\nData Warehouse\nCentral storage of integrated historical data for analysi\ns\nSupport\nFrequency of an itemset in association rule mining\nConfidence\nReliability/strength of an association rule\nClassification\nAssigning data into predefined categories\nClustering\nGrouping similar data without predefined categories\n10. Examples\n\u2022\nEasy example: Finding that customers who buy chips often also buy soft drinks.\n\u2022\nPractical example:\nA bank classifying loan applicants as high\n- risk or low\n- risk\nbased on past data.\n\u2022\nIndustry example:\nAmazon's recommendation engine uses association rules and\nclus tering to suggest products.\n\u2022\nReal - life example:\nHospitals use classification models to predict disease risk\nbased on patient history.\n11. Advantages & Limitations\n\u2022\nAdvantage: Uncovers valuable, non\n- obvious patterns hidden in large datasets.\n\u2022\nAdvantage: Supports better business and operational decisions.\n\u2022\nLimitation: Requires large amounts of clean, quality data to be effective.\n\u2022\nLimitation: Discovered patterns can sometimes be misleading (correlation\nwithout true causation) if not interpreted carefully.\n12. Appl ications\n\u2022\nIndustry: Retail, banking, healthcare, telecom.\n\u2022\nCompanies: Amazon, Flipkart (recommendations), banks (fraud detection).\n\u2022\nDaily life: Personalized product/movie recommendations you see online.\n\u2022\nSoftware: Tools like RapidMiner, Weka, Python's scikit\n- learn.\n\u2022\nWebsites: E- commerce recommendation engines.\n\u2022\nMobile Apps: Personalized content feeds and targeted notifications.\n13. Key Points to Remember\n\u2022 Data mining discovers hidden patterns from large datasets, often built on top of\na data warehouse.\n\u2022 Associa tion rules find items that occur together (using support and confidence\nmeasures).",
     "structuredTables": [
       {
         "id": "t5_1_dm_techniques",
@@ -3527,18 +5442,18 @@ export const TOPICS_DATA = [
             "feature": "Classification",
             "col1": "Supervised learning on labeled training data",
             "col2": "\u2705 Yes (Target classes defined, e.g. Fraud / Legitimate)",
-            "col3": "Decision Trees (C4.5, CART), Naive Bayes, Random Forest, SVM",
+            "col3": "Decision Trees, Naive Bayes, Random Forest, SVM",
             "col4": "Minimize classification error on test holdout set",
-            "col5": "Bank Loan Approval: Classify applicant as Low Risk vs High Default Risk",
+            "col5": "Bank Loan Approval: Classify applicant as Low Risk vs High Risk",
             "status": "success"
           },
           {
             "feature": "Clustering",
             "col1": "Unsupervised exploratory data grouping",
             "col2": "\u274c No (Natural clusters formed by data geometry)",
-            "col3": "K-Means, DBSCAN, Hierarchical Agglomerative Clustering",
+            "col3": "K-Means, DBSCAN, Hierarchical Clustering",
             "col4": "Maximize intra-cluster similarity; minimize inter-cluster similarity",
-            "col5": "Customer Segmentation: Grouping 1,000,000 users into 5 spending personas",
+            "col5": "Customer Segmentation: Grouping 1,000,000 users into personas",
             "status": "better-col2"
           }
         ]
@@ -3550,177 +5465,97 @@ export const TOPICS_DATA = [
     "moduleId": 5,
     "moduleName": "Modern Developments in Database Technologies",
     "title": "Introduction to Business Intelligence",
-    "pages": "90 - 95",
-    "estimatedTime": "18 min",
+    "timeEstimate": "18 min",
+    "pageRange": "114 - 118",
     "overview": {
-      "whatIsIt": "Business Intelligence (BI)\nrefers to the technologies, tools, and processes\nused to collect, integrate, analyze, and present business data to support better\ndecision - making by managers and executives.",
-      "whyNeed": "Raw data and even data mining results need to be presented in a\nclear, usable way (dashboards, reports) so that business leaders can quickly understand\ntrends and make informed decisions.\nWhere i s it used? - Executive dashboards\n- Sales and marketing performance tracking\n- Financial forecasting\n- Operational efficiency monitoring",
-      "whereUsed": "Enterprise banking, web applications, and large-scale data platforms.",
-      "importantNotes": ""
+      "whatIsIt": "Business Intelligence (BI)\nrefers to the technologies, tools, and processes\nused to collect, integrate, analyze, and present business data to support better\ndecision - making by managers and executives.\nWhy do we need it?\nRaw data and even data mining results need to be presented in a\nclear, usable way (dashboards, reports) so that business leaders can quickly understand\ntrends and make informed decisions.\nWhere i s it used? - Executive dashboards\n- Sales and marketing performance tracking\n- Financial forecasting\n- Operational efficiency monitoring",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "If data mining is like digging for gold, Business Intelligence is like taking that gold and\nturning it into a beautifully displayed, easy\n- to- understand report or dashboard that a\nmanager can glance at and immediately understand what's happening in the business.",
-      "keywords": [
-        {
-          "term": "Dashboard",
-          "meaning": "A visual screen summarizing"
-        },
-        {
-          "term": "key business metrics",
-          "meaning": "KPI (Key Performance"
-        },
-        {
-          "term": "Indicator)",
-          "meaning": "An important measurable value showing how well a goal is"
-        },
-        {
-          "term": "being achieved",
-          "meaning": "BI Framework"
-        },
-        {
-          "term": "business intelligence",
-          "meaning": "Machine Learning"
-        }
-      ]
+      "simpleExplanation": "2. Beginner Friendly Introduction\nIf data mining is like digging for gold, Business Intelligence is like taking that gold and\nturning it into a beautifully displayed, easy\n- to- understand report or dashboard that a\nmanager can glance at and immediately understand what's happening in the business.\nKey words explained:\nWord\nSimple Meaning\nDashboard\nA visual screen summarizing\nkey business metrics\nKPI (Key Performance\nIndicator)\nAn important measurable value showing how well a goal is\nbeing achieved\nBI Framework\nThe overall structure of tools and processes used to deliver\nbusiness intelligence\nMachine Learning\nA method where computers learn patterns from data\nautomatically, without being explicitly programmed for every\nrule",
+      "keywords": []
     },
     "analogies": [
-      {
-        "num": "1",
-        "title": "Car Dashboard",
-        "description": "Just like a car's dashboard shows speed, fuel level, and\nengine temperature at a glance, a BI dashboard\nshows sales, revenue, and customer\nmetrics at a glance for business leaders."
-      },
-      {
-        "num": "2",
-        "title": "Doctor's Health Report",
-        "description": "A doctor doesn't just hand you raw lab data; they\nsummarize it into a clear report highlighting key health indicators. BI does the same for\nbusiness data."
-      }
+      "Car Dashboard:\nJust like a car's dashboard shows speed, fuel level, and\nengine temperature at a glance, a BI dashboard\nshows sales, revenue, and customer\nmetrics at a glance for business leaders.",
+      "Doctor's Health Report:\nA doctor doesn't just hand you raw lab data; they\nsummarize it into a clear report highlighting key health indicators. BI does the same for\nbusiness data."
     ],
     "detailedExplanation": {
       "subsections": [
         {
           "title": "4.1 Features of Business Intelligence",
-          "content": "\u2022\nData Integration\n- combining data from multiple sources (sales, finance,\noperations) into one unified view.\n\u2022\nReporting and Dashboards\n- presenting data visually (charts, graphs, KPIs) for\nquick understanding.\n\u2022\nAd- hoc Querying\n- allowing users to ask custom questions of the data without\nneeding a developer each time.\n\u2022\nTrend Analysis and Forecasting\n- identifying patterns over time to predict\nfuture performance.\n\u2022\nSelf - Service Analytics\n- empowering non\n- technical business users to explore\ndata themselves."
+          "content": "\u2022"
         },
         {
-          "title": "4.2 BI Frameworks",
-          "content": "A typical BI framework/architecture includes:\n1. Data Sources\n- operational databases, external data, files.\n2.ETL (Extra\nct, Transform, Load)\n-\nextracting data from sources,\ntransforming/cleaning it, and loading it into a data warehouse.\n3. Data Warehouse/Data Marts\n- organized storage for analysis.\n4.BI Tools/Analytics Layer\n- reporting, dashboards, OLAP (Online Analytical\nProcessing) tools.\n5. Presentation Layer\n- dashboards, visualizations, and reports delivered to end users."
+          "title": "Data Integration",
+          "content": "- combining data from multiple sources (sales, finance,\noperations) into one unified view.\n\u2022"
         },
         {
-          "title": "4.3 Types and Approaches for Machine Learning (in the context of BI)",
-          "content": "Modern BI increasingly incorporates\nmachine learning (ML)\nto automate insight\ndiscovery. Broad types of machine learning approaches include:\n- Supervised Learning\n- the model learns from labeled historical data (input\n- output\npairs) to predict outcomes for new data (e.g., predicting customer churn based on past\nlabeled examples).\n- Unsupervised Learning\n- the model finds patterns/structure in data without\npredefined labels (e.g., customer segmentation via clustering).\n- Reinforcement Learning\n-\nthe model learns by receiving feedback\n(rewards/penalties) from its actions over time, impro\nving through trial and error (e.g.,\noptimizing pricing strategies dynamically). These ML approaches enhance BI by\nenabling predictive and prescriptive analytics, not just descriptive reporting of what\nalready happened."
+          "title": "Reporting and Dashboards",
+          "content": "- presenting data visually (charts, graphs, KPIs) for\nquick understanding.\n\u2022"
+        },
+        {
+          "title": "Ad- hoc Querying",
+          "content": "- allowing users to ask custom questions of the data without\nneeding a developer each time.\n\u2022"
+        },
+        {
+          "title": "Trend Analysis and Forecasting",
+          "content": "- identifying patterns over time to predict\nfuture performance.\n\u2022"
+        },
+        {
+          "title": "Self - Service Analytics",
+          "content": "- empowering non\n- technical business users to explore\ndata themselves."
+        },
+        {
+          "title": "A typical BI framework/architecture includes",
+          "content": "1. Data Sources\n- operational databases, external data, files.\n2.ETL (Extra\nct, Transform, Load)\n-\nextracting data from sources,\ntransforming/cleaning it, and loading it into a data warehouse.\n3. Data Warehouse/Data Marts\n- organized storage for analysis.\n4.BI Tools/Analytics Layer\n- reporting, dashboards, OLAP (Online Analytical\nProcessing) tools.\n5. Presentation Layer\n- dashboards, visualizations, and reports delivered to end users."
+        },
+        {
+          "title": "Modern BI increasingly incorporates",
+          "content": "machine learning (ML)\nto automate insight\ndiscovery. Broad types of machine learning approaches include:\n- Supervised Learning\n- the model learns from labeled historical data (input\n- output\npairs) to predict outcomes for new data (e.g., predicting customer churn based on past\nlabeled examples).\n- Unsupervised Learning\n- the model finds patterns/structure in data without\npredefined labels (e.g., customer segmentation via clustering).\n- Reinforcement Learning\n-\nthe model learns by receiving feedback\n(rewards/penalties) from its actions over time, impro\nving through trial and error (e.g.,\noptimizing pricing strategies dynamically). These ML approaches enhance BI by\nenabling predictive and prescriptive analytics, not just descriptive reporting of what\nalready happened."
         }
       ],
       "raw": "4. Complete Detailed Explanation\n4.1 Features of Business Intelligence\n\u2022\nData Integration\n- combining data from multiple sources (sales, finance,\noperations) into one unified view.\n\u2022\nReporting and Dashboards\n- presenting data visually (charts, graphs, KPIs) for\nquick understanding.\n\u2022\nAd- hoc Querying\n- allowing users to ask custom questions of the data without\nneeding a developer each time.\n\u2022\nTrend Analysis and Forecasting\n- identifying patterns over time to predict\nfuture performance.\n\u2022\nSelf - Service Analytics\n- empowering non\n- technical business users to explore\ndata themselves.\n4.2 BI Frameworks\nA typical BI framework/architecture includes:\n1. Data Sources\n- operational databases, external data, files.\n2.ETL (Extra\nct, Transform, Load)\n-\nextracting data from sources,\ntransforming/cleaning it, and loading it into a data warehouse.\n3. Data Warehouse/Data Marts\n- organized storage for analysis.\n4.BI Tools/Analytics Layer\n- reporting, dashboards, OLAP (Online Analytical\nProcessing) tools.\n5. Presentation Layer\n- dashboards, visualizations, and reports delivered to end users.\n4.3 Types and Approaches for Machine Learning (in the context of BI)\nModern BI increasingly incorporates\nmachine learning (ML)\nto automate insight\ndiscovery. Broad types of machine learning approaches include:\n- Supervised Learning\n- the model learns from labeled historical data (input\n- output\npairs) to predict outcomes for new data (e.g., predicting customer churn based on past\nlabeled examples).\n- Unsupervised Learning\n- the model finds patterns/structure in data without\npredefined labels (e.g., customer segmentation via clustering).\n- Reinforcement Learning\n-\nthe model learns by receiving feedback\n(rewards/penalties) from its actions over time, impro\nving through trial and error (e.g.,\noptimizing pricing strategies dynamically). These ML approaches enhance BI by\nenabling predictive and prescriptive analytics, not just descriptive reporting of what\nalready happened."
     },
     "stepByStep": [
       {
-        "title": "Data Sources (Sales, Finance, Operations, etc.)",
-        "isHeader": false
-      },
-      {
-        "title": "ETL Process: Extract",
-        "isHeader": false
-      },
-      {
-        "title": "\u2192 Transform \u2192 Load",
-        "isHeader": false
-      },
-      {
-        "title": "Data Warehouse / Data Marts",
-        "isHeader": false
-      },
-      {
-        "title": "BI Tools: Reporting, OLAP, Dashboards (optionally enhanced with Machine Learning)",
-        "isHeader": false
-      },
-      {
-        "title": "Presentation Layer: Dashboards and Reports for Decision",
-        "isHeader": false
-      },
-      {
-        "title": "- Makers",
-        "isHeader": false
+        "step": 1,
+        "title": "Step - by- Step Working",
+        "description": "Data Sources (Sales, Finance, Operations, etc.)\n\u2193\nETL Process: Extract\n\u2192 Transform \u2192 Load\n\u2193\nData Warehouse / Data Marts\n\u2193\nBI Tools: Reporting, OLAP, Dashboards (optionally enhanced with Machine Learning)\n\u2193\nPresentation Layer: Dashboards and Reports for Decision\n- Makers"
       }
     ],
-    "tablesRaw": "ML Approach\nUses Labeled Data?\nExample Use in BI\nSupervised Learning\nYes\nPredicting customer churn\nUnsupervised Learning\nNo\nCustomer segmentation\nReinforcem ent Learning\nNo (uses feedback/rewards)\nDynamic pricing optimization\nBI Component\nPurpose\nETL\nExtract, clean, and load data into storage\nData Warehouse\nCentralized, organized data storage for analysis\nOLAP Tools\nEnable multi - dimensional analysis of data\nDashboards\nVisual summary of key metrics for decision\n- makers",
+    "diagramsDescription": "6. Diagrams\nA layered architect\nure diagram with four horizontal bands stacked vertically: Data Sources at\nthe\u2026\nFigure: A layered architecture diagram with four horizontal bands stacked vertically:\nData Sources at the\u2026",
+    "visualIllustrations": "7. Images\nExecutive BI dashboard mockup showing charts, KPIs, and g\nraphs summarizing sales\nperformance\nFigure: Executive BI dashboard mockup showing charts, KPIs, and graphs summarizing\nsales performance",
+    "tablesRaw": "8. Tables\nML Approach\nUses Labeled Data?\nExample Use in BI\nSupervised Learning\nYes\nPredicting customer churn\nUnsupervised Learning\nNo\nCustomer segmentation\nReinforcem ent Learning\nNo (uses feedback/rewards)\nDynamic pricing optimization\nBI Component\nPurpose\nETL\nExtract, clean, and load data into storage\nData Warehouse\nCentralized, organized data storage for analysis\nOLAP Tools\nEnable multi - dimensional analysis of data\nDashboards\nVisual summary of key metrics for decision\n- makers",
+    "importantTerms": "9. Important Terms\nTerm\nSimple Meaning\nBusiness Intelligence\n(BI)\nTools/processes to analyze and present business data for\ndecisions\nETL\nExtract, Transform, Load\n- the process of preparing\ndata for\nanalysis\nKPI\nA key measurable indicator of business performance\nOLAP\nOnline Analytical Processing\n-\ntechnology for multi\n-\ndimensional data analysis\nSupervised Learning\nML using labeled historical data to predict outcomes\nUnsupervised\nLearning\nML finding patterns without labeled data",
     "terms": [],
     "examples": [
-      {
-        "type": "Easy example",
-        "content": "A sales dashboard showing this month's revenue compared to last\nmonth."
-      },
-      {
-        "type": "Practical example",
-        "content": "A retail chain using BI dashboards to track store\n- wise sales\nperformance daily."
-      },
-      {
-        "type": "Industry example",
-        "content": "Banks use BI systems combined with machine learning to\ndetect unusual transaction patterns (fraud)."
-      },
-      {
-        "type": "Real-life example",
-        "content": "Streaming services use BI and ML together to understand\nviewing trends and recommend content."
-      }
+      "10. Examples\n\u2022\nEasy example: A sales dashboard showing this month's revenue compared to last\nmonth.\n\u2022\nPractical example:\nA retail chain using BI dashboards to track store\n- wise sales\nperformance daily.\n\u2022\nIndustry example:\nBanks use BI systems combined with machine learning to\ndetect unusual transaction patterns (fraud).\n\u2022\nReal - life example:\nStreaming services use BI and ML together to understand\nviewing trends and recommend content."
     ],
     "advantages": [
       "Turns complex data into clear, actionable insights for decision",
-      "Machine learning integration enables predictive, forward"
+      "makers.",
+      "Advantage: Machine learning integration enables predictive, forward",
+      "looking",
+      "insights, not just historical reporting."
     ],
     "limitations": [
-      "BI systems are only as good as the quality and integratio",
-      "Building and maintaining a full BI framework (ETL, warehouse,"
+      "Advantage: Turns complex data into clear, actionable insights for decision",
+      "makers.",
+      "Advantage: Machine learning integration enables predictive, forward",
+      "looking",
+      "insights, not just historical reporting.",
+      "Limitation: BI systems are only as good as the quality and integratio",
+      "underlying data."
     ],
-    "applications": [
-      {
-        "category": "Industry",
-        "details": "Retail, banking, healthcare, manufacturing."
-      },
-      {
-        "category": "Companies",
-        "details": "Almost every large enterprise uses BI tools like Power BI, Tableau,\nor Qlik."
-      },
-      {
-        "category": "Daily life",
-        "details": "Personalized recommendations and targeted ads are often powered\nby BI/ML systems behind the scenes."
-      },
-      {
-        "category": "Software",
-        "details": "Microsoft Power BI, Tableau, QlikView, SAP BusinessObjects."
-      },
-      {
-        "category": "Websites",
-        "details": "E- commerce analytics\ndashboards for sellers."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Business apps offering real\n- time performance tracking on the go."
-      }
-    ],
+    "advantagesLimitations": "11. Advantages & Limitations\n\u2022\nAdvantage: Turns complex data into clear, actionable insights for decision\n-\nmakers.\n\u2022\nAdvantage: Machine learning integration enables predictive, forward\n- looking\ninsights, not just historical reporting.\n\u2022\nLimitation: BI systems are only as good as the quality and integratio\nn of\nunderlying data.",
+    "applications": [],
     "keyPoints": {
-      "takeaways": [
-        "Business Intelligence turns raw and mined data into clear, actionable",
-        "dashboards and reports for decision",
-        "makers.",
-        "A typical BI framework includes Data Sources",
-        "\u2192 ETL \u2192 Data Warehouse",
-        "\u2192 BI",
-        "Tools \u2192 Dashboards.",
-        "Machine learning enhances BI with three mai",
-        "n approaches: Supervised,",
-        "Unsupervised, and Reinforcement Learning.",
-        "BI is not just \"making pretty charts\"",
-        "it fundamentally",
-        "involves the entire pipeline of collecting, integrating, and analyzing data before",
-        "presentation.",
-        "Supervis ed learning needs labeled data; unsupervised learning finds patterns",
-        "without labels; reinforcement learning learns through feedback/rewards over",
-        "time."
-      ],
-      "misconceptions": [
-        ""
-      ],
+      "takeaways": [],
+      "misconceptions": [],
       "examTips": []
     },
+    "fullRawText": "\u2022 Classification assigns data into predefined categories; clustering groups data\nwithout predefined categories.\n\u2022 Common misconception:\nClassification and clustering are NOT the same\n-\nclassification uses known/labeled categories, while clustering discovers groups\nwithout pre - existing labels.\n\u2022 Data mining and data warehousing work together\n- the warehouse provides\norganized data, and mining extracts insights from it.\nTopic 5 .2: Introduction to Business Intelligence\n1. Topic Name - Business Intelligence (BI)\nWhat is it?\nBusiness Intelligence (BI)\nrefers to the technologies, tools, and processes\nused to collect, integrate, analyze, and present business data to support better\ndecision - making by managers and executives.\nWhy do we need it?\nRaw data and even data mining results need to be presented in a\nclear, usable way (dashboards, reports) so that business leaders can quickly understand\ntrends and make informed decisions.\nWhere i s it used? - Executive dashboards\n- Sales and marketing performance tracking\n- Financial forecasting\n- Operational efficiency monitoring\n2. Beginner Friendly Introduction\nIf data mining is like digging for gold, Business Intelligence is like taking that gold and\nturning it into a beautifully displayed, easy\n- to- understand report or dashboard that a\nmanager can glance at and immediately understand what's happening in the business.\nKey words explained:\nWord\nSimple Meaning\nDashboard\nA visual screen summarizing\nkey business metrics\nKPI (Key Performance\nIndicator)\nAn important measurable value showing how well a goal is\nbeing achieved\nBI Framework\nThe overall structure of tools and processes used to deliver\nbusiness intelligence\nMachine Learning\nA method where computers learn patterns from data\nautomatically, without being explicitly programmed for every\nrule\n3. Real - Life Analogies\nAnalogy 1 - Car Dashboard:\nJust like a car's dashboard shows speed, fuel level, and\nengine temperature at a glance, a BI dashboard\nshows sales, revenue, and customer\nmetrics at a glance for business leaders.\nAnalogy 2 - Doctor's Health Report:\nA doctor doesn't just hand you raw lab data; they\nsummarize it into a clear report highlighting key health indicators. BI does the same for\nbusiness data.\n4. Complete Detailed Explanation\n4.1 Features of Business Intelligence\n\u2022\nData Integration\n- combining data from multiple sources (sales, finance,\noperations) into one unified view.\n\u2022\nReporting and Dashboards\n- presenting data visually (charts, graphs, KPIs) for\nquick understanding.\n\u2022\nAd- hoc Querying\n- allowing users to ask custom questions of the data without\nneeding a developer each time.\n\u2022\nTrend Analysis and Forecasting\n- identifying patterns over time to predict\nfuture performance.\n\u2022\nSelf - Service Analytics\n- empowering non\n- technical business users to explore\ndata themselves.\n4.2 BI Frameworks\nA typical BI framework/architecture includes:\n1. Data Sources\n- operational databases, external data, files.\n2.ETL (Extra\nct, Transform, Load)\n-\nextracting data from sources,\ntransforming/cleaning it, and loading it into a data warehouse.\n3. Data Warehouse/Data Marts\n- organized storage for analysis.\n4.BI Tools/Analytics Layer\n- reporting, dashboards, OLAP (Online Analytical\nProcessing) tools.\n5. Presentation Layer\n- dashboards, visualizations, and reports delivered to end users.\n4.3 Types and Approaches for Machine Learning (in the context of BI)\nModern BI increasingly incorporates\nmachine learning (ML)\nto automate insight\ndiscovery. Broad types of machine learning approaches include:\n- Supervised Learning\n- the model learns from labeled historical data (input\n- output\npairs) to predict outcomes for new data (e.g., predicting customer churn based on past\nlabeled examples).\n- Unsupervised Learning\n- the model finds patterns/structure in data without\npredefined labels (e.g., customer segmentation via clustering).\n- Reinforcement Learning\n-\nthe model learns by receiving feedback\n(rewards/penalties) from its actions over time, impro\nving through trial and error (e.g.,\noptimizing pricing strategies dynamically). These ML approaches enhance BI by\nenabling predictive and prescriptive analytics, not just descriptive reporting of what\nalready happened.\n5. Step - by- Step Working\nData Sources (Sales, Finance, Operations, etc.)\n\u2193\nETL Process: Extract\n\u2192 Transform \u2192 Load\n\u2193\nData Warehouse / Data Marts\n\u2193\nBI Tools: Reporting, OLAP, Dashboards (optionally enhanced with Machine Learning)\n\u2193\nPresentation Layer: Dashboards and Reports for Decision\n- Makers\n6. Diagrams\nA layered architect\nure diagram with four horizontal bands stacked vertically: Data Sources at\nthe\u2026\nFigure: A layered architecture diagram with four horizontal bands stacked vertically:\nData Sources at the\u2026\n7. Images\nExecutive BI dashboard mockup showing charts, KPIs, and g\nraphs summarizing sales\nperformance\nFigure: Executive BI dashboard mockup showing charts, KPIs, and graphs summarizing\nsales performance\n8. Tables\nML Approach\nUses Labeled Data?\nExample Use in BI\nSupervised Learning\nYes\nPredicting customer churn\nUnsupervised Learning\nNo\nCustomer segmentation\nReinforcem ent Learning\nNo (uses feedback/rewards)\nDynamic pricing optimization\nBI Component\nPurpose\nETL\nExtract, clean, and load data into storage\nData Warehouse\nCentralized, organized data storage for analysis\nOLAP Tools\nEnable multi - dimensional analysis of data\nDashboards\nVisual summary of key metrics for decision\n- makers\n9. Important Terms\nTerm\nSimple Meaning\nBusiness Intelligence\n(BI)\nTools/processes to analyze and present business data for\ndecisions\nETL\nExtract, Transform, Load\n- the process of preparing\ndata for\nanalysis\nKPI\nA key measurable indicator of business performance\nOLAP\nOnline Analytical Processing\n-\ntechnology for multi\n-\ndimensional data analysis\nSupervised Learning\nML using labeled historical data to predict outcomes\nUnsupervised\nLearning\nML finding patterns without labeled data\n10. Examples\n\u2022\nEasy example: A sales dashboard showing this month's revenue compared to last\nmonth.\n\u2022\nPractical example:\nA retail chain using BI dashboards to track store\n- wise sales\nperformance daily.\n\u2022\nIndustry example:\nBanks use BI systems combined with machine learning to\ndetect unusual transaction patterns (fraud).\n\u2022\nReal - life example:\nStreaming services use BI and ML together to understand\nviewing trends and recommend content.\n11. Advantages & Limitations\n\u2022\nAdvantage: Turns complex data into clear, actionable insights for decision\n-\nmakers.\n\u2022\nAdvantage: Machine learning integration enables predictive, forward\n- looking\ninsights, not just historical reporting.\n\u2022\nLimitation: BI systems are only as good as the quality and integratio\nn of\nunderlying data.",
     "structuredTables": [
       {
         "id": "t5_2_ml_paradigms",
@@ -3740,71 +5575,16 @@ export const TOPICS_DATA = [
             "col1": "Requires paired inputs and ground-truth target labels (X, y)",
             "col2": "Loss function calculates deviation from actual target label",
             "col3": "Linear/Logistic Regression, XGBoost, Neural Networks, Decision Trees",
-            "col4": "Predicting next quarter revenue, Customer Churn early warning system",
+            "col4": "Predicting next quarter revenue, Customer Churn warning",
             "status": "success"
           },
           {
             "feature": "Unsupervised Learning",
             "col1": "No labeled outputs; processes unannotated raw input datasets (X)",
             "col2": "Discovers latent structures, distributions, and clusters",
-            "col3": "K-Means, PCA (Dimensionality Reduction), Autoencoders, Isolation Forests",
-            "col4": "Anomalous credit card transaction detection, Automated demographic clustering",
+            "col3": "K-Means, PCA, Autoencoders, Isolation Forests",
+            "col4": "Anomalous credit card transaction detection",
             "status": "better-col2"
-          },
-          {
-            "feature": "Reinforcement Learning",
-            "col1": "No static dataset; autonomous agent interacts with dynamic environment",
-            "col2": "Receives positive scalar rewards or negative penalties over time",
-            "col3": "Q-Learning, Deep Q-Networks (DQN), PPO (Proximal Policy Optimization)",
-            "col4": "Dynamic airline ticket pricing optimization, Real-time ad bidding engine",
-            "status": "info"
-          }
-        ]
-      },
-      {
-        "id": "t5_2_bi_stack",
-        "title": "Business Intelligence & Data Warehousing Architecture Stack",
-        "subtitle": "Layer-by-layer technical breakdown from raw operational sources to executive dashboards",
-        "badge": "Data Warehouse Architecture",
-        "headers": [
-          "Architecture Layer",
-          "Primary Technical Function",
-          "Key Technologies Used",
-          "Latency & Processing Mode",
-          "Target User Persona"
-        ],
-        "rows": [
-          {
-            "feature": "1. Data Extraction & ETL",
-            "col1": "Extracts from OLTP/APIs, cleans, standardizes, transforms, and loads",
-            "col2": "Apache Airflow, Talend, dbt, Spark ETL, AWS Glue",
-            "col3": "Scheduled nightly/hourly batch or real-time Kafka streaming",
-            "col4": "Data Engineers & Pipeline Architects",
-            "status": "info"
-          },
-          {
-            "feature": "2. Enterprise Data Warehouse",
-            "col1": "Centralized, subject-oriented, non-volatile, time-variant analytical repository",
-            "col2": "Snowflake, Google BigQuery, Amazon Redshift, Star/Snowflake schemas",
-            "col3": "Massively Parallel Processing (MPP) analytical storage",
-            "col4": "Database Administrators & Data Architects",
-            "status": "success"
-          },
-          {
-            "feature": "3. OLAP Analytical Server",
-            "col1": "Multi-dimensional cube calculation enabling Roll-up, Drill-down, Slice & Dice",
-            "col2": "MOLAP (In-memory multi-dim), ROLAP (Relational OLAP), HOLAP (Hybrid)",
-            "col3": "Sub-second multi-dimensional analytical queries",
-            "col4": "BI Analysts & Financial Planners",
-            "status": "better-col2"
-          },
-          {
-            "feature": "4. Executive Visualization & BI",
-            "col1": "Interactive visual charts, KPI metric trackers, and automated alerts",
-            "col2": "Tableau, Microsoft Power BI, Looker, Apache Superset",
-            "col3": "Interactive client-side web dashboards",
-            "col4": "C-Suite Executives, Product Managers, Decision Makers",
-            "status": "info"
           }
         ]
       }
@@ -3815,169 +5595,260 @@ export const TOPICS_DATA = [
     "moduleId": 5,
     "moduleName": "Modern Developments in Database Technologies",
     "title": "Multimedia Databases, Mobile Databases, and Digital Databases",
-    "pages": "95 - 101",
-    "estimatedTime": "20 min",
+    "timeEstimate": "20 min",
+    "pageRange": "119 - 125",
     "overview": {
-      "whatIsIt": "These are specialized types of databases designed for specific modern\nneeds: Multimedia databases\nstore and manage rich media (images, audio, video);\nMobile databases\nrun on or support mobile/portable devices, often with intermittent\nconnectivity;\nDigital databases\nbroadly refer to databases used for storing and\nmanaging digital content/assets in electronic form.",
-      "whyNeed": "Standard relational databases were originally designed for simple\ntext/numeric data. Mode\nrn applications need to store, search, and manage large\nmultimedia files, support users on the move with unreliable networks, and manage\ngrowing volumes of purely digital content.",
-      "whereUsed": "- Multimedia: video streaming platforms, image search engines,\nmedical imaging systems\n- Mobile: field service apps, delivery apps, offline\n- capable\nbusiness apps\n- Digital: digital libraries, e\n- books, digital archives",
-      "importantNotes": ""
+      "whatIsIt": "",
+      "whyItMatters": "",
+      "quickSummary": ""
     },
     "beginnerIntro": {
-      "story": "Think of a family photo album (multimedia database) that needs\nto store and let you\nsearch pictures and videos, not just names and numbers. A mobile database is like a\nsmall notebook you carry that can update itself when you connect to Wi\n- Fi, even\nthough you were writing in it while offline. A digital database is simply any large,\norganized collection of digital content, like an online library of e\n- books.",
-      "keywords": [
-        {
-          "term": "Multimedia Data",
-          "meaning": "Data types like images, audio, and video (not just text/numbers)"
-        },
-        {
-          "term": "Content",
-          "meaning": "Based"
-        },
-        {
-          "term": "Retrieval",
-          "meaning": "Searching multime"
-        },
-        {
-          "term": "Mobile Database",
-          "meaning": "A database designed to work on portable devices, often"
-        },
-        {
-          "term": "supporting offline use",
-          "meaning": "Synchronization"
-        },
-        {
-          "term": "Digital Database",
-          "meaning": "An organized collection of digital content/assets"
-        }
-      ]
+      "simpleExplanation": "",
+      "keywords": []
     },
-    "analogies": [
-      {
-        "num": "1",
-        "title": "Digital Photo Album vs Text Diary",
-        "description": "A text diary (traditional database)\nstores only words; a digital photo album (\nmultimedia database) stores and organizes\nphotos and videos, which are much richer but harder to search directly by content."
-      },
-      {
-        "num": "2",
-        "title": "Offline Notebook Syncing to Cloud",
-        "description": "A delivery driver using an app that\nworks without internet (writing notes offline) and automatically updates the central\nsystem once back in network coverage\n- this is exactly how mobile databases handle\nintermittent connectivity through synchronization."
-      }
-    ],
+    "analogies": [],
     "detailedExplanation": {
       "subsections": [
         {
-          "title": "4.1 Multimedia Databases",
-          "content": "\u2022\nStore and manage\nmultimedia data types\n: images, audio, video, and\ncombinations of these (unlike traditional databases limited to text/numbers).\n\u2022\nRequire special indexing and retrieval techniques, since searching \"find images\nsimilar to this one\" is very different from searching \"find rows where age > 20.\"\n\u2022\nContent - Based Retrieval\nallows searching based on actual visual/audio features\n(color, shape, texture, pitch), rather than relying only on manually added text\ntags/descriptions.\n\u2022\nChallenges include very large file sizes, the need for\nefficient compression, and\ncomplex similarity\n- based searching (rather than exact matching)."
-        },
-        {
-          "title": "4.2 Mobile Databases",
-          "content": "\u2022\nDesigned to run on, or be accessed by, mobile/portable devices (smartphones,\ntablets, laptops in the field).\n\u2022\nMust handle intermittent connectivity\n- devices may lose network connection\nand need to continue working offline.\n\u2022\nUse synchronization\nmechanisms to update the central database once the\ndevice reconnects, resolving any conflicts that occurred during offline use.\n\u2022\nOften need to be lightweight\n(efficient on limited device\nstorage/battery/processing power)."
-        },
-        {
-          "title": "4.3 Digital Databases",
-          "content": "\u2022\nBroadly refers to databases that manage large collections of\npurely digital\ncontent/assets\n- such as digital libraries, e\n- books, scanned archives, and digital\nmedia repositories.\n\u2022\nFocuses on organizing, cataloging, preserving, and enabling efficient\nsearch/retrieval of digital assets over the long term.\n\u2022\nOften incorporates metadata (descriptive information about each digital item) to\nsupport searching and browsing large col\nlections."
+          "title": "Core Theoretical Framework",
+          "content": "Detailed theoretical concepts and principles."
         }
       ],
-      "raw": "4. Complete Detailed Explanation\n4.1 Multimedia Databases\n\u2022\nStore and manage\nmultimedia data types\n: images, audio, video, and\ncombinations of these (unlike traditional databases limited to text/numbers).\n\u2022\nRequire special indexing and retrieval techniques, since searching \"find images\nsimilar to this one\" is very different from searching \"find rows where age > 20.\"\n\u2022\nContent - Based Retrieval\nallows searching based on actual visual/audio features\n(color, shape, texture, pitch), rather than relying only on manually added text\ntags/descriptions.\n\u2022\nChallenges include very large file sizes, the need for\nefficient compression, and\ncomplex similarity\n- based searching (rather than exact matching).\n4.2 Mobile Databases\n\u2022\nDesigned to run on, or be accessed by, mobile/portable devices (smartphones,\ntablets, laptops in the field).\n\u2022\nMust handle intermittent connectivity\n- devices may lose network connection\nand need to continue working offline.\n\u2022\nUse synchronization\nmechanisms to update the central database once the\ndevice reconnects, resolving any conflicts that occurred during offline use.\n\u2022\nOften need to be lightweight\n(efficient on limited device\nstorage/battery/processing power).\n4.3 Digital Databases\n\u2022\nBroadly refers to databases that manage large collections of\npurely digital\ncontent/assets\n- such as digital libraries, e\n- books, scanned archives, and digital\nmedia repositories.\n\u2022\nFocuses on organizing, cataloging, preserving, and enabling efficient\nsearch/retrieval of digital assets over the long term.\n\u2022\nOften incorporates metadata (descriptive information about each digital item) to\nsupport searching and browsing large col\nlections."
+      "raw": ""
     },
-    "stepByStep": [
-      {
-        "title": "Mobile Database Synchronization Flow:",
-        "isHeader": true
-      },
-      {
-        "title": "Mobile Device Works Offline (local database)",
-        "isHeader": false
-      },
-      {
-        "title": "User performs updates while offline",
-        "isHeader": false
-      },
-      {
-        "title": "Device Reconnects to Network",
-        "isHeader": false
-      },
-      {
-        "title": "Synchronization Process runs",
-        "isHeader": false
-      },
-      {
-        "title": "Conflicts (if any) Resolved",
-        "isHeader": false
-      },
-      {
-        "title": "Central Database Updated with Latest Changes",
-        "isHeader": false
-      }
-    ],
-    "tablesRaw": "Database Type\nMain Focus\nKey Challenge\nMultimedia\nDatabase\nStoring/retrieving images,\naudio, video\nContent - based similarity search,\nlarge file sizes\nMobile Database\nWorking on portable devices\nIntermittent connectivity,\nsynchronization\nDigital Database\nOrganizing large digital content\ncollections\nLong - term cataloging, metadata\nmanagement",
-    "terms": [
-      {
-        "term": "Content",
-        "definition": "Based"
-      }
-    ],
-    "examples": [
-      {
-        "type": "Easy example",
-        "content": "A phone's photo gallery app that can search\nphotos by content\n(like \"beach\" photos)\n- multimedia database with content\n- based retrieval."
-      },
-      {
-        "type": "Practical example",
-        "content": "A field sales app that lets a salesperson take orders offline\nand syncs them once back in Wi\n- Fi range - mobile database."
-      },
-      {
-        "type": "Industry example",
-        "content": "A digital library like an online e\n- book platform managing\nthousands of digital titles with searchable metadata\n- digital database."
-      },
-      {
-        "type": "Real-life example",
-        "content": "YouTube manages billions of video files (multimedia database)\nwith search and recommendation features."
-      }
-    ],
-    "advantages": [
-      "Enables rich content storage and retrieval;",
-      "Allows productivity even without constant",
-      "Preserves and organizes large digital collections"
-    ],
-    "limitations": [
-      "Requires complex indexing/search techniques and significant",
-      "connectivity; Limitation: Synchronization conflicts can be complex to resolve",
-      "efficiently; Limitation: Requires ongoing effort in cataloging and metadata"
-    ],
+    "stepByStep": [],
+    "diagramsDescription": "",
+    "visualIllustrations": "",
+    "tablesRaw": "",
+    "importantTerms": "",
+    "terms": [],
+    "examples": [],
+    "advantages": [],
+    "limitations": [],
+    "advantagesLimitations": "",
     "applications": [
-      {
-        "category": "Industry",
-        "details": "Media/entertainment (multimedia), logistics/field service (mobile),\npublishing/archiving (digital)."
-      },
-      {
-        "category": "Companies",
-        "details": "YouTube, Netflix (multimedia); delivery and ride\n- hailing apps\n(mobile); digital libraries and publishers (digital databases)."
-      },
-      {
-        "category": "Daily life",
-        "details": "Streaming videos, using apps while traveling with poor network,\nbrowsing e - book libraries."
-      },
-      {
-        "category": "Software",
-        "details": "Multimedia database systems (Oracle Multimedia), mobile database\nengines (SQLite, Realm), digital repository systems (DSpace)."
-      },
-      {
-        "category": "Mobile Apps",
-        "details": "Any offline - capable business or productivity app."
-      }
+      "Industry: Retail, banking, healthcare, manufacturing.",
+      "Companies: Almost every large enterprise uses BI tools like Power BI, Tableau,",
+      "Daily life: Personalized recommendations and targeted ads are often powered",
+      "by BI/ML systems behind the scenes.",
+      "Software: Microsoft Power BI, Tableau, QlikView, SAP BusinessObjects.",
+      "Websites: E- commerce analytics",
+      "dashboards for sellers.",
+      "Mobile Apps: Business apps offering real",
+      "time performance tracking on the go."
     ],
     "keyPoints": {
       "takeaways": [
+        "Business Intelligence turns raw and mined data into clear, actionable",
+        "dashboards and reports for decision",
+        "A typical BI framework includes Data Sources",
+        "\u2192 ETL \u2192 Data Warehouse",
+        "Tools \u2192 Dashboards.",
+        "Machine learning enhances BI with three mai",
+        "n approaches: Supervised,",
+        "Unsupervised, and Reinforcement Learning.",
+        "Common misconception:",
+        "BI is not just \"making pretty charts\"",
+        "it fundamentally",
+        "involves the entire pipeline of collecting, integrating, and analyzing data before",
+        "presentation.",
+        "Supervis ed learning needs labeled data; unsupervised learning finds patterns",
+        "without labels; reinforcement learning learns through feedback/rewards over",
+        "Topic 5.3: Multimedia Databases, Mobile Databases, and Digital",
+        "1. Topic Name - Multimedia, Mobi",
+        "le, and Digital Databases",
+        "What is it?",
+        "These are specialized types of databases designed for specific modern",
+        "needs: Multimedia databases",
+        "store and manage rich media (images, audio, video);",
+        "Mobile databases",
+        "run on or support mobile/portable devices, often with intermittent",
+        "connectivity;",
+        "Digital databases",
+        "broadly refer to databases used for storing and",
+        "managing digital content/assets in electronic form.",
+        "Why do we need it?",
+        "Standard relational databases were originally designed for simple",
+        "text/numeric data. Mode",
+        "rn applications need to store, search, and manage large",
+        "multimedia files, support users on the move with unreliable networks, and manage",
+        "growing volumes of purely digital content.",
+        "Where is it used?",
+        "Multimedia: video streaming platforms, image search engines,",
+        "medical imaging systems",
+        "Mobile: field service apps, delivery apps, offline",
+        "business apps",
+        "Digital: digital libraries, e",
+        "books, digital archives",
+        "2. Beginner Friendly Introduction",
+        "Think of a family photo album (multimedia database) that needs",
+        "to store and let you",
+        "search pictures and videos, not just names and numbers. A mobile database is like a",
+        "small notebook you carry that can update itself when you connect to Wi",
+        "though you were writing in it while offline. A digital database is simply any large,",
+        "organized collection of digital content, like an online library of e",
+        "Key words explained:",
+        "Simple Meaning",
+        "Multimedia Data",
+        "Data types like images, audio, and video (not just text/numbers)",
+        "Content - Based",
+        "Searching multime",
+        "dia by its actual content (e.g., searching",
+        "images by color/shape) rather than just text tags",
+        "Mobile Database",
+        "A database designed to work on portable devices, often",
+        "supporting offline use",
+        "Synchronization",
+        "Updating data between a mobile device and a central server",
+        "once connectivity is available",
+        "Digital Database",
+        "An organized collection of digital content/assets",
+        "3. Real - Life Analogies",
+        "Digital Photo Album vs Text Diary:",
+        "A text diary (traditional database)",
+        "stores only words; a digital photo album (",
+        "multimedia database) stores and organizes",
+        "photos and videos, which are much richer but harder to search directly by content.",
+        "Analogy 2 - Offline Notebook Syncing to Cloud:",
+        "A delivery driver using an app that",
+        "works without internet (writing notes offline) and automatically updates the central",
+        "system once back in network coverage",
+        "this is exactly how mobile databases handle",
+        "intermittent connectivity through synchronization.",
+        "4. Complete Detailed Explanation",
+        "4.1 Multimedia Databases",
+        "Store and manage",
+        "multimedia data types",
+        ": images, audio, video, and",
+        "combinations of these (unlike traditional databases limited to text/numbers).",
+        "Require special indexing and retrieval techniques, since searching \"find images",
+        "similar to this one\" is very different from searching \"find rows where age > 20.\"",
+        "Content - Based Retrieval",
+        "allows searching based on actual visual/audio features",
+        "(color, shape, texture, pitch), rather than relying only on manually added text",
+        "tags/descriptions.",
+        "Challenges include very large file sizes, the need for",
+        "efficient compression, and",
+        "complex similarity",
+        "based searching (rather than exact matching).",
+        "4.2 Mobile Databases",
+        "Designed to run on, or be accessed by, mobile/portable devices (smartphones,",
+        "tablets, laptops in the field).",
+        "Must handle intermittent connectivity",
+        "devices may lose network connection",
+        "and need to continue working offline.",
+        "Use synchronization",
+        "mechanisms to update the central database once the",
+        "device reconnects, resolving any conflicts that occurred during offline use.",
+        "Often need to be lightweight",
+        "(efficient on limited device",
+        "storage/battery/processing power).",
+        "4.3 Digital Databases",
+        "Broadly refers to databases that manage large collections of",
+        "purely digital",
+        "content/assets",
+        "such as digital libraries, e",
+        "books, scanned archives, and digital",
+        "media repositories.",
+        "Focuses on organizing, cataloging, preserving, and enabling efficient",
+        "search/retrieval of digital assets over the long term.",
+        "Often incorporates metadata (descriptive information about each digital item) to",
+        "support searching and browsing large col",
+        "5. Step - by- Step Working",
+        "Mobile Database Synchronization Flow:",
+        "Mobile Device Works Offline (local database)",
+        "User performs updates while offline",
+        "Device Reconnects to Network",
+        "Synchronization Process runs",
+        "Conflicts (if any) Resolved",
+        "Central Database Updated with Latest Changes",
+        "6. Diagrams",
+        "A diagram showing a smartphone icon on the left labeled 'offlin",
+        "e local database', connected via",
+        "Figure: A diagram showing a smartphone icon on the left labeled 'offline local database',",
+        "connected via a\u2026",
+        "Multimedia database diagram showing icons for images, audio, and video files being stored and",
+        "Figure: Multimedia database diagram showing icons for images, audio, and video files",
+        "being stored and ind\u2026",
+        "Database Type",
+        "Key Challenge",
+        "Storing/retrieving images,",
+        "audio, video",
+        "Content - based similarity search,",
+        "large file sizes",
+        "Mobile Database",
+        "Working on portable devices",
+        "Intermittent connectivity,",
+        "synchronization",
+        "Digital Database",
+        "Organizing large digital content",
+        "collections",
+        "Long - term cataloging, metadata",
+        "9. Important Terms",
+        "Simple Meaning",
+        "Multimedia Database",
+        "A database managing images, audio, and video da",
+        "Content - Based",
+        "Searching multimedia by actual content features, not just text",
+        "Mobile Database",
+        "A database supporting portable devices, often with offline",
+        "Synchronization",
+        "Updating data between a device and central server after",
+        "reconnecting",
+        "Digital Database",
+        "A database organizing large collections of digital",
+        "content/assets",
+        "Descriptive information about a digital item (used for",
+        "searching/organizing)",
+        "10. Examples",
+        "Easy example:",
+        "A phone's photo gallery app that can search",
+        "photos by content",
+        "(like \"beach\" photos)",
+        "multimedia database with content",
+        "based retrieval.",
+        "Practical example:",
+        "A field sales app that lets a salesperson take orders offline",
+        "and syncs them once back in Wi",
+        "Fi range - mobile database.",
+        "Industry example:",
+        "A digital library like an online e",
+        "book platform managing",
+        "thousands of digital titles with searchable metadata",
+        "digital database.",
+        "Real - life example: YouTube manages billions of video files (multimedia database)",
+        "with search and recommendation features.",
+        "11. Advantages & Limitations",
+        "Multimedia Databases",
+        "Advantage: Enables rich content storage and retrieval;",
+        "Limitation: Requires complex indexing/search techniques and significant",
+        "Mobile Databases",
+        "Advantage: Allows productivity even without constant",
+        "connectivity; Limitation: Synchronization conflicts can be complex to resolve",
+        "Digital Databases",
+        "Advantage: Preserves and organizes large digital collections",
+        "efficiently; Limitation: Requires ongoing effort in cataloging and metadata",
+        "management.",
+        "12. Applications",
+        "Industry: Media/entertainment (multimedia), logistics/field service (mobile),",
+        "publishing/archiving (digital).",
+        "Companies: YouTube, Netflix (multimedia); delivery and ride",
+        "hailing apps",
+        "(mobile); digital libraries and publishers (digital databases).",
+        "Daily life:",
+        "Streaming videos, using apps while traveling with poor network,",
+        "browsing e - book libraries.",
+        "Software: Multimedia database systems (Oracle Multimedia), mobile database",
+        "engines (SQLite, Realm), digital repository systems (DSpace).",
+        "Websites : Video/photo sharing platforms, digital archive websites.",
+        "Mobile Apps: Any offline - capable business or productivity app.",
         "Multimedia databases manage images, audio, and video, requiring content",
-        "based",
         "retrieval techniques beyond simple text search.",
         "Mobile databases support portable devices and must handle intermittent",
         "connectivity through synchronization.",
         "Digital databases organize large collections of digital content/assets, relying",
         "heavily on metadata for search and catalog",
-        "ing.",
+        "Common misconception:",
         "A \"mobile database\" doesn't just mean \"a database",
         "accessed from a phone\"",
         "it specifically involves special handling for offline use",
@@ -3987,52 +5858,259 @@ export const TOPICS_DATA = [
         "unique challenge of multimedia databases compared to traditional databases."
       ],
       "misconceptions": [
-        ""
+        "BI is not just \"making pretty charts\"",
+        "it fundamentally",
+        "involves the entire pipeline of collecting, integrating, and analyzing data before",
+        "presentation.",
+        "Supervis ed learning needs labeled data; unsupervised learning finds patterns",
+        "without labels; reinforcement learning learns through feedback/rewards over",
+        "Topic 5.3: Multimedia Databases, Mobile Databases, and Digital",
+        "1. Topic Name - Multimedia, Mobi",
+        "le, and Digital Databases",
+        "What is it?",
+        "These are specialized types of databases designed for specific modern",
+        "needs: Multimedia databases",
+        "store and manage rich media (images, audio, video);",
+        "Mobile databases",
+        "run on or support mobile/portable devices, often with intermittent",
+        "connectivity;",
+        "Digital databases",
+        "broadly refer to databases used for storing and",
+        "managing digital content/assets in electronic form.",
+        "Why do we need it?",
+        "Standard relational databases were originally designed for simple",
+        "text/numeric data. Mode",
+        "rn applications need to store, search, and manage large",
+        "multimedia files, support users on the move with unreliable networks, and manage",
+        "growing volumes of purely digital content.",
+        "Where is it used?",
+        "Multimedia: video streaming platforms, image search engines,",
+        "medical imaging systems",
+        "Mobile: field service apps, delivery apps, offline",
+        "business apps",
+        "Digital: digital libraries, e",
+        "books, digital archives",
+        "2. Beginner Friendly Introduction",
+        "Think of a family photo album (multimedia database) that needs",
+        "to store and let you",
+        "search pictures and videos, not just names and numbers. A mobile database is like a",
+        "small notebook you carry that can update itself when you connect to Wi",
+        "though you were writing in it while offline. A digital database is simply any large,",
+        "organized collection of digital content, like an online library of e",
+        "Key words explained:",
+        "Simple Meaning",
+        "Multimedia Data",
+        "Data types like images, audio, and video (not just text/numbers)",
+        "Content - Based",
+        "Searching multime",
+        "dia by its actual content (e.g., searching",
+        "images by color/shape) rather than just text tags",
+        "Mobile Database",
+        "A database designed to work on portable devices, often",
+        "supporting offline use",
+        "Synchronization",
+        "Updating data between a mobile device and a central server",
+        "once connectivity is available",
+        "Digital Database",
+        "An organized collection of digital content/assets",
+        "3. Real - Life Analogies",
+        "Digital Photo Album vs Text Diary:",
+        "A text diary (traditional database)",
+        "stores only words; a digital photo album (",
+        "multimedia database) stores and organizes",
+        "photos and videos, which are much richer but harder to search directly by content.",
+        "Analogy 2 - Offline Notebook Syncing to Cloud:",
+        "A delivery driver using an app that",
+        "works without internet (writing notes offline) and automatically updates the central",
+        "system once back in network coverage",
+        "this is exactly how mobile databases handle",
+        "intermittent connectivity through synchronization.",
+        "4. Complete Detailed Explanation",
+        "4.1 Multimedia Databases",
+        "Store and manage",
+        "multimedia data types",
+        ": images, audio, video, and",
+        "combinations of these (unlike traditional databases limited to text/numbers).",
+        "Require special indexing and retrieval techniques, since searching \"find images",
+        "similar to this one\" is very different from searching \"find rows where age > 20.\"",
+        "Content - Based Retrieval",
+        "allows searching based on actual visual/audio features",
+        "(color, shape, texture, pitch), rather than relying only on manually added text",
+        "tags/descriptions.",
+        "Challenges include very large file sizes, the need for",
+        "efficient compression, and",
+        "complex similarity",
+        "based searching (rather than exact matching).",
+        "4.2 Mobile Databases",
+        "Designed to run on, or be accessed by, mobile/portable devices (smartphones,",
+        "tablets, laptops in the field).",
+        "Must handle intermittent connectivity",
+        "devices may lose network connection",
+        "and need to continue working offline.",
+        "Use synchronization",
+        "mechanisms to update the central database once the",
+        "device reconnects, resolving any conflicts that occurred during offline use.",
+        "Often need to be lightweight",
+        "(efficient on limited device",
+        "storage/battery/processing power).",
+        "4.3 Digital Databases",
+        "Broadly refers to databases that manage large collections of",
+        "purely digital",
+        "content/assets",
+        "such as digital libraries, e",
+        "books, scanned archives, and digital",
+        "media repositories.",
+        "Focuses on organizing, cataloging, preserving, and enabling efficient",
+        "search/retrieval of digital assets over the long term.",
+        "Often incorporates metadata (descriptive information about each digital item) to",
+        "support searching and browsing large col",
+        "5. Step - by- Step Working",
+        "Mobile Database Synchronization Flow:",
+        "Mobile Device Works Offline (local database)",
+        "User performs updates while offline",
+        "Device Reconnects to Network",
+        "Synchronization Process runs",
+        "Conflicts (if any) Resolved",
+        "Central Database Updated with Latest Changes",
+        "6. Diagrams",
+        "A diagram showing a smartphone icon on the left labeled 'offlin",
+        "e local database', connected via",
+        "Figure: A diagram showing a smartphone icon on the left labeled 'offline local database',",
+        "connected via a\u2026",
+        "Multimedia database diagram showing icons for images, audio, and video files being stored and",
+        "Figure: Multimedia database diagram showing icons for images, audio, and video files",
+        "being stored and ind\u2026",
+        "Database Type",
+        "Key Challenge",
+        "Storing/retrieving images,",
+        "audio, video",
+        "Content - based similarity search,",
+        "large file sizes",
+        "Mobile Database",
+        "Working on portable devices",
+        "Intermittent connectivity,",
+        "synchronization",
+        "Digital Database",
+        "Organizing large digital content",
+        "collections",
+        "Long - term cataloging, metadata",
+        "9. Important Terms",
+        "Simple Meaning",
+        "Multimedia Database",
+        "A database managing images, audio, and video da",
+        "Content - Based",
+        "Searching multimedia by actual content features, not just text",
+        "Mobile Database",
+        "A database supporting portable devices, often with offline",
+        "Synchronization",
+        "Updating data between a device and central server after",
+        "reconnecting",
+        "Digital Database",
+        "A database organizing large collections of digital",
+        "content/assets",
+        "Descriptive information about a digital item (used for",
+        "searching/organizing)",
+        "10. Examples",
+        "Easy example:",
+        "A phone's photo gallery app that can search",
+        "photos by content",
+        "(like \"beach\" photos)",
+        "multimedia database with content",
+        "based retrieval.",
+        "Practical example:",
+        "A field sales app that lets a salesperson take orders offline",
+        "and syncs them once back in Wi",
+        "Fi range - mobile database.",
+        "Industry example:",
+        "A digital library like an online e",
+        "book platform managing",
+        "thousands of digital titles with searchable metadata",
+        "digital database.",
+        "Real - life example: YouTube manages billions of video files (multimedia database)",
+        "with search and recommendation features.",
+        "11. Advantages & Limitations",
+        "Multimedia Databases",
+        "Advantage: Enables rich content storage and retrieval;",
+        "Limitation: Requires complex indexing/search techniques and significant",
+        "Mobile Databases",
+        "Advantage: Allows productivity even without constant",
+        "connectivity; Limitation: Synchronization conflicts can be complex to resolve",
+        "Digital Databases",
+        "Advantage: Preserves and organizes large digital collections",
+        "efficiently; Limitation: Requires ongoing effort in cataloging and metadata",
+        "management.",
+        "12. Applications",
+        "Industry: Media/entertainment (multimedia), logistics/field service (mobile),",
+        "publishing/archiving (digital).",
+        "Companies: YouTube, Netflix (multimedia); delivery and ride",
+        "hailing apps",
+        "(mobile); digital libraries and publishers (digital databases).",
+        "Daily life:",
+        "Streaming videos, using apps while traveling with poor network,",
+        "browsing e - book libraries.",
+        "Software: Multimedia database systems (Oracle Multimedia), mobile database",
+        "engines (SQLite, Realm), digital repository systems (DSpace).",
+        "Websites : Video/photo sharing platforms, digital archive websites.",
+        "Mobile Apps: Any offline - capable business or productivity app.",
+        "13. Key Points to Remember",
+        "Multimedia databases manage images, audio, and video, requiring content",
+        "retrieval techniques beyond simple text search.",
+        "Mobile databases support portable devices and must handle intermittent",
+        "connectivity through synchronization.",
+        "Digital databases organize large collections of digital content/assets, relying",
+        "heavily on metadata for search and catalog",
+        "Common misconception:",
+        "A \"mobile database\" doesn't just mean \"a database",
+        "accessed from a phone\"",
+        "it specifically involves special handling for offline use",
+        "and synchronization challenges.",
+        "Content - based retrieval (searching by actual content feature",
+        "s) is a defining,",
+        "unique challenge of multimedia databases compared to traditional databases."
       ],
       "examTips": []
     },
+    "fullRawText": "\u2022\nLimitation: Building and maintaining a full BI framework (ETL, warehouse,\ndashboards) requires significant investment.\n12. Applications\n\u2022\nIndustry: Retail, banking, healthcare, manufacturing.\n\u2022\nCompanies: Almost every large enterprise uses BI tools like Power BI, Tableau,\nor Qlik.\n\u2022\nDaily life: Personalized recommendations and targeted ads are often powered\nby BI/ML systems behind the scenes.\n\u2022\nSoftware: Microsoft Power BI, Tableau, QlikView, SAP BusinessObjects.\n\u2022\nWebsites: E- commerce analytics\ndashboards for sellers.\n\u2022\nMobile Apps: Business apps offering real\n- time performance tracking on the go.\n13. Key Points to Remember\n\u2022 Business Intelligence turns raw and mined data into clear, actionable\ndashboards and reports for decision\n- makers.\n\u2022 A typical BI framework includes Data Sources\n\u2192 ETL \u2192 Data Warehouse\n\u2192 BI\nTools \u2192 Dashboards.\n\u2022 Machine learning enhances BI with three mai\nn approaches: Supervised,\nUnsupervised, and Reinforcement Learning.\n\u2022 Common misconception:\nBI is not just \"making pretty charts\"\n- it fundamentally\ninvolves the entire pipeline of collecting, integrating, and analyzing data before\npresentation.\n\u2022 Supervis ed learning needs labeled data; unsupervised learning finds patterns\nwithout labels; reinforcement learning learns through feedback/rewards over\ntime.\nTopic 5.3: Multimedia Databases, Mobile Databases, and Digital\nDatabases\n1. Topic Name - Multimedia, Mobi\nle, and Digital Databases\nWhat is it?\nThese are specialized types of databases designed for specific modern\nneeds: Multimedia databases\nstore and manage rich media (images, audio, video);\nMobile databases\nrun on or support mobile/portable devices, often with intermittent\nconnectivity;\nDigital databases\nbroadly refer to databases used for storing and\nmanaging digital content/assets in electronic form.\nWhy do we need it?\nStandard relational databases were originally designed for simple\ntext/numeric data. Mode\nrn applications need to store, search, and manage large\nmultimedia files, support users on the move with unreliable networks, and manage\ngrowing volumes of purely digital content.\nWhere is it used?\n- Multimedia: video streaming platforms, image search engines,\nmedical imaging systems\n- Mobile: field service apps, delivery apps, offline\n- capable\nbusiness apps\n- Digital: digital libraries, e\n- books, digital archives\n2. Beginner Friendly Introduction\nThink of a family photo album (multimedia database) that needs\nto store and let you\nsearch pictures and videos, not just names and numbers. A mobile database is like a\nsmall notebook you carry that can update itself when you connect to Wi\n- Fi, even\nthough you were writing in it while offline. A digital database is simply any large,\norganized collection of digital content, like an online library of e\n- books.\nKey words explained:\nWord\nSimple Meaning\nMultimedia Data\nData types like images, audio, and video (not just text/numbers)\nContent - Based\nRetrieval\nSearching multime\ndia by its actual content (e.g., searching\nimages by color/shape) rather than just text tags\nMobile Database\nA database designed to work on portable devices, often\nsupporting offline use\nSynchronization\nUpdating data between a mobile device and a central server\nonce connectivity is available\nDigital Database\nAn organized collection of digital content/assets\n3. Real - Life Analogies\nAnalogy 1\n- Digital Photo Album vs Text Diary:\nA text diary (traditional database)\nstores only words; a digital photo album (\nmultimedia database) stores and organizes\nphotos and videos, which are much richer but harder to search directly by content.\nAnalogy 2 - Offline Notebook Syncing to Cloud:\nA delivery driver using an app that\nworks without internet (writing notes offline) and automatically updates the central\nsystem once back in network coverage\n- this is exactly how mobile databases handle\nintermittent connectivity through synchronization.\n4. Complete Detailed Explanation\n4.1 Multimedia Databases\n\u2022\nStore and manage\nmultimedia data types\n: images, audio, video, and\ncombinations of these (unlike traditional databases limited to text/numbers).\n\u2022\nRequire special indexing and retrieval techniques, since searching \"find images\nsimilar to this one\" is very different from searching \"find rows where age > 20.\"\n\u2022\nContent - Based Retrieval\nallows searching based on actual visual/audio features\n(color, shape, texture, pitch), rather than relying only on manually added text\ntags/descriptions.\n\u2022\nChallenges include very large file sizes, the need for\nefficient compression, and\ncomplex similarity\n- based searching (rather than exact matching).\n4.2 Mobile Databases\n\u2022\nDesigned to run on, or be accessed by, mobile/portable devices (smartphones,\ntablets, laptops in the field).\n\u2022\nMust handle intermittent connectivity\n- devices may lose network connection\nand need to continue working offline.\n\u2022\nUse synchronization\nmechanisms to update the central database once the\ndevice reconnects, resolving any conflicts that occurred during offline use.\n\u2022\nOften need to be lightweight\n(efficient on limited device\nstorage/battery/processing power).\n4.3 Digital Databases\n\u2022\nBroadly refers to databases that manage large collections of\npurely digital\ncontent/assets\n- such as digital libraries, e\n- books, scanned archives, and digital\nmedia repositories.\n\u2022\nFocuses on organizing, cataloging, preserving, and enabling efficient\nsearch/retrieval of digital assets over the long term.\n\u2022\nOften incorporates metadata (descriptive information about each digital item) to\nsupport searching and browsing large col\nlections.\n5. Step - by- Step Working\nMobile Database Synchronization Flow:\nMobile Device Works Offline (local database)\n\u2193\nUser performs updates while offline\n\u2193\nDevice Reconnects to Network\n\u2193\nSynchronization Process runs\n\u2193\nConflicts (if any) Resolved\n\u2193\nCentral Database Updated with Latest Changes\n6. Diagrams\nA diagram showing a smartphone icon on the left labeled 'offlin\ne local database', connected via\na\u2026\nFigure: A diagram showing a smartphone icon on the left labeled 'offline local database',\nconnected via a\u2026\n7. Images\nMultimedia database diagram showing icons for images, audio, and video files being stored and\nind\u2026\nFigure: Multimedia database diagram showing icons for images, audio, and video files\nbeing stored and ind\u2026\n8. Tables\nDatabase Type\nMain Focus\nKey Challenge\nMultimedia\nDatabase\nStoring/retrieving images,\naudio, video\nContent - based similarity search,\nlarge file sizes\nMobile Database\nWorking on portable devices\nIntermittent connectivity,\nsynchronization\nDigital Database\nOrganizing large digital content\ncollections\nLong - term cataloging, metadata\nmanagement\n9. Important Terms\nTerm\nSimple Meaning\nMultimedia Database\nA database managing images, audio, and video da\nta\nContent - Based\nRetrieval\nSearching multimedia by actual content features, not just text\ntags\nMobile Database\nA database supporting portable devices, often with offline\ncapability\nSynchronization\nUpdating data between a device and central server after\nreconnecting\nDigital Database\nA database organizing large collections of digital\ncontent/assets\nMetadata\nDescriptive information about a digital item (used for\nsearching/organizing)\n10. Examples\n\u2022\nEasy example:\nA phone's photo gallery app that can search\nphotos by content\n(like \"beach\" photos)\n- multimedia database with content\n- based retrieval.\n\u2022\nPractical example:\nA field sales app that lets a salesperson take orders offline\nand syncs them once back in Wi\n- Fi range - mobile database.\n\u2022\nIndustry example:\nA digital library like an online e\n- book platform managing\nthousands of digital titles with searchable metadata\n- digital database.\n\u2022\nReal - life example: YouTube manages billions of video files (multimedia database)\nwith search and recommendation features.\n11. Advantages & Limitations\n\u2022\nMultimedia Databases\n- Advantage: Enables rich content storage and retrieval;\nLimitation: Requires complex indexing/search techniques and significant\nstorage.\n\u2022\nMobile Databases\n- Advantage: Allows productivity even without constant\nconnectivity; Limitation: Synchronization conflicts can be complex to resolve\ncorrectly.\n\u2022\nDigital Databases\n- Advantage: Preserves and organizes large digital collections\nefficiently; Limitation: Requires ongoing effort in cataloging and metadata\nmanagement.\n12. Applications\n\u2022\nIndustry: Media/entertainment (multimedia), logistics/field service (mobile),\npublishing/archiving (digital).\n\u2022\nCompanies: YouTube, Netflix (multimedia); delivery and ride\n- hailing apps\n(mobile); digital libraries and publishers (digital databases).\n\u2022\nDaily life:\nStreaming videos, using apps while traveling with poor network,\nbrowsing e - book libraries.\n\u2022\nSoftware: Multimedia database systems (Oracle Multimedia), mobile database\nengines (SQLite, Realm), digital repository systems (DSpace).\n\u2022\nWebsites : Video/photo sharing platforms, digital archive websites.\n\u2022\nMobile Apps: Any offline - capable business or productivity app.\n13. Key Points to Remember\n\u2022 Multimedia databases manage images, audio, and video, requiring content\n- based\nretrieval techniques beyond simple text search.\n\u2022 Mobile databases support portable devices and must handle intermittent\nconnectivity through synchronization.\n\u2022 Digital databases organize large collections of digital content/assets, relying\nheavily on metadata for search and catalog\ning.\n\u2022 Common misconception:\nA \"mobile database\" doesn't just mean \"a database\naccessed from a phone\"\n- it specifically involves special handling for offline use\nand synchronization challenges.\n\u2022 Content - based retrieval (searching by actual content feature\ns) is a defining,\nunique challenge of multimedia databases compared to traditional databases.",
     "structuredTables": [
       {
-        "id": "t5_3_emerging_db",
-        "title": "Emerging Database Architectures Comparison",
-        "subtitle": "Comparing Multimedia, Mobile, and Digital Library Database Systems",
-        "badge": "Specialized Database Systems",
+        "id": "t5_3_multimedia",
+        "title": "Multimedia vs. Mobile vs. Digital Library Databases",
+        "subtitle": "Architectural comparison across storage formats, query indexing, and network synchronization",
+        "badge": "Specialized Database Matrix",
         "headers": [
-          "Specialized DB Architecture",
-          "Primary Media / Data Format",
-          "Key Engineering Challenges",
-          "Querying & Search Paradigm",
-          "Synchronization & Storage Solution"
+          "Database Paradigm",
+          "Primary Data Objects",
+          "Unique Storage / Indexing Technique",
+          "Network / Sync Model",
+          "Key Technical Challenge"
         ],
         "rows": [
           {
-            "feature": "Multimedia Databases (MMDBMS)",
-            "col1": "High-resolution Images, Audio streams, Video, 3D Point Clouds, Geospatial Rasters",
-            "col2": "Huge BLOB file sizes, real-time streaming QoS, content feature extraction",
-            "col3": "Content-Based Image Retrieval (CBIR), Vector embeddings, Visual feature search",
-            "col4": "High-throughput chunked streaming, Vector index (HNSW), Lossy compression codecs",
+            "feature": "Multimedia Databases",
+            "col1": "Images, Audio, 4K Video, 3D Point Clouds",
+            "col2": "R-Trees, Color Histograms, Perceptual Feature Vectors (CBIR)",
+            "col3": "Continuous real-time streaming buffers (QoS)",
+            "col4": "Content-based feature extraction and high-dimensional indexing",
             "status": "info"
           },
           {
             "feature": "Mobile Databases",
-            "col1": "Lightweight relational/document storage on smartphones, tablets, IoT edge devices",
-            "col2": "Frequent intermittent network disconnections, battery depletion, weak CPU, multi-master conflicts",
-            "col3": "Local SQLite / Realm / WatermelonDB queries with background batch sync",
-            "col4": "Optimistic local writes + CRDTs (Conflict-free Replicated Data Types) or Last-Write-Wins (LWW) sync",
-            "status": "success"
+            "col1": "Local relational/embedded stores on smartphones/IoT devices",
+            "col2": "Lightweight SQLite, Realm, Delta change logs",
+            "col3": "Intermittent Disconnected Operation with Two-Way Sync",
+            "col4": "Write conflict resolution and extreme battery/memory constraints",
+            "status": "better-col2"
           },
           {
-            "feature": "Digital Library Databases",
-            "col1": "Massive repositories of scientific papers, digitized manuscripts, audio archives, legal deeds",
-            "col2": "Long-term data preservation (100+ years), complex bibliographic metadata, multi-lingual search",
-            "col3": "Dublin Core metadata search, Full-text inverted indexes (Lucene/Elasticsearch), OAI-PMH harvesting",
-            "col4": "Immutable WORM storage (Write Once Read Many), High-density archive tiers, Cloud cold storage",
-            "status": "better-col2"
+            "feature": "Digital Libraries",
+            "col1": "Full-text PDFs, Academic papers, Historical archives, Metadata",
+            "col2": "Inverted Indexes, Dublin Core Metadata, OCR indexing",
+            "col3": "Web-based OAI-PMH harvesting protocols",
+            "col4": "Copyright preservation, Semantic search, and permanent DOI identifiers",
+            "status": "success"
           }
         ]
       }
     ]
   }
 ];
-
-export default TOPICS_DATA;

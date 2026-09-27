@@ -30,15 +30,26 @@ export default function SearchModal({ isOpen, onClose, onSelectTopic }) {
 
   if (!isOpen) return null;
 
-  // Search through Topics
+  // Search through Topics safely across all object properties
   const topicResults = query.trim()
-    ? TOPICS_DATA.filter(t => 
-        t.title.toLowerCase().includes(query.toLowerCase()) ||
-        t.id.toLowerCase().includes(query.toLowerCase()) ||
-        t.overview.whatIsIt.toLowerCase().includes(query.toLowerCase()) ||
-        t.detailedExplanation.toLowerCase().includes(query.toLowerCase()) ||
-        t.importantTerms.toLowerCase().includes(query.toLowerCase())
-      )
+    ? TOPICS_DATA.filter(t => {
+        const q = query.toLowerCase().trim();
+        const idMatch = t.id?.toLowerCase().includes(q);
+        const titleMatch = t.title?.toLowerCase().includes(q);
+        const moduleMatch = t.moduleName?.toLowerCase().includes(q);
+        const overviewMatch = (t.overview?.whatIsIt || '').toLowerCase().includes(q);
+        const detailedMatch = (t.detailedExplanation?.raw || '').toLowerCase().includes(q) ||
+          (Array.isArray(t.detailedExplanation?.subsections) && t.detailedExplanation.subsections.some(s => 
+            (s.title || '').toLowerCase().includes(q) || (s.content || '').toLowerCase().includes(q)
+          ));
+        const termsMatch = typeof t.importantTerms === 'string' 
+          ? t.importantTerms.toLowerCase().includes(q) 
+          : Array.isArray(t.terms) && t.terms.some(tm => (tm.term || '').toLowerCase().includes(q) || (tm.meaning || '').toLowerCase().includes(q));
+        const analogiesMatch = Array.isArray(t.analogies) && t.analogies.some(a => (typeof a === 'string' ? a : a?.analogy || '').toLowerCase().includes(q));
+        const examplesMatch = Array.isArray(t.examples) && t.examples.some(ex => (typeof ex === 'string' ? ex : ex?.code || ex?.description || '').toLowerCase().includes(q));
+
+        return idMatch || titleMatch || moduleMatch || overviewMatch || detailedMatch || termsMatch || analogiesMatch || examplesMatch;
+      })
     : [];
 
   // Search through Flashcards
@@ -54,7 +65,7 @@ export default function SearchModal({ isOpen, onClose, onSelectTopic }) {
     ? QUIZ_QUESTIONS.filter(q =>
         q.question.toLowerCase().includes(query.toLowerCase()) ||
         q.options.some(opt => opt.toLowerCase().includes(query.toLowerCase())) ||
-        q.explanation.toLowerCase().includes(query.toLowerCase())
+        (q.explanation || '').toLowerCase().includes(query.toLowerCase())
       )
     : [];
 
@@ -94,7 +105,7 @@ export default function SearchModal({ isOpen, onClose, onSelectTopic }) {
           {!query.trim() ? (
             <div className="text-center py-10 text-slate-400 text-xs">
               <Sparkles className="w-8 h-8 mx-auto mb-2 text-blue-500 opacity-60" />
-              <p>Type keywords to search across all 16 textbook topics, definitions, formulas, and questions.</p>
+              <p>Type keywords to search across all 21 textbook topics, definitions, formulas, and questions.</p>
             </div>
           ) : topicResults.length === 0 && flashcardResults.length === 0 && quizResults.length === 0 ? (
             <div className="text-center py-10 text-slate-400 text-xs">

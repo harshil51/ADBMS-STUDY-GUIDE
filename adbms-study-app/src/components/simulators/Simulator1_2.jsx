@@ -10,10 +10,8 @@ export default function Simulator1_2() {
   const [log, setLog] = useState(['Transaction T1 initialized in GROWING phase.']);
 
   // Deadlock State
-  const [t1Holds, setT1Holds] = useState('A');
-  const [t1Waits, setT1Waits] = useState('B');
-  const [t2Holds, setT2Holds] = useState('B');
-  const [t2Waits, setT2Waits] = useState('A');
+  const t1Holds = 'A';
+  const t2Holds = 'B';
 
   const acquireLock = (item, type) => {
     if (phase === 'shrinking') {

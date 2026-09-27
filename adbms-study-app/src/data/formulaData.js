@@ -36,6 +36,46 @@ export const FORMULA_DATA = [
     "example": "If 10 GB on 1 node takes 30s, and 100 GB on 10 nodes takes 30s, Scaleup = 1.0 (Ideal Scaleup)."
   },
   {
+    "id": "f_m2_1",
+    "topicId": "2.4",
+    "title": "XQuery FLWOR Stream Transformation Function",
+    "latex": "\\mathcal{Q}(D) = \\bigcup_{x \\in \\text{For}(D)} \\{ \\text{Return}(x, \\text{Let}(x)) \\mid \\text{Where}(x) = \\text{true} \\}",
+    "meaning": "Mathematical formalization of the FLWOR pipeline mapping input XML document nodes to output XML elements through conditional filtering.",
+    "symbols": [
+      {
+        "symbol": "\\text{For}(D)",
+        "meaning": "Sequence of tuple bindings from source document D"
+      },
+      {
+        "symbol": "\\text{Where}(x)",
+        "meaning": "Boolean filter predicate evaluated per item"
+      },
+      {
+        "symbol": "\\text{Return}(x)",
+        "meaning": "Constructor producing the output XML node tree"
+      }
+    ],
+    "example": "For $b in bookstore/book where price < 30 return <title>{$b/title}</title> outputs only titles with price predicate satisfied."
+  },
+  {
+    "id": "f_m2_2",
+    "topicId": "2.5",
+    "title": "Relational Theta-Join & Outer Join Algebraic Equivalence",
+    "latex": "R \\bowtie_\\theta S = \\sigma_\\theta (R \\times S)",
+    "meaning": "Fundamental algebraic equivalence showing that a theta-join is a cross product filtered by selection predicate theta.",
+    "symbols": [
+      {
+        "symbol": "R \\times S",
+        "meaning": "Cartesian cross product of relations R and S"
+      },
+      {
+        "symbol": "\\sigma_\\theta",
+        "meaning": "Relational selection operator filtering rows satisfying condition theta"
+      }
+    ],
+    "example": "Student \u22c8_{DeptId} Department pairs 4 students with 3 departments, filtering from 12 cartesian pairs down to 3 matching pairs."
+  },
+  {
     "id": "f3",
     "topicId": "4.3",
     "title": "Real-Time Transaction Slack Time",

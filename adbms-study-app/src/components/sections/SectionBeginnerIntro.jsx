@@ -1,8 +1,16 @@
 import React from 'react';
-import { Lightbulb, BookMarked, Sparkles, MessageSquare } from 'lucide-react';
+import { Lightbulb, BookMarked, Sparkles } from 'lucide-react';
 
 export default function SectionBeginnerIntro({ beginnerIntro }) {
   if (!beginnerIntro) return null;
+
+  const explanationText = typeof beginnerIntro === 'string'
+    ? beginnerIntro
+    : (beginnerIntro.story || beginnerIntro.simpleExplanation || beginnerIntro.explanation || '');
+
+  const keywords = Array.isArray(beginnerIntro?.keywords) ? beginnerIntro.keywords : [];
+
+  if (!explanationText && keywords.length === 0) return null;
 
   return (
     <div className="space-y-6">
@@ -17,8 +25,8 @@ export default function SectionBeginnerIntro({ beginnerIntro }) {
         </span>
       </div>
 
-      {/* Story Intuition Box */}
-      {beginnerIntro.story && (
+      {/* Story / Simple Intuition Box */}
+      {explanationText && (
         <div className="relative overflow-hidden rounded-3xl p-6 sm:p-8 border border-emerald-200/80 dark:border-emerald-900/40 bg-gradient-to-br from-emerald-50/70 via-white to-teal-50/40 dark:from-emerald-950/20 dark:via-slate-900 dark:to-slate-900 shadow-md">
           <div className="flex items-start gap-4">
             <div className="p-3 rounded-2xl bg-emerald-600/10 text-emerald-600 dark:text-emerald-400 shrink-0">
@@ -26,10 +34,10 @@ export default function SectionBeginnerIntro({ beginnerIntro }) {
             </div>
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                Intuitive Story Explanation
+                Intuitive Story & Plain-English Explanation
               </span>
-              <p className="text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
-                {beginnerIntro.story}
+              <p className="text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-relaxed font-sans whitespace-pre-line">
+                {explanationText.replace(/^2\.\s*Beginner Friendly Introduction\s*/i, '')}
               </p>
             </div>
           </div>
@@ -37,18 +45,18 @@ export default function SectionBeginnerIntro({ beginnerIntro }) {
       )}
 
       {/* Technical Key Words Dictionary Grid */}
-      {beginnerIntro.keywords && beginnerIntro.keywords.length > 0 && (
+      {keywords.length > 0 && (
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
               <BookMarked className="w-4 h-4 text-emerald-500" />
-              Technical Keywords & Plain-English Meanings ({beginnerIntro.keywords.length})
+              Technical Keywords & Plain-English Meanings ({keywords.length})
             </h4>
             <span className="text-[10px] text-slate-400 font-mono">Quick Vocabulary</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {beginnerIntro.keywords.map((kw, idx) => (
+            {keywords.map((kw, idx) => (
               <div
                 key={idx}
                 className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 hover:border-emerald-500/50 hover:shadow-md transition-all group"
@@ -62,7 +70,7 @@ export default function SectionBeginnerIntro({ beginnerIntro }) {
                   </span>
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                  {kw.meaning}
+                  {kw.meaning || kw.definition}
                 </p>
               </div>
             ))}

@@ -1,0 +1,2 @@
+# Python dependencies for ADBMS Study Guide data extraction and build pipeline
+pymupdf>=1.24.0

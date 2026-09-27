@@ -53,27 +53,6 @@ export const structuredTablesData = {
           "col2": "Higher: DB in private subnet; strict API auth & validation",
           "verdict": "3-Tier isolates database from public network",
           "status": "better-col2"
-        },
-        {
-          "feature": "Hardware / Deployment Cost",
-          "col1": "Lower initial setup (no separate app server required)",
-          "col2": "Higher initial complexity (servers, load balancers)",
-          "verdict": "2-Tier is cheaper for small local LAN tools",
-          "status": "better-col1"
-        },
-        {
-          "feature": "Typical Real-World Use",
-          "col1": "Small LAN apps, internal departmental utilities",
-          "col2": "Web portals, e-commerce, banking, enterprise SaaS",
-          "verdict": "3-Tier is the modern industry standard",
-          "status": "info"
-        },
-        {
-          "feature": "Concrete Example",
-          "col1": "Old VB6 / MS Access desktop billing application",
-          "col2": "Amazon.com, Netflix, GTU Student Portal",
-          "verdict": "Web-scale architecture",
-          "status": "info"
         }
       ]
     }
@@ -118,15 +97,6 @@ export const structuredTablesData = {
           "col3": "\u2705 Yes (Strict serializability & easy recovery)",
           "col4": "\u274c No (Deadlocks still possible)",
           "col5": "\ud83d\udd3b Lower (Longer lock retention)",
-          "status": "info"
-        },
-        {
-          "feature": "Conservative 2PL (Static)",
-          "col1": "Declares and acquires ALL locks before transaction begins",
-          "col2": "Released gradually after lock point or at commit",
-          "col3": "\u274c No (if released before commit)",
-          "col4": "\u2705 Yes (Deadlock-free by design)",
-          "col5": "\ud83d\udd3b Low (Must know read/write set in advance)",
           "status": "info"
         }
       ]
@@ -179,49 +149,6 @@ export const structuredTablesData = {
           "status": "success"
         }
       ]
-    },
-    {
-      "id": "t1_3_partitioning",
-      "title": "Parallel Data Partitioning (Declustering) Strategies",
-      "subtitle": "Comparison of Round-Robin, Hash Partitioning, and Range Partitioning methods",
-      "badge": "Parallel Query Optimization",
-      "headers": [
-        "Partitioning Strategy",
-        "Placement Algorithm",
-        "Strengths / Best For",
-        "Weaknesses / Trade-offs",
-        "Range Query Performance",
-        "Point Lookup Performance"
-      ],
-      "rows": [
-        {
-          "feature": "Round-Robin Partitioning",
-          "col1": "Assigns tuple i to node (i mod n) sequentially",
-          "col2": "Perfect uniform load balancing across disks",
-          "col3": "No attribute indexing; queries must scan all nodes",
-          "col4": "\u274c Inefficient (All nodes participate)",
-          "col5": "\u274c Inefficient (Must broadcast to all nodes)",
-          "status": "info"
-        },
-        {
-          "feature": "Hash Partitioning",
-          "col1": "Applies hash function h(key) mod n to partition key",
-          "col2": "Excellent for point queries (key = value) and joins",
-          "col3": "Poor for range scans (adjacent values on different nodes)",
-          "col4": "\u274c Poor (Requires full cluster broadcast)",
-          "col5": "\u2705 Optimal (Direct single-node directed lookup)",
-          "status": "success"
-        },
-        {
-          "feature": "Range Partitioning",
-          "col1": "Maps continuous value intervals (e.g. A-F, G-M, N-Z) to nodes",
-          "col2": "Optimal for range queries (WHERE age BETWEEN 20 AND 30)",
-          "col3": "Risk of data skew / hot spots if distribution is non-uniform",
-          "col4": "\u2705 Optimal (Direct scan of only relevant node partitions)",
-          "col5": "\u2705 Fast (Directed lookup via range vector)",
-          "status": "better-col2"
-        }
-      ]
     }
   ],
   "1.4": [
@@ -252,63 +179,404 @@ export const structuredTablesData = {
           "status": "better-col2"
         },
         {
-          "feature": "System & Network Complexity",
-          "col1": "Low: Local concurrency control and transaction management",
-          "col2": "High: Distributed query optimization, 2PC, global deadlock",
-          "verdict": "CDBMS is much simpler to administer",
-          "status": "better-col1"
-        },
-        {
           "feature": "Scalability & Elasticity",
           "col1": "Vertical scaling only (upgrade CPU/RAM on single box)",
           "col2": "Horizontal scaling (add more low-cost commodity nodes)",
           "verdict": "DDBMS scales indefinitely",
           "status": "better-col2"
+        }
+      ]
+    }
+  ],
+  "2.1": [
+    {
+      "id": "t2_1_rdbms_ordbms",
+      "title": "Relational (RDBMS) vs. Object-Relational (ORDBMS) vs. Pure Object-Oriented (OODBMS)",
+      "subtitle": "Comprehensive comparison across data model, type systems, query languages, impedance mismatch, and industry adoption",
+      "badge": "GTU Core 7-Mark Question",
+      "headers": [
+        "Architectural Dimension",
+        "Relational (RDBMS)",
+        "Object-Relational (ORDBMS)",
+        "Object-Oriented (OODBMS)",
+        "Verdict / Modern Trend"
+      ],
+      "rows": [
+        {
+          "feature": "Data Modeling Basis",
+          "col1": "Flat 2D Tables, Atomic 1NF attributes, Foreign Keys",
+          "col2": "Relations extended with Complex Types, Methods, Inheritance",
+          "col3": "Direct In-Memory Object Graphs (C++, Java, Smalltalk objects)",
+          "verdict": "ORDBMS bridges relational reliability with OOP expressiveness",
+          "status": "better-col2"
         },
         {
-          "feature": "Query Execution Cost",
-          "col1": "Dominated by local Disk I/O and CPU compute",
-          "col2": "Dominated by network latency and data transfer between sites",
-          "verdict": "Query optimizers must minimize inter-site shipping",
+          "feature": "Impedance Mismatch",
+          "col1": "High (Tables must be converted into application OOP objects via ORM)",
+          "col2": "Moderate (Nested types and user types mirror class definitions)",
+          "col3": "Zero (Database stores exact native application object instances)",
+          "verdict": "OODBMS eliminates mapping, but ORDBMS retains SQL compatibility",
+          "status": "info"
+        },
+        {
+          "feature": "Query Language Standard",
+          "col1": "Standard SQL (SQL:92 tabular queries and joins)",
+          "col2": "Extended SQL:1999 / SQL:2003 (Dot notation, methods, REF dereference)",
+          "col3": "OQL (Object Query Language) or Native Language APIs",
+          "verdict": "ORDBMS preserves universal SQL investment and tooling",
+          "status": "better-col2"
+        },
+        {
+          "feature": "Encapsulation & Methods",
+          "col1": "\u274c None (Data and logic strictly separated into procedures/triggers)",
+          "col2": "\u2705 Yes (Methods bound directly to user-defined structured types)",
+          "col3": "\u2705 Yes (Complete OOP encapsulation of state and behavior)",
+          "verdict": "Allows business logic computation inside database engine",
+          "status": "success"
+        },
+        {
+          "feature": "Complex Data Support (Spatial, CAD, Arrays)",
+          "col1": "Poor (Requires multiple normalized tables or BLOBs)",
+          "col2": "Excellent (Nested types, spatial polygons, ARRAY/MULTISET collections)",
+          "col3": "Excellent (Complex pointer hierarchies and graph networks)",
+          "verdict": "ORDBMS is the industry standard for GIS, CAD, and multimedia",
+          "status": "better-col2"
+        },
+        {
+          "feature": "Enterprise Adoption & Dominance",
+          "col1": "Universal legacy backbone (MySQL, SQL Server)",
+          "col2": "Dominant modern DBMS engines (PostgreSQL, Oracle, Informix)",
+          "col3": "Niche specialized systems (ObjectStore, db4o, Versant)",
+          "verdict": "ORDBMS is the evolutionary winner for enterprise databases",
+          "status": "success"
+        }
+      ]
+    }
+  ],
+  "2.2": [
+    {
+      "id": "t2_2_inheritance",
+      "title": "Type Inheritance vs. Table Inheritance in SQL:1999",
+      "subtitle": "Detailed comparison of schema structure, polymorphism, query substitutability, and table storage",
+      "badge": "Inheritance Mechanics",
+      "headers": [
+        "Dimension",
+        "Type Inheritance (`CREATE TYPE ... UNDER`)",
+        "Table Inheritance (`CREATE TABLE ... UNDER`)",
+        "Key Implementation Rule"
+      ],
+      "rows": [
+        {
+          "feature": "Definition Scope",
+          "col1": "Defines domain structures and method signatures without data",
+          "col2": "Creates physical storage tables where tuples actually reside",
+          "verdict": "Type inheritance defines schema; Table inheritance holds records",
+          "status": "info"
+        },
+        {
+          "feature": "Attribute Inheritance",
+          "col1": "Subtype automatically inherits all supertype attributes & methods",
+          "col2": "Subtable inherits all columns from parent table plus its own",
+          "verdict": "Eliminates repetitive attribute definitions across schemas",
+          "status": "success"
+        },
+        {
+          "feature": "Query Polymorphism",
+          "col1": "Enables type substitutability in method arguments",
+          "col2": "`SELECT * FROM SuperTable` returns rows of supertable AND all subtables!",
+          "verdict": "Use `SELECT * FROM ONLY(SuperTable)` to suppress subtable rows",
+          "status": "better-col2"
+        },
+        {
+          "feature": "Primary Key & Unique Constraints",
+          "col1": "Not applicable to abstract type definitions",
+          "col2": "Parent table primary keys enforce uniqueness across the entire hierarchy",
+          "verdict": "Guarantees global entity identity throughout subtype trees",
           "status": "info"
         }
       ]
     },
     {
-      "id": "t1_4_frag",
-      "title": "Database Fragmentation Strategies Comparison",
-      "subtitle": "Comparison of Horizontal, Vertical, and Mixed/Hybrid Fragmentation",
-      "badge": "Design Techniques",
+      "id": "t2_2_array_multiset",
+      "title": "ARRAY vs. MULTISET Collection Types Comparison",
+      "subtitle": "Comparing ordered indexed arrays vs. unordered multisets (bags) in SQL:1999",
+      "badge": "Collection Types Matrix",
       "headers": [
-        "Fragmentation Type",
-        "Splitting Axis",
-        "Reconstruction Operator",
-        "Correctness Guarantee",
-        "Example Application"
+        "Attribute / Feature",
+        "ARRAY Collection Type",
+        "MULTISET Collection Type",
+        "Practical Engineering Verdict"
       ],
       "rows": [
         {
-          "feature": "Horizontal Fragmentation (Sharding)",
-          "col1": "Splits table by Rows (Tuples) based on predicate condition",
-          "col2": "UNION (R = R1 \u222a R2 \u222a ... \u222a Rn)",
-          "col3": "Completeness, Disjointness (predicates mutually exclusive)",
-          "col4": "Customer table split by region: North vs South vs West branch",
-          "status": "success"
-        },
-        {
-          "feature": "Vertical Fragmentation",
-          "col1": "Splits table by Columns (Attributes) across sites",
-          "col2": "NATURAL JOIN (Must include Primary Key in every fragment)",
-          "col3": "Completeness, Lossless Join guarantee via Primary Key",
-          "col4": "Employee table: Public profile (Site 1) vs Salary/SSN (Site 2)",
+          "feature": "Ordering & Indexing",
+          "col1": "Strictly Ordered; elements accessed via 1-based index `arr[1]`",
+          "col2": "Unordered bag; elements have no positional index",
+          "verdict": "Use ARRAY when sequence matters (e.g. phone priority)",
           "status": "info"
         },
         {
-          "feature": "Hybrid / Mixed Fragmentation",
-          "col1": "Combines Horizontal and Vertical partitioning in tree hierarchy",
-          "col2": "Combined UNION and NATURAL JOIN",
-          "col3": "Hierarchical reconstruction tree matching decomposition",
-          "col4": "Hospital DB: Horizontal by department, then vertical by medical vs billing",
+          "feature": "Duplicate Handling",
+          "col1": "Allows duplicates (e.g. `ARRAY['A', 'A', 'B']`)",
+          "col2": "Allows duplicates (e.g. `MULTISET['Java', 'Java']`)",
+          "verdict": "Both allow duplicates, unlike relational strict mathematical sets",
+          "status": "info"
+        },
+        {
+          "feature": "Set Operations Support",
+          "col1": "\u274c Limited (Index operations, concatenation `||`, slicing)",
+          "col2": "\u2705 Rich (`MULTISET UNION`, `INTERSECT`, `EXCEPT`, `SET(M)` to deduplicate)",
+          "verdict": "MULTISET supports algebraic set operations natively",
+          "status": "better-col2"
+        },
+        {
+          "feature": "Relational Transformation",
+          "col1": "`UNNEST(arr) WITH ORDINALITY` preserves index position",
+          "col2": "`UNNEST(mset)` flattens bag into normal relational rows",
+          "verdict": "Easily integrated into standard SQL SELECT/FROM queries",
+          "status": "success"
+        }
+      ]
+    }
+  ],
+  "2.3": [
+    {
+      "id": "t2_3_oid_fk",
+      "title": "Primary Key / Foreign Key Joins vs. Object Identity (OID) & REF Types",
+      "subtitle": "Detailed comparison of relational value-based joins vs. object-relational pointer dereferencing",
+      "badge": "GTU High-Yield Topic",
+      "headers": [
+        "Comparison Criteria",
+        "Relational Foreign Key (Value-Based)",
+        "Object Identity (OID) & REF Types (Identity-Based)",
+        "Architectural Advantage"
+      ],
+      "rows": [
+        {
+          "feature": "Identity Generation",
+          "col1": "User-defined or domain value (e.g. `RollNo`, `SSN`, `Email`)",
+          "col2": "System-generated, globally unique, immutable 64/128-bit handle",
+          "verdict": "OID survives attribute modifications and email reassignments",
+          "status": "better-col2"
+        },
+        {
+          "feature": "Relationship Traversal",
+          "col1": "Requires explicit relational `JOIN ... ON S.DeptNo = D.DeptNo`",
+          "col2": "Direct pointer dereferencing with arrow operator `e.dept->dept_name`",
+          "verdict": "Arrow dereferencing is syntactically concise and eliminates join plans",
+          "status": "better-col2"
+        },
+        {
+          "feature": "Query Execution Overhead",
+          "col1": "Hash Join, Merge Join, or Index Nested Loops over table indexes",
+          "col2": "Direct disk/memory block address lookup via OID index pointer",
+          "verdict": "Faster navigation in deeply nested CAD/graph structures",
+          "status": "better-col2"
+        },
+        {
+          "feature": "Scope & Integrity Checking",
+          "col1": "Enforced via `FOREIGN KEY ... REFERENCES OtherTable(PK)`",
+          "col2": "Enforced via `SCOPE TargetTable` clause on the REF attribute",
+          "verdict": "Unscoped REFs risk dangling references if target is dropped",
+          "status": "warning"
+        },
+        {
+          "feature": "Dangling Reference Behavior",
+          "col1": "Prevented by `ON DELETE RESTRICT / CASCADE` constraints",
+          "col2": "Dereferencing a deleted OID safely yields `NULL` in SQL standard",
+          "verdict": "Scoped REFs ensure referential integrity",
+          "status": "info"
+        }
+      ]
+    }
+  ],
+  "2.4": [
+    {
+      "id": "t2_4_dtd_xsd",
+      "title": "DTD (Document Type Definition) vs. XML Schema (XSD)",
+      "subtitle": "Head-to-head engineering comparison for semi-structured XML document validation",
+      "badge": "GTU 7-Mark Question",
+      "headers": [
+        "Feature / Metric",
+        "DTD (Document Type Definition)",
+        "XML Schema Definition (XSD)",
+        "Verdict / Modern Standard"
+      ],
+      "rows": [
+        {
+          "feature": "Syntax Language",
+          "col1": "Custom non-XML EBNF grammar (`<!ELEMENT ...>`)",
+          "col2": "Standard XML syntax (`<xs:schema xmlns:xs=...>` tags)",
+          "verdict": "XSD can be parsed with standard XML parsers and tools",
+          "status": "better-col2"
+        },
+        {
+          "feature": "Data Types Support",
+          "col1": "Very limited: Only `#PCDATA` (raw text), `CDATA`, ID/IDREF",
+          "col2": "Rich 40+ built-in types (integer, decimal, date, boolean, regex patterns)",
+          "verdict": "XSD enforces strict database-grade data type validation",
+          "status": "better-col2"
+        },
+        {
+          "feature": "Cardinallity & Occurrences",
+          "col1": "Regex symbols only: `?` (0 or 1), `*` (0 or more), `+` (1 or more)",
+          "col2": "Exact numeric bounds: `minOccurs=\"2\" maxOccurs=\"10\"`",
+          "verdict": "XSD allows precise enterprise business rule constraints",
+          "status": "better-col2"
+        },
+        {
+          "feature": "Namespace Support",
+          "col1": "\u274c No native support for XML namespaces",
+          "col2": "\u2705 Full support for multiple imported namespaces",
+          "verdict": "Essential for combining enterprise schemas (e.g. SOAP, WSDL)",
+          "status": "better-col2"
+        },
+        {
+          "feature": "Extensibility & Derivation",
+          "col1": "\u274c None (Cannot inherit or extend element definitions)",
+          "col2": "\u2705 Supports type inheritance via `extension` and `restriction`",
+          "verdict": "XSD supports object-oriented XML data modeling",
+          "status": "success"
+        }
+      ]
+    },
+    {
+      "id": "t2_4_xpath_xquery",
+      "title": "XPath vs. XQuery vs. SQL Comparison Matrix",
+      "subtitle": "Navigation, transformation, and querying paradigms across hierarchical and relational data",
+      "badge": "Query Language Taxonomy",
+      "headers": [
+        "Language",
+        "Primary Purpose",
+        "Underlying Data Model",
+        "Core Syntax Mechanism",
+        "Transformation Capability"
+      ],
+      "rows": [
+        {
+          "feature": "XPath",
+          "col1": "Addressing and locating nodes in an XML tree",
+          "col2": "XML Node Tree (Element, Attribute, Text nodes)",
+          "col3": "Path expressions and predicates (`/store/book[price < 30]`)",
+          "col4": "Returns existing node subsets; cannot restructure output",
+          "status": "info"
+        },
+        {
+          "feature": "XQuery",
+          "col1": "Full query, filtering, joining, and XML restructuring",
+          "col2": "XML Node Tree / Sequences of Items",
+          "col3": "FLWOR expressions (`FOR`, `LET`, `WHERE`, `ORDER BY`, `RETURN`)",
+          "col4": "Full transformation: construct brand-new XML schemas on the fly",
+          "status": "success"
+        },
+        {
+          "feature": "SQL",
+          "col1": "Relational data querying and CRUD operations",
+          "col2": "Relational Tables (2D rows and columns)",
+          "col3": "Declarative `SELECT ... FROM ... WHERE ... GROUP BY`",
+          "col4": "Produces flat 2D tabular result sets",
+          "status": "info"
+        }
+      ]
+    }
+  ],
+  "2.5": [
+    {
+      "id": "t2_5_joins",
+      "title": "SQL Join Types Comprehensive Comparison Matrix",
+      "subtitle": "Detailed mechanics, match rules, unmatched row handling, NULL padding, and relational algebra equivalents",
+      "badge": "Core SQL Query Matrix",
+      "headers": [
+        "Join Type",
+        "Match Condition Required?",
+        "Unmatched Left Rows",
+        "Unmatched Right Rows",
+        "Null Padding Applied?",
+        "Typical Real-World Use"
+      ],
+      "rows": [
+        {
+          "feature": "INNER JOIN",
+          "col1": "\u2705 Yes (`ON T1.id = T2.id`)",
+          "col2": "\u274c Dropped (Excluded from output)",
+          "col3": "\u274c Dropped (Excluded from output)",
+          "col4": "\u274c None (Only valid matching pairs)",
+          "col5": "Finding enrolled students with registered courses",
+          "status": "info"
+        },
+        {
+          "feature": "LEFT OUTER JOIN",
+          "col1": "\u2705 Yes",
+          "col2": "\u2705 Kept (Preserved in output)",
+          "col3": "\u274c Dropped",
+          "col4": "\u2705 Right table columns padded with `NULL`",
+          "col5": "Listing ALL customers and their orders (including non-buyers)",
+          "status": "better-col2"
+        },
+        {
+          "feature": "RIGHT OUTER JOIN",
+          "col1": "\u2705 Yes",
+          "col2": "\u274c Dropped",
+          "col3": "\u2705 Kept (Preserved in output)",
+          "col4": "\u2705 Left table columns padded with `NULL`",
+          "col5": "Listing ALL departments and their assigned managers",
+          "status": "info"
+        },
+        {
+          "feature": "FULL OUTER JOIN",
+          "col1": "\u2705 Yes",
+          "col2": "\u2705 Kept (Preserved)",
+          "col3": "\u2705 Kept (Preserved)",
+          "col4": "\u2705 `NULL` padded on whichever side lacks a match",
+          "col5": "Audit reconciliation between two independent accounting ledgers",
+          "status": "better-col2"
+        },
+        {
+          "feature": "CROSS JOIN",
+          "col1": "\u274c No condition (Cartesian Product)",
+          "col2": "\u2705 Every row paired with all right rows",
+          "col3": "\u2705 Every row paired with all left rows",
+          "col4": "\u274c No nulls (Full $M \\times N$ combinatorial multiplication)",
+          "col5": "Generating all size and color variations for product inventory",
+          "status": "warning"
+        }
+      ]
+    },
+    {
+      "id": "t2_5_udf",
+      "title": "Scalar UDF vs. Table-Valued UDF (TVF) vs. Stored Procedures",
+      "subtitle": "Comparison of return types, invocation syntax, execution context, and performance optimization",
+      "badge": "Programmable SQL Matrix",
+      "headers": [
+        "Construct Type",
+        "Return Value Nature",
+        "Invocation Location in SQL",
+        "Side Effects (INSERT/UPDATE)?",
+        "Query Optimizer Inline Ability"
+      ],
+      "rows": [
+        {
+          "feature": "Scalar UDF",
+          "col1": "Returns exactly one atomic value (e.g. `DECIMAL`, `INT`, `VARCHAR`)",
+          "col2": "Inside `SELECT`, `WHERE`, `ORDER BY` like `ROUND()`",
+          "col3": "\u274c No (Deterministic read-only computation)",
+          "col4": "Moderate (May run row-by-row / RBAR overhead)",
+          "status": "info"
+        },
+        {
+          "feature": "Table-Valued UDF (TVF)",
+          "col1": "Returns an entire tabular result set (`TABLE(...)`)",
+          "col2": "Inside `FROM` clause like a view or table",
+          "col3": "\u274c No (Read-only parameterized view)",
+          "col4": "\u2705 High (Inline TVFs are merged into query execution plan)",
+          "status": "success"
+        },
+        {
+          "feature": "Stored Procedure",
+          "col1": "Returns status code / multiple result sets / OUT parameters",
+          "col2": "Standalone execution via `CALL` or `EXEC`",
+          "col3": "\u2705 Yes (Can perform full ACID transactions and DDL/DML)",
+          "col4": "\u274c Cannot be embedded inside a SELECT query statement",
           "status": "info"
         }
       ]
@@ -344,24 +612,6 @@ export const structuredTablesData = {
           "col1": "Relational Databases (MySQL, Oracle, PostgreSQL)",
           "col2": "Document / Key-Value Stores (MongoDB, Couchbase, JSON/XML)",
           "col3": "Data Lakes, Object Storage (S3, HDFS, MinIO)"
-        },
-        {
-          "feature": "Querying Ease & Language",
-          "col1": "Very High (Declarative SQL with indexes and joins)",
-          "col2": "Moderate (JSONPath, MQL, XPath, XQuery)",
-          "col3": "Specialized (Vector search, NLP, OCR, Audio processing)"
-        },
-        {
-          "feature": "Share of Enterprise Data",
-          "col1": "~20% of enterprise information",
-          "col2": "~30% (Logs, APIs, IoT payloads)",
-          "col3": "~80% of newly generated world data"
-        },
-        {
-          "feature": "Concrete Real Example",
-          "col1": "Bank account ledger with AccNo, Balance, KYC date",
-          "col2": "E-commerce product catalog with dynamic custom specs",
-          "col3": "Customer call recordings, medical X-ray scans, PDFs"
         }
       ]
     }
@@ -387,13 +637,6 @@ export const structuredTablesData = {
           "status": "info"
         },
         {
-          "feature": "Schema Flexibility",
-          "col1": "Rigid DDL: Altering schema requires migrations & locking",
-          "col2": "Dynamic / Schema-less: Documents can have varying fields",
-          "verdict": "NoSQL is ideal for agile, rapidly evolving data models",
-          "status": "better-col2"
-        },
-        {
           "feature": "Scaling Strategy",
           "col1": "Vertical Scaling (Scale-Up: beefier CPU, RAM, NVMe)",
           "col2": "Horizontal Scaling (Scale-Out: distributed sharding)",
@@ -405,27 +648,6 @@ export const structuredTablesData = {
           "col1": "Strict ACID transactions (Atomic, Consistent, Isolated, Durable)",
           "col2": "BASE model (Basically Available, Soft-state, Eventual consistency)",
           "verdict": "SQL guarantees financial accuracy; NoSQL maximizes availability",
-          "status": "info"
-        },
-        {
-          "feature": "Complex Joins & Aggregations",
-          "col1": "Native multi-table JOINs optimized by relational query engine",
-          "col2": "Denormalized embedding preferred; joins ($lookup) are expensive",
-          "verdict": "Use SQL when deep relational joins are critical",
-          "status": "better-col1"
-        },
-        {
-          "feature": "Primary Industry Fit",
-          "col1": "Banking, ERP, Accounting, CRM, Inventory systems",
-          "col2": "Real-time analytics, Social Feeds, Mobile apps, IoT, Catalogs",
-          "verdict": "Choose based on consistency vs elasticity requirements",
-          "status": "info"
-        },
-        {
-          "feature": "Leading Systems",
-          "col1": "PostgreSQL, MySQL, Oracle, Microsoft SQL Server",
-          "col2": "MongoDB, Apache Cassandra, Redis, Neo4j, Couchbase",
-          "verdict": "Polyglot persistence combines both in modern architectures",
           "status": "info"
         }
       ]
@@ -444,12 +666,6 @@ export const structuredTablesData = {
       ],
       "rows": [
         {
-          "feature": "Database (Catalog)",
-          "col1": "Database (`CREATE DATABASE my_app;`)",
-          "col2": "Database (`use my_app`)",
-          "verdict": "High-level logical container for collections/tables"
-        },
-        {
           "feature": "Table (Relation)",
           "col1": "Table (`CREATE TABLE users (...);`)",
           "col2": "Collection (`db.createCollection('users')`)",
@@ -462,28 +678,10 @@ export const structuredTablesData = {
           "verdict": "Documents can contain nested arrays and sub-documents"
         },
         {
-          "feature": "Column (Attribute)",
-          "col1": "Column / Field (Fixed datatype per table definition)",
-          "col2": "Field (Dynamic key-value pair within BSON object)",
-          "verdict": "Different documents in same collection can have different fields"
-        },
-        {
           "feature": "Primary Key",
           "col1": "Primary Key (User-defined or AUTO_INCREMENT int)",
           "col2": "`_id` Field (12-byte unique BSON `ObjectId` by default)",
           "verdict": "Every document must have a unique immutable `_id`"
-        },
-        {
-          "feature": "Foreign Key & Joins",
-          "col1": "Foreign Key + `JOIN` clause in SQL query",
-          "col2": "Embedded Subdocuments OR `$lookup` aggregation stage",
-          "verdict": "Embedding avoids expensive distributed network joins"
-        },
-        {
-          "feature": "Index",
-          "col1": "B-Tree Index (`CREATE INDEX idx_email ON ...`)",
-          "col2": "B-Tree / Compound / Text / Geo Index (`db.users.createIndex({...})`)",
-          "verdict": "Supports single field, compound, multikey (arrays), and geospatial"
         }
       ]
     }
@@ -502,58 +700,22 @@ export const structuredTablesData = {
       ],
       "rows": [
         {
-          "feature": "$eq",
-          "col1": "Equals comparison",
-          "col2": "`WHERE field = value`",
+          "feature": "$eq / $ne",
+          "col1": "Equals / Not Equals comparison",
+          "col2": "`WHERE field = val` / `!=`",
           "col3": "`db.students.find({ dept: { $eq: \"IT\" } })`"
-        },
-        {
-          "feature": "$ne",
-          "col1": "Not Equal comparison",
-          "col2": "`WHERE field != value` or `<>`",
-          "col3": "`db.students.find({ status: { $ne: \"Graduated\" } })`"
         },
         {
           "feature": "$gt / $gte",
           "col1": "Greater Than / Greater Than or Equal",
-          "col2": "`WHERE field > value` / `>=`",
+          "col2": "`WHERE field > val` / `>=`",
           "col3": "`db.students.find({ cpi: { $gte: 8.5 } })`"
         },
         {
-          "feature": "$lt / $lte",
-          "col1": "Less Than / Less Than or Equal",
-          "col2": "`WHERE field < value` / `<=`",
-          "col3": "`db.products.find({ price: { $lte: 999 } })`"
-        },
-        {
-          "feature": "$in",
-          "col1": "Match any value in specified array",
-          "col2": "`WHERE field IN (v1, v2, ...)`",
+          "feature": "$in / $nin",
+          "col1": "Match in / not in array",
+          "col2": "`WHERE field IN (...)`",
           "col3": "`db.students.find({ sem: { $in: [3, 5, 7] } })`"
-        },
-        {
-          "feature": "$nin",
-          "col1": "Not in specified array",
-          "col2": "`WHERE field NOT IN (v1, v2, ...)`",
-          "col3": "`db.users.find({ role: { $nin: [\"admin\", \"root\"] } })`"
-        },
-        {
-          "feature": "$or",
-          "col1": "Logical OR joining array of clauses",
-          "col2": "`WHERE cond1 OR cond2`",
-          "col3": "`db.students.find({ $or: [{ dept: \"IT\" }, { cpi: { $gt: 9 } }] })`"
-        },
-        {
-          "feature": "$and",
-          "col1": "Logical AND joining multiple conditions",
-          "col2": "`WHERE cond1 AND cond2`",
-          "col3": "`db.students.find({ $and: [{ sem: 5 }, { cpi: { $gte: 8 } }] })`"
-        },
-        {
-          "feature": "$exists",
-          "col1": "Matches documents containing field",
-          "col2": "`WHERE field IS NOT NULL`",
-          "col3": "`db.users.find({ phoneNumber: { $exists: true } })`"
         }
       ]
     }
@@ -581,43 +743,13 @@ export const structuredTablesData = {
           "feature": "$group",
           "col1": "Groups input documents by identifier expression and accumulates metrics",
           "col2": "`GROUP BY col, AVG(), SUM()`",
-          "col3": "`{ $group: { _id: \"$dept\", avgCpi: { $avg: \"$cpi\" }, count: { $sum: 1 } } }`"
-        },
-        {
-          "feature": "$sort",
-          "col1": "Reorders documents by specified field (1 for ASC, -1 for DESC)",
-          "col2": "`ORDER BY col ASC / DESC`",
-          "col3": "`{ $sort: { avgCpi: -1, count: 1 } }`"
-        },
-        {
-          "feature": "$project",
-          "col1": "Reshapes document stream: selects, computes, or renames fields",
-          "col2": "`SELECT col1, col2 AS alias, (col1 * 2)`",
-          "col3": "`{ $project: { deptName: \"$_id\", avgScore: \"$avgCpi\", _id: 0 } }`"
-        },
-        {
-          "feature": "$limit",
-          "col1": "Restricts the number of output documents passed forward",
-          "col2": "`LIMIT n`",
-          "col3": "`{ $limit: 5 }`"
-        },
-        {
-          "feature": "$skip",
-          "col1": "Skips past the first n documents in the stream",
-          "col2": "`OFFSET n`",
-          "col3": "`{ $skip: 10 }`"
+          "col3": "`{ $group: { _id: \"$dept\", avgCpi: { $avg: \"$cpi\" } } }`"
         },
         {
           "feature": "$unwind",
           "col1": "Deconstructs an array field into individual output documents per element",
           "col2": "`CROSS JOIN LATERAL` / Unnesting",
           "col3": "`{ $unwind: \"$skills\" }`"
-        },
-        {
-          "feature": "$lookup",
-          "col1": "Performs left outer join to an unsharded collection in the same database",
-          "col2": "`LEFT OUTER JOIN other ON ...`",
-          "col3": "`{ $lookup: { from: \"grades\", localField: \"id\", foreignField: \"studId\", as: \"history\" } }`"
         }
       ]
     }
@@ -637,35 +769,35 @@ export const structuredTablesData = {
       ],
       "rows": [
         {
-          "feature": "Atomicity (All-or-Nothing)",
+          "feature": "Atomicity",
           "col1": "Either all transaction operations complete successfully or none take effect",
           "col2": "Write-Ahead Logging (WAL) & Undo Log Rollback",
           "col3": "Partial execution leaves database corrupted and inconsistent",
-          "col4": "\u20b95000 deducted from Alice's account, but power cut occurs before Bob's balance is credited.",
+          "col4": "\u20b95000 deducted from Alice, power cut before Bob is credited.",
           "status": "warning"
         },
         {
-          "feature": "Consistency (Invariant Preservation)",
-          "col1": "Transaction transforms database from one valid state satisfying all schema rules to another",
+          "feature": "Consistency",
+          "col1": "Transforms database from one valid state satisfying all schema rules to another",
           "col2": "Schema constraints, triggers, primary/foreign keys, assertions",
-          "col3": "Negative bank balances, orphan records, violated domain invariants",
-          "col4": "Total sum of money across all bank accounts before and after transfer must remain identical.",
+          "col3": "Negative bank balances, orphan records, violated invariants",
+          "col4": "Total sum across all bank accounts before and after transfer must remain identical.",
           "status": "info"
         },
         {
-          "feature": "Isolation (Concurrency Guard)",
+          "feature": "Isolation",
           "col1": "Concurrent transactions execute independently without mutual interference",
-          "col2": "Concurrency control protocols (2PL, Timestamp Ordering, MVCC, Snapshot Isolation)",
-          "col3": "Dirty reads, Non-repeatable reads, Phantom tuples, Lost updates",
-          "col4": "Alice deposits \u20b92000 while Bob withdraws \u20b91000 simultaneously; balance calculation is corrupted.",
+          "col2": "Concurrency control (2PL, Timestamp Ordering, MVCC)",
+          "col3": "Dirty reads, Non-repeatable reads, Phantom tuples",
+          "col4": "Alice deposits \u20b92000 while Bob withdraws \u20b91000 simultaneously.",
           "status": "better-col2"
         },
         {
-          "feature": "Durability (Persistence Guarantee)",
-          "col1": "Once transaction is committed, its updates persist permanently, even through system crashes",
-          "col2": "Redo Logs flushed to non-volatile disk/SSD, Battery-backed NVRAM, Checkpointing",
+          "feature": "Durability",
+          "col1": "Once transaction commits, updates persist permanently across crashes",
+          "col2": "Redo Logs flushed to non-volatile disk/SSD, Checkpointing",
           "col3": "Committed customer purchases vanish upon server reboot",
-          "col4": "After ATM displays 'Transaction Success', electricity cuts out; account balance update remains saved.",
+          "col4": "ATM displays 'Success'; power cut occurs; balance stays saved.",
           "status": "success"
         }
       ]
@@ -690,28 +822,19 @@ export const structuredTablesData = {
           "feature": "Centralized TP Monitor",
           "col1": "Single dedicated central coordinator server",
           "col2": "Limited scalability; coordinator becomes bottleneck under high load",
-          "col3": "Single Point of Failure (SPoF) unless active-passive standby exists",
-          "col4": "Low to Moderate: Straightforward centralized state management",
+          "col3": "Single Point of Failure (SPoF) unless standby exists",
+          "col4": "Low to Moderate: Straightforward state management",
           "col5": "Traditional enterprise mainframes, legacy ERP architectures",
           "status": "warning"
         },
         {
-          "feature": "Decentralized (Distributed) TP Monitor",
+          "feature": "Decentralized TP Monitor",
           "col1": "Multiple cooperating peer nodes running distributed consensus",
           "col2": "High horizontal scalability; load distributed across cluster nodes",
           "col3": "Resilient: Survives single node crashes through peer failover",
           "col4": "High: Requires distributed consensus, quorum, and global clocks",
-          "col5": "Cloud-native microservices, global financial clearing networks",
+          "col5": "Cloud-native microservices, global financial networks",
           "status": "success"
-        },
-        {
-          "feature": "State-Based (Persistent) Workflow",
-          "col1": "Durable database-backed workflow execution engine",
-          "col2": "High throughput for long-running, multi-step asynchronous processes",
-          "col3": "Maximum resilience: Steps persisted to WAL before dispatching external events",
-          "col4": "Moderate: Requires robust idempotency and compensation handlers",
-          "col5": "Temporal, AWS Step Functions, Order fulfillment sagas",
-          "status": "better-col2"
         }
       ]
     }
@@ -726,7 +849,7 @@ export const structuredTablesData = {
         "Real-Time Category",
         "Deadline Strictness",
         "Consequence of Missing Deadline",
-        "Utility Value Drop After Deadline",
+        "Utility Value Drop",
         "Primary Scheduling Policy",
         "Concrete Real-World Example"
       ],
@@ -735,27 +858,18 @@ export const structuredTablesData = {
           "feature": "Hard Real-Time (HRTDBS)",
           "col1": "Absolute strict deadline guarantee required",
           "col2": "Catastrophic system failure, loss of life, or equipment destruction",
-          "col3": "Becomes negative infinity (Harmful / Fatal)",
+          "col3": "Becomes negative infinity (Fatal)",
           "col4": "Earliest Deadline First (EDF), Least Slack Time (LST)",
-          "col5": "Nuclear reactor temperature safety system, Missile trajectory guidance, Cardiac pacemaker controller",
+          "col5": "Nuclear reactor temperature safety system, Pacemaker controller",
           "status": "warning"
         },
         {
-          "feature": "Firm Real-Time (FRTDBS)",
-          "col1": "Strict deadline; no catastrophe if missed, but value is zero",
-          "col2": "Transaction result becomes completely useless, aborted immediately",
-          "col3": "Drops immediately to zero (0)",
-          "col4": "Value-Cognizant Priority Scheduling, Deadline Monotonic",
-          "col5": "High-frequency algorithmic stock arbitrage, Radar aircraft position refresh, Automated sensor fusion",
-          "status": "info"
-        },
-        {
           "feature": "Soft Real-Time (SRTDBS)",
-          "col1": "Flexible target deadline; system aims to minimize average tardiness",
+          "col1": "Flexible target deadline; minimizes average tardiness",
           "col2": "Degraded quality of service, user annoyance, but result is still valuable",
-          "col3": "Gradually diminishes over time (Decays smoothly)",
+          "col3": "Gradually diminishes over time (Smooth decay)",
           "col4": "Best-effort Priority Queuing, Fair Share Scheduling",
-          "col5": "YouTube 4K video packet buffering, Airline ticket booking portal, Live weather telemetry display",
+          "col5": "YouTube 4K video buffering, Airline seat selection portal",
           "status": "success"
         }
       ]
@@ -776,23 +890,7 @@ export const structuredTablesData = {
       ],
       "rows": [
         {
-          "feature": "Nested Transactions",
-          "col1": "Tree hierarchy of sub-transactions; children commit conditionally into parent",
-          "col2": "Moderate (Parent holds ancestor lock hierarchy)",
-          "col3": "Sub-transaction aborts locally without aborting whole parent transaction",
-          "col4": "CAD/CAM engineering design suites, complex document editors",
-          "status": "info"
-        },
-        {
-          "feature": "Compensating Transactions",
-          "col1": "Application logic that semantically reverses an already-committed step",
-          "col2": "Zero long-term locks (Original transaction commits immediately)",
-          "col3": "Executes reverse action (e.g., Refund Payment, Cancel Reservation)",
-          "col4": "Flight & hotel booking reservation workflows",
-          "status": "better-col2"
-        },
-        {
-          "feature": "Saga Pattern (Orchestration/Choreography)",
+          "feature": "Saga Pattern (Compensating)",
           "col1": "Sequence of local transactions; failures trigger a chain of backward compensations",
           "col2": "Zero distributed 2PC locks across microservices",
           "col3": "Executes compensating transactions in reverse sequential order",
@@ -800,19 +898,11 @@ export const structuredTablesData = {
           "status": "success"
         },
         {
-          "feature": "Optimistic Concurrency Control (OCC)",
-          "col1": "Read phase \u2192 Validation phase \u2192 Write phase. Assumes conflicts are rare",
-          "col2": "Zero locks during execution; validates timestamp at commit",
-          "col3": "Aborts and restarts transaction if validation conflict is detected",
-          "col4": "Collaborative text editors, read-mostly web applications",
-          "status": "info"
-        },
-        {
           "feature": "Multi-Version Concurrency Control (MVCC)",
           "col1": "Creates timestamped snapshots for readers; writers create new version without blocking readers",
           "col2": "Readers never block writers; writers never block readers",
           "col3": "Garbage collector vacuums old invisible row versions",
-          "col4": "PostgreSQL, MySQL InnoDB, CockroachDB transactional engines",
+          "col4": "PostgreSQL, MySQL InnoDB transactional engines",
           "status": "success"
         }
       ]
@@ -846,18 +936,18 @@ export const structuredTablesData = {
           "feature": "Classification",
           "col1": "Supervised learning on labeled training data",
           "col2": "\u2705 Yes (Target classes defined, e.g. Fraud / Legitimate)",
-          "col3": "Decision Trees (C4.5, CART), Naive Bayes, Random Forest, SVM",
+          "col3": "Decision Trees, Naive Bayes, Random Forest, SVM",
           "col4": "Minimize classification error on test holdout set",
-          "col5": "Bank Loan Approval: Classify applicant as Low Risk vs High Default Risk",
+          "col5": "Bank Loan Approval: Classify applicant as Low Risk vs High Risk",
           "status": "success"
         },
         {
           "feature": "Clustering",
           "col1": "Unsupervised exploratory data grouping",
           "col2": "\u274c No (Natural clusters formed by data geometry)",
-          "col3": "K-Means, DBSCAN, Hierarchical Agglomerative Clustering",
+          "col3": "K-Means, DBSCAN, Hierarchical Clustering",
           "col4": "Maximize intra-cluster similarity; minimize inter-cluster similarity",
-          "col5": "Customer Segmentation: Grouping 1,000,000 users into 5 spending personas",
+          "col5": "Customer Segmentation: Grouping 1,000,000 users into personas",
           "status": "better-col2"
         }
       ]
@@ -882,116 +972,59 @@ export const structuredTablesData = {
           "col1": "Requires paired inputs and ground-truth target labels (X, y)",
           "col2": "Loss function calculates deviation from actual target label",
           "col3": "Linear/Logistic Regression, XGBoost, Neural Networks, Decision Trees",
-          "col4": "Predicting next quarter revenue, Customer Churn early warning system",
+          "col4": "Predicting next quarter revenue, Customer Churn warning",
           "status": "success"
         },
         {
           "feature": "Unsupervised Learning",
           "col1": "No labeled outputs; processes unannotated raw input datasets (X)",
           "col2": "Discovers latent structures, distributions, and clusters",
-          "col3": "K-Means, PCA (Dimensionality Reduction), Autoencoders, Isolation Forests",
-          "col4": "Anomalous credit card transaction detection, Automated demographic clustering",
+          "col3": "K-Means, PCA, Autoencoders, Isolation Forests",
+          "col4": "Anomalous credit card transaction detection",
           "status": "better-col2"
-        },
-        {
-          "feature": "Reinforcement Learning",
-          "col1": "No static dataset; autonomous agent interacts with dynamic environment",
-          "col2": "Receives positive scalar rewards or negative penalties over time",
-          "col3": "Q-Learning, Deep Q-Networks (DQN), PPO (Proximal Policy Optimization)",
-          "col4": "Dynamic airline ticket pricing optimization, Real-time ad bidding engine",
-          "status": "info"
-        }
-      ]
-    },
-    {
-      "id": "t5_2_bi_stack",
-      "title": "Business Intelligence & Data Warehousing Architecture Stack",
-      "subtitle": "Layer-by-layer technical breakdown from raw operational sources to executive dashboards",
-      "badge": "Data Warehouse Architecture",
-      "headers": [
-        "Architecture Layer",
-        "Primary Technical Function",
-        "Key Technologies Used",
-        "Latency & Processing Mode",
-        "Target User Persona"
-      ],
-      "rows": [
-        {
-          "feature": "1. Data Extraction & ETL",
-          "col1": "Extracts from OLTP/APIs, cleans, standardizes, transforms, and loads",
-          "col2": "Apache Airflow, Talend, dbt, Spark ETL, AWS Glue",
-          "col3": "Scheduled nightly/hourly batch or real-time Kafka streaming",
-          "col4": "Data Engineers & Pipeline Architects",
-          "status": "info"
-        },
-        {
-          "feature": "2. Enterprise Data Warehouse",
-          "col1": "Centralized, subject-oriented, non-volatile, time-variant analytical repository",
-          "col2": "Snowflake, Google BigQuery, Amazon Redshift, Star/Snowflake schemas",
-          "col3": "Massively Parallel Processing (MPP) analytical storage",
-          "col4": "Database Administrators & Data Architects",
-          "status": "success"
-        },
-        {
-          "feature": "3. OLAP Analytical Server",
-          "col1": "Multi-dimensional cube calculation enabling Roll-up, Drill-down, Slice & Dice",
-          "col2": "MOLAP (In-memory multi-dim), ROLAP (Relational OLAP), HOLAP (Hybrid)",
-          "col3": "Sub-second multi-dimensional analytical queries",
-          "col4": "BI Analysts & Financial Planners",
-          "status": "better-col2"
-        },
-        {
-          "feature": "4. Executive Visualization & BI",
-          "col1": "Interactive visual charts, KPI metric trackers, and automated alerts",
-          "col2": "Tableau, Microsoft Power BI, Looker, Apache Superset",
-          "col3": "Interactive client-side web dashboards",
-          "col4": "C-Suite Executives, Product Managers, Decision Makers",
-          "status": "info"
         }
       ]
     }
   ],
   "5.3": [
     {
-      "id": "t5_3_emerging_db",
-      "title": "Emerging Database Architectures Comparison",
-      "subtitle": "Comparing Multimedia, Mobile, and Digital Library Database Systems",
-      "badge": "Specialized Database Systems",
+      "id": "t5_3_multimedia",
+      "title": "Multimedia vs. Mobile vs. Digital Library Databases",
+      "subtitle": "Architectural comparison across storage formats, query indexing, and network synchronization",
+      "badge": "Specialized Database Matrix",
       "headers": [
-        "Specialized DB Architecture",
-        "Primary Media / Data Format",
-        "Key Engineering Challenges",
-        "Querying & Search Paradigm",
-        "Synchronization & Storage Solution"
+        "Database Paradigm",
+        "Primary Data Objects",
+        "Unique Storage / Indexing Technique",
+        "Network / Sync Model",
+        "Key Technical Challenge"
       ],
       "rows": [
         {
-          "feature": "Multimedia Databases (MMDBMS)",
-          "col1": "High-resolution Images, Audio streams, Video, 3D Point Clouds, Geospatial Rasters",
-          "col2": "Huge BLOB file sizes, real-time streaming QoS, content feature extraction",
-          "col3": "Content-Based Image Retrieval (CBIR), Vector embeddings, Visual feature search",
-          "col4": "High-throughput chunked streaming, Vector index (HNSW), Lossy compression codecs",
+          "feature": "Multimedia Databases",
+          "col1": "Images, Audio, 4K Video, 3D Point Clouds",
+          "col2": "R-Trees, Color Histograms, Perceptual Feature Vectors (CBIR)",
+          "col3": "Continuous real-time streaming buffers (QoS)",
+          "col4": "Content-based feature extraction and high-dimensional indexing",
           "status": "info"
         },
         {
           "feature": "Mobile Databases",
-          "col1": "Lightweight relational/document storage on smartphones, tablets, IoT edge devices",
-          "col2": "Frequent intermittent network disconnections, battery depletion, weak CPU, multi-master conflicts",
-          "col3": "Local SQLite / Realm / WatermelonDB queries with background batch sync",
-          "col4": "Optimistic local writes + CRDTs (Conflict-free Replicated Data Types) or Last-Write-Wins (LWW) sync",
-          "status": "success"
+          "col1": "Local relational/embedded stores on smartphones/IoT devices",
+          "col2": "Lightweight SQLite, Realm, Delta change logs",
+          "col3": "Intermittent Disconnected Operation with Two-Way Sync",
+          "col4": "Write conflict resolution and extreme battery/memory constraints",
+          "status": "better-col2"
         },
         {
-          "feature": "Digital Library Databases",
-          "col1": "Massive repositories of scientific papers, digitized manuscripts, audio archives, legal deeds",
-          "col2": "Long-term data preservation (100+ years), complex bibliographic metadata, multi-lingual search",
-          "col3": "Dublin Core metadata search, Full-text inverted indexes (Lucene/Elasticsearch), OAI-PMH harvesting",
-          "col4": "Immutable WORM storage (Write Once Read Many), High-density archive tiers, Cloud cold storage",
-          "status": "better-col2"
+          "feature": "Digital Libraries",
+          "col1": "Full-text PDFs, Academic papers, Historical archives, Metadata",
+          "col2": "Inverted Indexes, Dublin Core Metadata, OCR indexing",
+          "col3": "Web-based OAI-PMH harvesting protocols",
+          "col4": "Copyright preservation, Semantic search, and permanent DOI identifiers",
+          "status": "success"
         }
       ]
     }
   ]
 };
-
-export default structuredTablesData;

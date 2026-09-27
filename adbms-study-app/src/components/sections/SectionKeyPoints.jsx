@@ -1,12 +1,26 @@
 import React from 'react';
-import { Award, Zap, AlertCircle, HelpCircle, CheckCircle2 } from 'lucide-react';
+import { Award, Zap, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 export default function SectionKeyPoints({ keyPoints }) {
   if (!keyPoints) return null;
 
-  const takeaways = keyPoints.takeaways || [];
-  const misconceptions = keyPoints.misconceptions || [];
-  const examTips = keyPoints.examTips || [];
+  let takeaways = Array.isArray(keyPoints?.takeaways) ? keyPoints.takeaways : [];
+  let misconceptions = Array.isArray(keyPoints?.misconceptions) ? keyPoints.misconceptions : [];
+  let examTips = Array.isArray(keyPoints?.examTips) ? keyPoints.examTips : [];
+
+  // Fallback if keyPoints is a raw string or array of strings
+  if (takeaways.length === 0 && misconceptions.length === 0 && examTips.length === 0) {
+    if (typeof keyPoints === 'string' && keyPoints.trim()) {
+      const lines = keyPoints.split('\n').map(l => l.trim()).filter(Boolean);
+      takeaways = lines.filter(l => !l.startsWith('13.') && !l.toLowerCase().includes('key points'));
+    } else if (Array.isArray(keyPoints) && keyPoints.length > 0) {
+      takeaways = keyPoints;
+    }
+  }
+
+  if (takeaways.length === 0 && misconceptions.length === 0 && examTips.length === 0) {
+    return null;
+  }
 
   return (
     <div className="space-y-6">

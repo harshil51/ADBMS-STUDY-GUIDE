@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   BookOpen, Sparkles, Clock, CheckCircle2, Award, 
   Layers, ArrowRight, Compass, ShieldCheck, Database, 
-  Cpu, Workflow, Server, Zap, Check
+  Cpu, Workflow, Server, Zap, Check, FileCode, Code2
 } from 'lucide-react';
 import { BOOK_METADATA, MODULES_DATA, TOPICS_DATA } from '../data/courseData';
 
@@ -17,8 +17,9 @@ export default function HeroLanding({
 
   const getModuleIcon = (modId) => {
     switch(modId) {
-      case 1: return Database;
-      case 3: return Layers;
+      case 1: return Server;
+      case 2: return FileCode;
+      case 3: return Database;
       case 4: return Workflow;
       case 5: return Cpu;
       default: return BookOpen;
@@ -58,7 +59,8 @@ export default function HeroLanding({
           <p className="text-sm text-slate-500 dark:text-slate-400 mb-8 max-w-2xl leading-relaxed">
             Authored by <strong className="text-slate-700 dark:text-slate-200">{BOOK_METADATA.author}</strong>. 
             Converted into a complete digital study textbook featuring interactive 2PL locking visualizers, 
-            MongoDB query playgrounds, aggregation pipeline steppers, ACID state machines, and real-time scheduling algorithms.
+            ORDBMS structured types & table inheritance steppers, XML / XPath / FLWOR playgrounds, 
+            MongoDB query simulators, aggregation pipelines, ACID state machines, and real-time scheduling algorithms.
           </p>
 
           {/* Action CTAs */}
@@ -86,17 +88,17 @@ export default function HeroLanding({
         {/* Hero Quick Stats Grid */}
         <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-slate-200/80 dark:border-slate-800/80 text-center">
           <div className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60">
-            <div className="text-2xl sm:text-3xl font-black text-blue-600 dark:text-blue-400 font-mono">16</div>
+            <div className="text-2xl sm:text-3xl font-black text-blue-600 dark:text-blue-400 font-mono">{TOPICS_DATA.length}</div>
             <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">In-Depth Topics</div>
           </div>
 
           <div className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60">
-            <div className="text-2xl sm:text-3xl font-black text-purple-600 dark:text-purple-400 font-mono">16</div>
+            <div className="text-2xl sm:text-3xl font-black text-purple-600 dark:text-purple-400 font-mono">{TOPICS_DATA.length}</div>
             <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Interactive Simulators</div>
           </div>
 
           <div className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60">
-            <div className="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400 font-mono">101</div>
+            <div className="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400 font-mono">{BOOK_METADATA.totalPages}</div>
             <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Book Pages Equivalent</div>
           </div>
 

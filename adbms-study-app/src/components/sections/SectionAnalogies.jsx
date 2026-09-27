@@ -1,11 +1,35 @@
 import React from 'react';
-import { Sparkles, Utensils, Building2, Plane, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Utensils, Building2, Plane, CheckCircle2 } from 'lucide-react';
 
 export default function SectionAnalogies({ analogies }) {
   if (!analogies || analogies.length === 0) return null;
 
+  const analogyList = (Array.isArray(analogies) ? analogies : [analogies]).map((a, idx) => {
+    if (typeof a === 'string') {
+      const cleanStr = a.replace(/^Analogy\s*\d*\s*[-:]\s*/i, '').trim();
+      const firstColon = cleanStr.indexOf(':');
+      if (firstColon > 0 && firstColon < 40) {
+        return {
+          num: idx + 1,
+          title: cleanStr.slice(0, firstColon).trim(),
+          description: cleanStr.slice(firstColon + 1).trim()
+        };
+      }
+      return {
+        num: idx + 1,
+        title: `Intuitive Metaphor ${idx + 1}`,
+        description: cleanStr
+      };
+    }
+    return {
+      num: a.num || idx + 1,
+      title: a.title || `Analogy #${idx + 1}`,
+      description: a.description || a.content || ''
+    };
+  });
+
   const getAnalogyIcon = (title) => {
-    const t = title.toLowerCase();
+    const t = (title || '').toString().toLowerCase();
     if (t.includes('restaurant') || t.includes('waiter') || t.includes('kitchen') || t.includes('food')) return Utensils;
     if (t.includes('bank') || t.includes('branch') || t.includes('office') || t.includes('supermarket')) return Building2;
     if (t.includes('trip') || t.includes('flight') || t.includes('vacation')) return Plane;
@@ -18,7 +42,7 @@ export default function SectionAnalogies({ analogies }) {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
           <Sparkles className="w-4 h-4" />
-          <span>Section 3: Real-Life Analogies ({analogies.length})</span>
+          <span>Section 3: Real-Life Analogies ({analogyList.length})</span>
         </div>
         <span className="text-[11px] font-mono text-slate-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
           Visual Mental Models
@@ -26,7 +50,7 @@ export default function SectionAnalogies({ analogies }) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {analogies.map((a, idx) => {
+        {analogyList.map((a, idx) => {
           const IconComp = getAnalogyIcon(a.title);
 
           return (
@@ -41,7 +65,7 @@ export default function SectionAnalogies({ analogies }) {
                   </div>
                   <div>
                     <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-                      Analogy #{a.num || idx + 1}
+                      Analogy #{a.num}
                     </span>
                     <h4 className="text-base font-bold text-slate-900 dark:text-white">
                       {a.title}
@@ -49,7 +73,7 @@ export default function SectionAnalogies({ analogies }) {
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans mt-2">
+                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans mt-2 whitespace-pre-line">
                   {a.description}
                 </p>
               </div>

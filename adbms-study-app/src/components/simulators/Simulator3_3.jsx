@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Database, Plus, Trash2, Edit3, Search, Terminal, CheckCircle2 } from 'lucide-react';
+import { Database, Plus, Trash2, Edit3, Terminal } from 'lucide-react';
 
 export default function Simulator3_3() {
   const initialDocs = [
@@ -9,7 +9,6 @@ export default function Simulator3_3() {
   ];
 
   const [docs, setDocs] = useState(initialDocs);
-  const [selectedOp, setSelectedOp] = useState('find');
   const [commandLog, setCommandLog] = useState(['db.students.find() executed. Returned 3 documents.']);
   const [newName, setNewName] = useState('');
   const [newDept, setNewDept] = useState('IT');

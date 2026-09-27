@@ -5,9 +5,21 @@ export default function SectionStepByStep({ stepByStep }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const stepsList = Array.isArray(stepByStep)
-    ? stepByStep
-    : (stepByStep || '').split('\n').filter(l => l.trim() && l.trim() !== '↓').map(title => ({ title, isHeader: title.includes('Flow:') || title.includes('Phase:') }));
+  let stepsList = [];
+  if (Array.isArray(stepByStep)) {
+    stepsList = stepByStep.map((s, idx) => ({
+      step: s.step || idx + 1,
+      title: s.title || `Stage ${idx + 1}`,
+      description: s.description || s.content || ''
+    }));
+  } else if (typeof stepByStep === 'string') {
+    const lines = stepByStep.split('\n').map(l => l.trim()).filter(l => l && l !== '↓');
+    stepsList = lines.map((title, idx) => ({
+      step: idx + 1,
+      title,
+      description: ''
+    }));
+  }
 
   useEffect(() => {
     let timer;
@@ -20,12 +32,14 @@ export default function SectionStepByStep({ stepByStep }) {
           }
           return prev + 1;
         });
-      }, 1500);
+      }, 2500);
     }
     return () => clearInterval(timer);
   }, [isPlaying, stepsList.length]);
 
   if (!stepsList || stepsList.length === 0) return null;
+
+  const active = stepsList[currentStep] || stepsList[0];
 
   return (
     <div className="space-y-6">
@@ -67,13 +81,18 @@ export default function SectionStepByStep({ stepByStep }) {
         </div>
 
         {/* Current Active Step Spotlight */}
-        <div className="p-6 rounded-2xl bg-slate-950 border border-purple-500/40 shadow-inner flex flex-col items-center justify-center text-center space-y-2 min-h-[140px]">
+        <div className="p-6 rounded-2xl bg-slate-950 border border-purple-500/40 shadow-inner flex flex-col items-center justify-center text-center space-y-3 min-h-[160px]">
           <span className="text-[11px] font-mono text-purple-400 font-bold uppercase tracking-wider">
-            Active Execution Step #{currentStep + 1} of {stepsList.length}
+            Active Execution Step #{active?.step || currentStep + 1} of {stepsList.length}
           </span>
           <h4 className="text-base sm:text-lg font-bold text-white max-w-xl">
-            {stepsList[currentStep]?.title}
+            {active?.title}
           </h4>
+          {active?.description && (
+            <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 text-xs sm:text-sm font-sans text-left max-w-2xl w-full whitespace-pre-line leading-relaxed">
+              {active.description}
+            </div>
+          )}
         </div>
 
         {/* Step Navigation Dots / Buttons */}
@@ -91,12 +110,12 @@ export default function SectionStepByStep({ stepByStep }) {
               <button
                 key={idx}
                 onClick={() => setCurrentStep(idx)}
-                className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${
+                className={`h-2.5 rounded-full transition-all cursor-pointer ${
                   currentStep === idx
                     ? 'w-6 bg-purple-500'
                     : currentStep > idx
-                    ? 'bg-emerald-500'
-                    : 'bg-slate-700'
+                    ? 'w-2.5 bg-emerald-500'
+                    : 'w-2.5 bg-slate-700'
                 }`}
                 title={`Step ${idx + 1}: ${st.title}`}
               />

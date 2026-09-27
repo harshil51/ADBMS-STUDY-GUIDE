@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, Copy, Check, ChevronDown, ChevronRight, Sparkles, Terminal, Code2, ShieldAlert } from 'lucide-react';
+import { FileText, Copy, Check, ChevronDown, ChevronRight, Sparkles } from 'lucide-react';
 
 export default function SectionDetailedExplanation({ detailedExplanation }) {
   const [copiedCodeIdx, setCopiedCodeIdx] = useState(null);
@@ -7,7 +7,32 @@ export default function SectionDetailedExplanation({ detailedExplanation }) {
 
   if (!detailedExplanation) return null;
 
-  const subsections = detailedExplanation.subsections || [];
+  let subsections = detailedExplanation.subsections || [];
+  
+  // If subsections are missing, fallback to parsing raw text
+  if (subsections.length === 0) {
+    const rawText = detailedExplanation.raw || (typeof detailedExplanation === 'string' ? detailedExplanation : '');
+    if (rawText) {
+      const parts = rawText.split(/(?=\b\d+\.\d+\s+)/g).filter(Boolean);
+      if (parts.length > 1) {
+        subsections = parts.map((part, idx) => {
+          const firstLine = part.trim().split('\n')[0];
+          const rest = part.trim().slice(firstLine.length).trim();
+          return {
+            title: firstLine.replace(/^4\.\s*Complete Detailed Explanation\s*/i, '').trim(),
+            content: rest
+          };
+        });
+      } else {
+        subsections = [{
+          title: 'Detailed Theory & Architecture Breakdown',
+          content: rawText.replace(/^4\.\s*Complete Detailed Explanation\s*/i, '').trim()
+        }];
+      }
+    }
+  }
+
+  if (subsections.length === 0) return null;
 
   const handleCopy = (text, idx) => {
     navigator.clipboard.writeText(text);
@@ -21,10 +46,9 @@ export default function SectionDetailedExplanation({ detailedExplanation }) {
 
   // Helper to format content into paragraphs, code blocks, lists, or exam tips
   const renderFormattedContent = (rawText, subIdx) => {
+    if (!rawText) return null;
     const lines = rawText.split('\n');
     const elements = [];
-    let currentCode = [];
-    let inCode = false;
 
     lines.forEach((l, lIdx) => {
       const line = l.trim();

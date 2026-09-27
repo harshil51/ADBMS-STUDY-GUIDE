@@ -36,7 +36,7 @@ export default function Footer({
             </p>
 
             <div className="text-[11px] text-slate-400 font-mono">
-              Subject Code: {BOOK_METADATA.subjectCode} • 101 Pages Reference
+              Subject Code: {BOOK_METADATA.subjectCode} • {BOOK_METADATA.totalPages} Pages Reference • {BOOK_METADATA.totalModules} Modules • {BOOK_METADATA.totalTopics} Topics
             </div>
           </div>
 
@@ -50,7 +50,7 @@ export default function Footer({
                 <li key={mod.id}>
                   <button
                     onClick={() => {
-                      const firstTopic = mod.id === 1 ? '1.1' : mod.id === 3 ? '3.1' : mod.id === 4 ? '4.1' : '5.1';
+                      const firstTopic = `${mod.id}.1`;
                       onSelectTopic(firstTopic);
                     }}
                     className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer text-left"

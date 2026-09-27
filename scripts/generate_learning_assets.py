@@ -1,7 +1,6 @@
 import json
-import os
 
-# 1. QUIZ DATA: Comprehensive MCQs for all 16 topics based on the textbook
+# 1. QUIZ DATA
 quiz_questions = [
   # Topic 1.1
   {
@@ -128,6 +127,166 @@ quiz_questions = [
     ],
     "correctIndex": 1,
     "explanation": "Horizontal Fragmentation divides a relation into subsets of rows (tuples) using a selection condition (e.g. branch_location = 'New York'). Vertical fragmentation splits columns.",
+    "difficulty": "Easy"
+  },
+
+  # Topic 2.1
+  {
+    "id": "q2_1_1",
+    "topicId": "2.1",
+    "moduleId": 2,
+    "question": "How does an Object-Relational Database (ORDBMS) fundamentally differ from a standard pure RDBMS regarding attribute values?",
+    "options": [
+      "RDBMS only allows non-atomic values; ORDBMS strictly forbids nested data",
+      "RDBMS enforces first normal form (1NF) atomic values, whereas ORDBMS supports complex structured types, nested records, and methods",
+      "RDBMS uses JSON exclusively, whereas ORDBMS uses BSON",
+      "RDBMS supports inheritance, whereas ORDBMS does not"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pure relational databases require atomic (single-valued) attributes (1NF). ORDBMS extends relational models with user-defined structured types, nested attributes, collection types, and methods.",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "q2_1_2",
+    "topicId": "2.1",
+    "moduleId": 2,
+    "question": "In SQL:1999 object-relational extensions, how do you access a field inside a nested structured attribute in a query?",
+    "options": [
+      "Using arrow notation: p->address->city",
+      "Using standard dot notation: p.address.city",
+      "Using array indexing: p.address[city]",
+      "Using slash syntax: p/address/city"
+    ],
+    "correctIndex": 1,
+    "explanation": "Dot notation (e.g., `p.address.city`) is used in SQL:1999 to drill into nested structured attributes.",
+    "difficulty": "Easy"
+  },
+
+  # Topic 2.2
+  {
+    "id": "q2_2_1",
+    "topicId": "2.2",
+    "moduleId": 2,
+    "question": "In SQL:1999, which keyword is used in a SELECT statement to query ONLY the specified supertable, excluding rows from all subtables?",
+    "options": [
+      "SELECT * FROM DIRECT(Person);",
+      "SELECT * FROM ONLY(Person);",
+      "SELECT * FROM NO_SUBTYPES(Person);",
+      "SELECT * FROM BASE(Person);"
+    ],
+    "correctIndex": 1,
+    "explanation": "By default, querying a supertable (`SELECT * FROM Person`) polymorphically returns rows from Person AND all its subtables (Student, Teacher). The `ONLY` keyword (`SELECT * FROM ONLY(Person)`) restricts output to direct rows of Person.",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q2_2_2",
+    "topicId": "2.2",
+    "moduleId": 2,
+    "question": "What is the primary structural difference between ARRAY and MULTISET collection types in SQL:1999?",
+    "options": [
+      "ARRAY allows duplicates, but MULTISET does not allow duplicates",
+      "ARRAY is ordered with 1-based indexing; MULTISET is an unordered bag of elements supporting duplicates",
+      "ARRAY can only hold integers; MULTISET can only hold strings",
+      "ARRAY is used in MongoDB; MULTISET is used in XML"
+    ],
+    "correctIndex": 1,
+    "explanation": "An `ARRAY` is an ordered collection accessed via index (`arr[1]`), whereas `MULTISET` is an unordered collection (bag) that allows duplicate values and supports algebraic multiset operations.",
+    "difficulty": "Medium"
+  },
+
+  # Topic 2.3
+  {
+    "id": "q2_3_1",
+    "topicId": "2.3",
+    "moduleId": 2,
+    "question": "What is the fundamental difference between an Object Identity (OID) and a primary key in database systems?",
+    "options": [
+      "A primary key is system-generated and hidden, while an OID is chosen by the user",
+      "An OID is a system-generated, immutable identifier that never changes even if row attributes are updated, whereas a primary key is value-based",
+      "An OID can only be used on single-node computers",
+      "An OID cannot be referenced by other tables"
+    ],
+    "correctIndex": 1,
+    "explanation": "Primary keys are value-based and can change if domain data changes (e.g. email or code update). OIDs are system-managed, globally unique, and immutable handles that identify an object independently of its contents.",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q2_3_2",
+    "topicId": "2.3",
+    "moduleId": 2,
+    "question": "In SQL:1999, which operator is used to navigate and dereference a `REF` pointer attribute to access fields of the referenced object directly?",
+    "options": [
+      "Dot operator (.)",
+      "Arrow operator (->)",
+      "Double colon (::)",
+      "Tilde (~)"
+    ],
+    "correctIndex": 1,
+    "explanation": "The arrow operator `->` dereferences a REF attribute directly in SQL (e.g. `SELECT e.name, e.dept->dept_name FROM Employee e;`), bypassing the need to write an explicit relational JOIN.",
+    "difficulty": "Easy"
+  },
+
+  # Topic 2.4
+  {
+    "id": "q2_4_1",
+    "topicId": "2.4",
+    "moduleId": 2,
+    "question": "What does the 'FLWOR' acronym represent in the XQuery query language?",
+    "options": [
+      "Filter, Load, Write, Output, Read",
+      "For, Let, Where, Order by, Return",
+      "Format, Link, With, Open, Refresh",
+      "Find, Locate, Wrap, Organize, Render"
+    ],
+    "correctIndex": 1,
+    "explanation": "FLWOR stands for For (iteration), Let (variable binding), Where (filtering criteria), Order by (sorting), and Return (output construction).",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "q2_4_2",
+    "topicId": "2.4",
+    "moduleId": 2,
+    "question": "Why is XML Schema (XSD) generally preferred over DTD (Document Type Definition) in enterprise databases?",
+    "options": [
+      "XSD uses binary compression, whereas DTD uses JSON",
+      "XSD supports 40+ built-in rich data types, exact numeric cardinallity, XML namespaces, and is itself written in standard XML syntax",
+      "DTD is an active W3C standard, whereas XSD is deprecated",
+      "DTD supports OOP inheritance, whereas XSD does not"
+    ],
+    "correctIndex": 1,
+    "explanation": "XSD provides strong data typing (integers, dates, decimals), numeric occurrence bounds (minOccurs/maxOccurs), namespace support, and is written in standard XML.",
+    "difficulty": "Medium"
+  },
+
+  # Topic 2.5
+  {
+    "id": "q2_5_1",
+    "topicId": "2.5",
+    "moduleId": 2,
+    "question": "Which SQL JOIN retains all rows from the left table, padding right table columns with NULL whenever there is no matching record?",
+    "options": [
+      "INNER JOIN",
+      "LEFT OUTER JOIN",
+      "RIGHT OUTER JOIN",
+      "CROSS JOIN"
+    ],
+    "correctIndex": 1,
+    "explanation": "A LEFT OUTER JOIN preserves all tuples from the left relation, supplying NULL values for attributes of the right relation when no match exists.",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "q2_5_2",
+    "topicId": "2.5",
+    "moduleId": 2,
+    "question": "What is the key characteristic of a Scalar User-Defined Function (UDF) in SQL?",
+    "options": [
+      "It returns a full result table and must be used in the FROM clause",
+      "It returns a single atomic value and can be invoked inside SELECT, WHERE, or expression clauses",
+      "It automatically deletes invalid records from the table",
+      "It can only be written in Python"
+    ],
+    "correctIndex": 1,
+    "explanation": "Scalar UDFs return a single value and can be called anywhere a scalar expression or built-in function is allowed in a query.",
     "difficulty": "Easy"
   },
 
@@ -394,7 +553,7 @@ quiz_questions = [
     "id": "q5_1_1",
     "topicId": "5.1",
     "moduleId": 5,
-    "question": "In Association Rule Mining, how is the 'Support' of an itemset rule $(A \Rightarrow B)$ defined?",
+    "question": "In Association Rule Mining, how is the 'Support' of an itemset rule $(A \\Rightarrow B)$ defined?",
     "options": [
       "The percentage of transactions containing A that also contain B",
       "The proportion of all transactions in the database that contain both itemsets A and B",
@@ -402,7 +561,7 @@ quiz_questions = [
       "The count of clusters generated by K-Means"
     ],
     "correctIndex": 1,
-    "explanation": "Support is the fraction of total transactions containing $A \cup B$: $Support(A \Rightarrow B) = \\frac{\\text{Count}(A \\cup B)}{\\text{Total Transactions}}$. Confidence measures the conditional probability $P(B|A)$.",
+    "explanation": "Support is the fraction of total transactions containing $A \\cup B$: $Support(A \\Rightarrow B) = \\frac{\\text{Count}(A \\cup B)}{\\text{Total Transactions}}$. Confidence measures the conditional probability $P(B|A)$.",
     "difficulty": "Medium"
   },
   {
@@ -471,7 +630,7 @@ quiz_questions = [
   }
 ]
 
-# 2. FLASHCARD DATA: 80+ Flashcards
+# 2. FLASHCARDS DATA
 flashcards_data = [
   {"id": "fc_1", "topicId": "1.1", "front": "What is a 2-Tier Architecture?", "back": "A client-server model with two physical/logical layers: Client (UI + Business Logic) and Database Server (Data storage + Query execution)."},
   {"id": "fc_2", "topicId": "1.1", "front": "What is a 3-Tier Architecture?", "back": "A model with three distinct layers: Presentation Tier (Client UI), Application Tier (Business Logic), and Data Tier (Database Engine). Highly scalable and secure."},
@@ -483,22 +642,41 @@ flashcards_data = [
   {"id": "fc_8", "topicId": "1.3", "front": "What is Data Skew in Parallel Databases?", "back": "Uneven distribution of data or query workload across parallel nodes, causing some nodes to be overloaded while others sit idle."},
   {"id": "fc_9", "topicId": "1.4", "front": "What is Two-Phase Commit (2PC)?", "back": "A distributed consensus protocol ensuring atomic commits across multiple sites: Phase 1 (Prepare/Vote) and Phase 2 (Global Commit or Global Abort)."},
   {"id": "fc_10", "topicId": "1.4", "front": "Horizontal vs Vertical Fragmentation", "back": "Horizontal Fragmentation splits tables by rows (using WHERE filter). Vertical Fragmentation splits tables by columns (retaining primary key in each)."},
+
+  # Module 2 Flashcards
+  {"id": "fc_m2_1", "topicId": "2.1", "front": "What is an ORDBMS (Object-Relational DBMS)?", "back": "A relational database management system extended with object-oriented capabilities such as user-defined complex structured types, methods, inheritance, and collection types while retaining full SQL support."},
+  {"id": "fc_m2_2", "topicId": "2.1", "front": "What is a Structured Type in SQL:1999?", "back": "A named, user-defined composite data type (created with `CREATE TYPE TypeName AS (...)`) consisting of one or more named attributes and encapsulated methods."},
+  {"id": "fc_m2_3", "topicId": "2.2", "front": "How is Type Inheritance declared in SQL:1999?", "back": "Using the `UNDER` clause (e.g. `CREATE TYPE StudentType UNDER PersonType (...)`), where the subtype inherits all attributes and methods of the supertype."},
+  {"id": "fc_m2_4", "topicId": "2.2", "front": "What does the `ONLY` keyword do in table queries?", "back": "In `SELECT * FROM ONLY(SuperTable);`, it restricts query evaluation to rows belonging directly to SuperTable, suppressing rows stored in subtables."},
+  {"id": "fc_m2_5", "topicId": "2.2", "front": "ARRAY vs MULTISET in SQL:1999", "back": "ARRAY is an ordered, 1-based indexed collection allowing duplicates. MULTISET is an unordered bag of elements allowing duplicates and supporting set operations."},
+  {"id": "fc_m2_6", "topicId": "2.3", "front": "What is Object Identity (OID)?", "back": "A permanent, system-generated, immutable identifier that uniquely identifies a row in a typed table independently of its attribute values."},
+  {"id": "fc_m2_7", "topicId": "2.3", "front": "What is the Dereferencing Operator (`->`)?", "back": "An operator in SQL:1999 used to follow a `REF` pointer directly to read an attribute from the target object without writing an explicit SQL JOIN (e.g., `e.dept->dept_name`)."},
+  {"id": "fc_m2_8", "topicId": "2.4", "front": "What are the 5 clauses of a FLWOR expression in XQuery?", "back": "FOR (iteration over nodes), LET (variable assignment), WHERE (filtering), ORDER BY (sorting), and RETURN (result formatting)."},
+  {"id": "fc_m2_9", "topicId": "2.4", "front": "DTD vs XML Schema (XSD)", "back": "DTD uses non-XML syntax and lacks data typing. XSD is written in XML, supports 40+ data types, numeric occurrence constraints (minOccurs/maxOccurs), and namespaces."},
+  {"id": "fc_m2_10", "topicId": "2.5", "front": "INNER JOIN vs LEFT OUTER JOIN", "back": "INNER JOIN returns only rows with a matching key in both tables. LEFT OUTER JOIN returns all rows from the left table, padding right columns with NULL for non-matches."},
+  {"id": "fc_m2_11", "topicId": "2.5", "front": "What is a Scalar User-Defined Function (UDF)?", "back": "A reusable database function that accepts input parameters, executes algorithmic logic, and returns a single scalar value usable in SELECT or WHERE clauses."},
+
+  # Module 3 Flashcards
   {"id": "fc_11", "topicId": "3.1", "front": "What is Semi-Structured Data?", "back": "Data that does not fit a rigid relational schema but contains self-describing tags, keys, and hierarchical nesting (e.g., JSON, XML)."},
   {"id": "fc_12", "topicId": "3.2", "front": "State the CAP Theorem", "back": "In a distributed data system with network partition (P), you can only guarantee either Consistency (C) or Availability (A), but never all three simultaneously."},
   {"id": "fc_13", "topicId": "3.2", "front": "What does BASE stand for in NoSQL?", "back": "Basically Available, Soft state, Eventual consistency (contrasted with relational ACID)."},
   {"id": "fc_14", "topicId": "3.3", "front": "What is a Document in MongoDB?", "back": "A record in MongoDB stored as BSON (Binary JSON), consisting of field-value pairs similar to a JSON object."},
   {"id": "fc_15", "topicId": "3.4", "front": "What does MongoDB Projection do?", "back": "Specifies which fields to return (1) or suppress (0) from matching documents, reducing network payload."},
   {"id": "fc_16", "topicId": "3.5", "front": "What is the MongoDB Aggregation Pipeline?", "back": "A multi-stage framework where documents pass through sequential transformations ($match, $group, $project, $sort) to produce summarized analytics."},
+
+  # Module 4 Flashcards
   {"id": "fc_17", "topicId": "4.1", "front": "List the 4 ACID Properties", "back": "Atomicity (all-or-nothing), Consistency (state validity), Isolation (concurrency protection), Durability (persisted post-commit)."},
   {"id": "fc_18", "topicId": "4.2", "front": "What is a TP Monitor?", "back": "Transaction Processing Monitor: Middleware coordinating distributed transactions, managing client connection pools, and ensuring atomic completion across resource managers."},
   {"id": "fc_19", "topicId": "4.3", "front": "Hard vs Soft Real-Time Systems", "back": "Hard Real-Time: Missing a deadline is a catastrophic system failure. Soft Real-Time: Missing a deadline degrades performance/utility without system crash."},
   {"id": "fc_20", "topicId": "4.4", "front": "What is the Saga Pattern?", "back": "An architectural pattern that breaks a long-duration transaction into a chain of local transactions, with each step paired with a compensating transaction for failure rollback."},
+
+  # Module 5 Flashcards
   {"id": "fc_21", "topicId": "5.1", "front": "What is the Apriori Algorithm?", "back": "A data mining algorithm that discovers frequent itemsets and association rules using the Apriori principle: all non-empty subsets of a frequent itemset must also be frequent."},
   {"id": "fc_22", "topicId": "5.2", "front": "What is an OLAP Cube?", "back": "An Online Analytical Processing data structure allowing multidimensional data analysis with operations like Slice, Dice, Drill-down, and Roll-up."},
   {"id": "fc_23", "topicId": "5.3", "front": "What is Disconnected Operation in Mobile DBs?", "back": "The ability of a mobile database to perform local read and write transactions while network connectivity is lost, synchronizing when reconnected."}
 ]
 
-# 3. FORMULAS DATA: Key formulas
+# 3. FORMULAS DATA
 formula_data = [
   {
     "id": "f1",
@@ -523,6 +701,31 @@ formula_data = [
       {"symbol": "T_{large}(m \\cdot N)", "meaning": "Time to process m-times larger dataset on m-times more nodes"}
     ],
     "example": "If 10 GB on 1 node takes 30s, and 100 GB on 10 nodes takes 30s, Scaleup = 1.0 (Ideal Scaleup)."
+  },
+  {
+    "id": "f_m2_1",
+    "topicId": "2.4",
+    "title": "XQuery FLWOR Stream Transformation Function",
+    "latex": "\\mathcal{Q}(D) = \\bigcup_{x \\in \\text{For}(D)} \\{ \\text{Return}(x, \\text{Let}(x)) \\mid \\text{Where}(x) = \\text{true} \\}",
+    "meaning": "Mathematical formalization of the FLWOR pipeline mapping input XML document nodes to output XML elements through conditional filtering.",
+    "symbols": [
+      {"symbol": "\\text{For}(D)", "meaning": "Sequence of tuple bindings from source document D"},
+      {"symbol": "\\text{Where}(x)", "meaning": "Boolean filter predicate evaluated per item"},
+      {"symbol": "\\text{Return}(x)", "meaning": "Constructor producing the output XML node tree"}
+    ],
+    "example": "For $b in bookstore/book where price < 30 return <title>{$b/title}</title> outputs only titles with price predicate satisfied."
+  },
+  {
+    "id": "f_m2_2",
+    "topicId": "2.5",
+    "title": "Relational Theta-Join & Outer Join Algebraic Equivalence",
+    "latex": "R \\bowtie_\\theta S = \\sigma_\\theta (R \\times S)",
+    "meaning": "Fundamental algebraic equivalence showing that a theta-join is a cross product filtered by selection predicate theta.",
+    "symbols": [
+      {"symbol": "R \\times S", "meaning": "Cartesian cross product of relations R and S"},
+      {"symbol": "\\sigma_\\theta", "meaning": "Relational selection operator filtering rows satisfying condition theta"}
+    ],
+    "example": "Student ⋈_{DeptId} Department pairs 4 students with 3 departments, filtering from 12 cartesian pairs down to 3 matching pairs."
   },
   {
     "id": "f3",
@@ -563,16 +766,13 @@ formula_data = [
   }
 ]
 
-# Write quizData.js
 with open('adbms-study-app/src/data/quizData.js', 'w', encoding='utf-8') as f:
     f.write(f"export const QUIZ_QUESTIONS = {json.dumps(quiz_questions, indent=2)};\n")
 
-# Write flashcardData.js
 with open('adbms-study-app/src/data/flashcardData.js', 'w', encoding='utf-8') as f:
     f.write(f"export const FLASHCARDS_DATA = {json.dumps(flashcards_data, indent=2)};\n")
 
-# Write formulaData.js
 with open('adbms-study-app/src/data/formulaData.js', 'w', encoding='utf-8') as f:
     f.write(f"export const FORMULA_DATA = {json.dumps(formula_data, indent=2)};\n")
 
-print("Generated quizData.js, flashcardData.js, formulaData.js successfully!")
+print("Generated complete quizData.js, flashcardData.js, formulaData.js with Module 2!")

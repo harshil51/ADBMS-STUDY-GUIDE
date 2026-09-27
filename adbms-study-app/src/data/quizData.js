@@ -120,6 +120,156 @@ export const QUIZ_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "q2_1_1",
+    "topicId": "2.1",
+    "moduleId": 2,
+    "question": "How does an Object-Relational Database (ORDBMS) fundamentally differ from a standard pure RDBMS regarding attribute values?",
+    "options": [
+      "RDBMS only allows non-atomic values; ORDBMS strictly forbids nested data",
+      "RDBMS enforces first normal form (1NF) atomic values, whereas ORDBMS supports complex structured types, nested records, and methods",
+      "RDBMS uses JSON exclusively, whereas ORDBMS uses BSON",
+      "RDBMS supports inheritance, whereas ORDBMS does not"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pure relational databases require atomic (single-valued) attributes (1NF). ORDBMS extends relational models with user-defined structured types, nested attributes, collection types, and methods.",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "q2_1_2",
+    "topicId": "2.1",
+    "moduleId": 2,
+    "question": "In SQL:1999 object-relational extensions, how do you access a field inside a nested structured attribute in a query?",
+    "options": [
+      "Using arrow notation: p->address->city",
+      "Using standard dot notation: p.address.city",
+      "Using array indexing: p.address[city]",
+      "Using slash syntax: p/address/city"
+    ],
+    "correctIndex": 1,
+    "explanation": "Dot notation (e.g., `p.address.city`) is used in SQL:1999 to drill into nested structured attributes.",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "q2_2_1",
+    "topicId": "2.2",
+    "moduleId": 2,
+    "question": "In SQL:1999, which keyword is used in a SELECT statement to query ONLY the specified supertable, excluding rows from all subtables?",
+    "options": [
+      "SELECT * FROM DIRECT(Person);",
+      "SELECT * FROM ONLY(Person);",
+      "SELECT * FROM NO_SUBTYPES(Person);",
+      "SELECT * FROM BASE(Person);"
+    ],
+    "correctIndex": 1,
+    "explanation": "By default, querying a supertable (`SELECT * FROM Person`) polymorphically returns rows from Person AND all its subtables (Student, Teacher). The `ONLY` keyword (`SELECT * FROM ONLY(Person)`) restricts output to direct rows of Person.",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q2_2_2",
+    "topicId": "2.2",
+    "moduleId": 2,
+    "question": "What is the primary structural difference between ARRAY and MULTISET collection types in SQL:1999?",
+    "options": [
+      "ARRAY allows duplicates, but MULTISET does not allow duplicates",
+      "ARRAY is ordered with 1-based indexing; MULTISET is an unordered bag of elements supporting duplicates",
+      "ARRAY can only hold integers; MULTISET can only hold strings",
+      "ARRAY is used in MongoDB; MULTISET is used in XML"
+    ],
+    "correctIndex": 1,
+    "explanation": "An `ARRAY` is an ordered collection accessed via index (`arr[1]`), whereas `MULTISET` is an unordered collection (bag) that allows duplicate values and supports algebraic multiset operations.",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q2_3_1",
+    "topicId": "2.3",
+    "moduleId": 2,
+    "question": "What is the fundamental difference between an Object Identity (OID) and a primary key in database systems?",
+    "options": [
+      "A primary key is system-generated and hidden, while an OID is chosen by the user",
+      "An OID is a system-generated, immutable identifier that never changes even if row attributes are updated, whereas a primary key is value-based",
+      "An OID can only be used on single-node computers",
+      "An OID cannot be referenced by other tables"
+    ],
+    "correctIndex": 1,
+    "explanation": "Primary keys are value-based and can change if domain data changes (e.g. email or code update). OIDs are system-managed, globally unique, and immutable handles that identify an object independently of its contents.",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q2_3_2",
+    "topicId": "2.3",
+    "moduleId": 2,
+    "question": "In SQL:1999, which operator is used to navigate and dereference a `REF` pointer attribute to access fields of the referenced object directly?",
+    "options": [
+      "Dot operator (.)",
+      "Arrow operator (->)",
+      "Double colon (::)",
+      "Tilde (~)"
+    ],
+    "correctIndex": 1,
+    "explanation": "The arrow operator `->` dereferences a REF attribute directly in SQL (e.g. `SELECT e.name, e.dept->dept_name FROM Employee e;`), bypassing the need to write an explicit relational JOIN.",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "q2_4_1",
+    "topicId": "2.4",
+    "moduleId": 2,
+    "question": "What does the 'FLWOR' acronym represent in the XQuery query language?",
+    "options": [
+      "Filter, Load, Write, Output, Read",
+      "For, Let, Where, Order by, Return",
+      "Format, Link, With, Open, Refresh",
+      "Find, Locate, Wrap, Organize, Render"
+    ],
+    "correctIndex": 1,
+    "explanation": "FLWOR stands for For (iteration), Let (variable binding), Where (filtering criteria), Order by (sorting), and Return (output construction).",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "q2_4_2",
+    "topicId": "2.4",
+    "moduleId": 2,
+    "question": "Why is XML Schema (XSD) generally preferred over DTD (Document Type Definition) in enterprise databases?",
+    "options": [
+      "XSD uses binary compression, whereas DTD uses JSON",
+      "XSD supports 40+ built-in rich data types, exact numeric cardinallity, XML namespaces, and is itself written in standard XML syntax",
+      "DTD is an active W3C standard, whereas XSD is deprecated",
+      "DTD supports OOP inheritance, whereas XSD does not"
+    ],
+    "correctIndex": 1,
+    "explanation": "XSD provides strong data typing (integers, dates, decimals), numeric occurrence bounds (minOccurs/maxOccurs), namespace support, and is written in standard XML.",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q2_5_1",
+    "topicId": "2.5",
+    "moduleId": 2,
+    "question": "Which SQL JOIN retains all rows from the left table, padding right table columns with NULL whenever there is no matching record?",
+    "options": [
+      "INNER JOIN",
+      "LEFT OUTER JOIN",
+      "RIGHT OUTER JOIN",
+      "CROSS JOIN"
+    ],
+    "correctIndex": 1,
+    "explanation": "A LEFT OUTER JOIN preserves all tuples from the left relation, supplying NULL values for attributes of the right relation when no match exists.",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "q2_5_2",
+    "topicId": "2.5",
+    "moduleId": 2,
+    "question": "What is the key characteristic of a Scalar User-Defined Function (UDF) in SQL?",
+    "options": [
+      "It returns a full result table and must be used in the FROM clause",
+      "It returns a single atomic value and can be invoked inside SELECT, WHERE, or expression clauses",
+      "It automatically deletes invalid records from the table",
+      "It can only be written in Python"
+    ],
+    "correctIndex": 1,
+    "explanation": "Scalar UDFs return a single value and can be called anywhere a scalar expression or built-in function is allowed in a query.",
+    "difficulty": "Easy"
+  },
+  {
     "id": "q3_1_1",
     "topicId": "3.1",
     "moduleId": 3,

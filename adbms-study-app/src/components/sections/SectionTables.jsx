@@ -7,18 +7,9 @@ import {
   Check,
   Copy,
   LayoutGrid,
-  ListFilter,
   Columns,
-  Maximize2,
-  Minimize2,
-  ArrowRight,
-  TrendingUp,
-  ShieldCheck,
   Zap,
   Info,
-  CheckCircle2,
-  XCircle,
-  HelpCircle,
   Download
 } from 'lucide-react';
 
@@ -27,7 +18,6 @@ export default function SectionTables({ tablesRaw, structuredTables = [] }) {
   const [filterQuery, setFilterQuery] = useState('');
   const [viewMode, setViewMode] = useState('matrix'); // 'matrix' | 'cards'
   const [copiedFormat, setCopiedFormat] = useState(null);
-  const [highlightDiffsOnly, setHighlightDiffsOnly] = useState(false);
 
   // If no structured tables provided, fallback gracefully to raw parsing
   const tables = useMemo(() => {
@@ -52,20 +42,19 @@ export default function SectionTables({ tablesRaw, structuredTables = [] }) {
     }];
   }, [structuredTables, tablesRaw]);
 
-  if (!tables || tables.length === 0) return null;
-
-  const currentTable = tables[activeTableIdx] || tables[0];
-  const { title, subtitle, badge, headers = [], rows = [] } = currentTable;
+  const currentTable = (tables && tables.length > 0) ? (tables[activeTableIdx] || tables[0]) : null;
+  const rows = currentTable?.rows || [];
+  const title = currentTable?.title || '';
+  const subtitle = currentTable?.subtitle || '';
+  const badge = currentTable?.badge || '';
+  const headers = currentTable?.headers || [];
 
   // Filter rows based on search
   const filteredRows = useMemo(() => {
+    if (!rows || rows.length === 0) return [];
+    if (!filterQuery) return rows;
+    const q = filterQuery.toLowerCase();
     return rows.filter(row => {
-      if (highlightDiffsOnly && row.status !== 'better-col2' && row.status !== 'better-col1' && row.status !== 'warning') {
-        // if user wants to see key differences
-        return false;
-      }
-      if (!filterQuery) return true;
-      const q = filterQuery.toLowerCase();
       return (
         (row.feature && row.feature.toLowerCase().includes(q)) ||
         (row.col1 && row.col1.toLowerCase().includes(q)) ||
@@ -76,7 +65,9 @@ export default function SectionTables({ tablesRaw, structuredTables = [] }) {
         (row.verdict && row.verdict.toLowerCase().includes(q))
       );
     });
-  }, [rows, filterQuery, highlightDiffsOnly]);
+  }, [rows, filterQuery]);
+
+  if (!tables || tables.length === 0 || !currentTable) return null;
 
   const copyToClipboard = (type) => {
     let text = '';

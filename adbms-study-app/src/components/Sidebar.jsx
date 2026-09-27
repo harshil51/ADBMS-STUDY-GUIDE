@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
-  ChevronDown, ChevronRight, CheckCircle2, Circle, Clock, 
-  Layers, Award, Sparkles, BookOpen, Bookmark, Home, Check
+  ChevronDown, ChevronRight, CheckCircle2, Circle, 
+  Layers, Award, Sparkles, Bookmark, Home
 } from 'lucide-react';
 import { MODULES_DATA, TOPICS_DATA } from '../data/courseData';
 
@@ -18,7 +18,7 @@ export default function Sidebar({
   openNotes,
   closeMobileMenu
 }) {
-  const [expandedModules, setExpandedModules] = useState({ 1: true, 3: true, 4: true, 5: true });
+  const [expandedModules, setExpandedModules] = useState({ 1: true, 2: true, 3: true, 4: true, 5: true });
   const [filterText, setFilterText] = useState('');
 
   const toggleModule = (modId) => {
@@ -28,7 +28,7 @@ export default function Sidebar({
   const progressPercent = Math.round((completedTopics.length / TOPICS_DATA.length) * 100);
 
   const filteredTopics = filterText
-    ? TOPICS_DATA.filter(t => t.title.toLowerCase().includes(filterText.toLowerCase()) || t.id.includes(filterText))
+    ? TOPICS_DATA.filter(t => (t.title || '').toLowerCase().includes(filterText.toLowerCase()) || String(t.id).includes(filterText))
     : TOPICS_DATA;
 
   const handleSelectTopic = (topicId) => {
