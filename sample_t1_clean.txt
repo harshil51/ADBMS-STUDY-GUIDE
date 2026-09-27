@@ -1,0 +1,337 @@
+MODULE 1: Database Architecture
+Topic 1.1: Client - Server Database Models
+1. Topic Name — Client - Server Database Architecture
+What is it?
+Client - server architecture is a way of organizing a database system where
+two kinds of computers work together: a
+client (which asks for data) and a
+server
+(which stores and manages the
+data and answers the request).
+Why do we need it?
+Before client
+- server systems, all processing happened on one
+giant central computer (mainframe), and users only had “dumb terminals” (screens
+with no processing power). This was expensive and hard to scale. Client
+- server
+architecture splits the work, so:
+- Many users can work at the same time.
+- The heavy
+work of storing and protecting data stays in one safe place (the server).
+- The client can
+have a friendly, fast user interface.
+Where is it used?
+- Bankin g systems (ATM = client, bank database = server)
+- College
+portals (your browser = client, college server = server)
+- Online shopping websites
+-
+Almost every modern application that uses a database
+Important: Client - server is not one fixed design
+— it comes in different “tiers” (2
+- tier,
+3- tier), which we will study in detail.
+2. Beginner Friendly Introduction
+Imagine you go to a restaurant. You (the
+client ) do not cook your own food. You tell
+the waiter what you want. The waiter passes your order to the kit
+chen (the
+server ),
+and the kitchen prepares the food and sends it back through the waiter.
+In computers:
+- Client = the program you use directly (browser, mobile app, desktop
+app). - Server = the powerful computer that stores the actual database and does the
+heavy processing.
+- Request = what the client asks for (e.g., “show me all students”).
+-
+Response = what the server sends back (e.g., the list of students).
+Technical words explained simply:
+Word
+Simple Meaning
+Client
+The requester; usually has a user
+interface
+Server
+The provider; stores data and runs the database engine
+Request
+A message asking for data or an action
+Response
+The answer sent back
+Middleware
+Software that sits between client and server and manages
+communication
+Business
+Logic
+The rules of the application (e.g., “a student cannot register for more
+than 6 subjects”)
+3. Real - Life Analogies
+Analogy 1 — Restaurant: You (client) order food. The waiter carries your order to the
+kitchen (server). The kitchen prepares it and the waiter (net
+work) brings it back. You
+never enter the kitchen yourself
+— this keeps the kitchen organized and safe, just like a
+database server stays protected from direct user access.
+Analogy 2 — Bank Branch and Head Office:
+A local bank branch (client) does not keep
+all account records; it always checks with the head office computer (server) before
+giving you money. This way, all data stays consistent across every branch, just like a
+database server keeps data consistent for every client.
+4. Complete Detailed Explana
+tion
+4.1 Two - Tier Client
+- Server Architecture
+In a two - tier architecture, there are exactly two layers:
+1. Client Tier
+– contains the user interface AND the application/business logic.
+2. Server Tier
+– contains the database (data storage and query processing).
+The client talks
+directly to the database server, usually using a standard protocol such
+as ODBC (Open Database Connectivity) or
+JDBC (Java Database Connectivity).
+Components:
+- Client application (contains UI + business rules)
+- Network connection
+- Database server (stores data, executes SQL, returns results)
+Working: The client builds an SQL query, sends it directly to the database server over
+the network, the server executes it and sends back the result set, and the client
+displays it.
+Advantages: - Simple to build and understand
+- Fast for small numbers of users (fewer
+hops) - Good for LAN
+- based systems within one organization
+Limitations:
+- Every client machine needs the correct drivers/business logic installed
+(hard to update)
+- Does not scale
+well — too many direct connections overload the
+server - Business logic mixed with UI code makes maintenance difficult
+- Security risk
+— clients directly touch the database
+4.2 Three - Tier Client
+- Server Architecture
+In a three - tier architecture, the work is split into three separate layers:
+1. Presentation Tier (Client)
+– only handles the user interface (what the user sees and
+clicks).
+2. Application Tier (Business Logic / Middle Tier)
+– contains all business rules,
+validation, and processing. This tier t
+alks to the database on behalf of the client.
+3. Data Tier (Database Server)
+– stores and manages the actual data.
+Working (Step by step):
+1. Client sends a request (e.g., clicks “Submit Order”) to the Application Server.
+2. Application Server applies business rules (e.g., “check if stock is available”).
+3. Application Server builds and sends the SQL query to the Database Server.
+4. Database Server executes the query and returns data to the Application Server.
+5. Application Server processes/formats t
+he result and sends it back to the Client.
+Advantages: - Clients are “thin”
+— they don’t need heavy installation, just a browser
+-
+Business logic is centralized
+— easy to update once, applies to everyone
+- Better
+security
+— clients never touch the database directly
+- Scales well
+— multiple
+application servers can be added (load balancing)
+- Supports many concurrent users,
+ideal for internet/web applications
+Limitations:
+- More complex to design, build, and debug
+- More network
+communication (extra hop) can
+add slight delay
+- Requires more hardware/servers, so
+higher initial cost
+Exam Tip: A very common exam question is “Differentiate between two
+- tier and three
+-
+tier architecture.” Always mention: number of layers, where business logic sits,
+scalability, and typical use case.
+5. Step - by- Step Working
+Two - Tier Flow:
+Client (UI + Logic)
+↓ (sends SQL directly)
+Database Server
+↓ (executes query)
+Result set
+↓
+Client displays result
+Three - Tier Flow:
+Client (Presentation only)
+↓ request
+Application Server (Business Logic)
+↓ SQL query
+Database Server (Data)
+↓ raw result
+Application Server (form
+ats data)
+↓ processed response
+Client (displays result)
+6. Diagrams
+Two - Tier Architecture
+Figure: Two - Tier Architecture
+Three - Tier Architecture
+Figure: Three
+- Tier Architecture
+A side - by- side comparison diagram showing Two
+- Tier architecture (client bo
+x connected
+directly to…
+Figure: A side
+- by- side comparison diagram showing Two
+- Tier architecture (client box
+connected directly to…
+7. Images
+Client - Server Network Diagram showing multiple client computers connected through a
+network switc…
+Figure: Client
+- Server Network Diagram showing multiple client computers connected
+through a network switc…
+Three - Tier Web Application Architecture Diagram (Browser, Web/App Server, Database
+Server)
+Figure: Three
+- Tier Web Application Architecture Diagram (Browser, Web
+/App Server,
+Database Server)
+8. Tables
+Feature
+Two - Tier
+Three - Tier
+Number of layers
+2
+3
+Business logic
+location
+Inside client
+Inside application server
+Client type
+Thick/Fat client
+Thin client
+Scalability
+Low
+High
+Maintenance
+Difficult (update every
+client)
+Easy (update server only)
+Security
+Lower (direct DB access)
+Higher (DB hidden behind app
+server)
+Typical use
+Small LAN apps
+Web and enterprise applications
+Example
+Old desktop banking
+software
+Amazon.com, online college portal
+9. Important Term
+s
+Term
+Simple Meaning
+Client
+The program that requests data/service
+Server
+The program/machine that provides data/service
+Tier
+A separate logical layer of an application
+ODBC/JDBC
+Standard connection methods between client and database
+Thin Client
+A client with little to no business logic, mostly just display
+Thick Client
+A client that has its own business logic and processing
+Middleware
+Software connecting the application tier and data tier
+Load Balancing
+Spreading requests across multiple servers
+to avoid overload
+10. Examples
+•
+Easy example:
+A simple desktop app that connects straight to a database on the
+same office network
+— two - tier.
+•
+Practical example:
+A college attendance system where a teacher’s laptop app
+queries the database server directly over Wi
+- Fi.
+•
+Industry example:
+Amazon’s website
+— your browser (client) talks to Amazon’s
+application servers, which talk to their database servers
+— three - tier.
+•
+Real - life example: Online food delivery apps like Zomato/Swiggy
+— mobile app
+(client), backend
+servers (application tier), and databases (data tier).
+11. Advantages & Limitations
+Two - Tier - Advantage: Simple and fast to build.
+- Limitation: Hard to scale to many
+users.
+Three - Tier - Advantage: Highly scalable and secure.
+- Limitation: More complex and
+costly to set up.
+12. Applications
+•
+Industry:
+Enterprise Resource Planning (ERP) systems use three
+- tier
+architecture.
+•
+Companies: Amazon, Flipkart, Netflix all use multi
+- tier (often more than three
+-
+tier, called n - tier) architecture.
+•
+Daily life: Mobile bank ing apps, e - commerce checkout, online exam portals.
+•
+Software: Any modern web application framework (Java EE, .NET, Django) is
+designed around three
+- tier principles.
+•
+Websites: Nearly all dynamic websites use a form of three
+- tier or n
+- tier
+architecture.
+•
+Mobile Apps: Almost every mobile app that needs internet talks to an application
+server which then talks to a database.
+13. Key Points to Remember
+ Two - tier = Client + Database only. Three
+- tier = Client + Application Server +
+Database.
+ Business logic location
+is the main difference between two
+- tier and three
+- tier.
+ Three - tier is preferred for scalability and security in modern web systems.
+ ODBC/JDBC are the standard bridges for client
+- to- database communication in
+two - tier systems.
+ Common misconception:
+Students often think three
+- tier means “three separate
+physical computers”
+— it actually means three
+logical layers; they can even run on
+the same physical machine during development.
+ N- tier architecture is an extension of three
+- tier with more specialized layer
+s (e.g.,
+separate caching tier, security tier).
+Topic 1.2: Concurrency Control Techniques
+1. Topic Name — Concurrency Control
+What is it? Concurrency control is the set of techniques a database uses to make sure
+that when
+many users/transactions access the database at the same time
+, the data
+stays correct and consistent.
